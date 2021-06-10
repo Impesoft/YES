@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YES.Server.Data.Entities;
 
 namespace YES.Server.Entities
 {
-    public class EventInfo
+    public class EventInfo : EntityBase
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime EventDate { get; set; }

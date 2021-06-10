@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using YES.Server.Data.Entities;
 
 namespace YES.Server.Entities
 {
-    public abstract class User
+    public abstract class User : EntityBase
     {
-        public int Id { get; set; }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string BackAccount { get; set; }

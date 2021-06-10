@@ -10,8 +10,8 @@ using YES.Server;
 namespace YES.Server.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    [Migration("20210610122152_Init")]
-    partial class Init
+    [Migration("20210610125642_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
