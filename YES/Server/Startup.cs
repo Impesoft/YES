@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using System.Linq;
+using YES.Server.Data.Database;
 
 namespace YES.Server
 {
