@@ -7,6 +7,7 @@ namespace YES.Server.Entities
 {
     public class TicketProvider : User
     {
+        public string NameProvider { get; set; }
         public virtual ICollection<Event> Events { get; set; }
     }
 }
