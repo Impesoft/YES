@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.Server.Models
+namespace YES.Server.Entities
 {
     public class TicketProvider : User
     {
-        public List<Event> Events;
+        public virtual ICollection<Event> Events { get; set; }
     }
 }
