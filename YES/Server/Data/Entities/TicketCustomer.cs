@@ -7,6 +7,8 @@ namespace YES.Server.Entities
 {
     public class TicketCustomer : User
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }
