@@ -66,7 +66,7 @@ namespace YES.Server.Database
             modelBuilder.Entity<TicketProvider>(x =>
             {
                 x.HasData(
-                new TicketProvider { Id = 1, Email = "info@vooruit.be",  , BankAccount = "BE78 3590 0754 7674" }
+                new TicketProvider { Id = 1, Email = "info@vooruit.be", BankAccount = "BE78 3590 0754 7674" }
                 );
             });
         }
