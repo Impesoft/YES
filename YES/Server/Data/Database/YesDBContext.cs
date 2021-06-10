@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using YES.Server.Database;
-using YES.Server.Entities;
+using YES.Server.Data.Entities;
 
-namespace YES.Server
+namespace YES.Server.Data.Database
 {
     public class YesDBContext : DbContext
     {
@@ -26,7 +21,7 @@ namespace YES.Server
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Seed();
+            //modelBuilder.Seed();
         }
     }
 }
