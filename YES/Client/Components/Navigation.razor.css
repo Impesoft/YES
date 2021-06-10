@@ -1,0 +1,9 @@
+﻿.logo {
+    margin: 0;
+    padding: 0;
+    width: 50px;
+}
+
+.navbar-brand > img {
+    width: 50px;
+}

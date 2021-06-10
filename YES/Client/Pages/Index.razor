@@ -1,7 +1,26 @@
 ﻿@page "/"
+@inject HttpClient Http
 
-<h1>Hello, world!</h1>
+<main>
+    <section>alo</section>
+</main>
 
-Welcome to your new app.
+@code {
+    //private IEnumerable<Event> _event;
+ 
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+     protected override async Task OnInitializedAsync()
+     {
+         try
+         {
+             //_event = await Http.GetFromJsonAsync<Event>("");
+         }
+         catch (Exception e)
+         {
+             Console.WriteLine(e);
+             throw;
+         }
+         
+     }
+
+}
