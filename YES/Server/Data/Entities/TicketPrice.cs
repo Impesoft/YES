@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YES.Server.Data.Entities;
 
 namespace YES.Server.Entities
 {
-    public class TicketPrice
-    {
-        public int Id { get; set; }
+    public class TicketPrice : EntityBase
+    {        
         public string Category { get; set; }
 
         public int Price { get; set; }
