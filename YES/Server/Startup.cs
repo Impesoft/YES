@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using System.Linq;
+using Microsoft.OpenApi.Models;
 using YES.Server.Data.Database;
 using YES.Server.Data.Entities;
 using YES.Server.Data.Repos;
@@ -25,29 +26,14 @@ namespace YES.Server
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
-
-            services.AddDbContext<YesDBContext>(x =>
-            {
-                x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
-            });
-
-            services.AddScoped<IGenericRepo<EventInfo>, GenericRepo<EventInfo>>();
-            services.AddControllersWithViews();
-            services.AddRazorPages();
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Yes v1"));
                 app.UseWebAssemblyDebugging();
             }
             else
@@ -72,6 +58,25 @@ namespace YES.Server
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
+        }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "Yes", Version = "v1" }));
+
+            services.AddDbContext<YesDBContext>(x =>
+            {
+                x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
+            });
+
+            services.AddScoped<IGenericRepo<EventInfo>, GenericRepo<EventInfo>>();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
     }
 }
