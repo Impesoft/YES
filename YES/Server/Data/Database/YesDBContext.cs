@@ -21,7 +21,7 @@ namespace YES.Server.Data.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
     }
 }
