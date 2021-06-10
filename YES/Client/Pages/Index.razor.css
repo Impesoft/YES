@@ -1,0 +1,18 @@
+﻿main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc( 100vh - 5.5rem);
+    max-width: 100%;
+    background-image: url("images/page-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section {
+    width: 80vw;
+    height:400px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
