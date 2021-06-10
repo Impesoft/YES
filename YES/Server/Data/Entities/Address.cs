@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YES.Server.Data.Entities;
 
 namespace YES.Server.Entities
 {
-    public class Address
-    {
-        public int Id { get; set; }
+    public class Address : EntityBase
+    {        
         public string Street { get; set; }
         public string PostalCode { get; set; }
         public string City { get; set; }
