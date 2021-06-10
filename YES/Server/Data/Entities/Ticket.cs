@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YES.Server.Data.Entities;
 
 namespace YES.Server.Entities
 {
-    public class Ticket
+    public class Ticket : EntityBase
     {
-        public int Id { get; set; }
-
         public int TicketCustomerId { get; set; }
         public virtual TicketCustomer TicketCustomer { get; set; }
         public int EventId { get; set; }

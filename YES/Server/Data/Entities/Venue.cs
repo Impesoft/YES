@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using YES.Server.Data.Entities;
 
 namespace YES.Server.Entities
 {
-    public class Venue
-    {
-        public int Id { get; set; }
+    public class Venue : EntityBase
+    {       
         public virtual Address Address { get; set; }
 
         public string Name { get; set; }
