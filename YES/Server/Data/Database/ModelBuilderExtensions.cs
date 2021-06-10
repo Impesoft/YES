@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using YES.Server.Entities;
+using YES.Server.Enums;
 
 namespace YES.Server.Database
 {
@@ -38,7 +39,8 @@ namespace YES.Server.Database
             modelBuilder.Entity<Event>(x =>
             {
                 x.HasData(
-                new Event { Id = 1, TicketProviderId = 1, VenueId = 1 }
+                new Event { Id = 1, TicketProviderId = 1, VenueId = 1 },
+                new Event { Id = 2, TicketProviderId = 1, VenueId = 2, Status = Status.Postponed }
                 );
             });
         }

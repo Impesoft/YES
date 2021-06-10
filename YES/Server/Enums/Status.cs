@@ -12,6 +12,7 @@ namespace YES.Server.Enums
         Postponed = 2,
         Relocated = 3,
         Canceled = 4,
-        Past = 5,
+        Completed = 5,
+        SoldOut = 6
     }
 }
