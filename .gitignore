@@ -21,11 +21,6 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-bin/
-obj/
-/packages/
-riderModule.iml
-/_ReSharper.Caches/
 .idea
 
 # Build results
@@ -373,3 +368,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
