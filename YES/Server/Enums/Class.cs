@@ -8,9 +8,10 @@ namespace YES.Server.Enums
     public enum Status
     {
         Default = 0,
-        TBA = 1,
+        ToBeAnnounced = 1,
         Postponed = 2,
         Relocated = 3,
         Canceled = 4,
+        Past = 5,
     }
 }
