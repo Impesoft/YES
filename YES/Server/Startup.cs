@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using System.Linq;
 using YES.Server.Data.Database;
+using YES.Server.Data.Entities;
+using YES.Server.Data.Repos;
 
 namespace YES.Server
 {
@@ -35,6 +37,7 @@ namespace YES.Server
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
             });
 
+            services.AddScoped<IGenericRepo<EventInfo>, GenericRepo<EventInfo>>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

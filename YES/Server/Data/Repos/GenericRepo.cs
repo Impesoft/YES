@@ -7,7 +7,7 @@ using YES.Server.Data.Entities;
 
 namespace YES.Server.Data.Repos
 {
-    public class GenericRepo<T> where T : EntityBase
+    public class GenericRepo<T> : IGenericRepo<T> where T : EntityBase
     {
         public YesDBContext _context;
 
