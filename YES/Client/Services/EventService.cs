@@ -12,41 +12,25 @@ namespace YES.Client.Services
 {
     public class EventService : IEventService
     {
-        private IEnumerable<EventDto> _events;
         private HttpClient _http;
-
         public EventService(HttpClient http)
         {
             _http = http;
-
         }
-        public async Task<IEnumerable<EventDto>> GetEventsFromAPIAsync()
+
+
+        public async Task<IEnumerable<EventDto>> GetEventsAsync()
         {
-            _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
+            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
 
             return _events;
         }
 
-        public IEnumerable<EventDto> GetEvents()
+        public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
         {
-            return _events;
-        }
-
-        public IEnumerable<EventDto> GetEventSpotlights()
-        {
+            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
             return _events.Take(3);
         }
 
-        //TEST WITH DUMMY DATA
-        public void SetEventsTest()
-        {
-            //_events = new List<EventDto>
-            //{
-            //    new (){Name = "Tomorrowland"},
-            //    new (){Name = "Werchter"},
-            //    new (){Name = "Pukkelpop"},
-            //    new (){Name = "10 om te zien aan de kust"},
-            //};
-        }
     }
 }

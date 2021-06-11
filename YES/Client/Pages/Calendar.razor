@@ -2,10 +2,18 @@
 <div class="page-background">
     <section>
         <h3 class="">Events</h3>
-        @foreach (EventDto item in _events)
+        @if (_events != null)
         {
-            <EventList Event="item" />
+            @foreach (EventDto item in _events)
+            {
+                <EventList Event="item" />
+            }
         }
+        else
+            {
+                <p>No events found.</p>
+            }
+
     </section>
 </div>
 
@@ -17,7 +25,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _events = await _service.GetEventsFromAPIAsync();
+        _events = await _service.GetEventsAsync();
 
     }
 }
