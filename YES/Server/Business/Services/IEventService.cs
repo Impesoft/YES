@@ -7,5 +7,6 @@ namespace YES.Server.Business.Services
     public interface IEventService
     {
         Task<IEnumerable<EventDto>> GetEventsAsync();
+        Task<bool> AddEventAsync(EventDto eventDto);
     }
 }

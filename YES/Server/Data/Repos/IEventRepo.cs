@@ -4,7 +4,7 @@ using YES.Server.Data.Entities;
 
 namespace YES.Server.Data.Repos
 {
-    public interface IEventRepo
+    public interface IEventRepo : IGenericRepo<Event>
     {
         Task<IEnumerable<Event>> GetEventsAsync();
     }

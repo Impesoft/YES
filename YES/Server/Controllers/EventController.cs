@@ -19,11 +19,15 @@ namespace YES.Server.Controllers
 
 
         [HttpGet()]
-        public async Task<IEnumerable<EventDto>> GetAllUserTradeItems()
+        public async Task<ActionResult<IEnumerable<EventDto>>> GetAllEvents()
         {
-            var test = await _eventService.GetEventsAsync();
+            return Ok(await _eventService.GetEventsAsync());           
+        }
 
-            return test;
+        [HttpPost]
+        public async Task<ActionResult> AddEvent(EventDto eventDto)
+        {
+            return Ok(await _eventService.AddEventAsync(eventDto));            
         }
 
     }
