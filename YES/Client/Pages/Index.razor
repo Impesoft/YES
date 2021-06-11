@@ -2,14 +2,16 @@
 @using YES.Shared
 @inject HttpClient Http
 
-<main>
+<div class="page-background">
     <section>
         @foreach (EventDTO item in _events)
         {
             <EventList Event="item" />
         }
     </section>
-</main>
+</div>          
+
+
 
 @code {
     private ICollection<EventDTO> _events;
