@@ -22,7 +22,7 @@ namespace YES.Client.Services
         }
         public async Task<IEnumerable<EventDto>> GetEventsFromAPIAsync()
         {
-            _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:5003/api/Event");
+            _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
 
             return _events;
         }

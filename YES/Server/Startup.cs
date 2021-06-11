@@ -45,6 +45,9 @@ namespace YES.Server
                 app.UseHsts();
             }
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5000"));
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44316"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44317"));
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
@@ -61,7 +64,6 @@ namespace YES.Server
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
-            
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -81,14 +83,11 @@ namespace YES.Server
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
-        
             services.AddScoped<IEventService, EventService>();
-            services.AddScoped<IEventRepo,EventRepo>();
-
+            services.AddScoped<IEventRepo, EventRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-           
         }
     }
 }
