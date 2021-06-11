@@ -2,9 +2,11 @@
 @using YES.Shared
 @inject HttpClient Http
 
+
 <div class="page-background">
     <section>
-        @foreach (EventDTO item in _events)
+        <h3 class="">Spotlight</h3>
+        @foreach (EventDTO item in _spotlights)
         {
             <EventList Event="item" />
         }
@@ -14,15 +16,14 @@
 
 
 @code {
-    private ICollection<EventDTO> _events;
+    private IEnumerable<EventDTO> _spotlights;
 
     [Inject]
     private IEventService _service { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _events = _service.GetEvents();
-
+        _spotlights = _service.GetEventSpotlights();
     }
 
 }
