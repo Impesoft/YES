@@ -32,7 +32,30 @@ namespace YES.Server.Data.Database
                 new Address { Id = 3, Street = "Leeuwstraat", StreetNumber = 7, PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 2 },
                 new Address { Id = 4, Street = "Zebrastraat", StreetNumber = 36, PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 3 },
                 new Address { Id = 5, Street = "Tijgerstraat", StreetNumber = 24, PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 4 },
-                new Address { Id = 6, Street = "Olifantstraat", StreetNumber = 79, PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 5 }
+                new Address { Id = 6, Street = "Apostelstraat", StreetNumber = 79, PostalCode = "9100", City = "Sint-Niklaas", Country = "België", TicketCustomerId = 5 },
+                new Address { Id = 7, Street = "Olifantstraat", StreetNumber = 26, PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 6 },
+                new Address { Id = 8, Street = "Olifantstraat", StreetNumber = 2, PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 7 },
+                new Address { Id = 9, Street = "Kleine Dalstraat", StreetNumber = 1, PostalCode = "1210", City = "Sint-Joost-ten-Node", Country = "België", TicketCustomerId = 8 },
+                new Address { Id = 11, Street = "Waversesteenweg", StreetNumber = 100, PostalCode = "1040", City = "Etterbeek", Country = "België", TicketCustomerId = 9 },
+                new Address { Id = 12, Street = "Rue de la Cure", StreetNumber = 3, PostalCode = "1300", City = "Waver", Country = "België", TicketCustomerId = 10 },
+                new Address { Id = 13, Street = "Spuibeekstraat", StreetNumber = 4, PostalCode = "2800", City = "Mechelen", Country = "België", TicketCustomerId = 11 },
+                new Address { Id = 14, Street = "Beukheuvel", StreetNumber = 20, PostalCode = "2570", City = "Duffel", Country = "België", TicketCustomerId = 12 },
+                new Address { Id = 15, Street = "Nijverheidskaai", StreetNumber = 13, PostalCode = "8500", City = "Kortrijk", Country = "België", TicketCustomerId = 13 },
+                new Address { Id = 16, Street = "Hondsschotestraat", StreetNumber = 83, PostalCode = "8560", City = "Wevelgem", Country = "België", TicketCustomerId = 14 },
+                new Address { Id = 17, Street = "Tybaertstraat", StreetNumber = 27, PostalCode = "8900", City = "Ieper", Country = "België", TicketCustomerId = 15 },
+                new Address { Id = 18, Street = "Stapelhuisstraat", StreetNumber = 17, PostalCode = "8400", City = "Oostende", Country = "België", TicketCustomerId = 16 },
+                new Address { Id = 19, Street = "Graaf Van Vlaanderenplein", StreetNumber = 5, PostalCode = "9000", City = "Gent", Country = "België", VenueId = 2 },
+                new Address { Id = 20, Street = "Noordersingel", StreetNumber = 28, PostalCode = "2140", City = "Antwerpen", Country = "België", VenueId = 3 },
+                new Address { Id = 21, Street = "Overpoortstraat", StreetNumber = 60, PostalCode = "9000", City = "Gent", Country = "België", VenueId = 4 },
+                new Address { Id = 22, Street = "Schijnpoortweg", StreetNumber = 119, PostalCode = "2170", City = "Antwerpen", Country = "België", VenueId = 5 },
+                new Address { Id = 23, Street = "Schommelei", StreetNumber = 1, PostalCode = "2850", City = "Boom", Country = "België", VenueId = 6 },
+                new Address { Id = 24, Street = "Festivalpark", PostalCode = "3118", City = "Werchter", Country = "België", VenueId = 7 },
+                new Address { Id = 25, Street = "Eeuwfeestlaan", StreetNumber = 617, PostalCode = "1020", City = "Brussel", Country = "België", VenueId = 8 },
+                new Address { Id = 26, Street = "Kempische Steenweg", PostalCode = "3500", City = "Hasselt", Country = "België", VenueId = 9 },
+                new Address { Id = 27, Street = "Binnenvaartstraat", PostalCode = "3530", City = "Houthalen-Helchteren", Country = "België", VenueId = 10 },
+                new Address { Id = 28, Street = "", StreetNumber = 79, PostalCode = "9000", City = "Gent", Country = "België", TicketProviderId = 2 },
+                new Address { Id = 29, Street = "", StreetNumber = 79, PostalCode = "9000", City = "Gent", Country = "België", TicketProviderId = 3 },
+                new Address { Id = 30, Street = "", StreetNumber = 79, PostalCode = "9000", City = "Gent", Country = "België", TicketProviderId = 4 }
 
                 );
             });
@@ -143,7 +166,16 @@ namespace YES.Server.Data.Database
             modelBuilder.Entity<Venue>(x =>
             {
                 x.HasData(
-                new Venue { Id = 1, Name = "Kunstencentrum Vooruit", Capacity = 1200 }
+                new Venue { Id = 1, Name = "Kunstencentrum Vooruit", Capacity = 1110 },
+                new Venue { Id = 2, Name = "Capitole Gent", Capacity = 2000 },
+                new Venue { Id = 3, Name = "Trix", Capacity = 1500 },
+                new Venue { Id = 4, Name = "eLiXir Dance & Night Club", Capacity = 200 },
+                new Venue { Id = 5, Name = "Sportpaleis", Capacity = 23359 },
+                new Venue { Id = 6, Name = "Tomorrowland", Capacity = 200000 },
+                new Venue { Id = 7, Name = "Rock Werchter", Capacity = 100000 },
+                new Venue { Id = 8, Name = "Couleur Café", Capacity = 60000 },
+                new Venue { Id = 9, Name = "Pukkelpop", Capacity = 100000 },
+                new Venue { Id = 10, Name = "Extrema Outdoor Belgium", Capacity = 60000 }
                 );
             });
         }
