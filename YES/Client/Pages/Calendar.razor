@@ -2,7 +2,7 @@
 <div class="page-background">
     <section>
         <h3 class="">Events</h3>
-        @foreach (EventDTO item in _events)
+        @foreach (EventDto item in _events)
         {
             <EventList Event="item" />
         }
@@ -10,14 +10,14 @@
 </div>
 
 @code {
-    private IEnumerable<EventDTO> _events;
+    private IEnumerable<EventDto> _events;
 
     [Inject]
     private IEventService _service { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _events = _service.GetEvents();
+        _events = await _service.GetEventsFromAPIAsync();
 
     }
 }

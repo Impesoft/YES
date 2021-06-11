@@ -44,6 +44,7 @@ namespace YES.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
@@ -60,12 +61,14 @@ namespace YES.Server
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
 
@@ -78,13 +81,14 @@ namespace YES.Server
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
-            services.AddScoped<IGenericRepo<EventInfo>, GenericRepo<EventInfo>>();
+        
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IEventRepo,EventRepo>();
 
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+           
         }
     }
 }
