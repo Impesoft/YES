@@ -29,10 +29,21 @@ namespace YES.Server.Business.Services
             Event eventToAdd = _mapper.Map<Event>(eventDto);
             eventToAdd.Id = 0;
 
-            System.Enum.TryParse(eventDto.Status, out Status myStatus);
-            eventToAdd.Status = myStatus;
-
             bool succes = await _eventRepo.AddEntityAsync(eventToAdd);
+            return succes;
+        }
+        public async Task<bool> UpdateEventAsync(EventDto eventDto)
+        {
+            Event currentEvent = await _eventRepo.GetEventByIdAsync(eventDto.Id);
+
+            currentEvent.EventInfo = _mapper.Map<EventInfo>(eventDto.EventInfo);
+            currentEvent.TicketProvider = _mapper.Map<TicketProvider>(eventDto.TicketProvider);
+            currentEvent.Venue = _mapper.Map<Venue>(eventDto.Venue);
+
+            System.Enum.TryParse(eventDto.Status, out Status status);
+            currentEvent.Status = status;
+
+            bool succes = await _eventRepo.UpdateEntityAsync(currentEvent);
             return succes;
         }
     }
