@@ -30,5 +30,11 @@ namespace YES.Server.Controllers
             return Ok(await _eventService.AddEventAsync(eventDto));            
         }
 
+        [HttpPut]
+        public async Task<ActionResult> UpdateEvent(EventDto eventDto)
+        {
+            return Ok(await _eventService.UpdateEventAsync(eventDto));
+        }
+
     }
 }
