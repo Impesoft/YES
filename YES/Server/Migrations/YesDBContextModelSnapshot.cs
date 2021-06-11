@@ -38,7 +38,7 @@ namespace YES.Server.Migrations
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StreetNumber")
+                    b.Property<int?>("StreetNumber")
                         .HasColumnType("int");
 
                     b.Property<int?>("TicketCustomerId")
@@ -121,12 +121,253 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 6,
+                            City = "Sint-Niklaas",
+                            Country = "België",
+                            PostalCode = "9100",
+                            Street = "Apostelstraat",
+                            StreetNumber = 79,
+                            TicketCustomerId = 5
+                        },
+                        new
+                        {
+                            Id = 7,
                             City = "Gent",
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Olifantstraat",
-                            StreetNumber = 79,
-                            TicketCustomerId = 5
+                            StreetNumber = 26,
+                            TicketCustomerId = 6
+                        },
+                        new
+                        {
+                            Id = 8,
+                            City = "Gent",
+                            Country = "België",
+                            PostalCode = "9000",
+                            Street = "Olifantstraat",
+                            StreetNumber = 2,
+                            TicketCustomerId = 7
+                        },
+                        new
+                        {
+                            Id = 9,
+                            City = "Sint-Joost-ten-Node",
+                            Country = "België",
+                            PostalCode = "1210",
+                            Street = "Kleine Dalstraat",
+                            StreetNumber = 1,
+                            TicketCustomerId = 8
+                        },
+                        new
+                        {
+                            Id = 11,
+                            City = "Etterbeek",
+                            Country = "België",
+                            PostalCode = "1040",
+                            Street = "Waversesteenweg",
+                            StreetNumber = 100,
+                            TicketCustomerId = 9
+                        },
+                        new
+                        {
+                            Id = 12,
+                            City = "Waver",
+                            Country = "België",
+                            PostalCode = "1300",
+                            Street = "Rue de la Cure",
+                            StreetNumber = 3,
+                            TicketCustomerId = 10
+                        },
+                        new
+                        {
+                            Id = 13,
+                            City = "Mechelen",
+                            Country = "België",
+                            PostalCode = "2800",
+                            Street = "Spuibeekstraat",
+                            StreetNumber = 4,
+                            TicketCustomerId = 11
+                        },
+                        new
+                        {
+                            Id = 14,
+                            City = "Duffel",
+                            Country = "België",
+                            PostalCode = "2570",
+                            Street = "Beukheuvel",
+                            StreetNumber = 20,
+                            TicketCustomerId = 12
+                        },
+                        new
+                        {
+                            Id = 15,
+                            City = "Kortrijk",
+                            Country = "België",
+                            PostalCode = "8500",
+                            Street = "Nijverheidskaai",
+                            StreetNumber = 13,
+                            TicketCustomerId = 13
+                        },
+                        new
+                        {
+                            Id = 16,
+                            City = "Wevelgem",
+                            Country = "België",
+                            PostalCode = "8560",
+                            Street = "Hondsschotestraat",
+                            StreetNumber = 83,
+                            TicketCustomerId = 14
+                        },
+                        new
+                        {
+                            Id = 17,
+                            City = "Ieper",
+                            Country = "België",
+                            PostalCode = "8900",
+                            Street = "Tybaertstraat",
+                            StreetNumber = 27,
+                            TicketCustomerId = 15
+                        },
+                        new
+                        {
+                            Id = 18,
+                            City = "Oostende",
+                            Country = "België",
+                            PostalCode = "8400",
+                            Street = "Stapelhuisstraat",
+                            StreetNumber = 17,
+                            TicketCustomerId = 16
+                        },
+                        new
+                        {
+                            Id = 19,
+                            City = "Gent",
+                            Country = "België",
+                            PostalCode = "9000",
+                            Street = "Graaf Van Vlaanderenplein",
+                            StreetNumber = 5,
+                            VenueId = 2
+                        },
+                        new
+                        {
+                            Id = 20,
+                            City = "Antwerpen",
+                            Country = "België",
+                            PostalCode = "2140",
+                            Street = "Noordersingel",
+                            StreetNumber = 28,
+                            TicketProviderId = 9,
+                            VenueId = 3
+                        },
+                        new
+                        {
+                            Id = 21,
+                            City = "Gent",
+                            Country = "België",
+                            PostalCode = "9000",
+                            Street = "Overpoortstraat",
+                            StreetNumber = 60,
+                            TicketProviderId = 8,
+                            VenueId = 4
+                        },
+                        new
+                        {
+                            Id = 22,
+                            City = "Antwerpen",
+                            Country = "België",
+                            PostalCode = "2170",
+                            Street = "Schijnpoortweg",
+                            StreetNumber = 119,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 23,
+                            City = "Boom",
+                            Country = "België",
+                            PostalCode = "2850",
+                            Street = "Schommelei",
+                            StreetNumber = 1,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 24,
+                            City = "Werchter",
+                            Country = "België",
+                            PostalCode = "3118",
+                            Street = "Festivalpark",
+                            VenueId = 7
+                        },
+                        new
+                        {
+                            Id = 25,
+                            City = "Brussel",
+                            Country = "België",
+                            PostalCode = "1020",
+                            Street = "Eeuwfeestlaan",
+                            StreetNumber = 617,
+                            TicketProviderId = 4,
+                            VenueId = 8
+                        },
+                        new
+                        {
+                            Id = 26,
+                            City = "Hasselt",
+                            Country = "België",
+                            PostalCode = "3500",
+                            Street = "Kempische Steenweg",
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 27,
+                            City = "Houthalen-Helchteren",
+                            Country = "België",
+                            PostalCode = "3530",
+                            Street = "Binnenvaartstraat",
+                            VenueId = 10
+                        },
+                        new
+                        {
+                            Id = 28,
+                            City = "Antwerpen",
+                            Country = "België",
+                            PostalCode = "6200",
+                            Street = "Korte Vlierstraat",
+                            StreetNumber = 6,
+                            TicketProviderId = 2
+                        },
+                        new
+                        {
+                            Id = 29,
+                            City = "Mechelen",
+                            Country = "België",
+                            PostalCode = "2800",
+                            Street = "Blarenberglaan",
+                            StreetNumber = 3,
+                            TicketProviderId = 3
+                        },
+                        new
+                        {
+                            Id = 30,
+                            City = "Hasselt",
+                            Country = "België",
+                            PostalCode = "3510",
+                            Street = "Koorstraat",
+                            StreetNumber = 17,
+                            TicketProviderId = 5
+                        },
+                        new
+                        {
+                            Id = 31,
+                            City = "Antwerpen",
+                            Country = "België",
+                            PostalCode = "2000",
+                            Street = "Braziliestraat",
+                            StreetNumber = 26,
+                            TicketProviderId = 6
                         });
                 });
 
@@ -289,112 +530,112 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 698, DateTimeKind.Local).AddTicks(6216),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 881, DateTimeKind.Local).AddTicks(5840),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6271),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7341),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6308),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7482),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6313),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7493),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6316),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7502),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6320),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7507),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6323),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7514),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6326),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7522),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6329),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7531),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 10,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6331),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7537),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6334),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7544),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6337),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7551),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6340),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7560),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6343),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7568),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6346),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7574),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6348),
+                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 8, 42, 886, DateTimeKind.Local).AddTicks(7581),
                             EventId = 1,
                             TicketCustomerId = 5
                         });
@@ -471,6 +712,105 @@ namespace YES.Server.Migrations
                             FirstName = "Nick",
                             LastName = "Angularlover",
                             PhoneNumber = "0478 365 852"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BankAccount = "BE41 7563 7835 0157",
+                            Email = "Dries@mail.com",
+                            FirstName = "Dries",
+                            LastName = "Maes",
+                            PhoneNumber = "0432 457 896"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BankAccount = "BE96 4278 6420 5496",
+                            Email = "Olivia@mail.com",
+                            FirstName = "Olivia",
+                            LastName = "Goossens",
+                            PhoneNumber = "0478 687 138"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BankAccount = "BE77 1046 8642 5676",
+                            Email = "Mila@mail.com",
+                            FirstName = "Mila",
+                            LastName = "Vandevoorde",
+                            PhoneNumber = "0485 377 352"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BankAccount = "BE86 7831 5701 5684",
+                            Email = "Alice@mail.com",
+                            FirstName = "Alice",
+                            LastName = "Mcgregor",
+                            PhoneNumber = "0478 785 125"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BankAccount = "BE68 4578 3025 7304",
+                            Email = "Louise@mail.com",
+                            FirstName = "Louise",
+                            LastName = "Degroote",
+                            PhoneNumber = "0477 765 782"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BankAccount = "BE89 4785 2015 3065",
+                            Email = "Mohamed@mail.com",
+                            FirstName = "Mohamed",
+                            LastName = "Yilmaz",
+                            PhoneNumber = "0472 752 785"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BankAccount = "BE58 7520 4778 8214",
+                            Email = "Emir@mail.com",
+                            FirstName = "Emir",
+                            LastName = "Öztürk",
+                            PhoneNumber = "0473 478 795"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BankAccount = "BE72 0145 7857 6375",
+                            Email = "Kurt@mail.com",
+                            FirstName = "Kurt",
+                            LastName = "Debolle",
+                            PhoneNumber = "0478 140 349"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BankAccount = "BE86 4576 0445 4873",
+                            Email = "Arthur@mail.com",
+                            FirstName = "Arthur",
+                            LastName = "Vangeest",
+                            PhoneNumber = "0490 785 457"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BankAccount = "BE69 2467 0468 0478",
+                            Email = "Noah@mail.com",
+                            FirstName = "Noah",
+                            LastName = "Vanarke",
+                            PhoneNumber = "0475 850 852"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BankAccount = "BE88 4785 9785 9620",
+                            Email = "Victor@mail.com",
+                            FirstName = "Victor",
+                            LastName = "De Putte",
+                            PhoneNumber = "0488 754 752"
                         });
                 });
 
@@ -643,6 +983,70 @@ namespace YES.Server.Migrations
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
                             PhoneNumber = "09 267 28 20"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BankAccount = "BE78 7854 3585 7820",
+                            Email = "info@tomorrowland.be",
+                            NameProvider = "WAREONE.world bvba",
+                            PhoneNumber = "09 147 27 78"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BankAccount = "BE78 7768 3578 1220",
+                            Email = "info@rockwerchter.be",
+                            NameProvider = "Live Nation Festivals NV",
+                            PhoneNumber = "09 754 87 78"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BankAccount = "BE76 5455 8725 7824",
+                            Email = "info@couleurcafe.be",
+                            NameProvider = "Couleur Cafe",
+                            PhoneNumber = "09 785 24 86"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BankAccount = "BE34 8792 4687 2565",
+                            Email = "info@pukkelpop.be",
+                            NameProvider = "Chokri Mahassine",
+                            PhoneNumber = "09 765 78 86"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BankAccount = "BE55 7865 7874 1237",
+                            Email = "info@extremaoutdoor.be",
+                            NameProvider = "Extrema",
+                            PhoneNumber = "09 485 35 41"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BankAccount = "BE78 6872 3968 7821",
+                            Email = "info@sportpaleisgroup.be",
+                            NameProvider = "Sportpaleis Group NV",
+                            PhoneNumber = "09 879 87 74"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BankAccount = "BE55 7865 7874 1237",
+                            Email = "info@elixir.be",
+                            NameProvider = "eLiXir",
+                            PhoneNumber = "09 782 71 42"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BankAccount = "BE55 4752 7836 4878",
+                            Email = "info@trix.be",
+                            NameProvider = "Team Trix",
+                            PhoneNumber = "09 456 79 17"
                         });
                 });
 
@@ -667,8 +1071,62 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            Capacity = 1200,
+                            Capacity = 1110,
                             Name = "Kunstencentrum Vooruit"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Capacity = 2000,
+                            Name = "Capitole Gent"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Capacity = 1500,
+                            Name = "Trix"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Capacity = 200,
+                            Name = "eLiXir Dance & Night Club"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Capacity = 23359,
+                            Name = "Sportpaleis"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Capacity = 200000,
+                            Name = "Tomorrowland"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Capacity = 100000,
+                            Name = "Rock Werchter"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Capacity = 60000,
+                            Name = "Couleur Café"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Capacity = 100000,
+                            Name = "Pukkelpop"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Capacity = 60000,
+                            Name = "Extrema Outdoor"
                         });
                 });
 
