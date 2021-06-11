@@ -46,5 +46,10 @@ namespace YES.Server.Business.Services
             bool succes = await _eventRepo.UpdateEntityAsync(currentEvent);
             return succes;
         }
+
+        public async Task<EventDto> GetEventByIdAsync(int id)
+        {
+            return _mapper.Map<EventDto>(await _eventRepo.GetEventByIdAsync(id));
+        }
     }
 }

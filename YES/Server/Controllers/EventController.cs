@@ -24,6 +24,12 @@ namespace YES.Server.Controllers
             return Ok(await _eventService.GetEventsAsync());           
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EventDto>> GetEventByIdAsync(int id)
+        {
+            return Ok(await _eventService.GetEventByIdAsync(id));
+        }
+
         [HttpPost]
         public async Task<ActionResult> AddEvent(EventDto eventDto)
         {
