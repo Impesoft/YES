@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using YES.Server.Data.Entities;
 
-namespace YES.Server.Entities
+namespace YES.Server.Data.Entities
 {
     public class Venue : EntityBase
-    {       
+    {
         public virtual Address Address { get; set; }
 
         public string Name { get; set; }

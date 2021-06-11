@@ -127,7 +127,7 @@ namespace YES.Server.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EventDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EventDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     MaxAvailableTickets = table.Column<int>(type: "int", nullable: false),
                     WebsiteUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BannerImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -195,7 +195,14 @@ namespace YES.Server.Migrations
             migrationBuilder.InsertData(
                 table: "TicketCustomers",
                 columns: new[] { "Id", "BankAccount", "Email", "FirstName", "LastName", "PhoneNumber" },
-                values: new object[] { 1, "BE68 5390 0754 7034", "kobe@mail.com", "Kobe", "Delobelle", "0473 288 888" });
+                values: new object[,]
+                {
+                    { 1, "BE68 5390 0754 7034", "kobe@mail.com", "Kobe", "Delobelle", "0473 288 888" },
+                    { 2, "BE68 6990 5800 7574", "ward@mail.com", "Ward", "Impe", "0473 422 458" },
+                    { 3, "BE60 5590 0994 7021", "Pieter@mail.com", "Pieter", "Corp", "0453 288 888" },
+                    { 4, "BE70 5560 1278 7078", "Seba@mail.com", "Seba", "Stiaan", "0485 345 349" },
+                    { 5, "BE77 7893 0824 7304", "Nick@mail.com", "Nick", "Angularlover", "0478 365 852" }
+                });
 
             migrationBuilder.InsertData(
                 table: "TicketProviders",
@@ -210,38 +217,83 @@ namespace YES.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Addresses",
                 columns: new[] { "Id", "City", "Country", "PostalCode", "Street", "StreetNumber", "TicketCustomerId", "TicketProviderId", "VenueId" },
-                values: new object[] { 2, "Gent", "België", "9000", "Tentoonstellingslaan", 1, 1, null, null });
-
-            migrationBuilder.InsertData(
-                table: "Addresses",
-                columns: new[] { "Id", "City", "Country", "PostalCode", "Street", "StreetNumber", "TicketCustomerId", "TicketProviderId", "VenueId" },
-                values: new object[] { 1, "Gent", "België", "9000", "Sint-Pietersnieuwstraat", 23, null, 1, 1 });
+                values: new object[,]
+                {
+                    { 2, "Gent", "België", "9000", "Tentoonstellingslaan", 1, 1, null, null },
+                    { 3, "Gent", "België", "9000", "Leeuwstraat", 7, 2, null, null },
+                    { 4, "Gent", "België", "9000", "Zebrastraat", 36, 3, null, null },
+                    { 5, "Gent", "België", "9000", "Tijgerstraat", 24, 4, null, null },
+                    { 6, "Gent", "België", "9000", "Olifantstraat", 79, 5, null, null },
+                    { 1, "Gent", "België", "9000", "Sint-Pietersnieuwstraat", 23, null, 1, 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Events",
                 columns: new[] { "Id", "Status", "TicketProviderId", "VenueId" },
-                values: new object[] { 1, 0, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 0, 1, 1 },
+                    { 2, 0, 1, 1 },
+                    { 3, 0, 1, 1 },
+                    { 4, 2, 1, 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "EventInfo",
                 columns: new[] { "Id", "BannerImgUrl", "Description", "EventDate", "EventId", "MaxAvailableTickets", "Name", "WebsiteUrl" },
-                values: new object[] { 1, null, "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt", new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified), 1, 500, "EK België-Rusland", "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm" });
+                values: new object[,]
+                {
+                    { 1, null, "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt", new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified), 1, 500, "EK België-Rusland", "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm" },
+                    { 2, null, "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt", new DateTime(2021, 6, 18, 18, 0, 0, 0, DateTimeKind.Unspecified), 2, 500, "EK België-Denemarken", null },
+                    { 3, null, "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt", new DateTime(2021, 6, 21, 21, 0, 0, 0, DateTimeKind.Unspecified), 3, 500, "EK België-Finland", null },
+                    { 4, "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg", "Wees er tijdig bij want door corona zijn de plaatsen beperkt", null, 4, 50, "UITGESTELD: Terras Sessie: Joni Sheila", "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Tickets",
                 columns: new[] { "Id", "DateOfPurchase", "EventId", "TicketCustomerId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2021, 6, 10, 16, 24, 14, 473, DateTimeKind.Local).AddTicks(7397), 1, 1 },
-                    { 2, new DateTime(2021, 6, 10, 16, 24, 14, 475, DateTimeKind.Local).AddTicks(7355), 1, 1 },
-                    { 3, new DateTime(2021, 6, 10, 16, 24, 14, 475, DateTimeKind.Local).AddTicks(7419), 1, 1 },
-                    { 4, new DateTime(2021, 6, 10, 16, 24, 14, 475, DateTimeKind.Local).AddTicks(7425), 1, 1 }
+                    { 4, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6313), 1, 1 },
+                    { 5, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6316), 1, 1 },
+                    { 6, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6320), 1, 2 },
+                    { 7, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6323), 1, 2 },
+                    { 8, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6326), 1, 3 },
+                    { 2, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6271), 1, 1 },
+                    { 10, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6331), 1, 3 },
+                    { 11, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6334), 1, 3 },
+                    { 12, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6337), 1, 4 },
+                    { 13, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6340), 1, 4 },
+                    { 14, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6343), 1, 5 },
+                    { 15, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6346), 1, 5 },
+                    { 16, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6348), 1, 5 },
+                    { 1, new DateTime(2021, 6, 10, 18, 18, 9, 698, DateTimeKind.Local).AddTicks(6216), 1, 1 },
+                    { 3, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6308), 1, 1 },
+                    { 9, new DateTime(2021, 6, 10, 18, 18, 9, 700, DateTimeKind.Local).AddTicks(6329), 1, 3 }
                 });
 
             migrationBuilder.InsertData(
                 table: "TicketPrices",
                 columns: new[] { "Id", "Category", "Price", "TicketId" },
-                values: new object[] { 1, "zitplaats", 1, 1 });
+                values: new object[,]
+                {
+                    { 1, "zitplaats", 1, 1 },
+                    { 2, "zitplaats", 1, 2 },
+                    { 3, "zitplaats", 1, 3 },
+                    { 4, "zitplaats", 1, 4 },
+                    { 5, "zitplaats", 1, 5 },
+                    { 6, "zitplaats", 1, 6 },
+                    { 7, "zitplaats", 1, 7 },
+                    { 8, "zitplaats", 1, 8 },
+                    { 9, "zitplaats", 1, 9 },
+                    { 10, "zitplaats", 1, 10 },
+                    { 11, "zitplaats", 1, 11 },
+                    { 12, "zitplaats", 1, 12 },
+                    { 13, "zitplaats", 1, 13 },
+                    { 14, "zitplaats", 1, 14 },
+                    { 15, "zitplaats", 1, 15 },
+                    { 16, "zitplaats", 1, 16 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_TicketCustomerId",

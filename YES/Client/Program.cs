@@ -25,6 +25,7 @@ namespace YES.Client
 
             builder.Services.AddHttpClient("YES.ServerAPI", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
                 .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+            
 
             builder.Services
                 .AddBlazorise(options =>
