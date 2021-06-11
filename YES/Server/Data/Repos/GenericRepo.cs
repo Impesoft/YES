@@ -2,13 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using YES.Server.Data.Database;
 using YES.Server.Data.Entities;
 
 namespace YES.Server.Data.Repos
 {
-    public class GenericRepo<T> where T : EntityBase
+    public class GenericRepo<T> : IGenericRepo<T> where T : EntityBase
     {
         public YesDBContext _context;
+
         public GenericRepo(YesDBContext context)
         {
             _context = context;
@@ -37,7 +39,7 @@ namespace YES.Server.Data.Repos
         }
 
         public virtual async Task<bool> UpdateEntityAsync(T entity)
-        {           
+        {
             _context.Update(entity);
             await _context.SaveChangesAsync();
             return true;
