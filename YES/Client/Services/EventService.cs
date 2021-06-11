@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using YES.Shared;
+using YES.Shared.Dto;
 using static System.Net.WebRequestMethods;
 
 
@@ -12,33 +12,27 @@ namespace YES.Client.Services
 {
     public class EventService : IEventService
     {
-        private IEnumerable<EventDTO> _events;
+        private IEnumerable<EventDto> _events;
         private HttpClient _http;
 
         public EventService(HttpClient http)
         {
             _http = http;
 
-            SetEventsTest();
         }
-        public async Task GetEventsFromAPIAsync()
+        public async Task<IEnumerable<EventDto>> GetEventsFromAPIAsync()
         {
-            try
-            {
-                _events = await _http.GetFromJsonAsync<ICollection<EventDTO>>("Event");
-            }
-            catch (AccessTokenNotAvailableException exception)
-            {
-                exception.Redirect();
-            }
+            _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:5003/api/Event");
+
+            return _events;
         }
 
-        public IEnumerable<EventDTO> GetEvents()
+        public IEnumerable<EventDto> GetEvents()
         {
             return _events;
         }
 
-        public IEnumerable<EventDTO> GetEventSpotlights()
+        public IEnumerable<EventDto> GetEventSpotlights()
         {
             return _events.Take(3);
         }
@@ -46,13 +40,13 @@ namespace YES.Client.Services
         //TEST WITH DUMMY DATA
         public void SetEventsTest()
         {
-            _events = new List<EventDTO>
-            {
-                new (){Name = "Tomorrowland"},
-                new (){Name = "Werchter"},
-                new (){Name = "Pukkelpop"},
-                new (){Name = "10 om te zien aan de kust"},
-            };
+            //_events = new List<EventDto>
+            //{
+            //    new (){Name = "Tomorrowland"},
+            //    new (){Name = "Werchter"},
+            //    new (){Name = "Pukkelpop"},
+            //    new (){Name = "10 om te zien aan de kust"},
+            //};
         }
     }
 }

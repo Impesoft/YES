@@ -6,7 +6,7 @@
 <div class="page-background">
     <section>
         <h3 class="">Spotlight</h3>
-        @foreach (EventDTO item in _spotlights)
+        @foreach (EventDto item in _spotlights)
         {
             <EventList Event="item" />
         }
@@ -16,14 +16,14 @@
 
 
 @code {
-    private IEnumerable<EventDTO> _spotlights;
+    private IEnumerable<EventDto> _spotlights;
 
     [Inject]
     private IEventService _service { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _spotlights = _service.GetEventSpotlights();
+        _spotlights = await _service.GetEventsFromAPIAsync();
     }
 
 }

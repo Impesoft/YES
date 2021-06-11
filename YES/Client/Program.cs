@@ -27,11 +27,11 @@ namespace YES.Client
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("YES.ServerAPI"));
 
             //Zelf Added
-            builder.Services.AddScoped(sp =>
-                new HttpClient
-                {
-                    BaseAddress = new Uri("http://localhost:44316/api/")
-                });
+            //builder.Services.AddScoped(sp =>
+            //    new HttpClient
+            //    {
+            //        BaseAddress = new Uri("http://localhost:5003/api/")
+            //    });
             builder.Services.AddScoped<IEventService, EventService>();
 
             builder.Services.AddMsalAuthentication(options =>
