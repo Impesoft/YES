@@ -2,13 +2,15 @@
 @using YES.Shared
 @inject HttpClient Http
 
-
 <div class="page-background">
     <section>
         <h3 class="">Spotlight</h3>
-        @foreach (EventDto item in _spotlights)
+        @if (_spotlights !=null)
         {
-            <EventList Event="item" />
+            @foreach (EventDto item in _spotlights)
+            {
+                <EventList Event="item"/>
+            }
         }
     </section>
 </div>          
@@ -16,7 +18,7 @@
 
 
 @code {
-    private IEnumerable<EventDto> _spotlights;
+    private IEnumerable<EventDto> _spotlights { get; set; }
 
     [Inject]
     private IEventService _service { get; set; }
