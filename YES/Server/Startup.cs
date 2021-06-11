@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using YES.Server.Data.Database;
 using YES.Server.Data.Entities;
 using YES.Server.Data.Repos;
+using YES.Server.Configuration;
+using YES.Server.Business.Services;
 
 namespace YES.Server
 {
@@ -74,7 +76,13 @@ namespace YES.Server
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
             });
 
+            services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
+
             services.AddScoped<IGenericRepo<EventInfo>, GenericRepo<EventInfo>>();
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IEventRepo,EventRepo>();
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

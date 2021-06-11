@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using YES.Server.Enums;
+﻿using YES.Server.Enums;
 
 namespace YES.Server.Data.Entities
 {
