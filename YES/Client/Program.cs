@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using YES.Client.Services;
 
 namespace YES.Client
 {
@@ -29,8 +30,9 @@ namespace YES.Client
             builder.Services.AddScoped(sp =>
                 new HttpClient
                 {
-                    BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
+                    BaseAddress = new Uri("http://localhost:44316/api/")
                 });
+            builder.Services.AddScoped<IEventService, EventService>();
 
             builder.Services.AddMsalAuthentication(options =>
             {

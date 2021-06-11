@@ -16,28 +16,12 @@
 @code {
     private ICollection<EventDTO> _events;
 
+    [Inject]
+    private IEventService _service { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        //try
-        //{
-        //    _events = await Http.GetFromJsonAsync<ICollection<EventDTO>>("Event");
-        //}
-        //catch (Exception e)
-        //{
-        //    Console.WriteLine(e);
-        //    throw;
-        //}
-
-        _events = new List<EventDTO>
-        {
-            new (){Name = "Tomorrowland"},
-            new (){Name = "Werchter"},
-            new (){Name = "Pukkelpop"},
-            new (){Name = "10 om te zien aan de kust"},
-            
-
-        };
+        _events = _service.GetEvents();
 
     }
 
