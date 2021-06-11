@@ -149,9 +149,9 @@ namespace YES.Server.Data.Database
                 new TicketProvider { Id = 4, NameProvider = "Couleur Cafe", PhoneNumber = "09 785 24 86", Email = "info@couleurcafe.be", BankAccount = "BE76 5455 8725 7824" },
                 new TicketProvider { Id = 5, NameProvider = "Chokri Mahassine", PhoneNumber = "09 765 78 86", Email = "info@pukkelpop.be", BankAccount = "BE34 8792 4687 2565" },
                 new TicketProvider { Id = 6, NameProvider = "Extrema", PhoneNumber = "09 485 35 41", Email = "info@extremaoutdoor.be", BankAccount = "BE55 7865 7874 1237" },
-                new TicketProvider { Id = 7, NameProvider = "Sportpaleis Group NV", PhoneNumber = "09 879 87 74", Email = "info@sportpaleisgroup.be", BankAccount = "BE55 7865 7874 1237" },
+                new TicketProvider { Id = 7, NameProvider = "Sportpaleis Group NV", PhoneNumber = "09 879 87 74", Email = "info@sportpaleisgroup.be", BankAccount = "BE78 6872 3968 7821" },
                 new TicketProvider { Id = 8, NameProvider = "eLiXir", PhoneNumber = "09 782 71 42", Email = "info@elixir.be", BankAccount = "BE55 7865 7874 1237" },
-                new TicketProvider { Id = 9, NameProvider = "Team Trix", PhoneNumber = "09 456 79 17", Email = "info@trix.be", BankAccount = "BE55 7865 7874 1237" }
+                new TicketProvider { Id = 9, NameProvider = "Team Trix", PhoneNumber = "09 456 79 17", Email = "info@trix.be", BankAccount = "BE55 4752 7836 4878" }
                 );
             });
         }
@@ -167,7 +167,7 @@ namespace YES.Server.Data.Database
                 new TicketCustomer { Id = 4, FirstName = "Seba", LastName = "Stiaan", PhoneNumber = "0485 345 349", Email = "Seba@mail.com", BankAccount = "BE70 5560 1278 7078" },
                 new TicketCustomer { Id = 5, FirstName = "Nick", LastName = "Angularlover", PhoneNumber = "0478 365 852", Email = "Nick@mail.com", BankAccount = "BE77 7893 0824 7304" },
                 new TicketCustomer { Id = 6, FirstName = "Dries", LastName = "Maes", PhoneNumber = "0432 457 896", Email = "Dries@mail.com", BankAccount = "BE41 7563 7835 0157" },
-                new TicketCustomer { Id = 7, FirstName = "Olivia", LastName = "Goossens", PhoneNumber = "0478 365 852", Email = "Olivia@mail.com", BankAccount = "BE96 4278 6420 5496" },
+                new TicketCustomer { Id = 7, FirstName = "Olivia", LastName = "Goossens", PhoneNumber = "0478 687 138", Email = "Olivia@mail.com", BankAccount = "BE96 4278 6420 5496" },
                 new TicketCustomer { Id = 8, FirstName = "Mila", LastName = "Vandevoorde", PhoneNumber = "0485 377 352", Email = "Mila@mail.com", BankAccount = "BE77 1046 8642 5676" },
                 new TicketCustomer { Id = 9, FirstName = "Alice", LastName = "Mcgregor", PhoneNumber = "0478 785 125", Email = "Alice@mail.com", BankAccount = "BE86 7831 5701 5684" },
                 new TicketCustomer { Id = 10, FirstName = "Louise", LastName = "Degroote", PhoneNumber = "0477 765 782", Email = "Louise@mail.com", BankAccount = "BE68 4578 3025 7304" },
