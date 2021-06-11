@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.Server.Entities
+namespace YES.Server.Data.Entities
 {
     public class TicketCustomer : User
     {

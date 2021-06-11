@@ -1,6 +1,4 @@
-﻿using YES.Server.Data.Entities;
-
-namespace YES.Server.Entities
+﻿namespace YES.Server.Data.Entities
 {
     public abstract class User : EntityBase
     {
