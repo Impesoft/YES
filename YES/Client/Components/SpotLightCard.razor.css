@@ -1,0 +1,9 @@
+﻿body {
+}
+
+.card {
+    width: 18rem;
+    color: white;
+    background-color: black;
+    margin: auto;
+}

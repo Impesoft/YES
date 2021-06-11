@@ -4,14 +4,18 @@
 
 <div class="page-background">
     <section>
-        <h3 class="">Spotlight</h3>
-        @if (_spotlights !=null)
-        {
-            @foreach (EventDto item in _spotlights)
+        <h3 class="mb-4">Spotlight</h3>
+        <div class="row card-row">
+            @if (_spotlights != null)
             {
-                <EventList Event="item"/>
+                @foreach (EventDto item in _spotlights)
+                {
+                    <SpotLightCard Event="item" />
+                }
             }
-        }
+        </div>
+
+        
     </section>
 </div>          
 
@@ -25,7 +29,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _spotlights = await _service.GetEventsFromAPIAsync();
+        _spotlights = await _service.GetEventSpotlightsAsync();
     }
 
 }
