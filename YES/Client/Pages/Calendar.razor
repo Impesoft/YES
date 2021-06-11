@@ -1,6 +1,31 @@
 ﻿@page "/Calendar"
-<p>calendar</p>
+<div class="page-background">
+    <section>
+        <h3 class="">Events</h3>
+        @if (_events != null)
+        {
+            @foreach (EventDto item in _events)
+            {
+                <EventList Event="item" />
+            }
+        }
+        else
+            {
+                <p>No events found.</p>
+            }
+
+    </section>
+</div>
 
 @code {
+    private IEnumerable<EventDto> _events;
 
+    [Inject]
+    private IEventService _service { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _events = await _service.GetEventsAsync();
+
+    }
 }
