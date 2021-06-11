@@ -11,7 +11,6 @@ namespace YES.Server.Data.Entities
         public string Name { get; set; }
 
         public string Description { get; set; }
-
         public DateTime? EventDate { get; set; }
 
         public int MaxAvailableTickets { get; set; }

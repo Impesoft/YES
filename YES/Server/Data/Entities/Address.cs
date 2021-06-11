@@ -13,7 +13,6 @@ namespace YES.Server.Data.Entities
         public string PostalCode { get; set; }
 
         public string City { get; set; }
-
         public int? StreetNumber { get; set; }
 
         public string Country { get; set; }

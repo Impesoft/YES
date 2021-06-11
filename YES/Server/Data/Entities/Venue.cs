@@ -7,6 +7,7 @@ namespace YES.Server.Data.Entities
     {
         public virtual Address Address { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public int Capacity { get; set; }
