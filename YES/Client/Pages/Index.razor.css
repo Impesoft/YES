@@ -10,10 +10,22 @@
 }
 
 section {
-    width: 80vw;
-    height: 400px;
-    background: #fff;
+    width: 80vw;    
+    background: rgba(0,0,0,.7) ;
     border-radius: 3px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 20px;
+    
+    
+}
+
+.card-row {
+    justify-content: space-around;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
