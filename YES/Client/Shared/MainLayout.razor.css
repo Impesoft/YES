@@ -10,3 +10,9 @@
 .page {
     
 }
+
+footer {
+    padding: 5px;
+    background-color: gray;
+    color: white;
+}

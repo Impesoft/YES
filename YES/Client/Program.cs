@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using YES.Client.Services;
 
 namespace YES.Client
 {
@@ -20,9 +21,18 @@ namespace YES.Client
 
             builder.Services.AddHttpClient("YES.ServerAPI", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
                 .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+            
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("YES.ServerAPI"));
+
+            //Zelf Added
+            //builder.Services.AddScoped(sp =>
+            //    new HttpClient
+            //    {
+            //        BaseAddress = new Uri("http://localhost:5003/api/")
+            //    });
+            builder.Services.AddScoped<IEventService, EventService>();
 
             builder.Services.AddMsalAuthentication(options =>
             {
