@@ -4,7 +4,7 @@
     align-items: center;
     height: calc( 100vh - 5.5rem);
     max-width: 100%;
-    background-image: url("images/page-bg.jpg");
+    background-image: url("images/page-bg.jpg");    
     background-repeat: no-repeat;
     background-size: cover;
 }
