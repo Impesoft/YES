@@ -1,26 +1,42 @@
 ﻿@page "/"
+@using YES.Shared
 @inject HttpClient Http
 
 <main>
-    <section>alo</section>
+    <section>
+        @foreach (EventDTO item in _events)
+        {
+            <EventList Event="item" />
+        }
+    </section>
 </main>
 
 @code {
-    //private IEnumerable<Event> _event;
- 
+    private ICollection<EventDTO> _events;
 
-     // protected override async Task OnInitializedAsync()
-     // {
-     //     try
-     //     {
-     //         //_event = await Http.GetFromJsonAsync<Event>("");
-     //     }
-     //     catch (Exception e)
-     //     {
-     //         Console.WriteLine(e);
-     //         throw;
-     //     }
-     //     
-     // }
+
+    protected override async Task OnInitializedAsync()
+    {
+        //try
+        //{
+        //    _events = await Http.GetFromJsonAsync<ICollection<EventDTO>>("Event");
+        //}
+        //catch (Exception e)
+        //{
+        //    Console.WriteLine(e);
+        //    throw;
+        //}
+
+        _events = new List<EventDTO>
+        {
+            new (){Name = "Tomorrowland"},
+            new (){Name = "Werchter"},
+            new (){Name = "Pukkelpop"},
+            new (){Name = "10 om te zien aan de kust"},
+            
+
+        };
+
+    }
 
 }
