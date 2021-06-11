@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace YES.Client.Services
 {
     public class EventService : IEventService
     {
-        private ICollection<EventDTO> _events;
+        private IEnumerable<EventDTO> _events;
         private HttpClient _http;
 
         public EventService(HttpClient http)
@@ -32,9 +33,14 @@ namespace YES.Client.Services
             }
         }
 
-        public ICollection<EventDTO> GetEvents()
+        public IEnumerable<EventDTO> GetEvents()
         {
             return _events;
+        }
+
+        public IEnumerable<EventDTO> GetEventSpotlights()
+        {
+            return _events.Take(3);
         }
 
         //TEST WITH DUMMY DATA

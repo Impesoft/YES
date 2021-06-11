@@ -6,7 +6,8 @@ namespace YES.Client.Services
 {
     public interface IEventService
     {
-        ICollection<EventDTO> GetEvents();
+        IEnumerable<EventDTO> GetEvents();
+        IEnumerable<EventDTO> GetEventSpotlights();
         Task GetEventsFromAPIAsync();
         void SetEventsTest();
     }

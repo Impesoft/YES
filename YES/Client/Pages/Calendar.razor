@@ -1,6 +1,23 @@
 ﻿@page "/Calendar"
-<p>calendar</p>
+<div class="page-background">
+    <section>
+        <h3 class="">Events</h3>
+        @foreach (EventDTO item in _events)
+        {
+            <EventList Event="item" />
+        }
+    </section>
+</div>
 
 @code {
-    
+    private IEnumerable<EventDTO> _events;
+
+    [Inject]
+    private IEventService _service { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _events = _service.GetEvents();
+
+    }
 }
