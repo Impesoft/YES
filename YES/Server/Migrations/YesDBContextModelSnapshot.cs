@@ -27,15 +27,19 @@ namespace YES.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("StreetNumber")
@@ -378,6 +382,9 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("EventInfoId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -389,6 +396,8 @@ namespace YES.Server.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EventInfoId");
+
                     b.HasIndex("TicketProviderId");
 
                     b.HasIndex("VenueId");
@@ -399,6 +408,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
+                            EventInfoId = 1,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -406,6 +416,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
+                            EventInfoId = 2,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -413,6 +424,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 3,
+                            EventInfoId = 3,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -420,6 +432,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 4,
+                            EventInfoId = 4,
                             Status = 2,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -434,9 +447,11 @@ namespace YES.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BannerImgUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("EventDate")
@@ -449,15 +464,14 @@ namespace YES.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WebsiteUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EventId")
-                        .IsUnique();
 
                     b.ToTable("EventInfo");
 
@@ -465,6 +479,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
+                            BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg",
                             Description = "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
@@ -475,20 +490,24 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
+                            BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg",
                             Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 18, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 2,
                             MaxAvailableTickets = 500,
-                            Name = "EK België-Denemarken"
+                            Name = "EK België-Denemarken",
+                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
                         },
                         new
                         {
                             Id = 3,
+                            BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg",
                             Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 21, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 3,
                             MaxAvailableTickets = 500,
-                            Name = "EK België-Finland"
+                            Name = "EK België-Finland",
+                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
                         },
                         new
                         {
@@ -530,112 +549,112 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 623, DateTimeKind.Local).AddTicks(5985),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 127, DateTimeKind.Local).AddTicks(2903),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5426),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9501),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5459),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9534),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5465),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9539),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5468),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9542),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5471),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9544),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5474),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9547),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5477),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9550),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5480),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9552),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 10,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5483),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9555),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5486),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9557),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5488),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9560),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5491),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9563),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5494),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9565),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5497),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9568),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 11, 11, 37, 12, 625, DateTimeKind.Local).AddTicks(5500),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 8, 18, 32, 128, DateTimeKind.Local).AddTicks(9571),
                             EventId = 1,
                             TicketCustomerId = 5
                         });
@@ -648,19 +667,27 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
                     b.Property<string>("BankAccount")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -671,6 +698,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
+                            AddressId = 0,
                             BankAccount = "BE68 5390 0754 7034",
                             Email = "kobe@mail.com",
                             FirstName = "Kobe",
@@ -680,6 +708,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
+                            AddressId = 0,
                             BankAccount = "BE68 6990 5800 7574",
                             Email = "ward@mail.com",
                             FirstName = "Ward",
@@ -689,6 +718,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 3,
+                            AddressId = 0,
                             BankAccount = "BE60 5590 0994 7021",
                             Email = "Pieter@mail.com",
                             FirstName = "Pieter",
@@ -698,6 +728,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 4,
+                            AddressId = 0,
                             BankAccount = "BE70 5560 1278 7078",
                             Email = "Seba@mail.com",
                             FirstName = "Seba",
@@ -707,6 +738,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 5,
+                            AddressId = 0,
                             BankAccount = "BE77 7893 0824 7304",
                             Email = "Nick@mail.com",
                             FirstName = "Nick",
@@ -716,6 +748,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 6,
+                            AddressId = 0,
                             BankAccount = "BE41 7563 7835 0157",
                             Email = "Dries@mail.com",
                             FirstName = "Dries",
@@ -725,6 +758,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 7,
+                            AddressId = 0,
                             BankAccount = "BE96 4278 6420 5496",
                             Email = "Olivia@mail.com",
                             FirstName = "Olivia",
@@ -734,6 +768,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 8,
+                            AddressId = 0,
                             BankAccount = "BE77 1046 8642 5676",
                             Email = "Mila@mail.com",
                             FirstName = "Mila",
@@ -743,6 +778,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 9,
+                            AddressId = 0,
                             BankAccount = "BE86 7831 5701 5684",
                             Email = "Alice@mail.com",
                             FirstName = "Alice",
@@ -752,6 +788,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 10,
+                            AddressId = 0,
                             BankAccount = "BE68 4578 3025 7304",
                             Email = "Louise@mail.com",
                             FirstName = "Louise",
@@ -761,6 +798,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 11,
+                            AddressId = 0,
                             BankAccount = "BE89 4785 2015 3065",
                             Email = "Mohamed@mail.com",
                             FirstName = "Mohamed",
@@ -770,6 +808,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 12,
+                            AddressId = 0,
                             BankAccount = "BE58 7520 4778 8214",
                             Email = "Emir@mail.com",
                             FirstName = "Emir",
@@ -779,6 +818,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 13,
+                            AddressId = 0,
                             BankAccount = "BE72 0145 7857 6375",
                             Email = "Kurt@mail.com",
                             FirstName = "Kurt",
@@ -788,6 +828,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 14,
+                            AddressId = 0,
                             BankAccount = "BE86 4576 0445 4873",
                             Email = "Arthur@mail.com",
                             FirstName = "Arthur",
@@ -797,6 +838,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 15,
+                            AddressId = 0,
                             BankAccount = "BE69 2467 0468 0478",
                             Email = "Noah@mail.com",
                             FirstName = "Noah",
@@ -806,6 +848,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 16,
+                            AddressId = 0,
                             BankAccount = "BE88 4785 9785 9620",
                             Email = "Victor@mail.com",
                             FirstName = "Victor",
@@ -822,6 +865,7 @@ namespace YES.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
@@ -959,16 +1003,23 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
                     b.Property<string>("BankAccount")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameProvider")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -979,6 +1030,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
+                            AddressId = 0,
                             BankAccount = "BE78 3590 0754 7674",
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
@@ -987,6 +1039,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
+                            AddressId = 0,
                             BankAccount = "BE78 7854 3585 7820",
                             Email = "info@tomorrowland.be",
                             NameProvider = "WAREONE.world bvba",
@@ -995,6 +1048,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 3,
+                            AddressId = 0,
                             BankAccount = "BE78 7768 3578 1220",
                             Email = "info@rockwerchter.be",
                             NameProvider = "Live Nation Festivals NV",
@@ -1003,6 +1057,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 4,
+                            AddressId = 0,
                             BankAccount = "BE76 5455 8725 7824",
                             Email = "info@couleurcafe.be",
                             NameProvider = "Couleur Cafe",
@@ -1011,6 +1066,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 5,
+                            AddressId = 0,
                             BankAccount = "BE34 8792 4687 2565",
                             Email = "info@pukkelpop.be",
                             NameProvider = "Chokri Mahassine",
@@ -1019,6 +1075,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 6,
+                            AddressId = 0,
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@extremaoutdoor.be",
                             NameProvider = "Extrema",
@@ -1027,6 +1084,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 7,
+                            AddressId = 0,
                             BankAccount = "BE78 6872 3968 7821",
                             Email = "info@sportpaleisgroup.be",
                             NameProvider = "Sportpaleis Group NV",
@@ -1035,6 +1093,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 8,
+                            AddressId = 0,
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@elixir.be",
                             NameProvider = "eLiXir",
@@ -1043,6 +1102,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 9,
+                            AddressId = 0,
                             BankAccount = "BE55 4752 7836 4878",
                             Email = "info@trix.be",
                             NameProvider = "Team Trix",
@@ -1057,10 +1117,14 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1071,60 +1135,70 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
+                            AddressId = 0,
                             Capacity = 1110,
                             Name = "Kunstencentrum Vooruit"
                         },
                         new
                         {
                             Id = 2,
+                            AddressId = 0,
                             Capacity = 2000,
                             Name = "Capitole Gent"
                         },
                         new
                         {
                             Id = 3,
+                            AddressId = 0,
                             Capacity = 1500,
                             Name = "Trix"
                         },
                         new
                         {
                             Id = 4,
+                            AddressId = 0,
                             Capacity = 200,
                             Name = "eLiXir Dance & Night Club"
                         },
                         new
                         {
                             Id = 5,
+                            AddressId = 0,
                             Capacity = 23359,
                             Name = "Sportpaleis"
                         },
                         new
                         {
                             Id = 6,
+                            AddressId = 0,
                             Capacity = 200000,
                             Name = "Tomorrowland"
                         },
                         new
                         {
                             Id = 7,
+                            AddressId = 0,
                             Capacity = 100000,
                             Name = "Rock Werchter"
                         },
                         new
                         {
                             Id = 8,
+                            AddressId = 0,
                             Capacity = 60000,
                             Name = "Couleur Café"
                         },
                         new
                         {
                             Id = 9,
+                            AddressId = 0,
                             Capacity = 100000,
                             Name = "Pukkelpop"
                         },
                         new
                         {
                             Id = 10,
+                            AddressId = 0,
                             Capacity = 60000,
                             Name = "Extrema Outdoor"
                         });
@@ -1153,6 +1227,12 @@ namespace YES.Server.Migrations
 
             modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
                 {
+                    b.HasOne("YES.Server.Data.Entities.EventInfo", "EventInfo")
+                        .WithMany()
+                        .HasForeignKey("EventInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("YES.Server.Data.Entities.TicketProvider", "TicketProvider")
                         .WithMany("Events")
                         .HasForeignKey("TicketProviderId")
@@ -1165,18 +1245,11 @@ namespace YES.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("EventInfo");
+
                     b.Navigation("TicketProvider");
 
                     b.Navigation("Venue");
-                });
-
-            modelBuilder.Entity("YES.Server.Data.Entities.EventInfo", b =>
-                {
-                    b.HasOne("YES.Server.Data.Entities.Event", null)
-                        .WithOne("EventInfo")
-                        .HasForeignKey("YES.Server.Data.Entities.EventInfo", "EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.Ticket", b =>
@@ -1209,14 +1282,10 @@ namespace YES.Server.Migrations
                     b.Navigation("Ticket");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
-                {
-                    b.Navigation("EventInfo");
-                });
-
             modelBuilder.Entity("YES.Server.Data.Entities.Ticket", b =>
                 {
-                    b.Navigation("TicketPrice");
+                    b.Navigation("TicketPrice")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.TicketCustomer", b =>
