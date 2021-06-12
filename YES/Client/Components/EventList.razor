@@ -1,6 +1,13 @@
 ﻿<div class="row list-item align-middle">
     <div class="col-3">
-        @Event.EventInfo.EventDate.ToShortDateString()
+        @if (Event.EventInfo.EventDate > DateTime.MinValue)
+        {
+            @Event.EventInfo.EventDate.ToShortDateString()
+        }
+        else
+        {
+            @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@tba
+        }
     </div>
     <div class="col-3">
         @Event.EventInfo.Name
@@ -24,4 +31,6 @@
         public EventDto Event { get; set; }
         [Parameter]
         public EventCallback<EventDto> EventInfo { get; set; }
+
+    private string tba = "TBA";
 }
