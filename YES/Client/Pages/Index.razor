@@ -10,7 +10,10 @@
             {
                 @foreach (EventDto item in _spotlights)
                 {
+                    if (item != null)
+                    {
                     <SpotLightCard Event="item" />
+                    }
                 }
             }
         </div>

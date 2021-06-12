@@ -67,10 +67,10 @@ namespace YES.Server.Data.Database
             modelBuilder.Entity<Event>(x =>
             {
                 x.HasData(
-                new Event { Id = 1, TicketProviderId = 1, VenueId = 1 },
-                new Event { Id = 2, TicketProviderId = 1, VenueId = 1 },
-                new Event { Id = 3, TicketProviderId = 1, VenueId = 1 },
-                new Event { Id = 4, TicketProviderId = 1, VenueId = 1, Status = Status.Postponed }
+                new Event { Id = 1, TicketProviderId = 1, VenueId = 1, Status = Status.Default, EventInfoId = 1 },
+                new Event { Id = 2, TicketProviderId = 1, VenueId = 1, Status = Status.Default, EventInfoId = 2 },
+                new Event { Id = 3, TicketProviderId = 1, VenueId = 1, Status = Status.Default, EventInfoId = 3 },
+                new Event { Id = 4, TicketProviderId = 1, VenueId = 1, Status = Status.Postponed, EventInfoId = 4 }
                 );
             });
         }
@@ -80,9 +80,9 @@ namespace YES.Server.Data.Database
             modelBuilder.Entity<EventInfo>(x =>
             {
                 x.HasData(
-                new EventInfo { Id = 1, EventId = 1, Name = "EK België-Rusland", Description = "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("12/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm" },
-                new EventInfo { Id = 2, EventId = 2, Name = "EK België-Denemarken", Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("18/06/2021 18:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500 },
-                new EventInfo { Id = 3, EventId = 3, Name = "EK België-Finland", Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("21/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500 },
+                new EventInfo { Id = 1, EventId = 1, Name = "EK België-Rusland", Description = "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("12/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg" },
+                new EventInfo { Id = 2, EventId = 2, Name = "EK België-Denemarken", Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("18/06/2021 18:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg" },
+                new EventInfo { Id = 3, EventId = 3, Name = "EK België-Finland", Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("21/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg" },
                 new EventInfo { Id = 4, EventId = 4, Name = "UITGESTELD: Terras Sessie: Joni Sheila", Description = "Wees er tijdig bij want door corona zijn de plaatsen beperkt", MaxAvailableTickets = 50, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg" }
                 );
             });
