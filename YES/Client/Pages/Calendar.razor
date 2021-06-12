@@ -3,24 +3,24 @@
 
 <div class="page-background">
     <section>
-        <h3 class="">Events</h3>
+        <h2 class="mb-5">Events</h2>
         @if (_events != null)
         {
-            @foreach (EventDto eventDto in _events)
-            {
-                <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
-            }
-        }
-        else
-        {
-            <p>No events found.</p>
-        }
+            <div class="alternator">
+                @foreach (EventDto eventDto in _events)
+                {
 
-        <p>
-            @test
-        </p>
+                    <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
 
-    </section>
+                }
+            </div>
+                }
+                else
+                {
+                <p>No events found.</p>
+                }
+
+            </section>
 </div>
 
 @code {
@@ -33,13 +33,18 @@
     protected override async Task OnInitializedAsync()
     {
         _events = await _service.GetEventsAsync();
-
+        
     }
 
     private void ShowEventInfo(EventDto eventDto)
     {
-        test = eventDto.EventInfo.Name;
+
         navigationManager.NavigateTo($"/EventDetail/{eventDto.Id}");
+    }
+
+    private void SortEventsByDate()
+    {
+        _events.OrderBy(x => x.EventInfo.EventDate);
     }
 
 

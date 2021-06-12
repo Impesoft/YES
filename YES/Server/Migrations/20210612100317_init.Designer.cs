@@ -10,7 +10,7 @@ using YES.Server.Data.Database;
 namespace YES.Server.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    [Migration("20210612095854_init")]
+    [Migration("20210612100317_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -855,112 +855,112 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 160, DateTimeKind.Local).AddTicks(3113),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 348, DateTimeKind.Local).AddTicks(3860),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3050),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(648),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3090),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(683),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3096),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(687),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3099),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(689),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3102),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(692),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3105),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(695),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3109),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(697),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3112),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(700),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 10,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3116),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(702),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3122),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(705),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3125),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(746),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3128),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(749),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3133),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(751),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3136),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(754),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3140),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 12, 3, 17, 350, DateTimeKind.Local).AddTicks(756),
                             EventId = 1,
                             TicketCustomerId = 5
                         });

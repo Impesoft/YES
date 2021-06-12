@@ -23,7 +23,7 @@ namespace YES.Client.Services
         {
             var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
 
-            return _events;
+            return _events.OrderBy(x => x.EventInfo.EventDate);
         }
 
         public async Task<EventDto> GetEventByIdAsync(int id)
