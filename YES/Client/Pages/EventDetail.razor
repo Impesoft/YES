@@ -1,8 +1,24 @@
 ﻿@page "/EventDetail/{Id:int}"
+@inject IEventService _service
+@if (Event == null)
+{
+    <p>No Event found</p>
+}
+else
+{
+    <h3>@Event.EventInfo.Name</h3>
+}
 
-<h3>EventDetailPage @Id</h3>
 
 @code {
     [Parameter]
     public int Id { get; set; }
+
+    public EventDto Event { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        Event = await _service.GetEventByIdAsync(Id);
+    }
+
 }
