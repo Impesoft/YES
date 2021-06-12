@@ -436,6 +436,134 @@ namespace YES.Server.Migrations
                             Status = 2,
                             TicketProviderId = 1,
                             VenueId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EventInfoId = 5,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EventInfoId = 6,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            EventInfoId = 7,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EventInfoId = 8,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            EventInfoId = 9,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 2
+                        },
+                        new
+                        {
+                            Id = 10,
+                            EventInfoId = 10,
+                            Status = 0,
+                            TicketProviderId = 9,
+                            VenueId = 3
+                        },
+                        new
+                        {
+                            Id = 11,
+                            EventInfoId = 11,
+                            Status = 0,
+                            TicketProviderId = 9,
+                            VenueId = 3
+                        },
+                        new
+                        {
+                            Id = 12,
+                            EventInfoId = 12,
+                            Status = 4,
+                            TicketProviderId = 9,
+                            VenueId = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            EventInfoId = 13,
+                            Status = 0,
+                            TicketProviderId = 8,
+                            VenueId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            EventInfoId = 14,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 15,
+                            EventInfoId = 15,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 16,
+                            EventInfoId = 16,
+                            Status = 4,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 17,
+                            EventInfoId = 17,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 18,
+                            EventInfoId = 18,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 19,
+                            EventInfoId = 19,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 20,
+                            EventInfoId = 20,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 5
                         });
                 });
 
@@ -516,8 +644,184 @@ namespace YES.Server.Migrations
                             Description = "Wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventId = 4,
                             MaxAvailableTickets = 50,
-                            Name = "UITGESTELD: Terras Sessie: Joni Sheila",
+                            Name = "POSTPONED: Terras Sessie: Joni Sheila",
                             WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2791/b221696a05bb3ce32d2748f7734efaeac6f0e44c/billboard.jpg",
+                            Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!",
+                            EventDate = new DateTime(2021, 7, 18, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 5,
+                            MaxAvailableTickets = 1000,
+                            Name = "Kommil Foo",
+                            WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2791/b221696a05bb3ce32d2748f7734efaeac6f0e44c/billboard.jpg",
+                            Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!",
+                            EventDate = new DateTime(2021, 7, 19, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 6,
+                            MaxAvailableTickets = 1000,
+                            Name = "Kommil Foo",
+                            WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2946/58d62f6c31062dda0be21c3983929ea88d9fb007/billboard.jpg",
+                            Description = "De gloednieuwe, 11e solovoorstelling van de Schotse internationale comedy superster komt, vlak na zijn baanbrekende wereldsucces ‘Daniel Sloss: X’, naar Capitole Gent en Stadsschouwburg Antwerpen.",
+                            EventDate = new DateTime(2021, 10, 3, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 7,
+                            MaxAvailableTickets = 2000,
+                            Name = "Daniel Sloss",
+                            WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/daniel-sloss"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2641/cd1db8d0178c3381b07c6f9691965af3d3591763/billboard.jpg",
+                            Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
+                            EventDate = new DateTime(2021, 9, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 8,
+                            MaxAvailableTickets = 1000,
+                            Name = "An Evening with Alex Agnew",
+                            WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2641/cd1db8d0178c3381b07c6f9691965af3d3591763/billboard.jpg",
+                            Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
+                            EventDate = new DateTime(2021, 9, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 9,
+                            MaxAvailableTickets = 1000,
+                            Name = "An Evening with Alex Agnew",
+                            WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BannerImgUrl = "https://www.trixonline.be/images/events/detail/liligrace-web.png",
+                            Description = "Lili Grace, dat zijn de zussen Nelle en Dienne, en zij doen ongemeen boeiende dingen met twee stemmen, cello, keyboards en electronica. Met hun dark-pop haalden ze in 2012 de finale van Humo's Rock Rally en deden ze voorprogramma's voor onder meer Trentemøller, CocoRosie en Nils Frahm.",
+                            EventDate = new DateTime(2021, 6, 24, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 10,
+                            MaxAvailableTickets = 50,
+                            Name = "Lili Grace / Rooftop Concert",
+                            WebsiteUrl = "https://www.trixonline.be/nl/programma/lili-grace/2756/"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BannerImgUrl = "https://www.trixonline.be/images/lightbox/15070028-min-scaled.jpg",
+                            Description = "Donkere, hypnotiserende pop uit de UK. Meng The Killers met U2 en je krijgt een soort beschrijving van hun sound (StuBru)",
+                            EventDate = new DateTime(2021, 9, 25, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 11,
+                            MaxAvailableTickets = 500,
+                            Name = "The Howl And The Hum",
+                            WebsiteUrl = "https://www.trixonline.be/nl/programma/the-howl-and-the-hum/2713/"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BannerImgUrl = "https://www.trixonline.be/images/lightbox/the-armedall-eight.jpg",
+                            Description = "Dit concert is afgelast. Alle tickets worden automatisch terugbetaald.",
+                            EventDate = new DateTime(2021, 10, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 12,
+                            MaxAvailableTickets = 500,
+                            Name = "CANCELLED: The Armed",
+                            WebsiteUrl = "https://www.trixonline.be/nl/programma/the-armed/2723/"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/68947152_10156578134447644_7759879836461432832_n.png?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=IDm1dnxmhosAX-EYdU6&_nc_ht=scontent-bru2-1.xx&oh=18d225698aa70604374adbaf32077950&oe=60CA125B",
+                            Description = "VJ Ward in the Mix",
+                            EventDate = new DateTime(2021, 9, 10, 1, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            MaxAvailableTickets = 100,
+                            Name = "VJ Ward",
+                            WebsiteUrl = "https://www.facebook.com/Dj.Ward.Impe/"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/68947152_10156578134447644_7759879836461432832_n.png?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=IDm1dnxmhosAX-EYdU6&_nc_ht=scontent-bru2-1.xx&oh=18d225698aa70604374adbaf32077950&oe=60CA125B",
+                            Description = "Na lang anticiperen krijgt VJ Ward een kans zich op het grote podium te bewijzen. Dit jonge talent draait overal de pannen van het dak, mis deze kans dus niet want de plaatsen zijn beperkt.",
+                            EventDate = new DateTime(2021, 10, 10, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 14,
+                            MaxAvailableTickets = 10000,
+                            Name = "VJ Ward / eLiXir on Tour",
+                            WebsiteUrl = "https://www.facebook.com/Dj.Ward.Impe/"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/3055/2bc5d811ace73d22a3f95f204665a66dfcbfd756/billboard.jpg",
+                            Description = "Alicia Keys is terug. En hoe! Het muziekicoon met 15 GRAMMY-prijzen op haar naam kondigt vandaag haar nieuwe album ‘ALICIA’ aan met release voorzien op 20 maart bij Sony Music, en haar langverwachte terugkeer naar de podia met haar ‘ALICIA – THE WORLD TOUR’.",
+                            EventDate = new DateTime(2021, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 15,
+                            MaxAvailableTickets = 10000,
+                            Name = "Alicia Keys: The World Tour",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/alicia-keys"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2813/4bd008b389321af80580493d3cb77243d46546b3/billboard.jpg",
+                            Description = "Als gevolg van de pandemie had Iron Maiden zijn ‘Legacy of the Beast Tour 2020’ verplaatst naar juni/juli 2021. Normaal zou de band op zondag 27 juni 2021 een headlineshow spelen in het Antwerps Sportpaleis. Helaas moet de tour weer met een jaar verschoven worden. Maar niet getreurd, de band staat in 2022 opnieuw op Graspop Metal Meeting om het beste van zichzelf te geven!",
+                            EventDate = new DateTime(2021, 6, 27, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 16,
+                            MaxAvailableTickets = 10000,
+                            Name = "Iron Maiden: Legacy Of The Beast Tour",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2020-2021/iron-maiden"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2823/45f44ec618c946e96d38606d854a45af415c9b26/billboard.jpg",
+                            Description = "The Weeknd kondigt met ‘The After Hours Tour’ zijn nieuwe wereldtournee aan die op 11 juni in de VS van start gaat en in het najaar de oversteek naar Europa maakt. De tour volgt op de release van zijn nieuwe album ‘After Hours’ op 20 maart met singles “Heartless”, de oorwurm “Blinding Lights” en nieuw sinds gisteren de single “After Hours”.",
+                            EventDate = new DateTime(2022, 9, 28, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 17,
+                            MaxAvailableTickets = 23359,
+                            Name = "The Weeknd: The After Hours Tour",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/the-weeknd"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2823/45f44ec618c946e96d38606d854a45af415c9b26/billboard.jpg",
+                            Description = "The Weeknd kondigt met ‘The After Hours Tour’ zijn nieuwe wereldtournee aan die op 11 juni in de VS van start gaat en in het najaar de oversteek naar Europa maakt. De tour volgt op de release van zijn nieuwe album ‘After Hours’ op 20 maart met singles “Heartless”, de oorwurm “Blinding Lights” en nieuw sinds gisteren de single “After Hours”.",
+                            EventDate = new DateTime(2022, 9, 29, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 18,
+                            MaxAvailableTickets = 23359,
+                            Name = "The Weeknd: The After Hours Tour",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/the-weeknd"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2601/99508cf61898ece9332fcd6896bc1d5dbc840061/billboard.jpg",
+                            Description = "Na lang beraad heeft Elton John tot zijn grote spijt besloten om de Europese tourdata van zijn “Farewell Yellow Brick Road Tour” te verplaatsen, alsook de twee concerten gepland in Sportpaleis Antwerpen. Deze moeilijke beslissing is gemaakt om de veiligheid en gezondheid van zijn fans te garanderen. Elton John kijkt ernaar uit om terug te spelen voor zijn trouwe fans over de hele wereld en bedankt iedereen voor het begrip.",
+                            EventDate = new DateTime(2021, 10, 16, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 19,
+                            MaxAvailableTickets = 10000,
+                            Name = "Elton John: Farewell Yellow Brick Road Tour",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BannerImgUrl = "https://static.sportpaleisgroep.be/sportpaleis/img/events/2601/99508cf61898ece9332fcd6896bc1d5dbc840061/billboard.jpg",
+                            Description = "Na lang beraad heeft Elton John tot zijn grote spijt besloten om de Europese tourdata van zijn “Farewell Yellow Brick Road Tour” te verplaatsen, alsook de twee concerten gepland in Sportpaleis Antwerpen. Deze moeilijke beslissing is gemaakt om de veiligheid en gezondheid van zijn fans te garanderen. Elton John kijkt ernaar uit om terug te spelen voor zijn trouwe fans over de hele wereld en bedankt iedereen voor het begrip.",
+                            EventDate = new DateTime(2021, 10, 17, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 20,
+                            MaxAvailableTickets = 10000,
+                            Name = "Elton John: Farewell Yellow Brick Road Tour",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
                         });
                 });
 
@@ -549,112 +853,112 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 975, DateTimeKind.Local).AddTicks(385),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 160, DateTimeKind.Local).AddTicks(3113),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6385),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3050),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6420),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3090),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6425),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3096),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6427),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3099),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6430),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3102),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6432),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3105),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6435),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3109),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6437),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3112),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 10,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6439),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3116),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6443),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3122),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6445),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3125),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6447),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3128),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6450),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3133),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6452),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3136),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 9, 11, 50, 976, DateTimeKind.Local).AddTicks(6454),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 11, 58, 54, 162, DateTimeKind.Local).AddTicks(3140),
                             EventId = 1,
                             TicketCustomerId = 5
                         });
