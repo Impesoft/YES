@@ -1,30 +1,26 @@
-﻿<div class="row list-item align-middle">
-    <div class="col-3">
-        @if (Event.EventInfo.EventDate > DateTime.MinValue)
-        {
-            @Event.EventInfo.EventDate.ToShortDateString()
-        }
-        else
-        {
-            @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@tba
-        }
-    </div>
-    <div class="col-3">
-        @Event.EventInfo.Name
-    </div>
-    <div class="col-3">
-        @if (@Event.Status != "Default")
-        {
-        <span class="text-warning">@Event.Status</span>
-        }
-    </div>
-    <div class="col-3">
-        <button class="btn btn-dark float-end" @onclick="() => EventInfo.InvokeAsync(Event)">
-        Info
-        </button>
-    </div>   
-</div>
-
+﻿       
+       <div class="row list-item align-middle" @onclick="() => EventInfo.InvokeAsync(Event)">
+           <div class="col-12 col-sm-2 col-md-2 col-lg-1">
+               @if (Event.EventInfo.EventDate > DateTime.MinValue)
+               {
+                   @Event.EventInfo.EventDate.ToString("dd-MM-yyyy");
+               }
+               else
+               {
+                   @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@tba
+               }
+           </div>
+           <div class="col-12 col-sm-8 col-md-8 col-lg-10">
+               @Event.EventInfo.Name
+           </div>
+           <div class="col-12 col-sm-2 col-md-2 col-lg-1">
+               @if (@Event.Status != "Default")
+               {
+                   <span class="text-warning float-end">@Event.Status</span>
+               }
+           </div>
+       </div>
+       
 
 @code {
         [Parameter]

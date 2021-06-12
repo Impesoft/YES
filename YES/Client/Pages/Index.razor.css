@@ -2,21 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc( 100vh - 5.5rem);
+    height: 100vh;
     max-width: 100%;
-    background-image: url("images/page-bg.jpg");    
+    background-image: url("images/page-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom center;
 }
 
 section {
-    width: 80vw;    
-    background: rgba(0,0,0,.7) ;
+    width: 80vw;
+    background: rgba(0,0,0,.7);
     border-radius: 3px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 20px;
-    
-    
 }
 
 .card-row {
