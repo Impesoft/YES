@@ -3,15 +3,13 @@
 
 <div class="page-background">
     <section>
-        <h2 class="mb-5">Events</h2>
+        <h2 class="mb-3">Events</h2>
         @if (_events != null)
         {
-            <div class="alternator">
+            <div class="scrollable">
                 @foreach (EventDto eventDto in _events)
                 {
-
                     <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
-
                 }
             </div>
                 }
