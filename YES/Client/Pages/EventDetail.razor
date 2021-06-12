@@ -1,12 +1,18 @@
 ﻿@page "/EventDetail/{Id:int}"
 @inject IEventService _service
-@if (Event == null)
+@if (Event != null)
 {
-    <p>No Event found</p>
+    <div class="">
+        <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl)">
+            <h3>@Event.EventInfo.Name</h3>
+        </div>
+        
+        
+    </div>
 }
 else
 {
-    <h3>@Event.EventInfo.Name</h3>
+    <p>No Event found</p>
 }
 
 
