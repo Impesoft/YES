@@ -6,9 +6,22 @@
         <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl)">
             <h3>@Event.EventInfo.Name</h3>
         </div>
-        
-        
+        <div class="row">
+            <div class="col-8 center">Dit Event gaat door op @Event.EventInfo.EventDate.ToLongDateString()</div>
+        </div>
+        <div class="row">
+            <div class="col-8 center">
+                <p>@Event.EventInfo.Description</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <a href="@Event.EventInfo.WebsiteUrl" class="btn btn-primary float-end">Our Site</a>
+            </div>
+        </div>>
     </div>
+
 }
 else
 {
@@ -22,7 +35,7 @@ else
 
     public EventDto Event { get; set; }
 
-    protected async override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         Event = await _service.GetEventByIdAsync(Id);
     }
