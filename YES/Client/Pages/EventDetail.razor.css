@@ -21,11 +21,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    padding: 0px;
+    padding-bottom: 0;
+    margin: auto;
     text-align: center;
-    height: 10rem;
+    height: 9rem;
+    vertical-align: bottom;
 }
 
 .details {
     height: 94vh;
+}
+
+h3 {
+    position: relative;
+    top: 7rem;
+    ;
 }
