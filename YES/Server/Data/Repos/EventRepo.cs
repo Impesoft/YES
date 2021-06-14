@@ -14,24 +14,23 @@ namespace YES.Server.Data.Repos
 
         public async Task<IEnumerable<Event>> GetEventsAsync()
         {
-            //return await _context.Events
-            //                     .Include(x => x.EventInfo)
-            //                     .Include(x => x.TicketProvider)
-            //                     .Include(x => x.Venue)
-            //                     .ThenInclude(x => x.Address)
-            //                     .ToListAsync();
-            return null;
+            return await _context.Events
+                                 .Include(x => x.EventInfo)
+                                 .Include(x => x.TicketProvider)
+                                 .Include(x => x.Venue)
+                                 .ThenInclude(x => x.Address)
+                                 .Include(x => x.TicketCategories)
+                                 .ToListAsync();
         }
 
         public async Task<Event> GetEventByIdAsync(int id)
         {
-            //return await _context.Events
-            //                     .Include(x => x.EventInfo)
-            //                     .Include(x => x.TicketProvider)
-            //                     .Include(x => x.Venue)
-            //                     .ThenInclude(x => x.Address)
-            //                     .FirstOrDefaultAsync(x => x.Id == id);
-            return null;
+            return await _context.Events
+                                 .Include(x => x.EventInfo)
+                                 .Include(x => x.TicketProvider)
+                                 .Include(x => x.Venue)
+                                 .ThenInclude(x => x.Address)
+                                 .FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

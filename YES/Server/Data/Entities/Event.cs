@@ -11,6 +11,7 @@ namespace YES.Server.Data.Entities
         [Required]
         [ForeignKey("Venue")]
         public int VenueId { get; set; }
+        public Venue Venue { get; set; }
 
         [Required]
         [ForeignKey("TicketProvider")]
@@ -21,7 +22,7 @@ namespace YES.Server.Data.Entities
         [Required]
         public Status Status { get; set; }
 
-        public virtual ICollection<TicketCategory> TicketCategories { get; set; }
         public virtual EventInfo EventInfo { get; set; }
+        public virtual ICollection<TicketCategory> TicketCategories { get; set; }
     }
 }
