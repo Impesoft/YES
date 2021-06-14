@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace YES.Shared.Dto
 {
     public class EventDto
@@ -8,5 +9,6 @@ namespace YES.Shared.Dto
         public VenueDto Venue { get; set; }
         public TicketProviderDto TicketProvider { get; set; }
         public EventInfoDto EventInfo { get; set; }
+        public ICollection<TicketCategoryDto> TicketCategories { get; set; }
     }
 }

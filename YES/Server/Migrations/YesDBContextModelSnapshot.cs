@@ -2489,13 +2489,15 @@ namespace YES.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("YES.Server.Data.Entities.Venue", null)
+                    b.HasOne("YES.Server.Data.Entities.Venue", "Venue")
                         .WithMany("Events")
                         .HasForeignKey("VenueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("TicketProvider");
+
+                    b.Navigation("Venue");
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.EventInfo", b =>
