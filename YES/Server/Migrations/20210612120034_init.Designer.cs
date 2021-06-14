@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YES.Server.Data.Database;
 
 namespace YES.Server.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    partial class YesDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210612120034_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1537,112 +1539,112 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 637, DateTimeKind.Local).AddTicks(9994),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 445, DateTimeKind.Local).AddTicks(206),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9437),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9857),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9467),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9892),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9473),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9898),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9476),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9901),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9479),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9904),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9484),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9906),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9487),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9910),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9491),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9913),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
-                            Id = 10
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9494),
+                            Id = 10,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9915),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9497),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9919),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9501),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9921),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9504),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9924),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9507),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9927),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9510),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9930),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9512),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 14, 0, 33, 446, DateTimeKind.Local).AddTicks(9933),
                             EventId = 1,
                             TicketCustomerId = 5
                         });
@@ -2105,6 +2107,9 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
@@ -2120,60 +2125,70 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
+                            AddressId = 0,
                             Capacity = 1110,
                             Name = "Kunstencentrum Vooruit"
                         },
                         new
                         {
                             Id = 2,
+                            AddressId = 0,
                             Capacity = 2000,
                             Name = "Capitole Gent"
                         },
                         new
                         {
                             Id = 3,
+                            AddressId = 0,
                             Capacity = 1500,
                             Name = "Trix"
                         },
                         new
                         {
                             Id = 4,
+                            AddressId = 0,
                             Capacity = 200,
                             Name = "eLiXir Dance & Night Club"
                         },
                         new
                         {
                             Id = 5,
+                            AddressId = 0,
                             Capacity = 23359,
                             Name = "Sportpaleis"
                         },
                         new
                         {
                             Id = 6,
+                            AddressId = 0,
                             Capacity = 200000,
                             Name = "Tomorrowland"
                         },
                         new
                         {
                             Id = 7,
+                            AddressId = 0,
                             Capacity = 100000,
                             Name = "Rock Werchter"
                         },
                         new
                         {
                             Id = 8,
+                            AddressId = 0,
                             Capacity = 60000,
                             Name = "Couleur Café"
                         },
                         new
                         {
                             Id = 9,
+                            AddressId = 0,
                             Capacity = 100000,
                             Name = "Pukkelpop"
                         },
                         new
                         {
                             Id = 10,
+                            AddressId = 0,
                             Capacity = 60000,
                             Name = "Extrema Outdoor"
                         });
