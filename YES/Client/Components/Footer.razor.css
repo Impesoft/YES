@@ -1,7 +1,7 @@
 ﻿footer {
     height: 2rem;
-}
-
-.footer-container {
-    max-width: 80vw;
+    background: rgba(0, 0, 0, 0.96);
+    color: var(--dark);
+    text-align: center;
+    
 }
