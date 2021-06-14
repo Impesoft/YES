@@ -28,10 +28,6 @@
     vertical-align: bottom;
 }
 
-.details {
-    height: 94vh;
-}
-
 h3 {
     position: relative;
     top: 9rem;
@@ -40,4 +36,31 @@ h3 {
 
 .event-date{
     color: cornflowerblue;
+}
+
+section {
+    margin: 150px auto;
+    width: 90vw;
+    background: rgba(0,0,0,.4);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 20px;
+    color: white;
+    max-height: 75vh;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.center-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.event-date-line {
+    border-bottom: 1px dashed #2b2b2b;
+    padding-bottom: 10px;
+}
+
+.btn {
+    width: 150px;
+    margin: 5px;
 }
