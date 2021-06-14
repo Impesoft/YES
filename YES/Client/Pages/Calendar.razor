@@ -1,38 +1,29 @@
 ﻿@page "/Calendar"
-<div class="page">
+@inject NavigationManager navigationManager
 
-    @*<div class="sidebar">
-        <NavMenu />
-    </div>*@
-    <div class="page-background">
-
-        <section>
-            <h3 class="mb-4">Events</h3>
-            <div class="my-2 font-italic">
-                June
-            </div>
-
-            @if (_events != null)
-            {
-                @foreach (EventDto item in _events)
+<div class="page-background">
+    <section>
+        <h2 class="mb-3">Events</h2>
+        @if (_events != null)
+        {
+            <div class="scrollable">
+                @foreach (EventDto eventDto in _events)
                 {
-                    <EventList Event="item" />
+                    <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
                 }
-            }
-            else
-            {
-                <p>No events found.</p>
-            }
-
-            <div class="my-2 font-italic">
-                July
             </div>
-        </section>
-    </div>
+                }
+                else
+                {
+                <p>No events found.</p>
+                }
+
+            </section>
 </div>
 
 @code {
     private IEnumerable<EventDto> _events;
+    private string test = "";
 
     [Inject]
     private IEventService _service { get; set; }
@@ -40,6 +31,19 @@
     protected override async Task OnInitializedAsync()
     {
         _events = await _service.GetEventsAsync();
-
+        
     }
+
+    private void ShowEventInfo(EventDto eventDto)
+    {
+
+        navigationManager.NavigateTo($"/EventDetail/{eventDto.Id}");
+    }
+
+    private void SortEventsByDate()
+    {
+        _events.OrderBy(x => x.EventInfo.EventDate);
+    }
+
+
 }

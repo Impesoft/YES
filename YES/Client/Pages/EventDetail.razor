@@ -1,0 +1,61 @@
+﻿@page "/EventDetail/{Id:int}"
+@inject IEventService _service
+@if (Event != null)
+{
+    <div class="py-5 bg-dark text-light details">
+        <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
+        </div>
+        <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
+            <h3>@Event.EventInfo.Name</h3>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 center">
+                <p>
+                Last Planned Date:   @if (Event.EventInfo.EventDate > DateTime.MinValue)
+                                   {
+                                       @Event.EventInfo.EventDate.ToLongDateString()
+                                   }
+                                   else
+                                   {
+                                       @:&nbsp;To Be Announced
+                                   }
+                </p>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 center">
+                <p>@Event.EventInfo.Description</p>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary">Our Site</a>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+}
+else
+{
+    <p>No Event found</p>
+}
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    public EventDto Event { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Event = await _service.GetEventByIdAsync(Id);
+    }
+
+}
