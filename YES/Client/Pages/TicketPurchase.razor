@@ -1,27 +1,81 @@
 ﻿@page "/TicketPurchase/{Id:int}"
 @inject IEventService _service
 
-@if (Event != null)
-{
-    <h3>TicketPurchase for @Event.EventInfo.Name</h3>
-
-    <p>
-       Aantal beschikbare tickets: @Event.EventInfo.MaxAvailableTickets
-    </p>
-}
-else
-            {
-               <p>No events found.</p>
-            }
-
-    @code {
-        [Parameter]
-        public int Id { get; set; }
-
-        public EventDto Event { get; set; }
-
-        protected override async Task OnInitializedAsync()
+<div class="page-background">
+    <section>
+        @if (Event != null)
         {
-            Event = await _service.GetEventByIdAsync(Id);
+            <h3>Ticket Purchase for @Event.EventInfo.Name</h3>
+
+            <p>
+                Aantal beschikbare tickets: @Event.EventInfo.MaxAvailableTickets
+            </p>
         }
+        else
+        {
+            <p>No events found.</p>
+        }
+        
+        @* <form> *@
+        @*     <div class="row"> *@
+        @*         <div class="col"> *@
+        @*             <div class="mb-3"> *@
+        @*                 <label for="vip" class="form-label">VIP</label> *@
+        @*                 <input type="number" class="form-control" id="vip"> *@
+        @*             </div> *@
+        @*             <div class="mb-3"> *@
+        @*                 <label for="standing" class="form-label">Standing place</label> *@
+        @*                 <input type="number" class="form-control" id="standing"> *@
+        @*             </div> *@
+        @*             <div class="mb-3"> *@
+        @*                 <label for="seated" class="form-label">Seated</label> *@
+        @*                 <input type="number" class="form-control" id="seated"> *@
+        @*             </div> *@
+        @*             <button type="submit" class="btn btn-primary">Submit</button> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </form> *@
+        
+        <form>
+            <table class="table table-dark table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>VIP</td>
+                    <td><input type="number" class="form-control" id="vip"></td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Standing</td>
+                    <td><input type="number" class="form-control" id="standing"></td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Seated</td>
+                    <td><input type="number" class="form-control" id="seated"></td>
+                    <td>100</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        
+    </section>
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    public EventDto Event { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Event = await _service.GetEventByIdAsync(Id);
     }
+}
