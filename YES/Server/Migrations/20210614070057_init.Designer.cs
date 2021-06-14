@@ -10,7 +10,7 @@ using YES.Server.Data.Database;
 namespace YES.Server.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    [Migration("20210612181224_init")]
+    [Migration("20210614070057_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -566,6 +566,294 @@ namespace YES.Server.Migrations
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 21,
+                            EventInfoId = 21,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EventInfoId = 22,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 5
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EventInfoId = 23,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 24,
+                            EventInfoId = 24,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 25,
+                            EventInfoId = 25,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 26,
+                            EventInfoId = 26,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 27,
+                            EventInfoId = 27,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 28,
+                            EventInfoId = 28,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 29,
+                            EventInfoId = 29,
+                            Status = 0,
+                            TicketProviderId = 5,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 30,
+                            EventInfoId = 30,
+                            Status = 0,
+                            TicketProviderId = 5,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 31,
+                            EventInfoId = 31,
+                            Status = 0,
+                            TicketProviderId = 5,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 32,
+                            EventInfoId = 32,
+                            Status = 0,
+                            TicketProviderId = 5,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 33,
+                            EventInfoId = 33,
+                            Status = 0,
+                            TicketProviderId = 6,
+                            VenueId = 10
+                        },
+                        new
+                        {
+                            Id = 34,
+                            EventInfoId = 34,
+                            Status = 0,
+                            TicketProviderId = 6,
+                            VenueId = 10
+                        },
+                        new
+                        {
+                            Id = 35,
+                            EventInfoId = 35,
+                            Status = 0,
+                            TicketProviderId = 6,
+                            VenueId = 10
+                        },
+                        new
+                        {
+                            Id = 36,
+                            EventInfoId = 36,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 37,
+                            EventInfoId = 37,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 38,
+                            EventInfoId = 38,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 39,
+                            EventInfoId = 39,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 40,
+                            EventInfoId = 40,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 41,
+                            EventInfoId = 41,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 42,
+                            EventInfoId = 42,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 43,
+                            EventInfoId = 43,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 44,
+                            EventInfoId = 44,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 45,
+                            EventInfoId = 45,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 46,
+                            EventInfoId = 46,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 47,
+                            EventInfoId = 47,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 48,
+                            EventInfoId = 48,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 49,
+                            EventInfoId = 49,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 50,
+                            EventInfoId = 50,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 51,
+                            EventInfoId = 51,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 52,
+                            EventInfoId = 52,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 53,
+                            EventInfoId = 53,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 54,
+                            EventInfoId = 54,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 55,
+                            EventInfoId = 55,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 56,
+                            EventInfoId = 56,
+                            Status = 0,
+                            TicketProviderId = 3,
+                            VenueId = 9
                         });
                 });
 
@@ -646,7 +934,7 @@ namespace YES.Server.Migrations
                             Description = "Wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventId = 4,
                             MaxAvailableTickets = 50,
-                            Name = "POSTPONED: Terras Sessie: Joni Sheila",
+                            Name = "Terras Sessie: Joni Sheila",
                             WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
                         },
                         new
@@ -734,7 +1022,7 @@ namespace YES.Server.Migrations
                             EventDate = new DateTime(2021, 10, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 12,
                             MaxAvailableTickets = 500,
-                            Name = "CANCELLED: The Armed",
+                            Name = "The Armed",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/the-armed/2723/"
                         },
                         new
@@ -824,6 +1112,402 @@ namespace YES.Server.Migrations
                             MaxAvailableTickets = 10000,
                             Name = "Elton John: Farewell Yellow Brick Road Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/3019/71b8033e72484c9da1555c70d71d48567f708f87/banner.jpg",
+                            Description = "Het is nú al uitkijken naar het najaar, want Tomorrowland en Dimitri Vegas & Like Mike toveren het Antwerps Sportpaleis opnieuw om tot een magisch indoorfestival. Daarvoor halen ze alles uit de kast: het beloven (voor de achtste keer al!) twee waanzinnig spectaculaire avonden te worden met de grootste hits maar ook heel wat nieuwe muziek én een vleugje Tomorrowland magie.",
+                            EventDate = new DateTime(2021, 12, 17, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 21,
+                            MaxAvailableTickets = 23359,
+                            Name = "Tomorrowland presents: Dimitri Vegas & Like Mike Garden of Madness",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/tomorrowland-presents-dimitri-vegas--like-mike"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/3019/71b8033e72484c9da1555c70d71d48567f708f87/banner.jpg",
+                            Description = "Het is nú al uitkijken naar het najaar, want Tomorrowland en Dimitri Vegas & Like Mike toveren het Antwerps Sportpaleis opnieuw om tot een magisch indoorfestival. Daarvoor halen ze alles uit de kast: het beloven (voor de achtste keer al!) twee waanzinnig spectaculaire avonden te worden met de grootste hits maar ook heel wat nieuwe muziek én een vleugje Tomorrowland magie.",
+                            EventDate = new DateTime(2021, 12, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 22,
+                            MaxAvailableTickets = 23359,
+                            Name = "Tomorrowland presents: Dimitri Vegas & Like Mike Garden of Madness",
+                            WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/tomorrowland-presents-dimitri-vegas--like-mike"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 8, 27, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 23,
+                            MaxAvailableTickets = 200000,
+                            Name = "Tomorrowland (Weekend 1: Day 1)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 8, 28, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 24,
+                            MaxAvailableTickets = 200000,
+                            Name = "Tomorrowland (Weekend 1: Day 2)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 8, 29, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 25,
+                            MaxAvailableTickets = 200000,
+                            Name = "Tomorrowland (Weekend 1: Day 3)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 9, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 26,
+                            MaxAvailableTickets = 200000,
+                            Name = "Tomorrowland (Weekend 2: Day 1)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 9, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 27,
+                            MaxAvailableTickets = 200000,
+                            Name = "Tomorrowland (Weekend 2: Day 2)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 9, 5, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 28,
+                            MaxAvailableTickets = 200000,
+                            Name = "Tomorrowland (Weekend 2: Day 3)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
+                            EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 29,
+                            MaxAvailableTickets = 75000,
+                            Name = "Pukkelpop (Day 1)",
+                            WebsiteUrl = "https://www.pukkelpop.be/en/"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
+                            EventDate = new DateTime(2021, 9, 20, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 30,
+                            MaxAvailableTickets = 75000,
+                            Name = "Pukkelpop (Day 2)",
+                            WebsiteUrl = "https://www.pukkelpop.be/en/"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
+                            EventDate = new DateTime(2021, 9, 21, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 31,
+                            MaxAvailableTickets = 75000,
+                            Name = "Pukkelpop (Day 3)",
+                            WebsiteUrl = "https://www.pukkelpop.be/en/"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
+                            EventDate = new DateTime(2021, 9, 22, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 32,
+                            MaxAvailableTickets = 75000,
+                            Name = "Pukkelpop (Day 4)",
+                            WebsiteUrl = "https://www.pukkelpop.be/en/"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
+                            EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 33,
+                            MaxAvailableTickets = 60000,
+                            Name = "Extrema Outdoor Extra: September edition (Day 1)",
+                            WebsiteUrl = "https://extrema.be"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
+                            EventDate = new DateTime(2021, 9, 18, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 34,
+                            MaxAvailableTickets = 60000,
+                            Name = "Extrema Outdoor Extra: September edition (Day 2)",
+                            WebsiteUrl = "https://extrema.be"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
+                            EventDate = new DateTime(2021, 9, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 35,
+                            MaxAvailableTickets = 60000,
+                            Name = "Extrema Outdoor Extra: September edition (Day 3)",
+                            WebsiteUrl = "https://extrema.be"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 1, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 36,
+                            MaxAvailableTickets = 2500,
+                            Name = "Balthazar + Sohnarr | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 2, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 37,
+                            MaxAvailableTickets = 2500,
+                            Name = "Goose | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 3, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 38,
+                            MaxAvailableTickets = 2500,
+                            Name = "Arsenal + Tin Fingers | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 4, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 39,
+                            MaxAvailableTickets = 2500,
+                            Name = "Lil Kleine + Ronnie Flex & The Fam | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 8, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 40,
+                            MaxAvailableTickets = 2500,
+                            Name = "Bazart + Yong Yello | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 9, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 41,
+                            MaxAvailableTickets = 2500,
+                            Name = "Gabriel Rios + Eefje De Visser + Emmy D'Arc | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 10, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 42,
+                            MaxAvailableTickets = 2500,
+                            Name = "Bart Peeters & De Ideale Mannen | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 11, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 43,
+                            MaxAvailableTickets = 2500,
+                            Name = "Tourist LeMC | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 44,
+                            MaxAvailableTickets = 2500,
+                            Name = "Goose + Glints | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 45,
+                            MaxAvailableTickets = 2500,
+                            Name = "Blackwave. + Charles + Emma Bale ",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 17, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 46,
+                            MaxAvailableTickets = 2500,
+                            Name = "De Mens + Ruben Block | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 18, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 47,
+                            MaxAvailableTickets = 2500,
+                            Name = "Regi Live + Cleymans & Van Geel | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 48,
+                            MaxAvailableTickets = 2500,
+                            Name = "Jasper Steverlinck + Portland | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 22, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 49,
+                            MaxAvailableTickets = 2500,
+                            Name = "Alex Agnew | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 23, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 50,
+                            MaxAvailableTickets = 2500,
+                            Name = "Zwangere Guy + Miss Angel + Chibi Ichigo | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 24, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 51,
+                            MaxAvailableTickets = 2500,
+                            Name = "Whispering Sons + Millionaire | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 25, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 52,
+                            MaxAvailableTickets = 2500,
+                            Name = "Snelle & De Lieve Jongens Band | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 29, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 53,
+                            MaxAvailableTickets = 2500,
+                            Name = "Bart Peters & De Ideale Mannen | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 30, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 54,
+                            MaxAvailableTickets = 2500,
+                            Name = "Selah Sue + Meskerem Mees + TheColorGrey + Sam De Neef | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 8, 31, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 55,
+                            MaxAvailableTickets = 2500,
+                            Name = "Niels Destadsbader | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            BannerImgUrl = "https://s1.ticketm.net/img/tat/dam/a/1b9/c2033d50-a83a-4163-b9da-441c5aa7d1b9_1434371_CUSTOM.jpg",
+                            Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
+                            EventDate = new DateTime(2021, 9, 1, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 56,
+                            MaxAvailableTickets = 2500,
+                            Name = "Black Box Revelation + Brutus + Equal Idiots + Stake + KillTheLogo | Werchter Parklife",
+                            WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         });
                 });
 
@@ -855,112 +1539,112 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 637, DateTimeKind.Local).AddTicks(9994),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 900, DateTimeKind.Local).AddTicks(3047),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9437),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8128),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9467),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8157),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9473),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8161),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9476),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8163),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9479),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8166),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9484),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8168),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9487),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8171),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9491),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8173),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 10,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9494),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8176),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9497),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8178),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9501),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8180),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9504),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8183),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9507),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8185),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9510),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8187),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 12, 20, 12, 23, 639, DateTimeKind.Local).AddTicks(9512),
+                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 0, 56, 901, DateTimeKind.Local).AddTicks(8190),
                             EventId = 1,
                             TicketCustomerId = 5
                         });
