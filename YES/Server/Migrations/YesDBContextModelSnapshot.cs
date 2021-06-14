@@ -1680,7 +1680,7 @@ namespace YES.Server.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TicketCategoryId")
+                    b.Property<int>("TicketCategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("TicketCustomerId")
@@ -1702,6 +1702,7 @@ namespace YES.Server.Migrations
                             Id = 1,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 1
                         },
                         new
@@ -1709,6 +1710,7 @@ namespace YES.Server.Migrations
                             Id = 2,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 1
                         },
                         new
@@ -1716,6 +1718,7 @@ namespace YES.Server.Migrations
                             Id = 3,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 1
                         },
                         new
@@ -1723,6 +1726,7 @@ namespace YES.Server.Migrations
                             Id = 4,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 1
                         },
                         new
@@ -1730,6 +1734,7 @@ namespace YES.Server.Migrations
                             Id = 5,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 1
                         },
                         new
@@ -1737,6 +1742,7 @@ namespace YES.Server.Migrations
                             Id = 6,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 2
                         },
                         new
@@ -1744,6 +1750,7 @@ namespace YES.Server.Migrations
                             Id = 7,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 2
                         },
                         new
@@ -1751,6 +1758,7 @@ namespace YES.Server.Migrations
                             Id = 8,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 3
                         },
                         new
@@ -1758,6 +1766,7 @@ namespace YES.Server.Migrations
                             Id = 9,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 3
                         },
                         new
@@ -1765,6 +1774,7 @@ namespace YES.Server.Migrations
                             Id = 10,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 3
                         },
                         new
@@ -1772,6 +1782,7 @@ namespace YES.Server.Migrations
                             Id = 11,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 3
                         },
                         new
@@ -1779,6 +1790,7 @@ namespace YES.Server.Migrations
                             Id = 12,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 4
                         },
                         new
@@ -1786,6 +1798,7 @@ namespace YES.Server.Migrations
                             Id = 13,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 4
                         },
                         new
@@ -1793,6 +1806,7 @@ namespace YES.Server.Migrations
                             Id = 14,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 5
                         },
                         new
@@ -1800,6 +1814,7 @@ namespace YES.Server.Migrations
                             Id = 15,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 5
                         },
                         new
@@ -1807,6 +1822,7 @@ namespace YES.Server.Migrations
                             Id = 16,
                             DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
+                            TicketCategoryId = 1,
                             TicketCustomerId = 5
                         },
                         new
@@ -1814,6 +1830,7 @@ namespace YES.Server.Migrations
                             Id = 17,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 1
                         },
                         new
@@ -1821,6 +1838,7 @@ namespace YES.Server.Migrations
                             Id = 18,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 1
                         },
                         new
@@ -1828,6 +1846,7 @@ namespace YES.Server.Migrations
                             Id = 19,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 1
                         },
                         new
@@ -1835,6 +1854,7 @@ namespace YES.Server.Migrations
                             Id = 20,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 1
                         },
                         new
@@ -1842,6 +1862,7 @@ namespace YES.Server.Migrations
                             Id = 21,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 3
                         },
                         new
@@ -1849,6 +1870,7 @@ namespace YES.Server.Migrations
                             Id = 22,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 3
                         },
                         new
@@ -1856,6 +1878,7 @@ namespace YES.Server.Migrations
                             Id = 23,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 3
                         },
                         new
@@ -1863,6 +1886,7 @@ namespace YES.Server.Migrations
                             Id = 24,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 3
                         },
                         new
@@ -1870,6 +1894,7 @@ namespace YES.Server.Migrations
                             Id = 25,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 4
                         },
                         new
@@ -1877,6 +1902,7 @@ namespace YES.Server.Migrations
                             Id = 26,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 4
                         },
                         new
@@ -1884,6 +1910,7 @@ namespace YES.Server.Migrations
                             Id = 27,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 5
                         },
                         new
@@ -1891,6 +1918,7 @@ namespace YES.Server.Migrations
                             Id = 28,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 5
                         },
                         new
@@ -1898,6 +1926,7 @@ namespace YES.Server.Migrations
                             Id = 29,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 5
                         },
                         new
@@ -1905,6 +1934,7 @@ namespace YES.Server.Migrations
                             Id = 30,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 16,
                             TicketCustomerId = 5
                         },
                         new
@@ -1912,6 +1942,7 @@ namespace YES.Server.Migrations
                             Id = 31,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 6
                         },
                         new
@@ -1919,6 +1950,7 @@ namespace YES.Server.Migrations
                             Id = 32,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 7
                         },
                         new
@@ -1926,6 +1958,7 @@ namespace YES.Server.Migrations
                             Id = 33,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 8
                         },
                         new
@@ -1933,6 +1966,7 @@ namespace YES.Server.Migrations
                             Id = 34,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 8
                         },
                         new
@@ -1940,6 +1974,7 @@ namespace YES.Server.Migrations
                             Id = 35,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 9
                         },
                         new
@@ -1947,6 +1982,7 @@ namespace YES.Server.Migrations
                             Id = 36,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 9
                         },
                         new
@@ -1954,6 +1990,7 @@ namespace YES.Server.Migrations
                             Id = 37,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 10
                         },
                         new
@@ -1961,6 +1998,7 @@ namespace YES.Server.Migrations
                             Id = 38,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 11
                         },
                         new
@@ -1968,6 +2006,7 @@ namespace YES.Server.Migrations
                             Id = 39,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 12
                         },
                         new
@@ -1975,6 +2014,7 @@ namespace YES.Server.Migrations
                             Id = 40,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 12
                         },
                         new
@@ -1982,6 +2022,7 @@ namespace YES.Server.Migrations
                             Id = 41,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 13
                         },
                         new
@@ -1989,6 +2030,7 @@ namespace YES.Server.Migrations
                             Id = 42,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 13
                         },
                         new
@@ -1996,6 +2038,7 @@ namespace YES.Server.Migrations
                             Id = 43,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 13
                         },
                         new
@@ -2003,6 +2046,7 @@ namespace YES.Server.Migrations
                             Id = 44,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 14
                         },
                         new
@@ -2010,6 +2054,7 @@ namespace YES.Server.Migrations
                             Id = 45,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 15
                         },
                         new
@@ -2017,6 +2062,7 @@ namespace YES.Server.Migrations
                             Id = 46,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 16
                         },
                         new
@@ -2024,6 +2070,7 @@ namespace YES.Server.Migrations
                             Id = 47,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 16
                         },
                         new
@@ -2031,6 +2078,7 @@ namespace YES.Server.Migrations
                             Id = 48,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 16
                         },
                         new
@@ -2038,6 +2086,7 @@ namespace YES.Server.Migrations
                             Id = 49,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 16
                         },
                         new
@@ -2045,6 +2094,7 @@ namespace YES.Server.Migrations
                             Id = 50,
                             DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
+                            TicketCategoryId = 17,
                             TicketCustomerId = 16
                         });
                 });
@@ -2210,6 +2260,158 @@ namespace YES.Server.Migrations
                             MaxAmount = 15,
                             Name = "VIP",
                             Price = 7.0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            EventId = 14,
+                            MaxAmount = 22000,
+                            Name = "regular",
+                            Price = 20.0
+                        },
+                        new
+                        {
+                            Id = 19,
+                            EventId = 14,
+                            MaxAmount = 1000,
+                            Name = "hot ticket",
+                            Price = 30.0
+                        },
+                        new
+                        {
+                            Id = 20,
+                            EventId = 14,
+                            MaxAmount = 50,
+                            Name = "VIP Meet & Greet package",
+                            Price = 55.0
+                        },
+                        new
+                        {
+                            Id = 21,
+                            EventId = 15,
+                            MaxAmount = 22000,
+                            Name = "regular",
+                            Price = 75.0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EventId = 15,
+                            MaxAmount = 930,
+                            Name = "hot ticket",
+                            Price = 149.0
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EventId = 15,
+                            MaxAmount = 100,
+                            Name = "gold lounge package",
+                            Price = 319.0
+                        },
+                        new
+                        {
+                            Id = 24,
+                            EventId = 15,
+                            MaxAmount = 20,
+                            Name = "VIP Meet & Greet package",
+                            Price = 819.0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            EventId = 17,
+                            MaxAmount = 10000,
+                            Name = "regular",
+                            Price = 43.07
+                        },
+                        new
+                        {
+                            Id = 26,
+                            EventId = 17,
+                            MaxAmount = 10000,
+                            Name = "better seats",
+                            Price = 54.259999999999998
+                        },
+                        new
+                        {
+                            Id = 27,
+                            EventId = 17,
+                            MaxAmount = 1500,
+                            Name = "hot seats",
+                            Price = 76.659999999999997
+                        },
+                        new
+                        {
+                            Id = 28,
+                            EventId = 17,
+                            MaxAmount = 700,
+                            Name = "early entry package",
+                            Price = 216.66
+                        },
+                        new
+                        {
+                            Id = 29,
+                            EventId = 17,
+                            MaxAmount = 100,
+                            Name = "silver hot ticket package",
+                            Price = 177.66
+                        },
+                        new
+                        {
+                            Id = 30,
+                            EventId = 17,
+                            MaxAmount = 100,
+                            Name = "gold hot ticket package",
+                            Price = 227.66
+                        },
+                        new
+                        {
+                            Id = 31,
+                            EventId = 18,
+                            MaxAmount = 10000,
+                            Name = "regular",
+                            Price = 43.07
+                        },
+                        new
+                        {
+                            Id = 32,
+                            EventId = 18,
+                            MaxAmount = 10000,
+                            Name = "better seats",
+                            Price = 54.259999999999998
+                        },
+                        new
+                        {
+                            Id = 33,
+                            EventId = 18,
+                            MaxAmount = 1500,
+                            Name = "hot seats",
+                            Price = 76.659999999999997
+                        },
+                        new
+                        {
+                            Id = 34,
+                            EventId = 18,
+                            MaxAmount = 700,
+                            Name = "early entry package",
+                            Price = 216.66
+                        },
+                        new
+                        {
+                            Id = 35,
+                            EventId = 18,
+                            MaxAmount = 100,
+                            Name = "silver hot ticket package",
+                            Price = 177.66
+                        },
+                        new
+                        {
+                            Id = 36,
+                            EventId = 18,
+                            MaxAmount = 100,
+                            Name = "gold hot ticket package",
+                            Price = 227.66
                         });
                 });
 
@@ -2256,8 +2458,8 @@ namespace YES.Server.Migrations
                             Email = "kobe@mail.com",
                             FirstName = "Kobe",
                             LastName = "Delobelle",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0473 288 888"
                         },
                         new
@@ -2267,8 +2469,8 @@ namespace YES.Server.Migrations
                             Email = "ward@mail.com",
                             FirstName = "Ward",
                             LastName = "Impe",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0473 422 458"
                         },
                         new
@@ -2278,8 +2480,8 @@ namespace YES.Server.Migrations
                             Email = "Pieter@mail.com",
                             FirstName = "Pieter",
                             LastName = "Corp",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0453 288 888"
                         },
                         new
@@ -2289,8 +2491,8 @@ namespace YES.Server.Migrations
                             Email = "Seba@mail.com",
                             FirstName = "Seba",
                             LastName = "Stiaan",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0485 345 349"
                         },
                         new
@@ -2300,8 +2502,8 @@ namespace YES.Server.Migrations
                             Email = "Nick@mail.com",
                             FirstName = "Nick",
                             LastName = "Angularlover",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0478 365 852"
                         },
                         new
@@ -2311,8 +2513,8 @@ namespace YES.Server.Migrations
                             Email = "Dries@mail.com",
                             FirstName = "Dries",
                             LastName = "Maes",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0432 457 896"
                         },
                         new
@@ -2322,8 +2524,8 @@ namespace YES.Server.Migrations
                             Email = "Olivia@mail.com",
                             FirstName = "Olivia",
                             LastName = "Goossens",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0478 687 138"
                         },
                         new
@@ -2333,8 +2535,8 @@ namespace YES.Server.Migrations
                             Email = "Mila@mail.com",
                             FirstName = "Mila",
                             LastName = "Vandevoorde",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0485 377 352"
                         },
                         new
@@ -2344,8 +2546,8 @@ namespace YES.Server.Migrations
                             Email = "Alice@mail.com",
                             FirstName = "Alice",
                             LastName = "Mcgregor",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0478 785 125"
                         },
                         new
@@ -2355,8 +2557,8 @@ namespace YES.Server.Migrations
                             Email = "Louise@mail.com",
                             FirstName = "Louise",
                             LastName = "Degroote",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0477 765 782"
                         },
                         new
@@ -2366,8 +2568,8 @@ namespace YES.Server.Migrations
                             Email = "Mohamed@mail.com",
                             FirstName = "Mohamed",
                             LastName = "Yilmaz",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0472 752 785"
                         },
                         new
@@ -2377,8 +2579,8 @@ namespace YES.Server.Migrations
                             Email = "Emir@mail.com",
                             FirstName = "Emir",
                             LastName = "Öztürk",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0473 478 795"
                         },
                         new
@@ -2388,8 +2590,8 @@ namespace YES.Server.Migrations
                             Email = "Kurt@mail.com",
                             FirstName = "Kurt",
                             LastName = "Debolle",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0478 140 349"
                         },
                         new
@@ -2399,8 +2601,8 @@ namespace YES.Server.Migrations
                             Email = "Arthur@mail.com",
                             FirstName = "Arthur",
                             LastName = "Vangeest",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0490 785 457"
                         },
                         new
@@ -2410,8 +2612,8 @@ namespace YES.Server.Migrations
                             Email = "Noah@mail.com",
                             FirstName = "Noah",
                             LastName = "Vanarke",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0475 850 852"
                         },
                         new
@@ -2421,8 +2623,8 @@ namespace YES.Server.Migrations
                             Email = "Victor@mail.com",
                             FirstName = "Victor",
                             LastName = "De Putte",
-                            PasswordHash = new byte[] { 2, 221, 137, 244, 164, 226, 32, 247, 142, 45, 254, 76, 113, 133, 185, 48, 189, 189, 60, 38, 31, 71, 55, 37, 75, 142, 72, 67, 87, 225, 73, 30, 224, 169, 230, 109, 55, 57, 231, 161, 1, 229, 123, 159, 13, 97, 150, 180, 75, 35, 62, 130, 25, 4, 200, 163, 202, 53, 116, 85, 19, 172, 15, 71 },
-                            PasswordSalt = new byte[] { 201, 52, 69, 53, 38, 34, 31, 88, 47, 236, 53, 43, 203, 84, 106, 240, 114, 213, 135, 157, 173, 112, 19, 13, 251, 91, 11, 120, 210, 46, 225, 253, 34, 168, 66, 141, 81, 171, 41, 90, 63, 220, 144, 94, 232, 222, 174, 11, 13, 237, 14, 3, 118, 193, 226, 12, 16, 41, 150, 225, 134, 190, 136, 105, 143, 176, 215, 69, 205, 140, 114, 165, 79, 65, 111, 228, 224, 201, 42, 54, 173, 112, 74, 174, 243, 17, 0, 6, 110, 187, 27, 122, 157, 188, 35, 175, 97, 253, 115, 238, 61, 48, 107, 206, 16, 251, 241, 168, 230, 63, 225, 6, 152, 168, 179, 15, 52, 43, 136, 76, 210, 74, 234, 11, 100, 21, 148, 20 },
+                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
+                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
                             PhoneNumber = "0488 754 752"
                         });
                 });
@@ -2465,8 +2667,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 3590 0754 7674",
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 267 28 20"
                         },
                         new
@@ -2475,8 +2677,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 7854 3585 7820",
                             Email = "info@tomorrowland.be",
                             NameProvider = "WAREONE.world bvba",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 147 27 78"
                         },
                         new
@@ -2485,8 +2687,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 7768 3578 1220",
                             Email = "info@rockwerchter.be",
                             NameProvider = "Live Nation Festivals NV",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 754 87 78"
                         },
                         new
@@ -2495,8 +2697,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE76 5455 8725 7824",
                             Email = "info@couleurcafe.be",
                             NameProvider = "Couleur Cafe",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 785 24 86"
                         },
                         new
@@ -2505,8 +2707,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE34 8792 4687 2565",
                             Email = "info@pukkelpop.be",
                             NameProvider = "Chokri Mahassine",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 765 78 86"
                         },
                         new
@@ -2515,8 +2717,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@extremaoutdoor.be",
                             NameProvider = "Extrema",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 485 35 41"
                         },
                         new
@@ -2525,8 +2727,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 6872 3968 7821",
                             Email = "info@sportpaleisgroup.be",
                             NameProvider = "Sportpaleis Group NV",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 879 87 74"
                         },
                         new
@@ -2535,8 +2737,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@elixir.be",
                             NameProvider = "eLiXir",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 782 71 42"
                         },
                         new
@@ -2545,8 +2747,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE55 4752 7836 4878",
                             Email = "info@trix.be",
                             NameProvider = "Team Trix",
-                            PasswordHash = new byte[] { 62, 229, 164, 227, 107, 187, 45, 129, 123, 52, 216, 60, 49, 14, 155, 245, 7, 29, 105, 22, 19, 11, 189, 226, 20, 4, 208, 2, 12, 234, 177, 72, 4, 13, 9, 242, 208, 65, 137, 93, 151, 103, 26, 38, 138, 160, 198, 92, 67, 211, 236, 144, 41, 248, 19, 199, 189, 15, 62, 60, 131, 7, 66, 151 },
-                            PasswordSalt = new byte[] { 226, 157, 38, 252, 110, 224, 181, 82, 97, 95, 73, 211, 225, 24, 40, 89, 201, 120, 80, 185, 18, 172, 56, 72, 17, 202, 204, 254, 52, 211, 117, 242, 28, 175, 121, 222, 107, 200, 48, 129, 88, 72, 42, 186, 59, 12, 94, 11, 46, 73, 27, 10, 78, 73, 120, 110, 170, 254, 181, 116, 175, 239, 3, 134, 244, 196, 163, 208, 65, 126, 210, 29, 134, 12, 87, 53, 248, 168, 151, 103, 197, 170, 226, 8, 138, 54, 25, 217, 107, 1, 69, 109, 164, 60, 127, 165, 35, 172, 102, 41, 123, 237, 216, 19, 125, 114, 65, 243, 213, 76, 223, 227, 216, 25, 161, 4, 169, 85, 9, 139, 45, 184, 254, 194, 13, 146, 214, 54 },
+                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
+                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
                             PhoneNumber = "09 456 79 17"
                         });
                 });
@@ -2696,8 +2898,10 @@ namespace YES.Server.Migrations
                         .IsRequired();
 
                     b.HasOne("YES.Server.Data.Entities.TicketCategory", "TicketCategory")
-                        .WithMany()
-                        .HasForeignKey("TicketCategoryId");
+                        .WithMany("Tickets")
+                        .HasForeignKey("TicketCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("YES.Server.Data.Entities.TicketCustomer", "TicketCustomer")
                         .WithMany("Tickets")
@@ -2726,6 +2930,11 @@ namespace YES.Server.Migrations
                     b.Navigation("EventInfo");
 
                     b.Navigation("TicketCategories");
+                });
+
+            modelBuilder.Entity("YES.Server.Data.Entities.TicketCategory", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.TicketCustomer", b =>

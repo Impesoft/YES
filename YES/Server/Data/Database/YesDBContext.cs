@@ -22,6 +22,11 @@ namespace YES.Server.Data.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+
+            modelBuilder.Entity<Ticket>()
+                        .HasOne(x => x.TicketCategory)
+                        .WithMany(x => x.Tickets)
+                        .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
