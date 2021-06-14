@@ -15,7 +15,7 @@
             <p>
                 @if (Event.EventInfo.EventDate > DateTime.MinValue)
                 {
-                    <span class="event-date">@Event.EventInfo.EventDate.ToLongDateString()</span>
+                <h5><span class="event-date">@Event.EventInfo.EventDate.ToLongDateString()</span></h5>
                 }
                 else
                 {
@@ -33,7 +33,11 @@
         </div>
         <div class="col-4">
             <p>Maximum amount of tickets: @Event.EventInfo.MaxAvailableTickets</p>
-            <button href="" class="btn btn-warning">Buy Tickets</button>
+            @if (Event.Status != "Cancelled")
+            {
+                <a href="/TicketPurchase/@Event.Id" class="btn btn-warning">Buy Tickets</a>
+            }
+            
             <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary">Our Site</a>
         </div>
         <div class="col-2"></div>
@@ -43,17 +47,17 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-4 center">
-
-            <h5>@Event.TicketProvider.NameProvider</h5>
-            <p>@Event.TicketProvider.Email </p>
-            <p>@Event.TicketProvider.PhoneNumber</p>
-        </div>
-        <div class="col-4 center">
-
             <h5>@Event.Venue.Name</h5>
             <p>@Event.Venue.Address.Street @Event.Venue.Address.StreetNumber  </p>
             <p>@Event.Venue.Address.PostalCode  @Event.Venue.Address.City </p>
             <p>@Event.Venue.Address.Country</p>
+            
+        </div>
+        <div class="col-4 center">
+            <h5>@Event.TicketProvider.NameProvider</h5>
+            <p>@Event.TicketProvider.Email </p>
+            <p>@Event.TicketProvider.PhoneNumber</p>
+           
         </div>
         <div class="col-2"></div>
     </div>

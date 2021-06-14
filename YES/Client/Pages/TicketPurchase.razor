@@ -1,0 +1,27 @@
+﻿@page "/TicketPurchase/{Id:int}"
+@inject IEventService _service
+
+@if (Event != null)
+{
+    <h3>TicketPurchase for @Event.EventInfo.Name</h3>
+
+    <p>
+       Aantal beschikbare tickets: @Event.EventInfo.MaxAvailableTickets
+    </p>
+}
+else
+            {
+               <p>No events found.</p>
+            }
+
+    @code {
+        [Parameter]
+        public int Id { get; set; }
+
+        public EventDto Event { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            Event = await _service.GetEventByIdAsync(Id);
+        }
+    }
