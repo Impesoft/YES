@@ -64,10 +64,10 @@ namespace YES.Server.Data.Database
             modelBuilder.Entity<Event>(x =>
             {
                 x.HasData(
-                new Event { Id = 1, TicketProviderId = 1, VenueId = 1, Status = Status.Default, EventInfoId = 1 },
+                new Event { Id = 1, TicketProviderId = 1, VenueId = 1, Status = Status.Completed, EventInfoId = 1 },
                 new Event { Id = 2, TicketProviderId = 1, VenueId = 1, Status = Status.Default, EventInfoId = 2 },
                 new Event { Id = 3, TicketProviderId = 1, VenueId = 1, Status = Status.Default, EventInfoId = 3 },
-                new Event { Id = 4, TicketProviderId = 1, VenueId = 1, Status = Status.Postponed, EventInfoId = 4 },
+                new Event { Id = 4, TicketProviderId = 1, VenueId = 1, Status = Status.ToBeAnnounced, EventInfoId = 4 },
                 new Event { Id = 5, TicketProviderId = 7, VenueId = 2, Status = Status.Postponed, EventInfoId = 5 },
                 new Event { Id = 6, TicketProviderId = 7, VenueId = 2, Status = Status.Postponed, EventInfoId = 6 },
                 new Event { Id = 7, TicketProviderId = 7, VenueId = 2, Status = Status.Default, EventInfoId = 7 },
@@ -76,8 +76,8 @@ namespace YES.Server.Data.Database
                 new Event { Id = 10, TicketProviderId = 9, VenueId = 3, Status = Status.Default, EventInfoId = 10 },
                 new Event { Id = 11, TicketProviderId = 9, VenueId = 3, Status = Status.Default, EventInfoId = 11 },
                 new Event { Id = 12, TicketProviderId = 9, VenueId = 3, Status = Status.Cancelled, EventInfoId = 12 },
-                new Event { Id = 13, TicketProviderId = 8, VenueId = 4, Status = Status.Default, EventInfoId = 13 },
-                new Event { Id = 14, TicketProviderId = 7, VenueId = 5, Status = Status.Default, EventInfoId = 14 },
+                new Event { Id = 13, TicketProviderId = 8, VenueId = 4, Status = Status.SoldOut, EventInfoId = 13 },
+                new Event { Id = 14, TicketProviderId = 7, VenueId = 5, Status = Status.Relocated, EventInfoId = 14 },
                 new Event { Id = 15, TicketProviderId = 7, VenueId = 5, Status = Status.Postponed, EventInfoId = 15 },
                 new Event { Id = 16, TicketProviderId = 7, VenueId = 5, Status = Status.Cancelled, EventInfoId = 16 },
                 new Event { Id = 17, TicketProviderId = 7, VenueId = 5, Status = Status.Postponed, EventInfoId = 17 },
@@ -102,7 +102,7 @@ namespace YES.Server.Data.Database
                 new Event { Id = 36, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 36 },
                 new Event { Id = 37, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 37 },
                 new Event { Id = 38, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 38 },
-                new Event { Id = 39, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 39 },
+                new Event { Id = 39, TicketProviderId = 3, VenueId = 9, Status = Status.SoldOut, EventInfoId = 39 },
                 new Event { Id = 40, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 40 },
                 new Event { Id = 41, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 41 },
                 new Event { Id = 42, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 42 },
@@ -113,12 +113,12 @@ namespace YES.Server.Data.Database
                 new Event { Id = 47, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 47 },
                 new Event { Id = 48, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 48 },
                 new Event { Id = 49, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 49 },
-                new Event { Id = 50, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 50 },
+                new Event { Id = 50, TicketProviderId = 3, VenueId = 9, Status = Status.SoldOut, EventInfoId = 50 },
                 new Event { Id = 51, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 51 },
                 new Event { Id = 52, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 52 },
                 new Event { Id = 53, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 53 },
                 new Event { Id = 54, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 54 },
-                new Event { Id = 55, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 55 },
+                new Event { Id = 55, TicketProviderId = 3, VenueId = 9, Status = Status.SoldOut, EventInfoId = 55 },
                 new Event { Id = 56, TicketProviderId = 3, VenueId = 9, Status = Status.Default, EventInfoId = 56 }
                 );
             });
@@ -130,8 +130,8 @@ namespace YES.Server.Data.Database
             {
                 x.HasData(
                 new EventInfo { Id = 1, EventId = 1, Name = "EK België-Rusland", Description = "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("12/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg" },
-                new EventInfo { Id = 2, EventId = 2, Name = "EK België-Denemarken", Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("18/06/2021 18:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg" },
-                new EventInfo { Id = 3, EventId = 3, Name = "EK België-Finland", Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("21/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg" },
+                new EventInfo { Id = 2, EventId = 2, Name = "EK België-Denemarken", Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("18/06/2021 18:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3839//EK_Denemarken_Belgie_op_groot_scherm_", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11659_174.jpg" },
+                new EventInfo { Id = 3, EventId = 3, Name = "EK België-Finland", Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt", EventDate = DateTime.ParseExact("21/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), MaxAvailableTickets = 500, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3841//EK_Finland_Belgie_op_groot_scherm", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg" },
                 new EventInfo { Id = 4, EventId = 4, Name = "Terras Sessie: Joni Sheila", Description = "Wees er tijdig bij want door corona zijn de plaatsen beperkt", MaxAvailableTickets = 50, WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila", BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg" },
                 new EventInfo { Id = 5, EventId = 5, Name = "Kommil Foo", EventDate = DateTime.ParseExact("18/07/2021 19:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!", MaxAvailableTickets = 1000, WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo", BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2791/b221696a05bb3ce32d2748f7734efaeac6f0e44c/billboard.jpg" },
                 new EventInfo { Id = 6, EventId = 6, Name = "Kommil Foo", EventDate = DateTime.ParseExact("19/07/2021 19:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!", MaxAvailableTickets = 1000, WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo", BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2791/b221696a05bb3ce32d2748f7734efaeac6f0e44c/billboard.jpg" },
