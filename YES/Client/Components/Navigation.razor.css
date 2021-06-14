@@ -8,6 +8,10 @@
     width: 50px;
 }
 
-.navbar-container{
+.navbar-container {
     max-width: 80vw;
+}
+
+.bg-darktrans {
+    background-color: rgba(0, 0, 0, .75);
 }

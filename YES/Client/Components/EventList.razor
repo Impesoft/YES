@@ -1,36 +1,30 @@
-﻿<div class="row list-item align-middle">
-    <div class="col-3">
-        @if (Event.EventInfo.EventDate > DateTime.MinValue)
-        {
-            @Event.EventInfo.EventDate.ToShortDateString()
-        }
-        else
-        {
-            @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@tba
-        }
-    </div>
-    <div class="col-3">
-        @Event.EventInfo.Name
-    </div>
-    <div class="col-3">
-        @if (@Event.Status != "Default")
-        {
-        <span class="text-warning">@Event.Status</span>
-        }
-    </div>
-    <div class="col-3">
-        <button class="btn btn-dark float-end" @onclick="() => EventInfo.InvokeAsync(Event)">
-        Info
-        </button>
-    </div>   
-</div>
-
+﻿       
+       <div class="row list-item align-middle py-1 my-1" @onclick="() => EventInfo.InvokeAsync(Event)">
+           <div class="col-12 col-sm-3 col-md-2 col-lg-2 col-xl-1">
+               @if (Event.EventInfo.EventDate > DateTime.MinValue)
+               {
+                   @Event.EventInfo.EventDate.ToString("dd-MM-yyyy");
+               }
+               else
+               {
+                   @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA
+               }
+           </div>
+           <div class="col-12 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+               @Event.EventInfo.Name
+           </div>
+           <div class="col-12 col-sm-2 col-md-2 col-lg-1">
+               @if (@Event.Status != "Default")
+               {
+                   <span class="@(Event.Status=="Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
+               }
+           </div>
+       </div>
+       
 
 @code {
         [Parameter]
         public EventDto Event { get; set; }
         [Parameter]
         public EventCallback<EventDto> EventInfo { get; set; }
-
-    private string tba = "TBA";
 }
