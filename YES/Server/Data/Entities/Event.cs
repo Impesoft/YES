@@ -11,6 +11,7 @@ namespace YES.Server.Data.Entities
         [Required]
         [ForeignKey("Venue")]
         public int VenueId { get; set; }
+
         public Venue Venue { get; set; }
 
         [Required]
