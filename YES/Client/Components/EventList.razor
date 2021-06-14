@@ -1,5 +1,5 @@
 ﻿       
-       <div class="row list-item align-middle" @onclick="() => EventInfo.InvokeAsync(Event)">
+       <div class="row list-item align-middle py-1 my-1" @onclick="() => EventInfo.InvokeAsync(Event)">
            <div class="col-12 col-sm-2 col-md-2 col-lg-1">
                @if (Event.EventInfo.EventDate > DateTime.MinValue)
                {
@@ -7,7 +7,7 @@
                }
                else
                {
-                   @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@tba
+                   @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA
                }
            </div>
            <div class="col-12 col-sm-8 col-md-8 col-lg-10">
@@ -16,7 +16,7 @@
            <div class="col-12 col-sm-2 col-md-2 col-lg-1">
                @if (@Event.Status != "Default")
                {
-                   <span class="text-warning float-end">@Event.Status</span>
+                   <span class="@(Event.Status=="Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
                }
            </div>
        </div>
@@ -27,6 +27,4 @@
         public EventDto Event { get; set; }
         [Parameter]
         public EventCallback<EventDto> EventInfo { get; set; }
-
-    private string tba = "TBA";
 }
