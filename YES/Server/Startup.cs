@@ -84,7 +84,10 @@ namespace YES.Server
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<ITicketCustomerService, TicketCustomerService>();
+
             services.AddScoped<IEventRepo, EventRepo>();
+            services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
