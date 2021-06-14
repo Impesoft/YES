@@ -16,5 +16,7 @@ namespace YES.Server.Data.Entities
         [Required]
         [ForeignKey("Event")]
         public int EventId { get; set; }
+
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }
