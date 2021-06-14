@@ -30,6 +30,7 @@ namespace YES.Server.Data.Repos
                                  .Include(x => x.TicketProvider)
                                  .Include(x => x.Venue)
                                  .ThenInclude(x => x.Address)
+                                 .Include(x => x.TicketCategories)
                                  .FirstOrDefaultAsync(x => x.Id == id);
         }
     }

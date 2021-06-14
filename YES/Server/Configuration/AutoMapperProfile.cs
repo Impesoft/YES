@@ -21,14 +21,16 @@ namespace YES.Server.Configuration
 
             CreateMap<EventDto, Event>()
                 .ForMember(d => d.Status, x => x.MapFrom(y => ConvertToStatusEnum(y.Status)));
+            //.ForMember(d => d.TicketCategories, x => x.MapFrom(y => y.TicketCategories));
 
             CreateMap<Ticket, TicketDto>()
                 .ForMember(d => d.CustomerFirstName, x => x.MapFrom(y => y.TicketCustomer.FirstName))
                 .ForMember(d => d.CustomerLastName, x => x.MapFrom(y => y.TicketCustomer.LastName))
                 .ForMember(d => d.EventName, x => x.MapFrom(y => y.Event.EventInfo.Name))
                 .ForMember(d => d.VanueName, x => x.MapFrom(y => y.Event.Venue.Name))
-                .ForMember(d => d.VenueAddress, x => x.MapFrom(y => y.Event.Venue.Address))
-                .ForMember(d => d.Price, x => x.MapFrom(y => y.TicketCategory.Price));
+                .ForMember(d => d.VenueAddress, x => x.MapFrom(y => y.Event.Venue.Address));
+                //.ForMember(d => d.TicketCategory, x => x.MapFrom(y => y.TicketCategory));
+                            
         }
 
         public Status ConvertToStatusEnum(string value)
