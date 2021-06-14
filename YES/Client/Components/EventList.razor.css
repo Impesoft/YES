@@ -7,5 +7,5 @@
 
     .list-item:hover {
         transform: scale(1.005);
-        background: rgba(150,0,0,.1);
+        background: rgba(250,100,100,.2);
     }

@@ -12,7 +12,14 @@
             <div class="col-2"></div>
             <div class="col-8 center">
                 <p>
-                Dit Event gaat door op @Event.EventInfo.EventDate.ToLongDateString()
+                Last Planned Date:   @if (Event.EventInfo.EventDate > DateTime.MinValue)
+                                   {
+                                       @Event.EventInfo.EventDate.ToLongDateString()
+                                   }
+                                   else
+                                   {
+                                       @:&nbsp;To Be Announced
+                                   }
                 </p>
             </div>
             <div class="col-2"></div>
