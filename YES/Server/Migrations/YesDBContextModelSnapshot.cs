@@ -42,8 +42,8 @@ namespace YES.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StreetNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("StreetNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TicketCustomerId")
                         .HasColumnType("int");
@@ -78,7 +78,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Sint-Pietersnieuwstraat",
-                            StreetNumber = 23,
+                            StreetNumber = "23",
                             TicketProviderId = 1,
                             VenueId = 1
                         },
@@ -89,7 +89,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Tentoonstellingslaan",
-                            StreetNumber = 1,
+                            StreetNumber = "1",
                             TicketCustomerId = 1
                         },
                         new
@@ -99,7 +99,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Leeuwstraat",
-                            StreetNumber = 7,
+                            StreetNumber = "7",
                             TicketCustomerId = 2
                         },
                         new
@@ -109,7 +109,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Zebrastraat",
-                            StreetNumber = 36,
+                            StreetNumber = "36",
                             TicketCustomerId = 3
                         },
                         new
@@ -119,7 +119,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Tijgerstraat",
-                            StreetNumber = 24,
+                            StreetNumber = "24",
                             TicketCustomerId = 4
                         },
                         new
@@ -129,7 +129,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9100",
                             Street = "Apostelstraat",
-                            StreetNumber = 79,
+                            StreetNumber = "79",
                             TicketCustomerId = 5
                         },
                         new
@@ -139,7 +139,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Olifantstraat",
-                            StreetNumber = 26,
+                            StreetNumber = "26",
                             TicketCustomerId = 6
                         },
                         new
@@ -149,7 +149,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Olifantstraat",
-                            StreetNumber = 2,
+                            StreetNumber = "2",
                             TicketCustomerId = 7
                         },
                         new
@@ -159,7 +159,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "1210",
                             Street = "Kleine Dalstraat",
-                            StreetNumber = 1,
+                            StreetNumber = "1",
                             TicketCustomerId = 8
                         },
                         new
@@ -169,7 +169,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "1040",
                             Street = "Waversesteenweg",
-                            StreetNumber = 100,
+                            StreetNumber = "100",
                             TicketCustomerId = 9
                         },
                         new
@@ -179,7 +179,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "1300",
                             Street = "Rue de la Cure",
-                            StreetNumber = 3,
+                            StreetNumber = "3",
                             TicketCustomerId = 10
                         },
                         new
@@ -189,7 +189,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2800",
                             Street = "Spuibeekstraat",
-                            StreetNumber = 4,
+                            StreetNumber = "4",
                             TicketCustomerId = 11
                         },
                         new
@@ -199,7 +199,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2570",
                             Street = "Beukheuvel",
-                            StreetNumber = 20,
+                            StreetNumber = "20",
                             TicketCustomerId = 12
                         },
                         new
@@ -209,7 +209,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "8500",
                             Street = "Nijverheidskaai",
-                            StreetNumber = 13,
+                            StreetNumber = "13",
                             TicketCustomerId = 13
                         },
                         new
@@ -219,7 +219,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "8560",
                             Street = "Hondsschotestraat",
-                            StreetNumber = 83,
+                            StreetNumber = "83",
                             TicketCustomerId = 14
                         },
                         new
@@ -229,7 +229,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "8900",
                             Street = "Tybaertstraat",
-                            StreetNumber = 27,
+                            StreetNumber = "27",
                             TicketCustomerId = 15
                         },
                         new
@@ -239,7 +239,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "8400",
                             Street = "Stapelhuisstraat",
-                            StreetNumber = 17,
+                            StreetNumber = "17",
                             TicketCustomerId = 16
                         },
                         new
@@ -249,7 +249,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Graaf Van Vlaanderenplein",
-                            StreetNumber = 5,
+                            StreetNumber = "5",
                             VenueId = 2
                         },
                         new
@@ -259,7 +259,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2140",
                             Street = "Noordersingel",
-                            StreetNumber = 28,
+                            StreetNumber = "28",
                             TicketProviderId = 9,
                             VenueId = 3
                         },
@@ -270,7 +270,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Overpoortstraat",
-                            StreetNumber = 60,
+                            StreetNumber = "60",
                             TicketProviderId = 8,
                             VenueId = 4
                         },
@@ -281,7 +281,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2170",
                             Street = "Schijnpoortweg",
-                            StreetNumber = 119,
+                            StreetNumber = "119A",
                             TicketProviderId = 7,
                             VenueId = 5
                         },
@@ -292,7 +292,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2850",
                             Street = "Schommelei",
-                            StreetNumber = 1,
+                            StreetNumber = "1",
                             VenueId = 6
                         },
                         new
@@ -311,7 +311,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "1020",
                             Street = "Eeuwfeestlaan",
-                            StreetNumber = 617,
+                            StreetNumber = "617",
                             TicketProviderId = 4,
                             VenueId = 8
                         },
@@ -340,7 +340,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "6200",
                             Street = "Korte Vlierstraat",
-                            StreetNumber = 6,
+                            StreetNumber = "6",
                             TicketProviderId = 2
                         },
                         new
@@ -350,7 +350,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2800",
                             Street = "Blarenberglaan",
-                            StreetNumber = 3,
+                            StreetNumber = "3",
                             TicketProviderId = 3
                         },
                         new
@@ -360,7 +360,7 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "3510",
                             Street = "Koorstraat",
-                            StreetNumber = 17,
+                            StreetNumber = "17",
                             TicketProviderId = 5
                         },
                         new
@@ -370,8 +370,28 @@ namespace YES.Server.Migrations
                             Country = "België",
                             PostalCode = "2000",
                             Street = "Braziliestraat",
-                            StreetNumber = 26,
+                            StreetNumber = "26",
                             TicketProviderId = 6
+                        },
+                        new
+                        {
+                            Id = 32,
+                            City = "Antwerpen",
+                            Country = "België",
+                            PostalCode = "2170",
+                            Street = "Schijnpoortweg",
+                            StreetNumber = "119B",
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 33,
+                            City = "Antwerpen",
+                            Country = "België",
+                            PostalCode = "2000",
+                            Street = "Nieuwstad",
+                            StreetNumber = "1",
+                            VenueId = 12
                         });
                 });
 
@@ -381,9 +401,6 @@ namespace YES.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EventInfoId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -396,8 +413,6 @@ namespace YES.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventInfoId");
-
                     b.HasIndex("TicketProviderId");
 
                     b.HasIndex("VenueId");
@@ -408,7 +423,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            EventInfoId = 1,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -416,7 +430,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
-                            EventInfoId = 2,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -424,7 +437,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 3,
-                            EventInfoId = 3,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -432,15 +444,13 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 4,
-                            EventInfoId = 4,
-                            Status = 2,
+                            Status = 1,
                             TicketProviderId = 1,
                             VenueId = 1
                         },
                         new
                         {
                             Id = 5,
-                            EventInfoId = 5,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -448,7 +458,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 6,
-                            EventInfoId = 6,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -456,7 +465,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 7,
-                            EventInfoId = 7,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -464,7 +472,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 8,
-                            EventInfoId = 8,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -472,7 +479,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 9,
-                            EventInfoId = 9,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -480,7 +486,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 10,
-                            EventInfoId = 10,
                             Status = 0,
                             TicketProviderId = 9,
                             VenueId = 3
@@ -488,7 +493,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 11,
-                            EventInfoId = 11,
                             Status = 0,
                             TicketProviderId = 9,
                             VenueId = 3
@@ -496,7 +500,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 12,
-                            EventInfoId = 12,
                             Status = 4,
                             TicketProviderId = 9,
                             VenueId = 3
@@ -504,23 +507,20 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 13,
-                            EventInfoId = 13,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 8,
                             VenueId = 4
                         },
                         new
                         {
                             Id = 14,
-                            EventInfoId = 14,
-                            Status = 0,
+                            Status = 3,
                             TicketProviderId = 7,
                             VenueId = 5
                         },
                         new
                         {
                             Id = 15,
-                            EventInfoId = 15,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -528,7 +528,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 16,
-                            EventInfoId = 16,
                             Status = 4,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -536,7 +535,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 17,
-                            EventInfoId = 17,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -544,7 +542,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 18,
-                            EventInfoId = 18,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -552,7 +549,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 19,
-                            EventInfoId = 19,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -560,7 +556,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 20,
-                            EventInfoId = 20,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -568,7 +563,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 21,
-                            EventInfoId = 21,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -576,7 +570,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 22,
-                            EventInfoId = 22,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -584,7 +577,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 23,
-                            EventInfoId = 23,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -592,7 +584,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 24,
-                            EventInfoId = 24,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -600,7 +591,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 25,
-                            EventInfoId = 25,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -608,7 +598,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 26,
-                            EventInfoId = 26,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -616,7 +605,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 27,
-                            EventInfoId = 27,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -624,7 +612,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 28,
-                            EventInfoId = 28,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -632,7 +619,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 29,
-                            EventInfoId = 29,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -640,7 +626,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 30,
-                            EventInfoId = 30,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -648,7 +633,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 31,
-                            EventInfoId = 31,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -656,7 +640,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 32,
-                            EventInfoId = 32,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -664,7 +647,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 33,
-                            EventInfoId = 33,
                             Status = 0,
                             TicketProviderId = 6,
                             VenueId = 10
@@ -672,7 +654,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 34,
-                            EventInfoId = 34,
                             Status = 0,
                             TicketProviderId = 6,
                             VenueId = 10
@@ -680,7 +661,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 35,
-                            EventInfoId = 35,
                             Status = 0,
                             TicketProviderId = 6,
                             VenueId = 10
@@ -688,7 +668,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 36,
-                            EventInfoId = 36,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -696,7 +675,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 37,
-                            EventInfoId = 37,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -704,7 +682,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 38,
-                            EventInfoId = 38,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -712,15 +689,13 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 39,
-                            EventInfoId = 39,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 40,
-                            EventInfoId = 40,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -728,7 +703,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 41,
-                            EventInfoId = 41,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -736,7 +710,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 42,
-                            EventInfoId = 42,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -744,7 +717,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 43,
-                            EventInfoId = 43,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -752,7 +724,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 44,
-                            EventInfoId = 44,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -760,7 +731,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 45,
-                            EventInfoId = 45,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -768,7 +738,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 46,
-                            EventInfoId = 46,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -776,7 +745,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 47,
-                            EventInfoId = 47,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -784,7 +752,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 48,
-                            EventInfoId = 48,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -792,7 +759,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 49,
-                            EventInfoId = 49,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -800,15 +766,13 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 50,
-                            EventInfoId = 50,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 51,
-                            EventInfoId = 51,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -816,7 +780,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 52,
-                            EventInfoId = 52,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -824,7 +787,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 53,
-                            EventInfoId = 53,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -832,7 +794,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 54,
-                            EventInfoId = 54,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -840,18 +801,121 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 55,
-                            EventInfoId = 55,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 56,
-                            EventInfoId = 56,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Status = 6,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Status = 6,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 11
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Status = 2,
+                            TicketProviderId = 7,
+                            VenueId = 12
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 12
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 12
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Status = 0,
+                            TicketProviderId = 7,
+                            VenueId = 12
                         });
                 });
 
@@ -876,9 +940,6 @@ namespace YES.Server.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaxAvailableTickets")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -888,6 +949,9 @@ namespace YES.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EventId")
+                        .IsUnique();
 
                     b.ToTable("EventInfo");
 
@@ -899,7 +963,6 @@ namespace YES.Server.Migrations
                             Description = "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
-                            MaxAvailableTickets = 500,
                             Name = "EK België-Rusland",
                             WebsiteUrl = "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm"
                         },
@@ -910,9 +973,8 @@ namespace YES.Server.Migrations
                             Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 18, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 2,
-                            MaxAvailableTickets = 500,
                             Name = "EK België-Denemarken",
-                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
+                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3839//EK_Denemarken_Belgie_op_groot_scherm_"
                         },
                         new
                         {
@@ -921,9 +983,8 @@ namespace YES.Server.Migrations
                             Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 21, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 3,
-                            MaxAvailableTickets = 500,
                             Name = "EK België-Finland",
-                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
+                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3841//EK_Finland_Belgie_op_groot_scherm"
                         },
                         new
                         {
@@ -931,7 +992,6 @@ namespace YES.Server.Migrations
                             BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg",
                             Description = "Wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventId = 4,
-                            MaxAvailableTickets = 50,
                             Name = "Terras Sessie: Joni Sheila",
                             WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
                         },
@@ -942,7 +1002,6 @@ namespace YES.Server.Migrations
                             Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!",
                             EventDate = new DateTime(2021, 7, 18, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 5,
-                            MaxAvailableTickets = 1000,
                             Name = "Kommil Foo",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo"
                         },
@@ -953,7 +1012,6 @@ namespace YES.Server.Migrations
                             Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!",
                             EventDate = new DateTime(2021, 7, 19, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 6,
-                            MaxAvailableTickets = 1000,
                             Name = "Kommil Foo",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo"
                         },
@@ -964,7 +1022,6 @@ namespace YES.Server.Migrations
                             Description = "De gloednieuwe, 11e solovoorstelling van de Schotse internationale comedy superster komt, vlak na zijn baanbrekende wereldsucces ‘Daniel Sloss: X’, naar Capitole Gent en Stadsschouwburg Antwerpen.",
                             EventDate = new DateTime(2021, 10, 3, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 7,
-                            MaxAvailableTickets = 2000,
                             Name = "Daniel Sloss",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/daniel-sloss"
                         },
@@ -975,7 +1032,6 @@ namespace YES.Server.Migrations
                             Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
                             EventDate = new DateTime(2021, 9, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 8,
-                            MaxAvailableTickets = 1000,
                             Name = "An Evening with Alex Agnew",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
                         },
@@ -986,7 +1042,6 @@ namespace YES.Server.Migrations
                             Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
                             EventDate = new DateTime(2021, 9, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 9,
-                            MaxAvailableTickets = 1000,
                             Name = "An Evening with Alex Agnew",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
                         },
@@ -997,7 +1052,6 @@ namespace YES.Server.Migrations
                             Description = "Lili Grace, dat zijn de zussen Nelle en Dienne, en zij doen ongemeen boeiende dingen met twee stemmen, cello, keyboards en electronica. Met hun dark-pop haalden ze in 2012 de finale van Humo's Rock Rally en deden ze voorprogramma's voor onder meer Trentemøller, CocoRosie en Nils Frahm.",
                             EventDate = new DateTime(2021, 6, 24, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 10,
-                            MaxAvailableTickets = 50,
                             Name = "Lili Grace / Rooftop Concert",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/lili-grace/2756/"
                         },
@@ -1008,7 +1062,6 @@ namespace YES.Server.Migrations
                             Description = "Donkere, hypnotiserende pop uit de UK. Meng The Killers met U2 en je krijgt een soort beschrijving van hun sound (StuBru)",
                             EventDate = new DateTime(2021, 9, 25, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 11,
-                            MaxAvailableTickets = 500,
                             Name = "The Howl And The Hum",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/the-howl-and-the-hum/2713/"
                         },
@@ -1019,7 +1072,6 @@ namespace YES.Server.Migrations
                             Description = "Dit concert is afgelast. Alle tickets worden automatisch terugbetaald.",
                             EventDate = new DateTime(2021, 10, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 12,
-                            MaxAvailableTickets = 500,
                             Name = "The Armed",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/the-armed/2723/"
                         },
@@ -1030,7 +1082,6 @@ namespace YES.Server.Migrations
                             Description = "VJ Ward in the Mix",
                             EventDate = new DateTime(2021, 9, 10, 1, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
-                            MaxAvailableTickets = 100,
                             Name = "VJ Ward",
                             WebsiteUrl = "https://www.facebook.com/Dj.Ward.Impe/"
                         },
@@ -1041,7 +1092,6 @@ namespace YES.Server.Migrations
                             Description = "Na lang anticiperen krijgt VJ Ward een kans zich op het grote podium te bewijzen. Dit jonge talent draait overal de pannen van het dak, mis deze kans dus niet want de plaatsen zijn beperkt.",
                             EventDate = new DateTime(2021, 10, 10, 23, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 14,
-                            MaxAvailableTickets = 10000,
                             Name = "VJ Ward / eLiXir on Tour",
                             WebsiteUrl = "https://www.facebook.com/Dj.Ward.Impe/"
                         },
@@ -1052,7 +1102,6 @@ namespace YES.Server.Migrations
                             Description = "Alicia Keys is terug. En hoe! Het muziekicoon met 15 GRAMMY-prijzen op haar naam kondigt vandaag haar nieuwe album ‘ALICIA’ aan met release voorzien op 20 maart bij Sony Music, en haar langverwachte terugkeer naar de podia met haar ‘ALICIA – THE WORLD TOUR’.",
                             EventDate = new DateTime(2021, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 15,
-                            MaxAvailableTickets = 10000,
                             Name = "Alicia Keys: The World Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/alicia-keys"
                         },
@@ -1063,7 +1112,6 @@ namespace YES.Server.Migrations
                             Description = "Als gevolg van de pandemie had Iron Maiden zijn ‘Legacy of the Beast Tour 2020’ verplaatst naar juni/juli 2021. Normaal zou de band op zondag 27 juni 2021 een headlineshow spelen in het Antwerps Sportpaleis. Helaas moet de tour weer met een jaar verschoven worden. Maar niet getreurd, de band staat in 2022 opnieuw op Graspop Metal Meeting om het beste van zichzelf te geven!",
                             EventDate = new DateTime(2021, 6, 27, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 16,
-                            MaxAvailableTickets = 10000,
                             Name = "Iron Maiden: Legacy Of The Beast Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2020-2021/iron-maiden"
                         },
@@ -1074,7 +1122,6 @@ namespace YES.Server.Migrations
                             Description = "The Weeknd kondigt met ‘The After Hours Tour’ zijn nieuwe wereldtournee aan die op 11 juni in de VS van start gaat en in het najaar de oversteek naar Europa maakt. De tour volgt op de release van zijn nieuwe album ‘After Hours’ op 20 maart met singles “Heartless”, de oorwurm “Blinding Lights” en nieuw sinds gisteren de single “After Hours”.",
                             EventDate = new DateTime(2022, 9, 28, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 17,
-                            MaxAvailableTickets = 23359,
                             Name = "The Weeknd: The After Hours Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/the-weeknd"
                         },
@@ -1085,7 +1132,6 @@ namespace YES.Server.Migrations
                             Description = "The Weeknd kondigt met ‘The After Hours Tour’ zijn nieuwe wereldtournee aan die op 11 juni in de VS van start gaat en in het najaar de oversteek naar Europa maakt. De tour volgt op de release van zijn nieuwe album ‘After Hours’ op 20 maart met singles “Heartless”, de oorwurm “Blinding Lights” en nieuw sinds gisteren de single “After Hours”.",
                             EventDate = new DateTime(2022, 9, 29, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 18,
-                            MaxAvailableTickets = 23359,
                             Name = "The Weeknd: The After Hours Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/the-weeknd"
                         },
@@ -1096,7 +1142,6 @@ namespace YES.Server.Migrations
                             Description = "Na lang beraad heeft Elton John tot zijn grote spijt besloten om de Europese tourdata van zijn “Farewell Yellow Brick Road Tour” te verplaatsen, alsook de twee concerten gepland in Sportpaleis Antwerpen. Deze moeilijke beslissing is gemaakt om de veiligheid en gezondheid van zijn fans te garanderen. Elton John kijkt ernaar uit om terug te spelen voor zijn trouwe fans over de hele wereld en bedankt iedereen voor het begrip.",
                             EventDate = new DateTime(2021, 10, 16, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 19,
-                            MaxAvailableTickets = 10000,
                             Name = "Elton John: Farewell Yellow Brick Road Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
                         },
@@ -1107,7 +1152,6 @@ namespace YES.Server.Migrations
                             Description = "Na lang beraad heeft Elton John tot zijn grote spijt besloten om de Europese tourdata van zijn “Farewell Yellow Brick Road Tour” te verplaatsen, alsook de twee concerten gepland in Sportpaleis Antwerpen. Deze moeilijke beslissing is gemaakt om de veiligheid en gezondheid van zijn fans te garanderen. Elton John kijkt ernaar uit om terug te spelen voor zijn trouwe fans over de hele wereld en bedankt iedereen voor het begrip.",
                             EventDate = new DateTime(2021, 10, 17, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 20,
-                            MaxAvailableTickets = 10000,
                             Name = "Elton John: Farewell Yellow Brick Road Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
                         },
@@ -1118,7 +1162,6 @@ namespace YES.Server.Migrations
                             Description = "Het is nú al uitkijken naar het najaar, want Tomorrowland en Dimitri Vegas & Like Mike toveren het Antwerps Sportpaleis opnieuw om tot een magisch indoorfestival. Daarvoor halen ze alles uit de kast: het beloven (voor de achtste keer al!) twee waanzinnig spectaculaire avonden te worden met de grootste hits maar ook heel wat nieuwe muziek én een vleugje Tomorrowland magie.",
                             EventDate = new DateTime(2021, 12, 17, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 21,
-                            MaxAvailableTickets = 23359,
                             Name = "Tomorrowland presents: Dimitri Vegas & Like Mike Garden of Madness",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/tomorrowland-presents-dimitri-vegas--like-mike"
                         },
@@ -1129,7 +1172,6 @@ namespace YES.Server.Migrations
                             Description = "Het is nú al uitkijken naar het najaar, want Tomorrowland en Dimitri Vegas & Like Mike toveren het Antwerps Sportpaleis opnieuw om tot een magisch indoorfestival. Daarvoor halen ze alles uit de kast: het beloven (voor de achtste keer al!) twee waanzinnig spectaculaire avonden te worden met de grootste hits maar ook heel wat nieuwe muziek én een vleugje Tomorrowland magie.",
                             EventDate = new DateTime(2021, 12, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 22,
-                            MaxAvailableTickets = 23359,
                             Name = "Tomorrowland presents: Dimitri Vegas & Like Mike Garden of Madness",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/tomorrowland-presents-dimitri-vegas--like-mike"
                         },
@@ -1140,7 +1182,6 @@ namespace YES.Server.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 27, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 23,
-                            MaxAvailableTickets = 200000,
                             Name = "Tomorrowland (Weekend 1: Day 1)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1151,7 +1192,6 @@ namespace YES.Server.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 28, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 24,
-                            MaxAvailableTickets = 200000,
                             Name = "Tomorrowland (Weekend 1: Day 2)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1162,7 +1202,6 @@ namespace YES.Server.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 29, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 25,
-                            MaxAvailableTickets = 200000,
                             Name = "Tomorrowland (Weekend 1: Day 3)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1173,7 +1212,6 @@ namespace YES.Server.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 26,
-                            MaxAvailableTickets = 200000,
                             Name = "Tomorrowland (Weekend 2: Day 1)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1184,7 +1222,6 @@ namespace YES.Server.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 27,
-                            MaxAvailableTickets = 200000,
                             Name = "Tomorrowland (Weekend 2: Day 2)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1195,7 +1232,6 @@ namespace YES.Server.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 5, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 28,
-                            MaxAvailableTickets = 200000,
                             Name = "Tomorrowland (Weekend 2: Day 3)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1206,7 +1242,6 @@ namespace YES.Server.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 29,
-                            MaxAvailableTickets = 75000,
                             Name = "Pukkelpop (Day 1)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1217,7 +1252,6 @@ namespace YES.Server.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 20, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 30,
-                            MaxAvailableTickets = 75000,
                             Name = "Pukkelpop (Day 2)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1228,7 +1262,6 @@ namespace YES.Server.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 21, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 31,
-                            MaxAvailableTickets = 75000,
                             Name = "Pukkelpop (Day 3)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1239,7 +1272,6 @@ namespace YES.Server.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 22, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 32,
-                            MaxAvailableTickets = 75000,
                             Name = "Pukkelpop (Day 4)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1250,7 +1282,6 @@ namespace YES.Server.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 33,
-                            MaxAvailableTickets = 60000,
                             Name = "Extrema Outdoor Extra: September edition (Day 1)",
                             WebsiteUrl = "https://extrema.be"
                         },
@@ -1261,7 +1292,6 @@ namespace YES.Server.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 18, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 34,
-                            MaxAvailableTickets = 60000,
                             Name = "Extrema Outdoor Extra: September edition (Day 2)",
                             WebsiteUrl = "https://extrema.be"
                         },
@@ -1272,7 +1302,6 @@ namespace YES.Server.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 35,
-                            MaxAvailableTickets = 60000,
                             Name = "Extrema Outdoor Extra: September edition (Day 3)",
                             WebsiteUrl = "https://extrema.be"
                         },
@@ -1283,8 +1312,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 1, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 36,
-                            MaxAvailableTickets = 2500,
-                            Name = "Balthazar + Sohnarr | Werchter Parklife",
+                            Name = "Balthazar + Sohnarr",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1294,8 +1322,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 2, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 37,
-                            MaxAvailableTickets = 2500,
-                            Name = "Goose | Werchter Parklife",
+                            Name = "Goose",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1305,8 +1332,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 3, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 38,
-                            MaxAvailableTickets = 2500,
-                            Name = "Arsenal + Tin Fingers | Werchter Parklife",
+                            Name = "Arsenal & Tin Fingers",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1316,8 +1342,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 4, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 39,
-                            MaxAvailableTickets = 2500,
-                            Name = "Lil Kleine + Ronnie Flex & The Fam | Werchter Parklife",
+                            Name = "Lil Kleine, Ronnie Flex & The Fam",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1327,8 +1352,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 8, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 40,
-                            MaxAvailableTickets = 2500,
-                            Name = "Bazart + Yong Yello | Werchter Parklife",
+                            Name = "Bazart & Yong Yello",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1338,8 +1362,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 9, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 41,
-                            MaxAvailableTickets = 2500,
-                            Name = "Gabriel Rios + Eefje De Visser + Emmy D'Arc | Werchter Parklife",
+                            Name = "Gabriel Rios, Eefje De Visser & Emmy D'Arc",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1349,8 +1372,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 10, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 42,
-                            MaxAvailableTickets = 2500,
-                            Name = "Bart Peeters & De Ideale Mannen | Werchter Parklife",
+                            Name = "Bart Peeters & De Ideale Mannen",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1360,8 +1382,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 11, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 43,
-                            MaxAvailableTickets = 2500,
-                            Name = "Tourist LeMC | Werchter Parklife",
+                            Name = "Tourist LeMC",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1371,8 +1392,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 44,
-                            MaxAvailableTickets = 2500,
-                            Name = "Goose + Glints | Werchter Parklife",
+                            Name = "Goose & Glints",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1382,8 +1402,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 45,
-                            MaxAvailableTickets = 2500,
-                            Name = "Blackwave. + Charles + Emma Bale ",
+                            Name = "Blackwave., Charles & Emma Bale",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1393,8 +1412,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 17, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 46,
-                            MaxAvailableTickets = 2500,
-                            Name = "De Mens + Ruben Block | Werchter Parklife",
+                            Name = "De Mens & Ruben Block",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1404,8 +1422,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 18, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 47,
-                            MaxAvailableTickets = 2500,
-                            Name = "Regi Live + Cleymans & Van Geel | Werchter Parklife",
+                            Name = "Regi Live, Cleymans & Van Geel",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1415,8 +1432,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 48,
-                            MaxAvailableTickets = 2500,
-                            Name = "Jasper Steverlinck + Portland | Werchter Parklife",
+                            Name = "Jasper Steverlinck & Portland",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1426,8 +1442,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 22, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 49,
-                            MaxAvailableTickets = 2500,
-                            Name = "Alex Agnew | Werchter Parklife",
+                            Name = "Alex Agnew",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1437,8 +1452,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 23, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 50,
-                            MaxAvailableTickets = 2500,
-                            Name = "Zwangere Guy + Miss Angel + Chibi Ichigo | Werchter Parklife",
+                            Name = "Zwangere Guy, Miss Angel & Chibi Ichigo",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1448,8 +1462,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 24, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 51,
-                            MaxAvailableTickets = 2500,
-                            Name = "Whispering Sons + Millionaire | Werchter Parklife",
+                            Name = "Whispering Sons & Millionaire",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1459,8 +1472,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 25, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 52,
-                            MaxAvailableTickets = 2500,
-                            Name = "Snelle & De Lieve Jongens Band | Werchter Parklife",
+                            Name = "Snelle & De Lieve Jongens Band",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1470,8 +1482,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 29, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 53,
-                            MaxAvailableTickets = 2500,
-                            Name = "Bart Peters & De Ideale Mannen | Werchter Parklife",
+                            Name = "Bart Peters & De Ideale Mannen",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1481,8 +1492,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 30, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 54,
-                            MaxAvailableTickets = 2500,
-                            Name = "Selah Sue + Meskerem Mees + TheColorGrey + Sam De Neef | Werchter Parklife",
+                            Name = "Selah Sue, Meskerem Mees, TheColorGrey & Sam De Neef",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1492,8 +1502,7 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 31, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 55,
-                            MaxAvailableTickets = 2500,
-                            Name = "Niels Destadsbader | Werchter Parklife",
+                            Name = "Niels Destadsbader",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1503,9 +1512,158 @@ namespace YES.Server.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 9, 1, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 56,
-                            MaxAvailableTickets = 2500,
-                            Name = "Black Box Revelation + Brutus + Equal Idiots + Stake + KillTheLogo | Werchter Parklife",
+                            Name = "Black Box Revelation, Brutus, Equal Idiots, Stake & KillTheLogo",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            BannerImgUrl = "https://static1.qmusic.medialaancdn.be/site/w2400/3/0f/0c/54/1483971/Screenshot_2021-06-11_at_07.03.22.png",
+                            Description = "Het gebeurt niet vaak dat er een nieuwe artieste opstaat waarvan iedereen onmiddellijk overtuigd is: die gaat het maken! Een eer die de Westvlaamse CAMILLE wel te beurt valt; de makers van #LikeMe gaven haar eerst een hoofdrol in hun serie, Regi vroeg haar om op één van zijn singles te zingen en niet lang daarna nam Niels William haar onder zijn vleugels en tekende ze een platencontract bij CNR Records.",
+                            EventDate = new DateTime(2021, 9, 11, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 57,
+                            Name = "Camille Dhont - VUURWERK",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2022-2023/camille"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            BannerImgUrl = "https://www.frontview-magazine.be/sites/default/files/news/159571-nieuwe-datum-voor-james-blunt-in-lotto-arena-antwerpen-1321908.jpg",
+                            Description = "Voor zijn zesde album keerde James Blunt terug naar de basis, en doet hij wat hem in 2005 naar een sterrenstatus katapulteerde: het schrijven van bloedeerlijk en gevoelige songs met een rijke melodie. ‘This is the album of my life’ zegt hij zelf over ‘Once Upon A Mind’. Nooit eerder was hij zo emotioneel betrokken, hij draagt het album dan ook op aan zijn zieke vader. ‘Wanneer je beseft dat je ouders niet onsterfelijk zijn, en je zelf net vader wordt zie je de levenscyclus ineens heel duidelijk.’",
+                            EventDate = new DateTime(2022, 3, 29, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 58,
+                            Name = "James Blunt",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/james-blunt"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2630/20ce833a5437ecf4f317c0afb2d4e19b18fad69a/banner.jpg",
+                            Description = "De Grungblavers dat zijn Guillaume Van der Stighelen, Jan Van Looveren, Paul “Boogie Boy” Ambach, Gène Bervoets, Erik Goossens, Ludovic Nyamabo, Dirk Cassiers, Marc Fransen, Stany Crets en Nathan “N8N” Ambach. De Grungblavers zingen naar hun moedertaal (zijnde “het Aantwaarps”) vertaalde evergreens en in 2020 zijn ze klaar voor groter en grootst: de Lotto Arena. Ze halen alle toeters en bellen uit de kast, zorg dat je erbij bent op dit unieke concert!",
+                            EventDate = new DateTime(2021, 9, 4, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 59,
+                            Name = "De Grungblavers",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/de-grungblavers"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            BannerImgUrl = "https://img.static-rmg.be/a/view/q100/w720/h480/3177707/liefdevoormuziekconcert-jpg.jpg",
+                            Description = "*Liefde voor Muziek – voor het eerst live op een podium met Tourist LeMC, Emma Bale, Willy Sommers, Cleymans & Van Geel, Geike Arnaert, Bert Ostyn van Absynthe Minded en Ronny Mosuse.",
+                            EventDate = new DateTime(2021, 9, 25, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 60,
+                            Name = "Liefde voor Muziek LIVE",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/liefde-voor-muziek-live"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2685/d12fb2470eec6533a60ea148470ba89c7c343abf/billboard.jpg",
+                            Description = "Het Nederlandse Kensington is in eigen land uitgegroeid tot één van de meest populaire en succesvolste bands. Tal van awards pronken op hun kast: De Popprijs 2017, 3FM Awards, MTV Awards, ‘Song Van Het Jaar 2018’ voor “Slicer”. De band is kind aan huis in de Amsterdamse Ziggo Dome met 13 uitverkochte shows, waarvan 3 in december 2019, en wist als eerste Nederlandse band ook de Johan Cruijff Arena volledig te vullen in 2018. Hun vorige album ‘Control’ (2016) was goed voor drie keer platina.",
+                            EventDate = new DateTime(2021, 11, 5, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 61,
+                            Name = "Kensington",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/kensington"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2043/473b45b4c412c3cc2119f26af28b2296070a32ac/billboard.jpg",
+                            Description = "André Hazes wordt door België omarmd. Wanneer ‘Leef’ klinkt, wordt het glas geheven en de daad bij het woord gevoegd. Haal net als André Hazes alles uit het leven en kom terug op 10 en 11 november 2021 feesten in de Lotto Arena! Beleef samen met vrienden, familie, collega’s een onvergetelijke avond uit!",
+                            EventDate = new DateTime(2021, 11, 10, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 62,
+                            Name = "André Hazes: De avond van je leven",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/andre-hazes-2020"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2043/473b45b4c412c3cc2119f26af28b2296070a32ac/billboard.jpg",
+                            Description = "André Hazes wordt door België omarmd. Wanneer ‘Leef’ klinkt, wordt het glas geheven en de daad bij het woord gevoegd. Haal net als André Hazes alles uit het leven en kom terug op 10 en 11 november 2021 feesten in de Lotto Arena! Beleef samen met vrienden, familie, collega’s een onvergetelijke avond uit!",
+                            EventDate = new DateTime(2021, 11, 11, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 63,
+                            Name = "André Hazes: De avond van je leven",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/andre-hazes-2020"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2043/473b45b4c412c3cc2119f26af28b2296070a32ac/billboard.jpg",
+                            Description = "André Hazes wordt door België omarmd. Wanneer ‘Leef’ klinkt, wordt het glas geheven en de daad bij het woord gevoegd. Haal net als André Hazes alles uit het leven en kom terug op 10 en 11 november 2021 feesten in de Lotto Arena! Beleef samen met vrienden, familie, collega’s een onvergetelijke avond uit!",
+                            EventDate = new DateTime(2021, 11, 13, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 64,
+                            Name = "André Hazes: De avond van je leven",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/andre-hazes-2020"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            BannerImgUrl = "https://www.cocoloco-festival.be/content/img/1/1356-24711-cocoloco-festival-311021-697c0f9b70a15985.jpg",
+                            Description = "Coco Loco is gekend voor zijn adembenemende show. Zijn buitengewone feestcombinatie tussen een magische halloween, kleurrijk carnaval & vintage circus. Een avond vol sensationele acrobaten & circusartiesten, headliner dj’s en acts, spectaculaire shows en tonnen confetti.",
+                            EventDate = new DateTime(2021, 10, 31, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 65,
+                            Name = "Cocô Loco",
+                            WebsiteUrl = "http://www.sportpaleis.be/nl/kalender/2021-2022/coco-loco"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/3044/98effc1370869f81c86ff90dbffa62d3c86bbe14/billboard.jpg",
+                            Description = "Daar is-ie dan. De fonkelnieuwe plaat van Bazart! ‘Onderweg’ is al het derde album van de razendpopulaire band rond Mathieu Terryn, Simon Nuytten en Oliver Symons. De heren hebben er de afgelopen maanden enorm hard aan gewerkt en staan te popelen om hun nieuwe muziek nu ook live naar hun publiek te brengen. Dat doen ze deze zomer op Werchter Parklife en dit najaar op vrijdag 19 november in de Antwerpse Lotto Arena. Dat de goesting niet alleen bij Bazart erg groot is, maar ook bij hun fans, bleek uit de ticketverkoop voor beide concerten. Daarom kondigt de indiepopgroep een extra concert aan in de Lotto Arena op zaterdag 20 november.",
+                            EventDate = new DateTime(2021, 11, 19, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 66,
+                            Name = "Bazart",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/bazart"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/3044/98effc1370869f81c86ff90dbffa62d3c86bbe14/billboard.jpg",
+                            Description = "Daar is-ie dan. De fonkelnieuwe plaat van Bazart! ‘Onderweg’ is al het derde album van de razendpopulaire band rond Mathieu Terryn, Simon Nuytten en Oliver Symons. De heren hebben er de afgelopen maanden enorm hard aan gewerkt en staan te popelen om hun nieuwe muziek nu ook live naar hun publiek te brengen. Dat doen ze deze zomer op Werchter Parklife en dit najaar op vrijdag 19 november in de Antwerpse Lotto Arena. Dat de goesting niet alleen bij Bazart erg groot is, maar ook bij hun fans, bleek uit de ticketverkoop voor beide concerten. Daarom kondigt de indiepopgroep een extra concert aan in de Lotto Arena op zaterdag 20 november.",
+                            EventDate = new DateTime(2021, 11, 20, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 67,
+                            Name = "Bazart",
+                            WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/bazart"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2780/551dc1281881e14ed7d2ca3ef5ceb6ec8a425e79/billboard.jpg",
+                            Description = "Isabelle Beernaert presenteert ‘Naakt’. Puur, eerlijk, transparant, rauw. ",
+                            EventDate = new DateTime(2021, 6, 25, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 68,
+                            Name = "Isabelle Beernaert | Naakt",
+                            WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2020-2021/isabelle-beernaert"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2641/cd1db8d0178c3381b07c6f9691965af3d3591763/billboard.jpg",
+                            Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
+                            EventDate = new DateTime(2021, 9, 10, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 69,
+                            Name = "An Evening with Alex Agnew",
+                            WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/2641/cd1db8d0178c3381b07c6f9691965af3d3591763/billboard.jpg",
+                            Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
+                            EventDate = new DateTime(2021, 9, 11, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 70,
+                            Name = "An Evening with Alex Agnew",
+                            WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            BannerImgUrl = "http://static.sportpaleisgroep.be/sportpaleis/img/events/3006/1b4955c85eaba8fb2989dbd498acda51b7530e85/billboard.jpg",
+                            Description = "Jimmy vertelt in zijn gloednieuwe show grappen over allerlei verschrikkelijke zaken. Verschrikkelijke zaken waar jij of één van je geliefden misschien mee te maken kreeg. Maar het zijn gewoon grappen – het zijn niet de verschrikkelijke zaken zelf. Politieke correctheid bij een comedy show is zoals gezondheid en veiligheid bij een rodeo.",
+                            EventDate = new DateTime(2021, 9, 16, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 71,
+                            Name = "Jimmy Carr: Terribly Fun",
+                            WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/jimmy-carr"
                         });
                 });
 
@@ -1522,12 +1680,17 @@ namespace YES.Server.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TicketCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TicketCustomerId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("EventId");
+
+                    b.HasIndex("TicketCategoryId");
 
                     b.HasIndex("TicketCustomerId");
 
@@ -1537,114 +1700,388 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 557, DateTimeKind.Local).AddTicks(2145),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(5948),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(5995),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6000),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6004),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6008),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6012),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6016),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 9,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6019),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 10,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6022),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 11,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6025),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6029),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 13,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6032),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 4
                         },
                         new
                         {
                             Id = 14,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6036),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 15,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6040),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 5
                         },
                         new
                         {
                             Id = 16,
-                            DateOfPurchase = new DateTime(2021, 6, 14, 9, 19, 22, 559, DateTimeKind.Local).AddTicks(6044),
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCustomerId = 5
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 1
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 1
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 1
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 1
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 3
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 3
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 3
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 3
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 4
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 4
+                        },
+                        new
+                        {
+                            Id = 27,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 5
+                        },
+                        new
+                        {
+                            Id = 28,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 5
+                        },
+                        new
+                        {
+                            Id = 29,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 5
+                        },
+                        new
+                        {
+                            Id = 30,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 5
+                        },
+                        new
+                        {
+                            Id = 31,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 6
+                        },
+                        new
+                        {
+                            Id = 32,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 7
+                        },
+                        new
+                        {
+                            Id = 33,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 8
+                        },
+                        new
+                        {
+                            Id = 34,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 8
+                        },
+                        new
+                        {
+                            Id = 35,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 9
+                        },
+                        new
+                        {
+                            Id = 36,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 9
+                        },
+                        new
+                        {
+                            Id = 37,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 10
+                        },
+                        new
+                        {
+                            Id = 38,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 11
+                        },
+                        new
+                        {
+                            Id = 39,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 12
+                        },
+                        new
+                        {
+                            Id = 40,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 12
+                        },
+                        new
+                        {
+                            Id = 41,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 13
+                        },
+                        new
+                        {
+                            Id = 42,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 13
+                        },
+                        new
+                        {
+                            Id = 43,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 13
+                        },
+                        new
+                        {
+                            Id = 44,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 14
+                        },
+                        new
+                        {
+                            Id = 45,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 15
+                        },
+                        new
+                        {
+                            Id = 46,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 16
+                        },
+                        new
+                        {
+                            Id = 47,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 16
+                        },
+                        new
+                        {
+                            Id = 48,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 16
+                        },
+                        new
+                        {
+                            Id = 49,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 16
+                        },
+                        new
+                        {
+                            Id = 50,
+                            DateOfPurchase = new DateTime(2021, 6, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 13,
+                            TicketCustomerId = 16
+                        });
+                });
+
+            modelBuilder.Entity("YES.Server.Data.Entities.TicketCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaxAmount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("TicketCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EventId = 1,
+                            MaxAmount = 500,
+                            Name = "zitplaats",
+                            Price = 1.0
                         });
                 });
 
@@ -1655,11 +2092,7 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
                     b.Property<string>("BankAccount")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -1674,8 +2107,13 @@ namespace YES.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1686,7 +2124,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            AddressId = 0,
                             BankAccount = "BE68 5390 0754 7034",
                             Email = "kobe@mail.com",
                             FirstName = "Kobe",
@@ -1696,7 +2133,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
-                            AddressId = 0,
                             BankAccount = "BE68 6990 5800 7574",
                             Email = "ward@mail.com",
                             FirstName = "Ward",
@@ -1706,7 +2142,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 3,
-                            AddressId = 0,
                             BankAccount = "BE60 5590 0994 7021",
                             Email = "Pieter@mail.com",
                             FirstName = "Pieter",
@@ -1716,7 +2151,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 4,
-                            AddressId = 0,
                             BankAccount = "BE70 5560 1278 7078",
                             Email = "Seba@mail.com",
                             FirstName = "Seba",
@@ -1726,7 +2160,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 5,
-                            AddressId = 0,
                             BankAccount = "BE77 7893 0824 7304",
                             Email = "Nick@mail.com",
                             FirstName = "Nick",
@@ -1736,7 +2169,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 6,
-                            AddressId = 0,
                             BankAccount = "BE41 7563 7835 0157",
                             Email = "Dries@mail.com",
                             FirstName = "Dries",
@@ -1746,7 +2178,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 7,
-                            AddressId = 0,
                             BankAccount = "BE96 4278 6420 5496",
                             Email = "Olivia@mail.com",
                             FirstName = "Olivia",
@@ -1756,7 +2187,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 8,
-                            AddressId = 0,
                             BankAccount = "BE77 1046 8642 5676",
                             Email = "Mila@mail.com",
                             FirstName = "Mila",
@@ -1766,7 +2196,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 9,
-                            AddressId = 0,
                             BankAccount = "BE86 7831 5701 5684",
                             Email = "Alice@mail.com",
                             FirstName = "Alice",
@@ -1776,7 +2205,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 10,
-                            AddressId = 0,
                             BankAccount = "BE68 4578 3025 7304",
                             Email = "Louise@mail.com",
                             FirstName = "Louise",
@@ -1786,7 +2214,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 11,
-                            AddressId = 0,
                             BankAccount = "BE89 4785 2015 3065",
                             Email = "Mohamed@mail.com",
                             FirstName = "Mohamed",
@@ -1796,7 +2223,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 12,
-                            AddressId = 0,
                             BankAccount = "BE58 7520 4778 8214",
                             Email = "Emir@mail.com",
                             FirstName = "Emir",
@@ -1806,7 +2232,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 13,
-                            AddressId = 0,
                             BankAccount = "BE72 0145 7857 6375",
                             Email = "Kurt@mail.com",
                             FirstName = "Kurt",
@@ -1816,7 +2241,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 14,
-                            AddressId = 0,
                             BankAccount = "BE86 4576 0445 4873",
                             Email = "Arthur@mail.com",
                             FirstName = "Arthur",
@@ -1826,7 +2250,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 15,
-                            AddressId = 0,
                             BankAccount = "BE69 2467 0468 0478",
                             Email = "Noah@mail.com",
                             FirstName = "Noah",
@@ -1836,151 +2259,11 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 16,
-                            AddressId = 0,
                             BankAccount = "BE88 4785 9785 9620",
                             Email = "Victor@mail.com",
                             FirstName = "Victor",
                             LastName = "De Putte",
                             PhoneNumber = "0488 754 752"
-                        });
-                });
-
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketPrice", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TicketId")
-                        .IsUnique();
-
-                    b.ToTable("TicketPrices");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 10
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 11
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 12
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 13
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 14
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 15
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 16
                         });
                 });
 
@@ -1991,11 +2274,7 @@ namespace YES.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
                     b.Property<string>("BankAccount")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -2006,8 +2285,13 @@ namespace YES.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -2018,7 +2302,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 1,
-                            AddressId = 0,
                             BankAccount = "BE78 3590 0754 7674",
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
@@ -2027,7 +2310,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 2,
-                            AddressId = 0,
                             BankAccount = "BE78 7854 3585 7820",
                             Email = "info@tomorrowland.be",
                             NameProvider = "WAREONE.world bvba",
@@ -2036,7 +2318,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 3,
-                            AddressId = 0,
                             BankAccount = "BE78 7768 3578 1220",
                             Email = "info@rockwerchter.be",
                             NameProvider = "Live Nation Festivals NV",
@@ -2045,7 +2326,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 4,
-                            AddressId = 0,
                             BankAccount = "BE76 5455 8725 7824",
                             Email = "info@couleurcafe.be",
                             NameProvider = "Couleur Cafe",
@@ -2054,7 +2334,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 5,
-                            AddressId = 0,
                             BankAccount = "BE34 8792 4687 2565",
                             Email = "info@pukkelpop.be",
                             NameProvider = "Chokri Mahassine",
@@ -2063,7 +2342,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 6,
-                            AddressId = 0,
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@extremaoutdoor.be",
                             NameProvider = "Extrema",
@@ -2072,7 +2350,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 7,
-                            AddressId = 0,
                             BankAccount = "BE78 6872 3968 7821",
                             Email = "info@sportpaleisgroup.be",
                             NameProvider = "Sportpaleis Group NV",
@@ -2081,7 +2358,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 8,
-                            AddressId = 0,
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@elixir.be",
                             NameProvider = "eLiXir",
@@ -2090,7 +2366,6 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 9,
-                            AddressId = 0,
                             BankAccount = "BE55 4752 7836 4878",
                             Email = "info@trix.be",
                             NameProvider = "Team Trix",
@@ -2176,55 +2451,60 @@ namespace YES.Server.Migrations
                             Id = 10,
                             Capacity = 60000,
                             Name = "Extrema Outdoor"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Capacity = 5218,
+                            Name = "Lotto Arena"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Capacity = 2000,
+                            Name = "Stadsschouwburg Antwerpen"
                         });
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.Address", b =>
                 {
-                    b.HasOne("YES.Server.Data.Entities.TicketCustomer", "TicketCustomer")
+                    b.HasOne("YES.Server.Data.Entities.TicketCustomer", null)
                         .WithOne("Address")
                         .HasForeignKey("YES.Server.Data.Entities.Address", "TicketCustomerId");
 
-                    b.HasOne("YES.Server.Data.Entities.TicketProvider", "TicketProvider")
+                    b.HasOne("YES.Server.Data.Entities.TicketProvider", null)
                         .WithOne("Address")
                         .HasForeignKey("YES.Server.Data.Entities.Address", "TicketProviderId");
 
-                    b.HasOne("YES.Server.Data.Entities.Venue", "Venue")
+                    b.HasOne("YES.Server.Data.Entities.Venue", null)
                         .WithOne("Address")
                         .HasForeignKey("YES.Server.Data.Entities.Address", "VenueId");
-
-                    b.Navigation("TicketCustomer");
-
-                    b.Navigation("TicketProvider");
-
-                    b.Navigation("Venue");
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
                 {
-                    b.HasOne("YES.Server.Data.Entities.EventInfo", "EventInfo")
-                        .WithMany()
-                        .HasForeignKey("EventInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("YES.Server.Data.Entities.TicketProvider", "TicketProvider")
                         .WithMany("Events")
                         .HasForeignKey("TicketProviderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("YES.Server.Data.Entities.Venue", "Venue")
+                    b.HasOne("YES.Server.Data.Entities.Venue", null)
                         .WithMany("Events")
                         .HasForeignKey("VenueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("EventInfo");
-
                     b.Navigation("TicketProvider");
+                });
 
-                    b.Navigation("Venue");
+            modelBuilder.Entity("YES.Server.Data.Entities.EventInfo", b =>
+                {
+                    b.HasOne("YES.Server.Data.Entities.Event", null)
+                        .WithOne("EventInfo")
+                        .HasForeignKey("YES.Server.Data.Entities.EventInfo", "EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.Ticket", b =>
@@ -2235,6 +2515,10 @@ namespace YES.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("YES.Server.Data.Entities.TicketCategory", "TicketCategory")
+                        .WithMany()
+                        .HasForeignKey("TicketCategoryId");
+
                     b.HasOne("YES.Server.Data.Entities.TicketCustomer", "TicketCustomer")
                         .WithMany("Tickets")
                         .HasForeignKey("TicketCustomerId")
@@ -2243,24 +2527,25 @@ namespace YES.Server.Migrations
 
                     b.Navigation("Event");
 
+                    b.Navigation("TicketCategory");
+
                     b.Navigation("TicketCustomer");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketPrice", b =>
+            modelBuilder.Entity("YES.Server.Data.Entities.TicketCategory", b =>
                 {
-                    b.HasOne("YES.Server.Data.Entities.Ticket", "Ticket")
-                        .WithOne("TicketPrice")
-                        .HasForeignKey("YES.Server.Data.Entities.TicketPrice", "TicketId")
+                    b.HasOne("YES.Server.Data.Entities.Event", null)
+                        .WithMany("TicketCategories")
+                        .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Ticket");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Ticket", b =>
+            modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
                 {
-                    b.Navigation("TicketPrice")
-                        .IsRequired();
+                    b.Navigation("EventInfo");
+
+                    b.Navigation("TicketCategories");
                 });
 
             modelBuilder.Entity("YES.Server.Data.Entities.TicketCustomer", b =>

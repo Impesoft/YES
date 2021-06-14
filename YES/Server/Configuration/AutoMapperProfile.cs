@@ -9,25 +9,25 @@ namespace YES.Server.Configuration
     {
         public AutoMapperProfile()
         {
-            CreateMap<Venue, VenueDto>().ReverseMap();
-            CreateMap<TicketProvider, TicketProviderDto>().ReverseMap();
-            CreateMap<EventInfo, EventInfoDto>().ReverseMap();
-            CreateMap<Address, AddressDto>().ReverseMap();
-            CreateMap<TicketCustomer, CustomerWithTicketsDto>();
+            //CreateMap<Venue, VenueDto>().ReverseMap();
+            //CreateMap<TicketProvider, TicketProviderDto>().ReverseMap();
+            //CreateMap<EventInfo, EventInfoDto>().ReverseMap();
+            //CreateMap<Address, AddressDto>().ReverseMap();
+            //CreateMap<TicketCustomer, CustomerWithTicketsDto>();
 
-            CreateMap<Event, EventDto>()
-                .ForMember(d => d.Status, x => x.MapFrom(y => y.Status.ToString()));
+            //CreateMap<Event, EventDto>()
+            //    .ForMember(d => d.Status, x => x.MapFrom(y => y.Status.ToString()));
 
-            CreateMap<EventDto, Event>()
-                .ForMember(d =>  d.Status, x => x.MapFrom(y => ConvertToStatusEnum(y.Status)));
+            //CreateMap<EventDto, Event>()
+            //    .ForMember(d => d.Status, x => x.MapFrom(y => ConvertToStatusEnum(y.Status)));
 
-            CreateMap<Ticket, TicketDto>()
-                .ForMember(d => d.CustomerFirstName, x => x.MapFrom(y => y.TicketCustomer.FirstName))
-                .ForMember(d => d.CustomerLastName, x => x.MapFrom(y => y.TicketCustomer.LastName))
-                .ForMember(d => d.EventName, x => x.MapFrom(y => y.Event.EventInfo.Name))
-                .ForMember(d => d.VanueName, x => x.MapFrom(y => y.Event.Venue.Name))
-                .ForMember(d => d.VenueAddress, x => x.MapFrom(y => y.Event.Venue.Address))
-                .ForMember(d => d.Price, x => x.MapFrom(y => y.TicketPrice.Price));
+            //CreateMap<Ticket, TicketDto>()
+            //    .ForMember(d => d.CustomerFirstName, x => x.MapFrom(y => y.TicketCustomer.FirstName))
+            //    .ForMember(d => d.CustomerLastName, x => x.MapFrom(y => y.TicketCustomer.LastName))
+            //    .ForMember(d => d.EventName, x => x.MapFrom(y => y.Event.EventInfo.Name))
+            //    .ForMember(d => d.VanueName, x => x.MapFrom(y => y.Event.Venue.Name))
+            //    .ForMember(d => d.VenueAddress, x => x.MapFrom(y => y.Event.Venue.Address))
+            //    .ForMember(d => d.Price, x => x.MapFrom(y => y.TicketPrice.Price));
         }
 
         public Status ConvertToStatusEnum(string value)

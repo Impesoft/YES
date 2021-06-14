@@ -24,7 +24,6 @@ namespace YES.Server.Data.Entities
         [Required]
         public DateTime DateOfPurchase { get; set; }
 
-        [Required]
-        public virtual TicketPrice TicketPrice { get; set; }
+        public virtual TicketCategory TicketCategory { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using YES.Server.Enums;
 
@@ -10,8 +12,6 @@ namespace YES.Server.Data.Entities
         [ForeignKey("Venue")]
         public int VenueId { get; set; }
 
-        public virtual Venue Venue { get; set; }
-
         [Required]
         [ForeignKey("TicketProvider")]
         public int TicketProviderId { get; set; }
@@ -21,10 +21,7 @@ namespace YES.Server.Data.Entities
         [Required]
         public Status Status { get; set; }
 
-        [Required]
-        [ForeignKey("EventInfo")]
-        public int EventInfoId { get; set; }
-
+        public virtual ICollection<TicketCategory> TicketCategories { get; set; }
         public virtual EventInfo EventInfo { get; set; }
     }
 }

@@ -11,23 +11,27 @@ namespace YES.Server.Data.Repos
         public EventRepo(YesDBContext context) : base(context)
         {
         }
+
         public async Task<IEnumerable<Event>> GetEventsAsync()
         {
-            return await _context.Events
-                                 .Include(x => x.EventInfo)
-                                 .Include(x => x.TicketProvider)
-                                 .Include(x => x.Venue)
-                                 .ThenInclude(x => x.Address)
-                                 .ToListAsync();
+            //return await _context.Events
+            //                     .Include(x => x.EventInfo)
+            //                     .Include(x => x.TicketProvider)
+            //                     .Include(x => x.Venue)
+            //                     .ThenInclude(x => x.Address)
+            //                     .ToListAsync();
+            return null;
         }
+
         public async Task<Event> GetEventByIdAsync(int id)
         {
-            return await _context.Events
-                                 .Include(x => x.EventInfo)
-                                 .Include(x => x.TicketProvider)
-                                 .Include(x => x.Venue)
-                                 .ThenInclude(x => x.Address)
-                                 .FirstOrDefaultAsync(x => x.Id == id);
+            //return await _context.Events
+            //                     .Include(x => x.EventInfo)
+            //                     .Include(x => x.TicketProvider)
+            //                     .Include(x => x.Venue)
+            //                     .ThenInclude(x => x.Address)
+            //                     .FirstOrDefaultAsync(x => x.Id == id);
+            return null;
         }
     }
 }
