@@ -1,9 +1,43 @@
-﻿body {
-}
-
-.banner{
-    height: 20vh;
+﻿.banner {
+    text-align: center;
+    height: 10rem;
     background-repeat: repeat-x;
     background-position: center;
     background-size: 50%;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.banner2 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
+    /*border: 3px solid #f1f1f1;*/
+    position: absolute;
+    top: 8rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding-bottom: 0;
+    margin: auto;
+    text-align: center;
+    height: 9rem;
+    vertical-align: bottom;
+}
+
+.details {
+    height: 94vh;
+}
+
+h3 {
+    position: relative;
+    top: 9rem;
+    ;
+}
+
+.event-date{
+    color: cornflowerblue;
 }
