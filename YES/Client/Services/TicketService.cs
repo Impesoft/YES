@@ -19,14 +19,16 @@ namespace YES.Client.Services
 
         public async Task<IEnumerable<TicketDto>> GetTicketsByUserIdAsync(int id)
         {
-            var _tickets = await _http.GetFromJsonAsync<IEnumerable<TicketDto>>("https://localhost:44316/api/Ticket/" + id);
+            var _tickets = await _http.GetFromJsonAsync<IEnumerable<TicketDto>>("api/Ticket/" + id);
 
             return _tickets;
         }
 
         public async Task AddNewTicketsAsync(List<TicketPurchaseDto> tickets)
         {
-            await _http.PostAsJsonAsync<List<TicketPurchaseDto>>("https://localhost:44316/api/Ticket/", tickets);
+            await _http.PostAsJsonAsync<List<TicketPurchaseDto>>("api/Ticket/", tickets);
+
+          
         }
 
     }
