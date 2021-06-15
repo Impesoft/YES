@@ -10,7 +10,7 @@ using YES.Server.Data.Database;
 namespace YES.Server.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    [Migration("20210614163436_init")]
+    [Migration("20210615095200_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -677,14 +677,14 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 37,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 38,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
@@ -719,7 +719,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 43,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
@@ -901,7 +901,7 @@ namespace YES.Server.Migrations
                         new
                         {
                             Id = 69,
-                            Status = 0,
+                            Status = 6,
                             TicketProviderId = 7,
                             VenueId = 12
                         },
@@ -918,6 +918,34 @@ namespace YES.Server.Migrations
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 12
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Status = 0,
+                            TicketProviderId = 2,
+                            VenueId = 6
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Status = 0,
+                            TicketProviderId = 5,
+                            VenueId = 9
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Status = 0,
+                            TicketProviderId = 6,
+                            VenueId = 10
                         });
                 });
 
@@ -1666,6 +1694,46 @@ namespace YES.Server.Migrations
                             EventId = 71,
                             Name = "Jimmy Carr: Terribly Fun",
                             WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/jimmy-carr"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Tomorrowland Full Madness: Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 8, 27, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 72,
+                            Name = "Tomorrowland (Weekend 1)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+                            Description = "Tomorrowland Full Madness: Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
+                            EventDate = new DateTime(2021, 9, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 73,
+                            Name = "Tomorrowland (Weekend 2)",
+                            WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
+                            EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 74,
+                            Name = "Pukkelpop (combi)",
+                            WebsiteUrl = "https://www.pukkelpop.be/en/"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
+                            EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 75,
+                            Name = "Extrema Outdoor Extra: September edition (full)",
+                            WebsiteUrl = "https://extrema.be"
                         });
                 });
 
@@ -2414,6 +2482,1078 @@ namespace YES.Server.Migrations
                             MaxAmount = 100,
                             Name = "gold hot ticket package",
                             Price = 227.66
+                        },
+                        new
+                        {
+                            Id = 37,
+                            EventId = 19,
+                            MaxAmount = 10000,
+                            Name = "regular",
+                            Price = 58.0
+                        },
+                        new
+                        {
+                            Id = 38,
+                            EventId = 19,
+                            MaxAmount = 10000,
+                            Name = "better seats",
+                            Price = 76.0
+                        },
+                        new
+                        {
+                            Id = 39,
+                            EventId = 19,
+                            MaxAmount = 1500,
+                            Name = "hot seats",
+                            Price = 106.0
+                        },
+                        new
+                        {
+                            Id = 40,
+                            EventId = 19,
+                            MaxAmount = 700,
+                            Name = "Tiny Dancer VIP package",
+                            Price = 215.0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            EventId = 19,
+                            MaxAmount = 100,
+                            Name = "Bennie and the Jets VIP package",
+                            Price = 255.0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            EventId = 19,
+                            MaxAmount = 100,
+                            Name = "Crocodile Rock VIP package",
+                            Price = 299.0
+                        },
+                        new
+                        {
+                            Id = 43,
+                            EventId = 19,
+                            MaxAmount = 100,
+                            Name = "Rocket Man VIP package",
+                            Price = 349.0
+                        },
+                        new
+                        {
+                            Id = 44,
+                            EventId = 20,
+                            MaxAmount = 10000,
+                            Name = "regular",
+                            Price = 58.0
+                        },
+                        new
+                        {
+                            Id = 45,
+                            EventId = 20,
+                            MaxAmount = 10000,
+                            Name = "better seats",
+                            Price = 76.0
+                        },
+                        new
+                        {
+                            Id = 46,
+                            EventId = 20,
+                            MaxAmount = 1500,
+                            Name = "hot seats",
+                            Price = 106.0
+                        },
+                        new
+                        {
+                            Id = 47,
+                            EventId = 20,
+                            MaxAmount = 700,
+                            Name = "Tiny Dancer VIP package",
+                            Price = 215.0
+                        },
+                        new
+                        {
+                            Id = 48,
+                            EventId = 20,
+                            MaxAmount = 100,
+                            Name = "Bennie and the Jets VIP package",
+                            Price = 255.0
+                        },
+                        new
+                        {
+                            Id = 49,
+                            EventId = 20,
+                            MaxAmount = 100,
+                            Name = "Crocodile Rock VIP package",
+                            Price = 299.0
+                        },
+                        new
+                        {
+                            Id = 50,
+                            EventId = 20,
+                            MaxAmount = 100,
+                            Name = "Rocket Man VIP package",
+                            Price = 349.0
+                        },
+                        new
+                        {
+                            Id = 51,
+                            EventId = 21,
+                            MaxAmount = 10000,
+                            Name = "regular",
+                            Price = 38.590000000000003
+                        },
+                        new
+                        {
+                            Id = 52,
+                            EventId = 21,
+                            MaxAmount = 10000,
+                            Name = "better seats",
+                            Price = 44.18
+                        },
+                        new
+                        {
+                            Id = 53,
+                            EventId = 21,
+                            MaxAmount = 1500,
+                            Name = "hot seats",
+                            Price = 55.380000000000003
+                        },
+                        new
+                        {
+                            Id = 54,
+                            EventId = 21,
+                            MaxAmount = 1500,
+                            Name = "early entry experience",
+                            Price = 154.5
+                        },
+                        new
+                        {
+                            Id = 55,
+                            EventId = 21,
+                            MaxAmount = 20,
+                            Name = "Meet & Greet Experience - zitplaats",
+                            Price = 364.0
+                        },
+                        new
+                        {
+                            Id = 56,
+                            EventId = 21,
+                            MaxAmount = 20,
+                            Name = "Meet & Greet Experience - staanplaats",
+                            Price = 374.0
+                        },
+                        new
+                        {
+                            Id = 57,
+                            EventId = 22,
+                            MaxAmount = 10000,
+                            Name = "regular",
+                            Price = 38.590000000000003
+                        },
+                        new
+                        {
+                            Id = 58,
+                            EventId = 22,
+                            MaxAmount = 10000,
+                            Name = "better seats",
+                            Price = 44.18
+                        },
+                        new
+                        {
+                            Id = 59,
+                            EventId = 22,
+                            MaxAmount = 1500,
+                            Name = "hot seats",
+                            Price = 55.380000000000003
+                        },
+                        new
+                        {
+                            Id = 60,
+                            EventId = 22,
+                            MaxAmount = 1500,
+                            Name = "early entry experience",
+                            Price = 154.5
+                        },
+                        new
+                        {
+                            Id = 61,
+                            EventId = 22,
+                            MaxAmount = 20,
+                            Name = "Meet & Greet Experience - zitplaats",
+                            Price = 364.0
+                        },
+                        new
+                        {
+                            Id = 62,
+                            EventId = 22,
+                            MaxAmount = 20,
+                            Name = "Meet & Greet Experience - staanplaats",
+                            Price = 374.0
+                        },
+                        new
+                        {
+                            Id = 63,
+                            EventId = 72,
+                            MaxAmount = 50000,
+                            Name = "Full Madness Pass",
+                            Price = 249.0
+                        },
+                        new
+                        {
+                            Id = 64,
+                            EventId = 72,
+                            MaxAmount = 10000,
+                            Name = "Full Madness Comfort Pass",
+                            Price = 440.0
+                        },
+                        new
+                        {
+                            Id = 65,
+                            EventId = 23,
+                            MaxAmount = 80000,
+                            Name = "Day Pass",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 66,
+                            EventId = 23,
+                            MaxAmount = 50000,
+                            Name = "Pleasure Day Pass",
+                            Price = 148.5
+                        },
+                        new
+                        {
+                            Id = 67,
+                            EventId = 23,
+                            MaxAmount = 10000,
+                            Name = "Comfort Day Pass",
+                            Price = 190.0
+                        },
+                        new
+                        {
+                            Id = 68,
+                            EventId = 24,
+                            MaxAmount = 80000,
+                            Name = "Day Pass",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 69,
+                            EventId = 24,
+                            MaxAmount = 50000,
+                            Name = "Pleasure Day Pass",
+                            Price = 148.5
+                        },
+                        new
+                        {
+                            Id = 70,
+                            EventId = 24,
+                            MaxAmount = 10000,
+                            Name = "Comfort Day Pass",
+                            Price = 190.0
+                        },
+                        new
+                        {
+                            Id = 71,
+                            EventId = 25,
+                            MaxAmount = 80000,
+                            Name = "Day Pass",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 72,
+                            EventId = 25,
+                            MaxAmount = 50000,
+                            Name = "Pleasure Day Pass",
+                            Price = 148.5
+                        },
+                        new
+                        {
+                            Id = 73,
+                            EventId = 25,
+                            MaxAmount = 10000,
+                            Name = "Comfort Day Pass",
+                            Price = 190.0
+                        },
+                        new
+                        {
+                            Id = 74,
+                            EventId = 73,
+                            MaxAmount = 50000,
+                            Name = "Full Madness Pass",
+                            Price = 249.0
+                        },
+                        new
+                        {
+                            Id = 75,
+                            EventId = 73,
+                            MaxAmount = 10000,
+                            Name = "Full Madness Comfort Pass",
+                            Price = 440.0
+                        },
+                        new
+                        {
+                            Id = 76,
+                            EventId = 26,
+                            MaxAmount = 80000,
+                            Name = "Day Pass",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 77,
+                            EventId = 26,
+                            MaxAmount = 50000,
+                            Name = "Pleasure Day Pass",
+                            Price = 148.5
+                        },
+                        new
+                        {
+                            Id = 78,
+                            EventId = 26,
+                            MaxAmount = 10000,
+                            Name = "Comfort Day Pass",
+                            Price = 190.0
+                        },
+                        new
+                        {
+                            Id = 79,
+                            EventId = 27,
+                            MaxAmount = 80000,
+                            Name = "Day Pass",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 80,
+                            EventId = 27,
+                            MaxAmount = 50000,
+                            Name = "Pleasure Day Pass",
+                            Price = 148.5
+                        },
+                        new
+                        {
+                            Id = 81,
+                            EventId = 27,
+                            MaxAmount = 10000,
+                            Name = "Comfort Day Pass",
+                            Price = 190.0
+                        },
+                        new
+                        {
+                            Id = 82,
+                            EventId = 28,
+                            MaxAmount = 80000,
+                            Name = "Day Pass",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 83,
+                            EventId = 28,
+                            MaxAmount = 50000,
+                            Name = "Pleasure Day Pass",
+                            Price = 148.5
+                        },
+                        new
+                        {
+                            Id = 84,
+                            EventId = 28,
+                            MaxAmount = 10000,
+                            Name = "Comfort Day Pass",
+                            Price = 190.0
+                        },
+                        new
+                        {
+                            Id = 85,
+                            EventId = 74,
+                            MaxAmount = 25000,
+                            Name = "Combi Ticket",
+                            Price = 215.0
+                        },
+                        new
+                        {
+                            Id = 86,
+                            EventId = 29,
+                            MaxAmount = 75000,
+                            Name = "Dagticket",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 87,
+                            EventId = 30,
+                            MaxAmount = 75000,
+                            Name = "Dagticket",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 88,
+                            EventId = 31,
+                            MaxAmount = 75000,
+                            Name = "Dagticket",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 89,
+                            EventId = 32,
+                            MaxAmount = 75000,
+                            Name = "Dagticket",
+                            Price = 105.0
+                        },
+                        new
+                        {
+                            Id = 90,
+                            EventId = 75,
+                            MaxAmount = 25000,
+                            Name = "Combi Ticket",
+                            Price = 5.0
+                        },
+                        new
+                        {
+                            Id = 91,
+                            EventId = 33,
+                            MaxAmount = 35000,
+                            Name = "Dagticket",
+                            Price = 0.0
+                        },
+                        new
+                        {
+                            Id = 92,
+                            EventId = 34,
+                            MaxAmount = 35000,
+                            Name = "Dagticket",
+                            Price = 0.0
+                        },
+                        new
+                        {
+                            Id = 93,
+                            EventId = 35,
+                            MaxAmount = 35000,
+                            Name = "Dagticket",
+                            Price = 0.0
+                        },
+                        new
+                        {
+                            Id = 94,
+                            EventId = 36,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 95,
+                            EventId = 37,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 96,
+                            EventId = 38,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 97,
+                            EventId = 39,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 98,
+                            EventId = 40,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 99,
+                            EventId = 41,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 100,
+                            EventId = 42,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 101,
+                            EventId = 43,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 102,
+                            EventId = 44,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 103,
+                            EventId = 45,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 104,
+                            EventId = 46,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 105,
+                            EventId = 47,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 106,
+                            EventId = 48,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 107,
+                            EventId = 49,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 108,
+                            EventId = 50,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 109,
+                            EventId = 51,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 110,
+                            EventId = 52,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 111,
+                            EventId = 53,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 112,
+                            EventId = 54,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 113,
+                            EventId = 55,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 114,
+                            EventId = 56,
+                            MaxAmount = 2500,
+                            Name = "Park Ticket",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 115,
+                            EventId = 57,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 20.0
+                        },
+                        new
+                        {
+                            Id = 116,
+                            EventId = 57,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 25.0
+                        },
+                        new
+                        {
+                            Id = 117,
+                            EventId = 57,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 118,
+                            EventId = 57,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 25.0
+                        },
+                        new
+                        {
+                            Id = 119,
+                            EventId = 58,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 39.0
+                        },
+                        new
+                        {
+                            Id = 120,
+                            EventId = 58,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 50.0
+                        },
+                        new
+                        {
+                            Id = 121,
+                            EventId = 58,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 73.0
+                        },
+                        new
+                        {
+                            Id = 122,
+                            EventId = 58,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 50.0
+                        },
+                        new
+                        {
+                            Id = 123,
+                            EventId = 59,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 32.0
+                        },
+                        new
+                        {
+                            Id = 124,
+                            EventId = 59,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 42.0
+                        },
+                        new
+                        {
+                            Id = 125,
+                            EventId = 59,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 59.0
+                        },
+                        new
+                        {
+                            Id = 126,
+                            EventId = 59,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 52.0
+                        },
+                        new
+                        {
+                            Id = 127,
+                            EventId = 60,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 28.5
+                        },
+                        new
+                        {
+                            Id = 128,
+                            EventId = 60,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 39.700000000000003
+                        },
+                        new
+                        {
+                            Id = 129,
+                            EventId = 60,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 49.780000000000001
+                        },
+                        new
+                        {
+                            Id = 130,
+                            EventId = 60,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 30.0
+                        },
+                        new
+                        {
+                            Id = 131,
+                            EventId = 61,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 132,
+                            EventId = 61,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 41.490000000000002
+                        },
+                        new
+                        {
+                            Id = 133,
+                            EventId = 61,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 134,
+                            EventId = 61,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 38.0
+                        },
+                        new
+                        {
+                            Id = 135,
+                            EventId = 62,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 39.0
+                        },
+                        new
+                        {
+                            Id = 136,
+                            EventId = 62,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 137,
+                            EventId = 62,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 56.0
+                        },
+                        new
+                        {
+                            Id = 138,
+                            EventId = 62,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 139,
+                            EventId = 63,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 39.0
+                        },
+                        new
+                        {
+                            Id = 140,
+                            EventId = 63,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 141,
+                            EventId = 63,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 56.0
+                        },
+                        new
+                        {
+                            Id = 142,
+                            EventId = 63,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 143,
+                            EventId = 64,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 39.0
+                        },
+                        new
+                        {
+                            Id = 144,
+                            EventId = 64,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 145,
+                            EventId = 64,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 56.0
+                        },
+                        new
+                        {
+                            Id = 146,
+                            EventId = 64,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 147,
+                            EventId = 65,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 32.990000000000002
+                        },
+                        new
+                        {
+                            Id = 148,
+                            EventId = 65,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 149,
+                            EventId = 65,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 40.0
+                        },
+                        new
+                        {
+                            Id = 150,
+                            EventId = 65,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 151,
+                            EventId = 66,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 38.590000000000003
+                        },
+                        new
+                        {
+                            Id = 152,
+                            EventId = 66,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 40.5
+                        },
+                        new
+                        {
+                            Id = 153,
+                            EventId = 66,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 50.0
+                        },
+                        new
+                        {
+                            Id = 154,
+                            EventId = 66,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 40.0
+                        },
+                        new
+                        {
+                            Id = 155,
+                            EventId = 67,
+                            MaxAmount = 2400,
+                            Name = "staanplaats",
+                            Price = 38.590000000000003
+                        },
+                        new
+                        {
+                            Id = 156,
+                            EventId = 67,
+                            MaxAmount = 2400,
+                            Name = "zitplaats",
+                            Price = 40.5
+                        },
+                        new
+                        {
+                            Id = 157,
+                            EventId = 67,
+                            MaxAmount = 400,
+                            Name = "premium zitplaats",
+                            Price = 50.0
+                        },
+                        new
+                        {
+                            Id = 158,
+                            EventId = 67,
+                            MaxAmount = 18,
+                            Name = "rolstoelgebruiker",
+                            Price = 40.0
+                        },
+                        new
+                        {
+                            Id = 159,
+                            EventId = 68,
+                            MaxAmount = 1200,
+                            Name = "regular",
+                            Price = 35.0
+                        },
+                        new
+                        {
+                            Id = 160,
+                            EventId = 68,
+                            MaxAmount = 600,
+                            Name = "better seat",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 161,
+                            EventId = 68,
+                            MaxAmount = 200,
+                            Name = "hot seat",
+                            Price = 65.0
+                        },
+                        new
+                        {
+                            Id = 162,
+                            EventId = 69,
+                            MaxAmount = 1200,
+                            Name = "regular",
+                            Price = 40.0
+                        },
+                        new
+                        {
+                            Id = 163,
+                            EventId = 69,
+                            MaxAmount = 600,
+                            Name = "better seat",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 164,
+                            EventId = 69,
+                            MaxAmount = 200,
+                            Name = "hot seat",
+                            Price = 55.0
+                        },
+                        new
+                        {
+                            Id = 165,
+                            EventId = 70,
+                            MaxAmount = 1200,
+                            Name = "regular",
+                            Price = 40.0
+                        },
+                        new
+                        {
+                            Id = 166,
+                            EventId = 70,
+                            MaxAmount = 600,
+                            Name = "better seat",
+                            Price = 45.0
+                        },
+                        new
+                        {
+                            Id = 167,
+                            EventId = 70,
+                            MaxAmount = 200,
+                            Name = "hot seat",
+                            Price = 55.0
+                        },
+                        new
+                        {
+                            Id = 168,
+                            EventId = 71,
+                            MaxAmount = 1200,
+                            Name = "regular",
+                            Price = 38.0
+                        },
+                        new
+                        {
+                            Id = 169,
+                            EventId = 71,
+                            MaxAmount = 600,
+                            Name = "better seat",
+                            Price = 40.0
+                        },
+                        new
+                        {
+                            Id = 170,
+                            EventId = 71,
+                            MaxAmount = 200,
+                            Name = "hot seat",
+                            Price = 50.0
                         });
                 });
 
@@ -2460,8 +3600,8 @@ namespace YES.Server.Migrations
                             Email = "kobe@mail.com",
                             FirstName = "Kobe",
                             LastName = "Delobelle",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0473 288 888"
                         },
                         new
@@ -2471,8 +3611,8 @@ namespace YES.Server.Migrations
                             Email = "ward@mail.com",
                             FirstName = "Ward",
                             LastName = "Impe",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0473 422 458"
                         },
                         new
@@ -2482,8 +3622,8 @@ namespace YES.Server.Migrations
                             Email = "Pieter@mail.com",
                             FirstName = "Pieter",
                             LastName = "Corp",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0453 288 888"
                         },
                         new
@@ -2493,8 +3633,8 @@ namespace YES.Server.Migrations
                             Email = "Seba@mail.com",
                             FirstName = "Seba",
                             LastName = "Stiaan",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0485 345 349"
                         },
                         new
@@ -2504,8 +3644,8 @@ namespace YES.Server.Migrations
                             Email = "Nick@mail.com",
                             FirstName = "Nick",
                             LastName = "Angularlover",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0478 365 852"
                         },
                         new
@@ -2515,8 +3655,8 @@ namespace YES.Server.Migrations
                             Email = "Dries@mail.com",
                             FirstName = "Dries",
                             LastName = "Maes",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0432 457 896"
                         },
                         new
@@ -2526,8 +3666,8 @@ namespace YES.Server.Migrations
                             Email = "Olivia@mail.com",
                             FirstName = "Olivia",
                             LastName = "Goossens",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0478 687 138"
                         },
                         new
@@ -2537,8 +3677,8 @@ namespace YES.Server.Migrations
                             Email = "Mila@mail.com",
                             FirstName = "Mila",
                             LastName = "Vandevoorde",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0485 377 352"
                         },
                         new
@@ -2548,8 +3688,8 @@ namespace YES.Server.Migrations
                             Email = "Alice@mail.com",
                             FirstName = "Alice",
                             LastName = "Mcgregor",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0478 785 125"
                         },
                         new
@@ -2559,8 +3699,8 @@ namespace YES.Server.Migrations
                             Email = "Louise@mail.com",
                             FirstName = "Louise",
                             LastName = "Degroote",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0477 765 782"
                         },
                         new
@@ -2570,8 +3710,8 @@ namespace YES.Server.Migrations
                             Email = "Mohamed@mail.com",
                             FirstName = "Mohamed",
                             LastName = "Yilmaz",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0472 752 785"
                         },
                         new
@@ -2581,8 +3721,8 @@ namespace YES.Server.Migrations
                             Email = "Emir@mail.com",
                             FirstName = "Emir",
                             LastName = "Öztürk",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0473 478 795"
                         },
                         new
@@ -2592,8 +3732,8 @@ namespace YES.Server.Migrations
                             Email = "Kurt@mail.com",
                             FirstName = "Kurt",
                             LastName = "Debolle",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0478 140 349"
                         },
                         new
@@ -2603,8 +3743,8 @@ namespace YES.Server.Migrations
                             Email = "Arthur@mail.com",
                             FirstName = "Arthur",
                             LastName = "Vangeest",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0490 785 457"
                         },
                         new
@@ -2614,8 +3754,8 @@ namespace YES.Server.Migrations
                             Email = "Noah@mail.com",
                             FirstName = "Noah",
                             LastName = "Vanarke",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0475 850 852"
                         },
                         new
@@ -2625,8 +3765,8 @@ namespace YES.Server.Migrations
                             Email = "Victor@mail.com",
                             FirstName = "Victor",
                             LastName = "De Putte",
-                            PasswordHash = new byte[] { 91, 218, 45, 30, 91, 123, 124, 160, 119, 139, 145, 191, 81, 125, 1, 37, 224, 152, 45, 178, 237, 229, 225, 245, 166, 20, 84, 47, 59, 90, 92, 70, 127, 140, 153, 202, 207, 66, 127, 183, 109, 153, 77, 90, 241, 80, 190, 224, 141, 31, 85, 84, 103, 44, 99, 202, 16, 208, 8, 28, 1, 211, 144, 113 },
-                            PasswordSalt = new byte[] { 104, 14, 145, 235, 42, 96, 224, 152, 184, 80, 92, 144, 122, 203, 110, 235, 172, 169, 7, 181, 239, 29, 247, 114, 146, 75, 179, 191, 81, 2, 75, 71, 169, 151, 158, 201, 158, 8, 191, 161, 5, 209, 39, 1, 96, 30, 217, 108, 166, 162, 227, 17, 175, 66, 113, 229, 43, 48, 7, 133, 57, 113, 127, 89, 202, 182, 171, 135, 229, 187, 22, 16, 221, 158, 137, 165, 188, 177, 214, 50, 126, 252, 52, 220, 247, 226, 210, 108, 120, 221, 48, 212, 5, 33, 128, 35, 79, 53, 64, 241, 76, 174, 51, 179, 137, 96, 174, 83, 26, 191, 20, 150, 134, 69, 22, 128, 214, 207, 20, 159, 21, 214, 225, 196, 149, 183, 131, 24 },
+                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
+                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
                             PhoneNumber = "0488 754 752"
                         });
                 });
@@ -2669,8 +3809,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 3590 0754 7674",
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 267 28 20"
                         },
                         new
@@ -2679,8 +3819,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 7854 3585 7820",
                             Email = "info@tomorrowland.be",
                             NameProvider = "WAREONE.world bvba",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 147 27 78"
                         },
                         new
@@ -2689,8 +3829,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 7768 3578 1220",
                             Email = "info@rockwerchter.be",
                             NameProvider = "Live Nation Festivals NV",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 754 87 78"
                         },
                         new
@@ -2699,8 +3839,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE76 5455 8725 7824",
                             Email = "info@couleurcafe.be",
                             NameProvider = "Couleur Cafe",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 785 24 86"
                         },
                         new
@@ -2709,8 +3849,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE34 8792 4687 2565",
                             Email = "info@pukkelpop.be",
                             NameProvider = "Chokri Mahassine",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 765 78 86"
                         },
                         new
@@ -2719,8 +3859,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@extremaoutdoor.be",
                             NameProvider = "Extrema",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 485 35 41"
                         },
                         new
@@ -2729,8 +3869,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE78 6872 3968 7821",
                             Email = "info@sportpaleisgroup.be",
                             NameProvider = "Sportpaleis Group NV",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 879 87 74"
                         },
                         new
@@ -2739,8 +3879,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@elixir.be",
                             NameProvider = "eLiXir",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 782 71 42"
                         },
                         new
@@ -2749,8 +3889,8 @@ namespace YES.Server.Migrations
                             BankAccount = "BE55 4752 7836 4878",
                             Email = "info@trix.be",
                             NameProvider = "Team Trix",
-                            PasswordHash = new byte[] { 230, 163, 66, 246, 164, 60, 72, 243, 18, 50, 142, 21, 6, 48, 64, 114, 142, 200, 13, 92, 27, 190, 253, 202, 78, 102, 24, 0, 27, 61, 53, 173, 192, 184, 200, 10, 131, 180, 99, 237, 167, 67, 222, 84, 209, 69, 65, 104, 154, 55, 17, 222, 100, 130, 136, 104, 134, 144, 50, 184, 127, 135, 134, 29 },
-                            PasswordSalt = new byte[] { 92, 83, 248, 248, 219, 217, 130, 189, 83, 81, 169, 207, 196, 62, 202, 112, 68, 28, 176, 51, 208, 104, 114, 175, 65, 37, 246, 56, 68, 57, 88, 87, 248, 230, 164, 162, 3, 43, 41, 168, 79, 159, 154, 8, 135, 210, 52, 191, 118, 175, 221, 178, 50, 48, 85, 107, 120, 250, 129, 70, 223, 183, 242, 172, 50, 49, 72, 121, 234, 188, 2, 152, 84, 146, 216, 6, 88, 179, 189, 226, 211, 68, 223, 61, 1, 123, 230, 118, 206, 87, 232, 69, 155, 222, 253, 196, 226, 140, 169, 51, 133, 55, 36, 221, 16, 231, 157, 124, 197, 65, 240, 168, 175, 55, 44, 196, 132, 69, 22, 91, 229, 33, 173, 57, 141, 89, 245, 146 },
+                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
+                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
                             PhoneNumber = "09 456 79 17"
                         });
                 });
