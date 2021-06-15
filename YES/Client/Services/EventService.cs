@@ -18,17 +18,18 @@ namespace YES.Client.Services
             _http = http;
         }
 
+        //https://localhost:44316/api/Event
 
         public async Task<IEnumerable<EventDto>> GetEventsAsync()
         {
-            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
+            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("api/Event");
 
             return _events.OrderBy(x => x.EventInfo.EventDate);
         }
 
         public async Task<EventDto> GetEventByIdAsync(int id)
         {
-            var _event = await _http.GetFromJsonAsync<EventDto>("https://localhost:44316/api/Event/" + id);
+            var _event = await _http.GetFromJsonAsync<EventDto>("api/Event/" + id);
 
             return _event;
         }
