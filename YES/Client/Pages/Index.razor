@@ -2,23 +2,24 @@
 @using YES.Shared
 @inject HttpClient Http
 
-<div class="page-background">
-    <section>
-        <h3 class="mb-4">Spotlight</h3>
-        <div class="row card-row">
-            @if (_spotlights != null)
+<div class="banner"></div>
+
+<section>
+    <h3 class="mb-4">Spotlight</h3>
+    <div class="row card-row">
+        @if (_spotlights != null)
+        {
+            @foreach (EventDto item in _spotlights)
             {
-                @foreach (EventDto item in _spotlights)
+                if (item != null)
                 {
-                    if (item != null)
-                    {
-                    <SpotLightCard Event="item" />
-                    }
+                <SpotLightCard Event="item" />
                 }
             }
-        </div>
-    </section>
-</div>          
+        }
+    </div>
+</section>
+         
 
 
 
