@@ -2,27 +2,43 @@
 @inject NavigationManager navigationManager
 
 <div class="page-background">
-    <section>
-        <h2 class="mb-3">Events</h2>
-        @if (_events != null)
-        {
-            <div class="scrollable">
-                @foreach (EventDto eventDto in _events)
+    <div class="row content">
+        <div class="col-xl-3 mb-3">
+            <section>
+                <h2 class="mb-3">Search</h2>
+                <form class="d-flex">
+                    <input class="form-control bg-dark me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-warning" type="submit">Search</button>
+                </form>
+            </section>
+        </div>
+        <div class="col-xl-9">
+
+
+            <section>
+                <h2 class="mb-3">Events</h2>
+                @if (_events != null)
                 {
-                    <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
-                }
-            </div>
+                    <div class="scrollable">
+                        @foreach (EventDto eventDto in _events)
+                        {
+                            <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
+                        }
+                    </div>
                 }
                 else
                 {
-                <p>No events found.</p>
+                    <p>No events found.</p>
                 }
 
             </section>
+        </div>
+    </div>
 </div>
 
 @code {
     private IEnumerable<EventDto> _events;
+    
 
     [Inject]
     private IEventService _service { get; set; }

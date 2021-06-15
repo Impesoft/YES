@@ -4,30 +4,25 @@
     align-items: center;
     height: 100vh;
     max-width: 100%;
-    background-image: url("images/page-bg.jpg");
+    background-image: url("images/page-bg3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
 }
 
 section {
-    width: 90vw;
-    background: rgba(0,0,0,.4);
+    min-width: 40vw;
+    max-width: 90vw;
+    background: rgba(0,0,0,.8);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 20px;
     color: white;
-    max-height: 75vh;
+    /*max-height: 75vh;*/
     overflow: hidden;
     border-radius: 5px;
 }
 
-.card-row {
-    justify-content: space-around;
+.small-bars{
+    max-width: 40%;
 }
 
-h3 {
-    color: white;
-    text-align: center;
-    padding-bottom: 1.5rem;
-    box-shadow: 0 4px 4px -4px darkgray;
-}
