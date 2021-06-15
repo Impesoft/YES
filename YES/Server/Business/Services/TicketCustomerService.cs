@@ -16,11 +16,32 @@ namespace YES.Server.Business.Services
             _ticketCustomerRepo = ticketCustomerRepo;
             _mapper = mapper;
         }
-        public async Task<CustomerWithTicketsDto> GetTicketCustomerByIdAsync(int id)
+
+        public async Task<CustomerWithTicketsDto> GetTicketCustomerWithTicketsByIdAsync(int id)
         {
             TicketCustomer customer = await _ticketCustomerRepo.GetEntityAsync(id);
             return _mapper.Map<CustomerWithTicketsDto>(customer);
         }
+        public async Task<TicketCustomerDto> GetTicketCustomerByIdAsync(int id)
+        {
+            TicketCustomer customer = await _ticketCustomerRepo.GetEntityAsync(id);
+            return _mapper.Map<TicketCustomerDto>(customer);
+        }
+        public async Task<bool> AddTicketCustomer(TicketCustomerDto ticketCustomerDto)
+        {
+            TicketCustomer customer = _mapper.Map<TicketCustomer>(ticketCustomerDto);
+            return await _ticketCustomerRepo.AddEntityAsync(customer);
+        }
+        public async Task<bool> UpdateTicketCustomer(TicketCustomerDto ticketCustomerDto)
+        {
+            TicketCustomer customer = _mapper.Map<TicketCustomer>(ticketCustomerDto);
+            return await _ticketCustomerRepo.UpdateEntityAsync(customer);
+        }
+        public async Task<bool> DeleteTicketCustomer(int id)
+        {
+            return await _ticketCustomerRepo.DeleteEntityAsync(id);
+        }
 
     }
 }
+
