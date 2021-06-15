@@ -1,40 +1,44 @@
 ﻿@page "/Calendar"
 @inject NavigationManager navigationManager
 
-<div class="page-background">
-    <div class="row content">
-        <div class="col-xl-3 mb-3">
-            <section>
-                <h2 class="mb-3">Search</h2>
-                <form class="d-flex">
-                    <input class="form-control bg-dark me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-warning" type="submit">Search</button>
-                </form>
-            </section>
-        </div>
-        <div class="col-xl-9">
+<div class="banner"></div>
 
-
-            <section>
-                <h2 class="mb-3">Events</h2>
-                @if (_events != null)
-                {
-                    <div class="scrollable">
-                        @foreach (EventDto eventDto in _events)
-                        {
-                            <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
-                        }
-                    </div>
-                }
-                else
-                {
-                    <p>No events found.</p>
-                }
-
-            </section>
+<section>
+    <div class="head-wrapper">
+        <h2 class="mb-3">Events</h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search for an event">
+          <button class="btn btn-outline-secondary" type="button" @onclick="() => FilterEvents()">Search</button>
         </div>
     </div>
-</div>
+    @if (_events != null)
+    {
+        <div class="scrollable">
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th class="text-end" scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (EventDto eventDto in _events)
+                {
+                    <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)"/>
+                }
+                </tbody>
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <p>No events found.</p>
+    }
+</section>
+
 
 @code {
     private IEnumerable<EventDto> _events;
@@ -46,12 +50,10 @@
     protected override async Task OnInitializedAsync()
     {
         _events = await _service.GetEventsAsync();
-        
     }
 
     private void ShowEventInfo(EventDto eventDto)
     {
-
         navigationManager.NavigateTo($"/EventDetail/{eventDto.Id}");
     }
 
@@ -59,6 +61,11 @@
     {
         _events.OrderBy(x => x.EventInfo.EventDate);
     }
-
+    
+    //TODO
+    private void FilterEvents()
+    {
+        
+    }
 
 }

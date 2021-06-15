@@ -1,7 +1,15 @@
 ﻿footer {
-    height: 2rem;
-    background: rgba(0, 0, 0, 0.96);
-    color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    height: 3rem;
+    background: var(--light-dark);
+    color: var(--dark-light);
     text-align: center;
-    
+}
+
+p {
+    margin: 0;
+    font-size: .8rem;
 }
