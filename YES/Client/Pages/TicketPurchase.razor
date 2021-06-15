@@ -108,8 +108,7 @@
     public int Id { get; set; }
 
     public EventDto Event { get; set; }
-
-    //public int AmountOfTickets { get; set; }
+    
     public double TotalPrice { get; set; }
 
     public bool PurchaseSuccesful { get; set; } = false;
@@ -167,6 +166,7 @@
 
         foreach (var ticketCategory in TicketsPurchasingList)
         {
+            //MAKE NEW LIST TO COUNT AMOUNTS
             var ticket = new TicketPurchaseDto
             {
                 TicketCustomerId = Customer.Id,
