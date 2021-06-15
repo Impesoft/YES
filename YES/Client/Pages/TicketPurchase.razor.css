@@ -22,3 +22,7 @@ section {
     border-radius: 5px;
 }
 
+.small-bars{
+    max-width: 40%;
+}
+
