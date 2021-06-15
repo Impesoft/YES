@@ -1,44 +1,62 @@
 ﻿@page "/EventDetail/{Id:int}"
 @inject IEventService _service
+
 @if (Event != null)
 {
-    <div class="py-5 bg-dark text-light details">
-        <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
-        </div>
-        <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
-            <h3>@Event.EventInfo.Name</h3>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8 center">
-                <p>
-                Last Planned Date:   @if (Event.EventInfo.EventDate > DateTime.MinValue)
-                                   {
-                                       @Event.EventInfo.EventDate.ToLongDateString()
-                                   }
-                                   else
-                                   {
-                                       @:&nbsp;To Be Announced
-                                   }
-                </p>
-            </div>
-            <div class="col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8 center">
-                <p>@Event.EventInfo.Description</p>
-            </div>
-            <div class="col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary">Our Site</a>
-            </div>
-            <div class="col-2"></div>
-        </div>
+
+<div class="py-5 bg-dark text-light full-height">
+
+    <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
     </div>
+    <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
+        <h3>@Event.EventInfo.Name</h3>
+    </div>
+    
+    <section>
+        <h5 class="event-date-line event-date">
+            @if (Event.EventInfo.EventDate > DateTime.MinValue)
+            {
+               @Event.EventInfo.EventDate.ToLongDateString()
+            }
+            else
+            {
+                @:To Be Announced
+            }
+
+            @if (@Event.Status != "Default")
+            {
+                <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
+            }
+        </h5>
+        
+        <div class="row">
+            <div class="col-xl-4">
+                <p>@Event.EventInfo.Description</p>
+                 <p>Maximum amount of tickets: @Event.EventInfo.MaxAvailableTickets</p>
+            </div>
+            <div class="col-xl-3">
+                <h5>@Event.Venue.Name</h5>
+                                <p>@Event.Venue.Address.Street @Event.Venue.Address.StreetNumber </p>
+                                <p>@Event.Venue.Address.PostalCode @Event.Venue.Address.City </p>
+                                <p>@Event.Venue.Address.Country</p>
+            </div>
+            <div class="col-xl-3">
+                <h5>@Event.TicketProvider.NameProvider</h5>
+                <p>@Event.TicketProvider.Email </p>
+                <p>@Event.TicketProvider.PhoneNumber</p>
+            </div>
+            <div class="col-xl-2">
+                @if (Event.Status != "Cancelled")
+                {
+                    <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                }
+        
+                <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
+            </div>
+        </div>
+    </section>
+
+</div>
 
 }
 else
