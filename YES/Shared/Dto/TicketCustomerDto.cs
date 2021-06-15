@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace YES.Shared.Dto
+﻿namespace YES.Shared.Dto
 {
-    public class CustomerWithTicketsDto
+    public class TicketCustomerDto
     {
         public int Id { get; set; }
-
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
 
         public string BankAccount { get; set; }
@@ -17,8 +13,5 @@ namespace YES.Shared.Dto
         public string PhoneNumber { get; set; }
 
         public virtual AddressDto Address { get; set; }
-
-        public virtual ICollection<TicketDto> Tickets { get; set; }
-
     }
 }

@@ -4,7 +4,7 @@ using YES.Server.Data.Entities;
 
 namespace YES.Server.Data.Repos
 {
-    public interface ITicketCustomerRepo
+    public interface ITicketCustomerRepo : IGenericRepo<TicketCustomer>
     {
         Task<TicketCustomer> GetEntityAsync(int id);
     }
