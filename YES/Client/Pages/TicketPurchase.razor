@@ -3,99 +3,102 @@
 @inject ICustomerService _customerService
 
 <div class="page-background">
+
+    @if (Event != null)
+    {
+        
     <section>
-        @if (Event != null)
-        {
-            <h3 class="mb-5">Tickets for @Event.EventInfo.Name</h3>
+        <h3 class="mb-5">Tickets for @Event.EventInfo.Name</h3>
 
-
-
-            <Form @onsubmit="PurchaseTickets" class="">
-                <div class="row mb-3">
+        <div class="row mb-3">
+            <div class="col">
+                <h5>
+                    Type
+                </h5>
+            </div>
+            <div class="col">
+                <h5>
+                    Price
+                </h5>
+            </div>
+            <div class="col">
+                <h5>
+                    Quantity
+                </h5>
+            </div>
+        </div>
+        <hr />
+        <div>
+            @foreach (var priceCategory in Event.TicketCategories)
+            {
+                <div class="row">
                     <div class="col">
-                        <h5>
-                            Type
-                        </h5>
+                        @priceCategory.Name
                     </div>
                     <div class="col">
-                        <h5>
-                            Price
-                        </h5>
+                        € @priceCategory.Price
                     </div>
                     <div class="col">
-                        <h5>
-                            Quantity
-                        </h5>
+                        <button type="button" class="btn btn-outline-warning" @onclick="() => AddTicketToPurchasingList(priceCategory)">+</button>
                     </div>
                 </div>
                 <hr />
-                <div>
-                    @foreach (var priceCategory in Event.TicketCategories)
-                    {
-                        @*<PriceCategory ticketCategory="priceCategory"></PriceCategory>*@
-                        <div class="row">
-                            <div class="col">
-                                @priceCategory.Name
-                            </div>
-                            <div class="col">
-                                € @priceCategory.Price
-                            </div>
-                            <div class="col">
-                               
-                                <button type="button" class="btn btn-outline-warning" @onclick="() => AddTicketToPurchasingList(priceCategory)">+</button>
-                            </div>
-                        </div>
-                        <hr />
-                    }
-                </div>
+            }
+        </div>
 
 
-                @if (TicketsPurchasingList != null)
-                {
+        @if (TicketsPurchasingList != null)
+        {
 
-                    <h5>Your current purchase:</h5>
+            <h5>Your current purchase:</h5>
 
-                    @foreach (var ticket in TicketsPurchasingList)
-                    {
-                        <div class="row">
-                            <div class="col">
-                                @ticket.Name
-                            </div>
-                            <div class="col">
-                                @ticket.Price
-                            </div>
-                        </div>
-                    }
-
-                    <div class="row mt-4">
-                        <div class="col">
-                            <h3 class="mt-3"> Total Price: € @Math.Round(TotalPrice, 2)</h3>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-warning mt-3">Order Tickets! </button>
-                        </div>
+            @foreach (var ticket in TicketsPurchasingList)
+            {
+                <div class="row">
+                    <div class="col">
+                        @ticket.Name
                     </div>
+                    <div class="col">
+                        @ticket.Price
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearItemFromPurchaseList(ticket)">X</button>
+                    </div>
+                </div>
+            }
+
+            <div class="row mt-4">
+                <div class="col">
+                    <h3 class="mt-3"> Total Price: € @Math.Round(TotalPrice, 2)</h3>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-warning mt-3" @onclick="() => PurchaseTickets()"> Order Tickets! </button>
+                    <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearPurchaseList()">Cancel</button>
+
+                </div>
+            </div>
 
 
-                }
-
-            </Form>
 
             @if (PurchaseSuccesful == true)
             {
                 <div class="mt-5 alert alert-warning">
-                    @Customer.FirstName succesfully ordered @TicketsPurchasingList.Count() ticket(s) for €@Math.Round(TotalPrice,2) !
+                    @Customer.FirstName succesfully ordered @TicketsPurchasingList.Count() ticket(s) for €@Math.Round(TotalPrice, 2) !
                 </div>
             }
 
-
+        }
+    </section>
+            
+            
         }
         else
         {
             <p>No events found.</p>
         }
 
-    </section>
+
+
 </div>
 
 @code {
@@ -131,10 +134,26 @@
         TotalPrice += ticket.Price;
     }
 
+    private void ClearItemFromPurchaseList(TicketCategoryDto ticket)
+    {
+        TotalPrice -= ticket.Price;
+        TicketsPurchasingList.Remove(ticket);
+    }
+
+    private void ClearPurchaseList()
+    {
+        TotalPrice = 0;
+        TicketsPurchasingList.Clear();
+        PurchaseSuccesful = false;
+    }
+
     private void PurchaseTickets()
     {
         //Customer.Tickets.Add()
-        PurchaseSuccesful = true;
+        if (TicketsPurchasingList.Any())
+        {
+            PurchaseSuccesful = true;
+        }
 
     }
 }
