@@ -11,7 +11,7 @@ namespace YES.Server.Data.Repos
         {
         }
 
-        override public async Task<TicketCustomer> GetEntityAsync(int id)
+        public override async Task<TicketCustomer> GetEntityAsync(int id)
         {
             return await _context.TicketCustomers
                                  .Include(x => x.Address)
@@ -27,5 +27,24 @@ namespace YES.Server.Data.Repos
                                  .FirstOrDefaultAsync(x => x.Id == id);
 
         }
+
+        public override async Task<bool> DeleteEntityAsync(int id)
+        {
+            TicketCustomer customer = await _context.TicketCustomers
+                                     .Include(x => x.Address) 
+                                     .FirstOrDefaultAsync(x => x.Id ==id);
+            if (customer!= null)
+            {
+                if (customer.Address != null)
+                {
+                    _context.Remove(customer.Address);
+                }
+                _context.Remove(customer);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;           
+        }
+
     }
 }
