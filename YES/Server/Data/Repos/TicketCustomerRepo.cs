@@ -16,16 +16,16 @@ namespace YES.Server.Data.Repos
             return await _context.TicketCustomers
                                  .Include(x => x.Address)
                                  .Include(x => x.Tickets)
-                                 .ThenInclude(x => x.TicketPrice)
+                                 .ThenInclude(x => x.TicketCategory)
                                  .Include(x => x.Tickets)
                                  .ThenInclude(x => x.Event)
                                  .ThenInclude(x => x.EventInfo)
                                  .Include(x => x.Tickets)
                                  .ThenInclude(x => x.Event)
                                  .ThenInclude(x => x.Venue)
-                                 .ThenInclude(x => x.Address)
+                                 .ThenInclude(x => x.Address) 
                                  .FirstOrDefaultAsync(x => x.Id == id);
-        }
 
+        }
     }
 }

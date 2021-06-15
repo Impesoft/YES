@@ -11,6 +11,7 @@ namespace YES.Server.Data.Repos
         public EventRepo(YesDBContext context) : base(context)
         {
         }
+
         public async Task<IEnumerable<Event>> GetEventsAsync()
         {
             return await _context.Events
@@ -18,8 +19,10 @@ namespace YES.Server.Data.Repos
                                  .Include(x => x.TicketProvider)
                                  .Include(x => x.Venue)
                                  .ThenInclude(x => x.Address)
+                                 .Include(x => x.TicketCategories)
                                  .ToListAsync();
         }
+
         public async Task<Event> GetEventByIdAsync(int id)
         {
             return await _context.Events
@@ -27,6 +30,7 @@ namespace YES.Server.Data.Repos
                                  .Include(x => x.TicketProvider)
                                  .Include(x => x.Venue)
                                  .ThenInclude(x => x.Address)
+                                 .Include(x => x.TicketCategories)
                                  .FirstOrDefaultAsync(x => x.Id == id);
         }
     }

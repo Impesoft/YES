@@ -25,6 +25,9 @@ namespace YES.Server.Data.Entities
         public DateTime DateOfPurchase { get; set; }
 
         [Required]
-        public virtual TicketPrice TicketPrice { get; set; }
+        [ForeignKey("TicketCategory")]
+        public int TicketCategoryId { get; set; }
+
+        public virtual TicketCategory TicketCategory { get; set; }
     }
 }
