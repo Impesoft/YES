@@ -1,91 +1,92 @@
 ﻿@page "/TicketPurchase/{Id:int}"
-@inject IEventService _service
+@inject IEventService _eventService
+@inject ICustomerService _customerService
 
 <div class="page-background">
     <section>
         @if (Event != null)
         {
-            <h3>Ticket Purchase for @Event.EventInfo.Name</h3>
+            <h3 class="mb-5">Tickets for @Event.EventInfo.Name</h3>
+            
 
-            <p>
-                Aantal beschikbare tickets:
-            </p>
+
+            <Form @onsubmit="PurchaseTickets" class="">
+                <div class="row mb-3">
+                    <div class="col">
+                        <h5>
+                            Type
+                        </h5>
+                    </div>
+                    <div class="col">
+                        <h5>
+                            Price
+                        </h5>                        
+                    </div>
+                    <div class="col">
+                        <h5>
+                            Quantity
+                        </h5>                        
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    @foreach (var priceCategory in Event.TicketCategories)
+                    {
+                        @*<PriceCategory ticketCategory="priceCategory"></PriceCategory>*@
+                        <div class="row">
+                            <div class="col">
+                                @priceCategory.Name
+                            </div>
+                            <div class="col">
+                                € @priceCategory.Price
+                            </div>
+                            <div class="col">
+                                @*<input type="number" class="form-control small-bars" @bind="AmountOfTickets" />*@
+                                <button class="btn btn-outline-warning" @onclick="() => AddTicketToPurchasingList(priceCategory)">+</button>
+                            </div>
+                        </div>
+                        <hr />
+                    }
+                </div>
+
+                <h3 class="mt-3"> Total Price: € @TotalPrice</h3>
+                <button type="submit" class="btn btn-warning mt-3">Order Tickets! </button>
+            </Form>
+
+            @if (TicketsPurchasingList != null)
+            {
+
+                <h5>Your current purchase:</h5>
+
+                @foreach (var ticket in TicketsPurchasingList)
+                {
+                    <div class="row">
+                        <div class="col">
+                            @ticket.Name
+                        </div>
+                        <div class="col">
+                            @ticket.Price
+                        </div>
+                    </div>
+                }
+            }
+
+
+
+            @if (PurchaseSuccesful)
+            {
+                <div class="mt-5">
+                    You succesfully ordered @AmountOfTickets tickets for €@TotalPrice !
+                </div>
+            }
+
+
+
         }
         else
         {
             <p>No events found.</p>
         }
-
-        @* <form> *@
-        @*     <div class="row"> *@
-        @*         <div class="col"> *@
-        @*             <div class="mb-3"> *@
-        @*                 <label for="vip" class="form-label">VIP</label> *@
-        @*                 <input type="number" class="form-control" id="vip"> *@
-        @*             </div> *@
-        @*             <div class="mb-3"> *@
-        @*                 <label for="standing" class="form-label">Standing place</label> *@
-        @*                 <input type="number" class="form-control" id="standing"> *@
-        @*             </div> *@
-        @*             <div class="mb-3"> *@
-        @*                 <label for="seated" class="form-label">Seated</label> *@
-        @*                 <input type="number" class="form-control" id="seated"> *@
-        @*             </div> *@
-        @*             <button type="submit" class="btn btn-primary">Submit</button> *@
-        @*         </div> *@
-        @*     </div> *@
-        @* </form> *@
-
-        <form>
-            <table class="table table-dark table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Type</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>VIP</td>
-                        <td><input type="number" class="form-control" id="vip"></td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Standing</td>
-                        <td><input type="number" class="form-control" id="standing"></td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Seated</td>
-                        <td><input type="number" class="form-control" id="seated"></td>
-                        <td>100</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button type="submit" class="btn btn-info">Purchase</button>
-        </form>
-
-        @*TABLE HEADER*@
-        @*<div class="">
-            <div class="row">
-                <div class="col">
-                    Type
-                </div>
-                <div class="col">
-                    Quantity
-                </div>
-                <div class="col">
-                    Price
-                </div>
-
-            </div>
-            @foreach (var priceCategory in Event.PriceCategories)
-            {
-                <PriceCategory priceCategory="priceCategory"> </PriceCategory>>
-            }
-
-        </div>*@
 
     </section>
 </div>
@@ -96,10 +97,30 @@
 
     public EventDto Event { get; set; }
 
-    //public UserDto User { get; set; }
+    public int AmountOfTickets { get; set; }
+    public double TotalPrice { get; set; }
+
+    public bool PurchaseSuccesful { get; set; }
+
+    public List<TicketCategoryDto> TicketsPurchasingList { get; set; }
+
+    public CustomerWithTicketsDto Customer { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Event = await _service.GetEventByIdAsync(Id);
+        Event = await _eventService.GetEventByIdAsync(Id);
+        Customer = await _customerService.GetCustomerByIdAsync(1);
+        PurchaseSuccesful = false;
+    }
+
+    private void AddTicketToPurchasingList(TicketCategoryDto ticket)
+    {
+        TicketsPurchasingList.Add(ticket);
+        TotalPrice += ticket.Price;
+    }
+
+    private void PurchaseTickets()
+    {
+        PurchaseSuccesful = true;
     }
 }
