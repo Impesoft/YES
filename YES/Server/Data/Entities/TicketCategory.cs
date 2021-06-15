@@ -5,26 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.API.Data.Entities
+namespace YES.Server.Data.Entities
 {
-    public class EventInfo : EntityBase
+    public class TicketCategory : EntityBase
     {
-        [Required]
         public string Name { get; set; }
-
-        [Required]
-        public string Description { get; set; }
-
-        public DateTime? EventDate { get; set; }
-
-        [Required]
-        public string WebsiteUrl { get; set; }
-
-        [Required]
-        public string BannerImgUrl { get; set; }
+        public double Price { get; set; }
+        public int MaxAmount { get; set; }
 
         [Required]
         [ForeignKey("Event")]
         public int EventId { get; set; }
+
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }
