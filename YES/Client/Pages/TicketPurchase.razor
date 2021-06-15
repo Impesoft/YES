@@ -1,6 +1,7 @@
 ﻿@page "/TicketPurchase/{Id:int}"
 @inject IEventService _eventService
 @inject ICustomerService _customerService
+@inject ITicketService _ticketService
 
 <div class="page-background">
 
@@ -88,8 +89,7 @@
             }
 
         }
-    </section>
-            
+    </section>            
             
         }
         else
@@ -151,11 +151,34 @@
 
     private void PurchaseTickets()
     {
-        //Customer.Tickets.Add()
-        if (TicketsPurchasingList.Any())
+        if (GenerateTickets().Any())
         {
+            //TODO: service method to send GenerateTickets() to API
+            _ticketService.AddNewTicketsAsync(GenerateTickets());
+
             PurchaseSuccesful = true;
         }
 
+    }
+
+    private List<TicketPurchaseDto> GenerateTickets()
+    {
+        var ticketList = new List<TicketPurchaseDto>();
+
+        foreach (var ticketCategory in TicketsPurchasingList)
+        {
+            var ticket = new TicketPurchaseDto
+            {
+                TicketCustomerId = Customer.Id,
+                EventId = Event.Id,
+                Category = ticketCategory.Name,
+                Price = ticketCategory.Price,
+                Amount = 1
+
+            };
+            ticketList.Add(ticket);
+        }
+
+        return ticketList;
     }
 }
