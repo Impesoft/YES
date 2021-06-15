@@ -36,6 +36,7 @@ namespace YES.Client
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("YES.ServerAPI"));
 
             builder.Services.AddScoped<IEventService, EventService>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
 
             builder.Services.AddMsalAuthentication(options =>
             {
