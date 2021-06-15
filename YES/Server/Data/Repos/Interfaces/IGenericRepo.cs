@@ -12,6 +12,6 @@ namespace YES.API.Data.Repos
         Task<IEnumerable<T>> GetAllEntitiesAsync();
         Task<T> GetEntityAsync(int id);
         Task<bool> UpdateEntitiesAsync(IEnumerable<T> entities);
-        Task<bool> UpdateEntityAsync(T entity);
+        Task<bool> UpdateEntityAsync(T entity);        
     }
 }

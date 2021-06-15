@@ -35,7 +35,15 @@ namespace YES.Client
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("YES.ServerAPI"));
 
+            builder.Services.AddScoped(sp =>
+                                new HttpClient
+                                {
+                                    BaseAddress = new Uri("https://localhost:44316/")
+                                });
+
             builder.Services.AddScoped<IEventService, EventService>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<ITicketService, TicketService>();
 
             builder.Services.AddMsalAuthentication(options =>
             {
