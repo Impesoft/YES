@@ -2,23 +2,35 @@
 @inject NavigationManager navigationManager
 
 <div class="page-background">
-    <section>
-        <h2 class="mb-3">Events</h2>
-        @if (_events != null)
-        {
-            <div class="scrollable">
-                @foreach (EventDto eventDto in _events)
+    <div class="row content">
+        <div class="col-xl-3">
+            <section>
+                <h2>Search</h2>
+                <p>Test 2</p>
+            </section>
+        </div>
+        <div class="col-xl-9">
+
+
+            <section>
+                <h2 class="mb-3">Events</h2>
+                @if (_events != null)
                 {
-                    <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
-                }
-            </div>
+                    <div class="scrollable">
+                        @foreach (EventDto eventDto in _events)
+                        {
+                            <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
+                        }
+                    </div>
                 }
                 else
                 {
-                <p>No events found.</p>
+                    <p>No events found.</p>
                 }
 
-    </section>
+            </section>
+        </div>
+    </div>
 </div>
 
 @code {
