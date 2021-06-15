@@ -14,6 +14,7 @@ namespace YES.Server.Configuration
             CreateMap<EventInfo, EventInfoDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
             CreateMap<TicketCategory, TicketCategoryDto>().ReverseMap();
+            CreateMap<TicketCustomer, TicketCustomerDto>().ReverseMap();
             CreateMap<TicketCustomer, CustomerWithTicketsDto>();
 
             CreateMap<Event, EventDto>()
