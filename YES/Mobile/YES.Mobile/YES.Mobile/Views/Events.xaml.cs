@@ -10,25 +10,27 @@ using YES.Mobile.Models;
 using Newtonsoft.Json;
 using YES.Mobile.Dto;
 using YES.Mobile.Services;
+using YES.Mobile.ViewModels;
 
 namespace YES.Mobile.Views
 {
     public partial class Events : ContentPage
     {
-        private IEventService _eventService { get; set; }
-        public Events(IEventService eventService)
+        EventsViewModel eventsViewModel;
+        public Events()
         {
             InitializeComponent();
-            _eventService = eventService;
+            BindingContext = eventsViewModel = new EventsViewModel();
         }
 
-        private async void LoadEvents(System.Object sender, System.EventArgs e)
+        protected override void OnAppearing()
         {
-            EventDto[] resultEvents = await _eventService.GetAllEvents();
-
+            base.OnAppearing();
+            eventsViewModel.LoadEvents();
             ListOfEvents.ItemsSource = resultEvents;
+
         }
 
-  
+
     }
 }
