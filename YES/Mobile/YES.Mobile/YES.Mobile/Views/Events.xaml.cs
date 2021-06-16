@@ -8,6 +8,7 @@ using System.Net.Http;
 using Xamarin.Forms;
 using YES.Mobile.Models;
 using Newtonsoft.Json;
+using YES.Mobile.Dto;
 
 namespace YES.Mobile.Views
 {

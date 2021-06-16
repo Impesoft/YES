@@ -11,13 +11,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using System.Linq;
 using Microsoft.OpenApi.Models;
-using YES.API.Data.Database;
-using YES.API.Data.Entities;
-using YES.API.Data.Repos;
-using YES.API.Configuration;
-using YES.API.Business.Services;
+using YES.Api.Data.Database;
+using YES.Api.Data.Entities;
+using YES.Api.Data.Repos;
+using YES.Api.Configuration;
+using YES.Api.Business.Services;
+using YES.Api.Data.Repos.Interfaces;
 
-namespace YES.API
+namespace YES.Api
 {
     public class Startup
     {
@@ -44,6 +45,8 @@ namespace YES.API
                 app.UseHsts();
             }
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5002"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5000"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5002"));
@@ -88,7 +91,10 @@ namespace YES.API
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<ITicketCustomerService, TicketCustomerService>();
+
             services.AddScoped<IEventRepo, EventRepo>();
+            services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

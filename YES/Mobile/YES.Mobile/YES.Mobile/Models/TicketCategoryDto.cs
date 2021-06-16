@@ -1,10 +1,10 @@
 ﻿namespace YES.Mobile.Dto
 {
-    public class VenueDto
+    public class TicketCategoryDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Capacity { get; set; }
-        public  AddressDto Address { get; set; }
+        public double Price { get; set; }
+        public int MaxAmount { get; set; }
     }
 }

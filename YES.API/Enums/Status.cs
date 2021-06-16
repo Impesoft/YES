@@ -1,4 +1,4 @@
-﻿namespace YES.API.Enums
+﻿namespace YES.Api.Enums
 {
     public enum Status
     {

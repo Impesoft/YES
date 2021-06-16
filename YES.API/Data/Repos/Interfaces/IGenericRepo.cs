@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.API.Data.Entities;
+using YES.Api.Data.Entities;
 
-namespace YES.API.Data.Repos
+namespace YES.Api.Data.Repos.Interfaces
 {
     public interface IGenericRepo<T> where T : EntityBase
     {
@@ -12,6 +12,6 @@ namespace YES.API.Data.Repos
         Task<IEnumerable<T>> GetAllEntitiesAsync();
         Task<T> GetEntityAsync(int id);
         Task<bool> UpdateEntitiesAsync(IEnumerable<T> entities);
-        Task<bool> UpdateEntityAsync(T entity);
+        Task<bool> UpdateEntityAsync(T entity);        
     }
 }
