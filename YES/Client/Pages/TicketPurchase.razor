@@ -104,11 +104,11 @@
 </div>
 
 @code {
-    [Parameter]
-    public int Id { get; set; }
+        [Parameter]
+        public int Id { get; set; }
 
     public EventDto Event { get; set; }
-    
+
     public double TotalPrice { get; set; }
 
     public bool PurchaseSuccesful { get; set; } = false;
@@ -150,13 +150,14 @@
 
     private void PurchaseTickets()
     {
-        if (GenerateTickets().Any())
-        {
-            //TODO: service method to send GenerateTickets() to API
-            _ticketService.AddNewTicketsAsync(GenerateTickets());
+        var tickets = GenerateTickets();
+        //if (GenerateTickets().Any())
+        //{
+        //    //TODO: service method to send GenerateTickets() to API
+        //    _ticketService.AddNewTicketsAsync(GenerateTickets());
 
-            PurchaseSuccesful = true;
-        }
+        PurchaseSuccesful = true;
+        //}
 
     }
 
@@ -166,17 +167,26 @@
 
         foreach (var ticketCategory in TicketsPurchasingList)
         {
-            //MAKE NEW LIST TO COUNT AMOUNTS
-            var ticket = new TicketPurchaseDto
+            foreach (var ticketItem in ticketList)
             {
-                TicketCustomerId = Customer.Id,
-                EventId = Event.Id,
-                Category = ticketCategory.Name,
-                Price = ticketCategory.Price,
-                Amount = 1
+                if (ticketCategory.Name == ticketItem.Category)
+                {
+                    ticketItem.Amount++;
+                }
+                else
+                {
+                    var ticket = new TicketPurchaseDto
+                    {
+                        TicketCustomerId = Customer.Id,
+                        EventId = Event.Id,
+                        Category = ticketCategory.Name,
+                        Price = ticketCategory.Price,
+                        Amount = 1
 
-            };
-            ticketList.Add(ticket);
+                    };
+                    ticketList.Add(ticket);
+                }
+            }
         }
 
         return ticketList;
