@@ -16,3 +16,7 @@ header {
     max-width: 100vw;
     height: 4rem;
 }
+
+.bg-dark {
+    background: var(--test-dark);
+}

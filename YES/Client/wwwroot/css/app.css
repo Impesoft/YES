@@ -47,10 +47,17 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
+    
+    --test-dark-dark: #181818;
+    --test-dark: #212121;
+    --test-dark-light: #3D3D3D;
+    --test-white: #FFFFFF;
+    --test-grey: #AAAAAA;
 }
 
 html, body {
     font-family: 'Roboto Slab', serif;
+    background: var(--test-dark-dark);
 }
 
 *,
@@ -62,12 +69,23 @@ html, body {
 }
 
 section {
-    margin: 50px auto;
+    margin: 100px auto;
     width: 90vw;
-    box-shadow: 0 0 5px 0 rgb(0, 0, 0, .15);
+    /*box-shadow: 0 0 5px 0 rgb(0, 0, 0, .15);*/
+    box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
     padding: 20px 20px 50px;
-    color: var(--dark-dark);
+    color: var(--dark-light);
+    background: var(--test-dark);
     border-radius: 5px;
+}
+
+.page-bg {
+    position: absolute;
+    top: 0;
+    min-height: 100vh;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* width */

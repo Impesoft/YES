@@ -1,10 +1,11 @@
 ﻿footer {
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
     height: 3rem;
-    background: var(--light-dark);
+    background: var(--test-dark-dark);
     color: var(--dark-light);
     text-align: center;
 }

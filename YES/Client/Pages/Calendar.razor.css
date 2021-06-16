@@ -8,6 +8,10 @@
     border-bottom: 5px solid var(--danger-light);
 }
 
+.page-bg {
+    background-image: url("images/page-bg2.jpg");
+}
+
 .scrollable {
     padding: 0 10px;
     max-height: 50vh;

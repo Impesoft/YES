@@ -5,7 +5,7 @@
 
 .card-body a {
     text-decoration: none;
-    color: var(--dark-dark);
+    color: var(--dark-light);
     text-align: center;
     transition: color .1s ease-in-out;
 }
@@ -20,4 +20,9 @@
 
 h5 {
     font-weight: 300;
+}
+
+.card-bg {
+    background: var(--test-dark-dark);
+    box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
 }
