@@ -34,7 +34,6 @@ namespace YES.Api.Data.Repos
         {
             _context.UpdateRange(entities);
             await _context.SaveChangesAsync();
-
             return true;
         }
 
