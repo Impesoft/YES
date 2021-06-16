@@ -19,29 +19,20 @@ namespace YES.Client.Services
 
         public async Task<IEnumerable<EventDto>> GetEventsAsync()
         {
-            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:5003/api/Event");
-
+            var _events = await _http.GetFromJsonAsync<IEnumerable<EventDto>>("https://localhost:5003/api/Event");
             return _events.OrderBy(x => x.EventInfo.EventDate);
         }
 
         public async Task<EventDto> GetEventByIdAsync(int id)
         {
             var _event = await _http.GetFromJsonAsync<EventDto>("https://localhost:5003/api/Event/" + id);
-
             return _event;
         }
         
         public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
         {
-            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:5003/api/Event");
+            var _events = await _http.GetFromJsonAsync<IEnumerable<EventDto>>("https://localhost:5003/api/Event");
             return _events.Take(6);
-        }
-        
-        //TODO
-        public async Task<IEnumerable<EventDto>> GetFilteredEvents(string userInput)
-        {
-            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:5003/api/Event");
-            return _events.Contains(userInput);
         }
     }
 }

@@ -7,8 +7,8 @@
     <div class="head-wrapper">
         <h2 class="mb-3">Events</h2>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search for an event">
-          <button class="btn btn-outline-secondary" type="button" @onclick="() => FilterEvents()">Search</button>
+            <input type="text" class="form-control" placeholder="Search for an event" @bind-value="_searchValue" @bind-value:event="oninput">
+            <button class="btn btn-outline-secondary" type="button" @onclick="@(() => _searchValue = "")" >Clear</button>
         </div>
     </div>
     @if (_events != null)
@@ -24,7 +24,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (EventDto eventDto in _events)
+                @foreach (EventDto eventDto in _events.Where(x => x.EventInfo.Name.ToLower().Contains(_searchValue.ToLower())).ToList())
                 {
                     <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)"/>
                 }
@@ -41,8 +41,9 @@
 
 
 @code {
-    private IEnumerable<EventDto> _events;
-    private string test = "";
+    private IEnumerable<EventDto> _events { get; set; }
+    private IEnumerable<EventDto> _filteredList { get; set; }
+    private string _searchValue { get; set; } = "";
 
     [Inject]
     private IEventService _service { get; set; }
@@ -50,6 +51,7 @@
     protected override async Task OnInitializedAsync()
     {
         _events = await _service.GetEventsAsync();
+        _filteredList = _events;
     }
 
     private void ShowEventInfo(EventDto eventDto)
@@ -61,11 +63,4 @@
     {
         _events.OrderBy(x => x.EventInfo.EventDate);
     }
-    
-    //TODO
-    private void FilterEvents()
-    {
-        
-    }
-
 }
