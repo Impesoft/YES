@@ -3,18 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YES.Mobile.Views.Events">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-                <Label Text="Get JSON Data Sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" />
-            </Frame>
+        <StackLayout BackgroundColor="#000">
+            <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,0" VerticalOptions="FillAndExpand">
+                    <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
+                </ContentView>
+                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="36">Your Event Services</Label>
+            </StackLayout>
+
             <Button Text="Load Events" Clicked="Button_Clicked" />
-            <CollectionView x:Name="ListOfEvents">
+            <CollectionView x:Name="ListOfEvents" HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <Label Text="{Binding EventInfo.Name}" />
-                            <Label Text="{Binding Venue.Name}" />
-                        </StackLayout>
+                        <AbsoluteLayout HorizontalOptions="Center">
+                            <Image Source="{Binding EventInfo.BannerImgUrl}" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"></Image>
+                            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent">
+                                <Frame HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" >
+                                    <StackLayout VerticalOptions="EndAndExpand" >
+                                        <Label FontSize="24" Text="{Binding EventInfo.Name}" />
+                                        <Label Text="{Binding Venue.Name}" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </AbsoluteLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
