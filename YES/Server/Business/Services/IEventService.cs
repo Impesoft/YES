@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using YES.Shared.Dto;
 
-namespace YES.Server.Business.Services
+namespace YES.API.Business.Services
 {
     public interface IEventService
     {
