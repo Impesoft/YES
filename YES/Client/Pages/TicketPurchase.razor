@@ -151,13 +151,14 @@
     private void PurchaseTickets()
     {
         var tickets = GenerateTickets();
-        //if (GenerateTickets().Any())
-        //{
-        //    //TODO: service method to send GenerateTickets() to API
-        //    _ticketService.AddNewTicketsAsync(GenerateTickets());
 
-        PurchaseSuccesful = true;
-        //}
+        if (tickets.Any())
+        {
+            //TODO: service method to send GenerateTickets() to API
+            _ticketService.AddNewTicketsAsync(tickets);
+
+            PurchaseSuccesful = true;
+        }
 
     }
 
