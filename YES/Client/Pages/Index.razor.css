@@ -8,6 +8,18 @@
     border-bottom: 5px solid var(--primary-light);
 }
 
+.page-bg {
+    background-image: url("images/page-bg.jpg");
+}
+
+.page-bg {
+    height: 100vh;
+    background-image: url("images/page-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 80%;
+}
+
 .card-row {
     justify-content: space-around;
 }
