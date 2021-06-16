@@ -6,24 +6,51 @@
     @if (Customer != null)
     {
     <div class="row">
-        <div class="col-lg-6 order-lg-2">
+        <div class="col-xl-6 order-xl-2 mb-4">
             <section>
-                <input @bind="CustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(CustomerId)">Get User</button>
                 <h3 class="mb-3">User Details </h3>
-                <p>@Customer.FirstName @Customer.LastName</p>
+                <input @bind="CustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(CustomerId)">Get User</button>
+                 <p>@Customer.FirstName @Customer.LastName</p>
+                
+                @*@if (Customer != null)
+                {
+                    <UserDetail Customer="Customer"></UserDetail>
+                }*@               
 
             </section>
         </div>
 
-        <div class="col-lg-6 order-lg-1">
+        <div class="col-xl-6 order-xl-1">
             <section>
                 <h3 class="mb-3">Ticket List</h3>
 
                 @if (Tickets != null)
                 {
+                    <div class="row mb-4 ticket-overview-header">
+                        <div class="col">
+                            Purchased On
+                        </div>
+                        <div class="col">
+                            Event Date
+                        </div>
+                        <div class="col">
+                            Price
+                        </div>
+                
+                        <div class="col">
+                            Event Name
+                        </div>
+                        <div class="col">
+                            Event Location
+                        </div>
+
+                    </div>
                     @foreach (var ticket in Customer.Tickets)
                     {
-                       @ticket.EventName                
+                        <div class="row ticket-item">
+                            <TicketOverview Ticket="ticket"></TicketOverview>                            
+                        </div>
+                        
                     }
 
                 }

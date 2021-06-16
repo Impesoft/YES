@@ -1,5 +1,6 @@
-﻿<h3>CustomerForm</h3>
+﻿<p>@Customer.FirstName @Customer.LastName</p>
 
 @code {
-
+    [Parameter]
+    public CustomerWithTicketsDto Customer { get; set; }
 }
