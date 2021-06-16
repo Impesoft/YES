@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.Server
+namespace YES.API
 {
     public class Program
     {
