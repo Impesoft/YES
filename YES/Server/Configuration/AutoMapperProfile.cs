@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using YES.Server.Data.Entities;
-using YES.Server.Enums;
+using YES.API.Data.Entities;
+using YES.API.Enums;
 using YES.Shared.Dto;
 
-namespace YES.Server.Configuration
+namespace YES.API.Configuration
 {
     public class AutoMapperProfile : Profile
     {

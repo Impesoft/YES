@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.Server.Data.Entities
+namespace YES.API.Data.Entities
 {
     public class TicketCustomer : User
     {

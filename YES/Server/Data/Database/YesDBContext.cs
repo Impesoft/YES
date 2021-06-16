@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using YES.Server.Data.Entities;
+using YES.API.Data.Entities;
 
-namespace YES.Server.Data.Database
+namespace YES.API.Data.Database
 {
     public class YesDBContext : DbContext
     {
