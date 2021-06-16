@@ -1,0 +1,58 @@
+﻿@page "/CustomerDetail"
+@inject ICustomerService customerService
+
+<div class="page-background">
+
+    @if (Customer != null)
+    {
+    <div class="row">
+        <div class="col-lg-6 order-lg-2">
+            <section>
+                <input @bind="CustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(CustomerId)">Get User</button>
+                <h3 class="mb-3">User Details </h3>
+                <p>@Customer.FirstName @Customer.LastName</p>
+
+            </section>
+        </div>
+
+        <div class="col-lg-6 order-lg-1">
+            <section>
+                <h3 class="mb-3">Ticket List</h3>
+
+                @if (Tickets != null)
+                {
+                    @foreach (var ticket in Customer.Tickets)
+                    {
+                       @ticket.EventName                
+                    }
+
+                }
+            </section>
+        </div>
+
+    </div>
+        
+    }
+    </div>
+            
+
+@code {
+    [Parameter]
+    public CustomerWithTicketsDto Customer { get; set; }
+
+    public List<TicketDto> Tickets { get; set; }
+
+    public int CustomerId { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        Customer = await customerService.GetCustomerByIdAsync(1);
+        Tickets = Customer.Tickets.ToList();
+    }
+
+    private async Task GetUserWithId(int id)
+    {
+        Customer = await customerService.GetCustomerByIdAsync(id);
+    }
+
+}
