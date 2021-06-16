@@ -1,5 +1,24 @@
-﻿<h3>TicketOverview</h3>
+﻿
+    <div class="col">
+        @Ticket.DateOfPurchase.ToShortDateString()
+    </div>
+    <div class="col">
+        -
+    </div>
+    <div class="col">
+        -
+    </div>    
+    <div class="col">
+        @Ticket.EventName
+    </div>
+    <div class="col">
+        @Ticket.VanueName
+    </div>    
+    
+
 
 @code {
+    [Parameter]
+    public TicketDto Ticket { get; set; }
 
 }

@@ -16,7 +16,6 @@ namespace YES.Client.Services
             _http = http;
         }
 
-
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
         {
             var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
