@@ -16,11 +16,20 @@
 section {
     min-width: 40vw;
     max-width: 90vw;
-    background: rgba(0,0,0,.8);
+    background: rgba(0,0,0,0.9);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 20px;
     color: white;
     /*max-height: 75vh;*/
     overflow: hidden;
     border-radius: 5px;
+}
+
+.ticket-overview-header {
+    color: peachpuff ;
+}
+
+.ticket-item {
+    font-size: 0.75rem;
+    min-height: 1.5rem;
 }
