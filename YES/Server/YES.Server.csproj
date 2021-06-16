@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\YES.Client.csproj" />
     <ProjectReference Include="..\Shared\YES.Shared.csproj" />
   </ItemGroup>
 
@@ -32,6 +31,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.7" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.12.0" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using YES.Shared;
 
-namespace YES.Server.Controllers
+namespace YES.API.Controllers
 {
     [Authorize]
     [ApiController]
