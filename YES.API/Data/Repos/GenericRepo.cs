@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.API.Data.Database;
-using YES.API.Data.Entities;
+using YES.Api.Data.Database;
+using YES.Api.Data.Entities;
+using YES.Api.Data.Repos.Interfaces;
 
-namespace YES.API.Data.Repos
+namespace YES.Api.Data.Repos
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : EntityBase
     {
@@ -46,11 +47,11 @@ namespace YES.API.Data.Repos
 
         public virtual async Task<bool> DeleteEntityAsync(int id)
         {
-            _context.Remove(await _context.FindAsync<T>(id));
+            var test = await _context.FindAsync<T>(id);
+            _context.Remove(test);
             await _context.SaveChangesAsync();
             return true;
         }
-
         public virtual async Task<IEnumerable<T>> GetAllEntitiesAsync()
         {
             return await _context.Set<T>().ToListAsync();

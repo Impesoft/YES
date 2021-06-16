@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using YES.API.Data.Database;
+using YES.Api.Data.Database;
 
-namespace YES.API.Migrations
+namespace YES.Api.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    partial class YesDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210615205044_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace YES.API.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Address", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,6 +91,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Tentoonstellingslaan",
+                            StreetNumber = "1",
                             TicketCustomerId = 1
                         },
                         new
@@ -98,6 +101,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Leeuwstraat",
+                            StreetNumber = "7",
                             TicketCustomerId = 2
                         },
                         new
@@ -107,6 +111,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Zebrastraat",
+                            StreetNumber = "36",
                             TicketCustomerId = 3
                         },
                         new
@@ -116,6 +121,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Tijgerstraat",
+                            StreetNumber = "24",
                             TicketCustomerId = 4
                         },
                         new
@@ -125,6 +131,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9100",
                             Street = "Apostelstraat",
+                            StreetNumber = "79",
                             TicketCustomerId = 5
                         },
                         new
@@ -134,6 +141,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Olifantstraat",
+                            StreetNumber = "26",
                             TicketCustomerId = 6
                         },
                         new
@@ -143,6 +151,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Olifantstraat",
+                            StreetNumber = "2",
                             TicketCustomerId = 7
                         },
                         new
@@ -152,6 +161,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "1210",
                             Street = "Kleine Dalstraat",
+                            StreetNumber = "1",
                             TicketCustomerId = 8
                         },
                         new
@@ -161,6 +171,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "1040",
                             Street = "Waversesteenweg",
+                            StreetNumber = "100",
                             TicketCustomerId = 9
                         },
                         new
@@ -170,6 +181,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "1300",
                             Street = "Rue de la Cure",
+                            StreetNumber = "3",
                             TicketCustomerId = 10
                         },
                         new
@@ -179,6 +191,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2800",
                             Street = "Spuibeekstraat",
+                            StreetNumber = "4",
                             TicketCustomerId = 11
                         },
                         new
@@ -188,6 +201,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2570",
                             Street = "Beukheuvel",
+                            StreetNumber = "20",
                             TicketCustomerId = 12
                         },
                         new
@@ -197,6 +211,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "8500",
                             Street = "Nijverheidskaai",
+                            StreetNumber = "13",
                             TicketCustomerId = 13
                         },
                         new
@@ -206,6 +221,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "8560",
                             Street = "Hondsschotestraat",
+                            StreetNumber = "83",
                             TicketCustomerId = 14
                         },
                         new
@@ -215,6 +231,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "8900",
                             Street = "Tybaertstraat",
+                            StreetNumber = "27",
                             TicketCustomerId = 15
                         },
                         new
@@ -224,6 +241,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "8400",
                             Street = "Stapelhuisstraat",
+                            StreetNumber = "17",
                             TicketCustomerId = 16
                         },
                         new
@@ -233,6 +251,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Graaf Van Vlaanderenplein",
+                            StreetNumber = "5",
                             VenueId = 2
                         },
                         new
@@ -242,6 +261,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2140",
                             Street = "Noordersingel",
+                            StreetNumber = "28",
                             TicketProviderId = 9,
                             VenueId = 3
                         },
@@ -252,6 +272,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "9000",
                             Street = "Overpoortstraat",
+                            StreetNumber = "60",
                             TicketProviderId = 8,
                             VenueId = 4
                         },
@@ -262,6 +283,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2170",
                             Street = "Schijnpoortweg",
+                            StreetNumber = "119A",
                             TicketProviderId = 7,
                             VenueId = 5
                         },
@@ -272,6 +294,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2850",
                             Street = "Schommelei",
+                            StreetNumber = "1",
                             VenueId = 6
                         },
                         new
@@ -290,6 +313,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "1020",
                             Street = "Eeuwfeestlaan",
+                            StreetNumber = "617",
                             TicketProviderId = 4,
                             VenueId = 8
                         },
@@ -318,6 +342,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "6200",
                             Street = "Korte Vlierstraat",
+                            StreetNumber = "6",
                             TicketProviderId = 2
                         },
                         new
@@ -327,6 +352,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2800",
                             Street = "Blarenberglaan",
+                            StreetNumber = "3",
                             TicketProviderId = 3
                         },
                         new
@@ -336,6 +362,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "3510",
                             Street = "Koorstraat",
+                            StreetNumber = "17",
                             TicketProviderId = 5
                         },
                         new
@@ -345,6 +372,7 @@ namespace YES.API.Migrations
                             Country = "België",
                             PostalCode = "2000",
                             Street = "Braziliestraat",
+                            StreetNumber = "26",
                             TicketProviderId = 6
                         },
                         new
@@ -369,15 +397,12 @@ namespace YES.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Event", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EventInfoId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -390,8 +415,6 @@ namespace YES.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventInfoId");
-
                     b.HasIndex("TicketProviderId");
 
                     b.HasIndex("VenueId");
@@ -402,7 +425,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 1,
-                            EventInfoId = 1,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -410,7 +432,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 2,
-                            EventInfoId = 2,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -418,7 +439,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 3,
-                            EventInfoId = 3,
                             Status = 0,
                             TicketProviderId = 1,
                             VenueId = 1
@@ -426,13 +446,13 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 4,
+                            Status = 1,
                             TicketProviderId = 1,
                             VenueId = 1
                         },
                         new
                         {
                             Id = 5,
-                            EventInfoId = 5,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -440,7 +460,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 6,
-                            EventInfoId = 6,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -448,7 +467,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 7,
-                            EventInfoId = 7,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -456,7 +474,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 8,
-                            EventInfoId = 8,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -464,7 +481,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 9,
-                            EventInfoId = 9,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 2
@@ -472,13 +488,13 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 10,
+                            Status = 6,
                             TicketProviderId = 9,
                             VenueId = 3
                         },
                         new
                         {
                             Id = 11,
-                            EventInfoId = 11,
                             Status = 0,
                             TicketProviderId = 9,
                             VenueId = 3
@@ -486,7 +502,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 12,
-                            EventInfoId = 12,
                             Status = 4,
                             TicketProviderId = 9,
                             VenueId = 3
@@ -494,19 +509,20 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 13,
+                            Status = 6,
                             TicketProviderId = 8,
                             VenueId = 4
                         },
                         new
                         {
                             Id = 14,
+                            Status = 3,
                             TicketProviderId = 7,
                             VenueId = 5
                         },
                         new
                         {
                             Id = 15,
-                            EventInfoId = 15,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -514,7 +530,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 16,
-                            EventInfoId = 16,
                             Status = 4,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -522,7 +537,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 17,
-                            EventInfoId = 17,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -530,7 +544,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 18,
-                            EventInfoId = 18,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -538,7 +551,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 19,
-                            EventInfoId = 19,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -546,7 +558,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 20,
-                            EventInfoId = 20,
                             Status = 2,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -554,7 +565,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 21,
-                            EventInfoId = 21,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -562,7 +572,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 22,
-                            EventInfoId = 22,
                             Status = 0,
                             TicketProviderId = 7,
                             VenueId = 5
@@ -570,7 +579,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 23,
-                            EventInfoId = 23,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -578,7 +586,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 24,
-                            EventInfoId = 24,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -586,7 +593,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 25,
-                            EventInfoId = 25,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -594,7 +600,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 26,
-                            EventInfoId = 26,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -602,7 +607,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 27,
-                            EventInfoId = 27,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -610,7 +614,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 28,
-                            EventInfoId = 28,
                             Status = 0,
                             TicketProviderId = 2,
                             VenueId = 6
@@ -618,7 +621,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 29,
-                            EventInfoId = 29,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -626,7 +628,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 30,
-                            EventInfoId = 30,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -634,7 +635,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 31,
-                            EventInfoId = 31,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -642,7 +642,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 32,
-                            EventInfoId = 32,
                             Status = 0,
                             TicketProviderId = 5,
                             VenueId = 9
@@ -650,7 +649,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 33,
-                            EventInfoId = 33,
                             Status = 0,
                             TicketProviderId = 6,
                             VenueId = 10
@@ -658,7 +656,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 34,
-                            EventInfoId = 34,
                             Status = 0,
                             TicketProviderId = 6,
                             VenueId = 10
@@ -666,7 +663,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 35,
-                            EventInfoId = 35,
                             Status = 0,
                             TicketProviderId = 6,
                             VenueId = 10
@@ -674,7 +670,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 36,
-                            EventInfoId = 36,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -682,25 +677,27 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 37,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 38,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 39,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 40,
-                            EventInfoId = 40,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -708,7 +705,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 41,
-                            EventInfoId = 41,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -716,7 +712,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 42,
-                            EventInfoId = 42,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -724,13 +719,13 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 43,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 44,
-                            EventInfoId = 44,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -738,7 +733,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 45,
-                            EventInfoId = 45,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -746,7 +740,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 46,
-                            EventInfoId = 46,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -754,7 +747,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 47,
-                            EventInfoId = 47,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -762,7 +754,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 48,
-                            EventInfoId = 48,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -770,7 +761,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 49,
-                            EventInfoId = 49,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -778,13 +768,13 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 50,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 51,
-                            EventInfoId = 51,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -792,7 +782,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 52,
-                            EventInfoId = 52,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -800,7 +789,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 53,
-                            EventInfoId = 53,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -808,7 +796,6 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 54,
-                            EventInfoId = 54,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -816,13 +803,13 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 55,
+                            Status = 6,
                             TicketProviderId = 3,
                             VenueId = 9
                         },
                         new
                         {
                             Id = 56,
-                            EventInfoId = 56,
                             Status = 0,
                             TicketProviderId = 3,
                             VenueId = 9
@@ -962,7 +949,7 @@ namespace YES.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.EventInfo", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.EventInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1009,7 +996,7 @@ namespace YES.API.Migrations
                             Description = "Uitzending EK openingswedstrijd tussen gastland Rusland en België, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
-                            MaxAvailableTickets = 500,
+                            MaxAvailableTickets = 0,
                             Name = "EK België-Rusland",
                             WebsiteUrl = "https://www.vooruit.be/nl/agenda/3837//EK_Belgie_Rusland_op_groot_scherm"
                         },
@@ -1020,8 +1007,9 @@ namespace YES.API.Migrations
                             Description = "Uitzending EK wedstrijd tussen België en Denemarken, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 18, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 2,
-                            MaxAvailableTickets = 500,
+                            MaxAvailableTickets = 0,
                             Name = "EK België-Denemarken",
+                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3839//EK_Denemarken_Belgie_op_groot_scherm_"
                         },
                         new
                         {
@@ -1030,8 +1018,9 @@ namespace YES.API.Migrations
                             Description = "Uitzending EK wedstrijd tussen België en Finland, wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventDate = new DateTime(2021, 6, 21, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 3,
-                            MaxAvailableTickets = 500,
+                            MaxAvailableTickets = 0,
                             Name = "EK België-Finland",
+                            WebsiteUrl = "https://www.vooruit.be/nl/agenda/3841//EK_Finland_Belgie_op_groot_scherm"
                         },
                         new
                         {
@@ -1039,7 +1028,7 @@ namespace YES.API.Migrations
                             BannerImgUrl = "https://www.vooruit.be/cms_files/system/images/img11483_174.jpg",
                             Description = "Wees er tijdig bij want door corona zijn de plaatsen beperkt",
                             EventId = 4,
-                            MaxAvailableTickets = 50,
+                            MaxAvailableTickets = 0,
                             Name = "Terras Sessie: Joni Sheila",
                             WebsiteUrl = "https://www.vooruit.be/nl/agenda/3771//TERRAS_SESSIE_10_Joni_Sheila"
                         },
@@ -1050,7 +1039,7 @@ namespace YES.API.Migrations
                             Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!",
                             EventDate = new DateTime(2021, 7, 18, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 5,
-                            MaxAvailableTickets = 1000,
+                            MaxAvailableTickets = 0,
                             Name = "Kommil Foo",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo"
                         },
@@ -1061,7 +1050,7 @@ namespace YES.API.Migrations
                             Description = "Een piano, een gitaar, een viool en hun 2 karakterstemmen: meer hebben de broers Walschaerts niet nodig om hun publiek een memorabele avond te bezorgen. Dertig jaar onafgebroken maken en spelen.Hoog tijd dus om uit al dat moois een nieuwe voorstelling te destilleren. Zonder circus, intiem. Raf, Mich, hun mooiste liedjes en hun strafste verhalen. Kommil Foo op z’n best!",
                             EventDate = new DateTime(2021, 7, 19, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 6,
-                            MaxAvailableTickets = 1000,
+                            MaxAvailableTickets = 0,
                             Name = "Kommil Foo",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2020-2021/kommil-foo"
                         },
@@ -1072,7 +1061,7 @@ namespace YES.API.Migrations
                             Description = "De gloednieuwe, 11e solovoorstelling van de Schotse internationale comedy superster komt, vlak na zijn baanbrekende wereldsucces ‘Daniel Sloss: X’, naar Capitole Gent en Stadsschouwburg Antwerpen.",
                             EventDate = new DateTime(2021, 10, 3, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 7,
-                            MaxAvailableTickets = 2000,
+                            MaxAvailableTickets = 0,
                             Name = "Daniel Sloss",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/daniel-sloss"
                         },
@@ -1083,7 +1072,7 @@ namespace YES.API.Migrations
                             Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
                             EventDate = new DateTime(2021, 9, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 8,
-                            MaxAvailableTickets = 1000,
+                            MaxAvailableTickets = 0,
                             Name = "An Evening with Alex Agnew",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
                         },
@@ -1094,7 +1083,7 @@ namespace YES.API.Migrations
                             Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
                             EventDate = new DateTime(2021, 9, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 9,
-                            MaxAvailableTickets = 1000,
+                            MaxAvailableTickets = 0,
                             Name = "An Evening with Alex Agnew",
                             WebsiteUrl = "http://www.capitole-gent.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
                         },
@@ -1105,7 +1094,7 @@ namespace YES.API.Migrations
                             Description = "Lili Grace, dat zijn de zussen Nelle en Dienne, en zij doen ongemeen boeiende dingen met twee stemmen, cello, keyboards en electronica. Met hun dark-pop haalden ze in 2012 de finale van Humo's Rock Rally en deden ze voorprogramma's voor onder meer Trentemøller, CocoRosie en Nils Frahm.",
                             EventDate = new DateTime(2021, 6, 24, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 10,
-                            MaxAvailableTickets = 50,
+                            MaxAvailableTickets = 0,
                             Name = "Lili Grace / Rooftop Concert",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/lili-grace/2756/"
                         },
@@ -1116,7 +1105,7 @@ namespace YES.API.Migrations
                             Description = "Donkere, hypnotiserende pop uit de UK. Meng The Killers met U2 en je krijgt een soort beschrijving van hun sound (StuBru)",
                             EventDate = new DateTime(2021, 9, 25, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 11,
-                            MaxAvailableTickets = 500,
+                            MaxAvailableTickets = 0,
                             Name = "The Howl And The Hum",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/the-howl-and-the-hum/2713/"
                         },
@@ -1127,7 +1116,7 @@ namespace YES.API.Migrations
                             Description = "Dit concert is afgelast. Alle tickets worden automatisch terugbetaald.",
                             EventDate = new DateTime(2021, 10, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 12,
-                            MaxAvailableTickets = 500,
+                            MaxAvailableTickets = 0,
                             Name = "The Armed",
                             WebsiteUrl = "https://www.trixonline.be/nl/programma/the-armed/2723/"
                         },
@@ -1138,7 +1127,7 @@ namespace YES.API.Migrations
                             Description = "VJ Ward in the Mix",
                             EventDate = new DateTime(2021, 9, 10, 1, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
-                            MaxAvailableTickets = 100,
+                            MaxAvailableTickets = 0,
                             Name = "VJ Ward",
                             WebsiteUrl = "https://www.facebook.com/Dj.Ward.Impe/"
                         },
@@ -1149,7 +1138,7 @@ namespace YES.API.Migrations
                             Description = "Na lang anticiperen krijgt VJ Ward een kans zich op het grote podium te bewijzen. Dit jonge talent draait overal de pannen van het dak, mis deze kans dus niet want de plaatsen zijn beperkt.",
                             EventDate = new DateTime(2021, 10, 10, 23, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 14,
-                            MaxAvailableTickets = 10000,
+                            MaxAvailableTickets = 0,
                             Name = "VJ Ward / eLiXir on Tour",
                             WebsiteUrl = "https://www.facebook.com/Dj.Ward.Impe/"
                         },
@@ -1160,7 +1149,7 @@ namespace YES.API.Migrations
                             Description = "Alicia Keys is terug. En hoe! Het muziekicoon met 15 GRAMMY-prijzen op haar naam kondigt vandaag haar nieuwe album ‘ALICIA’ aan met release voorzien op 20 maart bij Sony Music, en haar langverwachte terugkeer naar de podia met haar ‘ALICIA – THE WORLD TOUR’.",
                             EventDate = new DateTime(2021, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 15,
-                            MaxAvailableTickets = 10000,
+                            MaxAvailableTickets = 0,
                             Name = "Alicia Keys: The World Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/alicia-keys"
                         },
@@ -1171,7 +1160,7 @@ namespace YES.API.Migrations
                             Description = "Als gevolg van de pandemie had Iron Maiden zijn ‘Legacy of the Beast Tour 2020’ verplaatst naar juni/juli 2021. Normaal zou de band op zondag 27 juni 2021 een headlineshow spelen in het Antwerps Sportpaleis. Helaas moet de tour weer met een jaar verschoven worden. Maar niet getreurd, de band staat in 2022 opnieuw op Graspop Metal Meeting om het beste van zichzelf te geven!",
                             EventDate = new DateTime(2021, 6, 27, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 16,
-                            MaxAvailableTickets = 10000,
+                            MaxAvailableTickets = 0,
                             Name = "Iron Maiden: Legacy Of The Beast Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2020-2021/iron-maiden"
                         },
@@ -1182,7 +1171,7 @@ namespace YES.API.Migrations
                             Description = "The Weeknd kondigt met ‘The After Hours Tour’ zijn nieuwe wereldtournee aan die op 11 juni in de VS van start gaat en in het najaar de oversteek naar Europa maakt. De tour volgt op de release van zijn nieuwe album ‘After Hours’ op 20 maart met singles “Heartless”, de oorwurm “Blinding Lights” en nieuw sinds gisteren de single “After Hours”.",
                             EventDate = new DateTime(2022, 9, 28, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 17,
-                            MaxAvailableTickets = 23359,
+                            MaxAvailableTickets = 0,
                             Name = "The Weeknd: The After Hours Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/the-weeknd"
                         },
@@ -1193,7 +1182,7 @@ namespace YES.API.Migrations
                             Description = "The Weeknd kondigt met ‘The After Hours Tour’ zijn nieuwe wereldtournee aan die op 11 juni in de VS van start gaat en in het najaar de oversteek naar Europa maakt. De tour volgt op de release van zijn nieuwe album ‘After Hours’ op 20 maart met singles “Heartless”, de oorwurm “Blinding Lights” en nieuw sinds gisteren de single “After Hours”.",
                             EventDate = new DateTime(2022, 9, 29, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 18,
-                            MaxAvailableTickets = 23359,
+                            MaxAvailableTickets = 0,
                             Name = "The Weeknd: The After Hours Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/the-weeknd"
                         },
@@ -1204,7 +1193,7 @@ namespace YES.API.Migrations
                             Description = "Na lang beraad heeft Elton John tot zijn grote spijt besloten om de Europese tourdata van zijn “Farewell Yellow Brick Road Tour” te verplaatsen, alsook de twee concerten gepland in Sportpaleis Antwerpen. Deze moeilijke beslissing is gemaakt om de veiligheid en gezondheid van zijn fans te garanderen. Elton John kijkt ernaar uit om terug te spelen voor zijn trouwe fans over de hele wereld en bedankt iedereen voor het begrip.",
                             EventDate = new DateTime(2021, 10, 16, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 19,
-                            MaxAvailableTickets = 10000,
+                            MaxAvailableTickets = 0,
                             Name = "Elton John: Farewell Yellow Brick Road Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
                         },
@@ -1215,7 +1204,7 @@ namespace YES.API.Migrations
                             Description = "Na lang beraad heeft Elton John tot zijn grote spijt besloten om de Europese tourdata van zijn “Farewell Yellow Brick Road Tour” te verplaatsen, alsook de twee concerten gepland in Sportpaleis Antwerpen. Deze moeilijke beslissing is gemaakt om de veiligheid en gezondheid van zijn fans te garanderen. Elton John kijkt ernaar uit om terug te spelen voor zijn trouwe fans over de hele wereld en bedankt iedereen voor het begrip.",
                             EventDate = new DateTime(2021, 10, 17, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 20,
-                            MaxAvailableTickets = 10000,
+                            MaxAvailableTickets = 0,
                             Name = "Elton John: Farewell Yellow Brick Road Tour",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/elton-john"
                         },
@@ -1226,7 +1215,7 @@ namespace YES.API.Migrations
                             Description = "Het is nú al uitkijken naar het najaar, want Tomorrowland en Dimitri Vegas & Like Mike toveren het Antwerps Sportpaleis opnieuw om tot een magisch indoorfestival. Daarvoor halen ze alles uit de kast: het beloven (voor de achtste keer al!) twee waanzinnig spectaculaire avonden te worden met de grootste hits maar ook heel wat nieuwe muziek én een vleugje Tomorrowland magie.",
                             EventDate = new DateTime(2021, 12, 17, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 21,
-                            MaxAvailableTickets = 23359,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland presents: Dimitri Vegas & Like Mike Garden of Madness",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/tomorrowland-presents-dimitri-vegas--like-mike"
                         },
@@ -1237,7 +1226,7 @@ namespace YES.API.Migrations
                             Description = "Het is nú al uitkijken naar het najaar, want Tomorrowland en Dimitri Vegas & Like Mike toveren het Antwerps Sportpaleis opnieuw om tot een magisch indoorfestival. Daarvoor halen ze alles uit de kast: het beloven (voor de achtste keer al!) twee waanzinnig spectaculaire avonden te worden met de grootste hits maar ook heel wat nieuwe muziek én een vleugje Tomorrowland magie.",
                             EventDate = new DateTime(2021, 12, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 22,
-                            MaxAvailableTickets = 23359,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland presents: Dimitri Vegas & Like Mike Garden of Madness",
                             WebsiteUrl = "https://www.sportpaleis.be/nl/kalender/2021-2022/tomorrowland-presents-dimitri-vegas--like-mike"
                         },
@@ -1248,7 +1237,7 @@ namespace YES.API.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 27, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 23,
-                            MaxAvailableTickets = 200000,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 1: Day 1)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1259,7 +1248,7 @@ namespace YES.API.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 28, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 24,
-                            MaxAvailableTickets = 200000,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 1: Day 2)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1270,7 +1259,7 @@ namespace YES.API.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 29, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 25,
-                            MaxAvailableTickets = 200000,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 1: Day 3)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1281,7 +1270,7 @@ namespace YES.API.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 26,
-                            MaxAvailableTickets = 200000,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 2: Day 1)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1292,7 +1281,7 @@ namespace YES.API.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 27,
-                            MaxAvailableTickets = 200000,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 2: Day 2)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1303,7 +1292,7 @@ namespace YES.API.Migrations
                             Description = "Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 5, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 28,
-                            MaxAvailableTickets = 200000,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 2: Day 3)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1314,7 +1303,7 @@ namespace YES.API.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 29,
-                            MaxAvailableTickets = 75000,
+                            MaxAvailableTickets = 0,
                             Name = "Pukkelpop (Day 1)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1325,7 +1314,7 @@ namespace YES.API.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 20, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 30,
-                            MaxAvailableTickets = 75000,
+                            MaxAvailableTickets = 0,
                             Name = "Pukkelpop (Day 2)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1336,7 +1325,7 @@ namespace YES.API.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 21, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 31,
-                            MaxAvailableTickets = 75000,
+                            MaxAvailableTickets = 0,
                             Name = "Pukkelpop (Day 3)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1347,7 +1336,7 @@ namespace YES.API.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 22, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 32,
-                            MaxAvailableTickets = 75000,
+                            MaxAvailableTickets = 0,
                             Name = "Pukkelpop (Day 4)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1358,7 +1347,7 @@ namespace YES.API.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 33,
-                            MaxAvailableTickets = 60000,
+                            MaxAvailableTickets = 0,
                             Name = "Extrema Outdoor Extra: September edition (Day 1)",
                             WebsiteUrl = "https://extrema.be"
                         },
@@ -1369,7 +1358,7 @@ namespace YES.API.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 18, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 34,
-                            MaxAvailableTickets = 60000,
+                            MaxAvailableTickets = 0,
                             Name = "Extrema Outdoor Extra: September edition (Day 2)",
                             WebsiteUrl = "https://extrema.be"
                         },
@@ -1380,7 +1369,7 @@ namespace YES.API.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 35,
-                            MaxAvailableTickets = 60000,
+                            MaxAvailableTickets = 0,
                             Name = "Extrema Outdoor Extra: September edition (Day 3)",
                             WebsiteUrl = "https://extrema.be"
                         },
@@ -1391,6 +1380,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 1, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 36,
+                            MaxAvailableTickets = 0,
+                            Name = "Balthazar + Sohnarr",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1400,6 +1391,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 2, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 37,
+                            MaxAvailableTickets = 0,
+                            Name = "Goose",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1409,6 +1402,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 3, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 38,
+                            MaxAvailableTickets = 0,
+                            Name = "Arsenal & Tin Fingers",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1418,6 +1413,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 4, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 39,
+                            MaxAvailableTickets = 0,
+                            Name = "Lil Kleine, Ronnie Flex & The Fam",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1427,6 +1424,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 8, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 40,
+                            MaxAvailableTickets = 0,
+                            Name = "Bazart & Yong Yello",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1436,6 +1435,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 9, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 41,
+                            MaxAvailableTickets = 0,
+                            Name = "Gabriel Rios, Eefje De Visser & Emmy D'Arc",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1445,6 +1446,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 10, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 42,
+                            MaxAvailableTickets = 0,
+                            Name = "Bart Peeters & De Ideale Mannen",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1454,6 +1457,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 11, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 43,
+                            MaxAvailableTickets = 0,
+                            Name = "Tourist LeMC",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1463,6 +1468,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 44,
+                            MaxAvailableTickets = 0,
+                            Name = "Goose & Glints",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1472,6 +1479,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 45,
+                            MaxAvailableTickets = 0,
+                            Name = "Blackwave., Charles & Emma Bale",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1481,6 +1490,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 17, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 46,
+                            MaxAvailableTickets = 0,
+                            Name = "De Mens & Ruben Block",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1490,6 +1501,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 18, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 47,
+                            MaxAvailableTickets = 0,
+                            Name = "Regi Live, Cleymans & Van Geel",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1499,6 +1512,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 48,
+                            MaxAvailableTickets = 0,
+                            Name = "Jasper Steverlinck & Portland",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1508,6 +1523,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 22, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 49,
+                            MaxAvailableTickets = 0,
+                            Name = "Alex Agnew",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1517,6 +1534,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 23, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 50,
+                            MaxAvailableTickets = 0,
+                            Name = "Zwangere Guy, Miss Angel & Chibi Ichigo",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1526,6 +1545,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 24, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 51,
+                            MaxAvailableTickets = 0,
+                            Name = "Whispering Sons & Millionaire",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1535,6 +1556,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 25, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 52,
+                            MaxAvailableTickets = 0,
+                            Name = "Snelle & De Lieve Jongens Band",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1544,6 +1567,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 29, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 53,
+                            MaxAvailableTickets = 0,
+                            Name = "Bart Peters & De Ideale Mannen",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1553,6 +1578,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 30, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 54,
+                            MaxAvailableTickets = 0,
+                            Name = "Selah Sue, Meskerem Mees, TheColorGrey & Sam De Neef",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1562,6 +1589,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 8, 31, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 55,
+                            MaxAvailableTickets = 0,
+                            Name = "Niels Destadsbader",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1571,6 +1600,8 @@ namespace YES.API.Migrations
                             Description = "Vanaf 1 juli tot 1 augustus in het Festivalpark: WERCHTER PARKLIFE.  Eén maand lang, vier dagen per week de beste concerten in een tijdelijke openlucht-arena in het Festivalpark. Per show kunnen er tot 2.500 fans coronaveilig genieten van hun favoriete artiesten.",
                             EventDate = new DateTime(2021, 9, 1, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 56,
+                            MaxAvailableTickets = 0,
+                            Name = "Black Box Revelation, Brutus, Equal Idiots, Stake & KillTheLogo",
                             WebsiteUrl = "https://www.rockwerchter.be/nl/"
                         },
                         new
@@ -1580,6 +1611,7 @@ namespace YES.API.Migrations
                             Description = "Het gebeurt niet vaak dat er een nieuwe artieste opstaat waarvan iedereen onmiddellijk overtuigd is: die gaat het maken! Een eer die de Westvlaamse CAMILLE wel te beurt valt; de makers van #LikeMe gaven haar eerst een hoofdrol in hun serie, Regi vroeg haar om op één van zijn singles te zingen en niet lang daarna nam Niels William haar onder zijn vleugels en tekende ze een platencontract bij CNR Records.",
                             EventDate = new DateTime(2021, 9, 11, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 57,
+                            MaxAvailableTickets = 0,
                             Name = "Camille Dhont - VUURWERK",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2022-2023/camille"
                         },
@@ -1590,6 +1622,7 @@ namespace YES.API.Migrations
                             Description = "Voor zijn zesde album keerde James Blunt terug naar de basis, en doet hij wat hem in 2005 naar een sterrenstatus katapulteerde: het schrijven van bloedeerlijk en gevoelige songs met een rijke melodie. ‘This is the album of my life’ zegt hij zelf over ‘Once Upon A Mind’. Nooit eerder was hij zo emotioneel betrokken, hij draagt het album dan ook op aan zijn zieke vader. ‘Wanneer je beseft dat je ouders niet onsterfelijk zijn, en je zelf net vader wordt zie je de levenscyclus ineens heel duidelijk.’",
                             EventDate = new DateTime(2022, 3, 29, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 58,
+                            MaxAvailableTickets = 0,
                             Name = "James Blunt",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/james-blunt"
                         },
@@ -1600,6 +1633,7 @@ namespace YES.API.Migrations
                             Description = "De Grungblavers dat zijn Guillaume Van der Stighelen, Jan Van Looveren, Paul “Boogie Boy” Ambach, Gène Bervoets, Erik Goossens, Ludovic Nyamabo, Dirk Cassiers, Marc Fransen, Stany Crets en Nathan “N8N” Ambach. De Grungblavers zingen naar hun moedertaal (zijnde “het Aantwaarps”) vertaalde evergreens en in 2020 zijn ze klaar voor groter en grootst: de Lotto Arena. Ze halen alle toeters en bellen uit de kast, zorg dat je erbij bent op dit unieke concert!",
                             EventDate = new DateTime(2021, 9, 4, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 59,
+                            MaxAvailableTickets = 0,
                             Name = "De Grungblavers",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/de-grungblavers"
                         },
@@ -1610,6 +1644,7 @@ namespace YES.API.Migrations
                             Description = "*Liefde voor Muziek – voor het eerst live op een podium met Tourist LeMC, Emma Bale, Willy Sommers, Cleymans & Van Geel, Geike Arnaert, Bert Ostyn van Absynthe Minded en Ronny Mosuse.",
                             EventDate = new DateTime(2021, 9, 25, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 60,
+                            MaxAvailableTickets = 0,
                             Name = "Liefde voor Muziek LIVE",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/liefde-voor-muziek-live"
                         },
@@ -1620,6 +1655,7 @@ namespace YES.API.Migrations
                             Description = "Het Nederlandse Kensington is in eigen land uitgegroeid tot één van de meest populaire en succesvolste bands. Tal van awards pronken op hun kast: De Popprijs 2017, 3FM Awards, MTV Awards, ‘Song Van Het Jaar 2018’ voor “Slicer”. De band is kind aan huis in de Amsterdamse Ziggo Dome met 13 uitverkochte shows, waarvan 3 in december 2019, en wist als eerste Nederlandse band ook de Johan Cruijff Arena volledig te vullen in 2018. Hun vorige album ‘Control’ (2016) was goed voor drie keer platina.",
                             EventDate = new DateTime(2021, 11, 5, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 61,
+                            MaxAvailableTickets = 0,
                             Name = "Kensington",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/kensington"
                         },
@@ -1630,6 +1666,7 @@ namespace YES.API.Migrations
                             Description = "André Hazes wordt door België omarmd. Wanneer ‘Leef’ klinkt, wordt het glas geheven en de daad bij het woord gevoegd. Haal net als André Hazes alles uit het leven en kom terug op 10 en 11 november 2021 feesten in de Lotto Arena! Beleef samen met vrienden, familie, collega’s een onvergetelijke avond uit!",
                             EventDate = new DateTime(2021, 11, 10, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 62,
+                            MaxAvailableTickets = 0,
                             Name = "André Hazes: De avond van je leven",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/andre-hazes-2020"
                         },
@@ -1640,6 +1677,7 @@ namespace YES.API.Migrations
                             Description = "André Hazes wordt door België omarmd. Wanneer ‘Leef’ klinkt, wordt het glas geheven en de daad bij het woord gevoegd. Haal net als André Hazes alles uit het leven en kom terug op 10 en 11 november 2021 feesten in de Lotto Arena! Beleef samen met vrienden, familie, collega’s een onvergetelijke avond uit!",
                             EventDate = new DateTime(2021, 11, 11, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 63,
+                            MaxAvailableTickets = 0,
                             Name = "André Hazes: De avond van je leven",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/andre-hazes-2020"
                         },
@@ -1650,6 +1688,7 @@ namespace YES.API.Migrations
                             Description = "André Hazes wordt door België omarmd. Wanneer ‘Leef’ klinkt, wordt het glas geheven en de daad bij het woord gevoegd. Haal net als André Hazes alles uit het leven en kom terug op 10 en 11 november 2021 feesten in de Lotto Arena! Beleef samen met vrienden, familie, collega’s een onvergetelijke avond uit!",
                             EventDate = new DateTime(2021, 11, 13, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 64,
+                            MaxAvailableTickets = 0,
                             Name = "André Hazes: De avond van je leven",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/andre-hazes-2020"
                         },
@@ -1660,6 +1699,7 @@ namespace YES.API.Migrations
                             Description = "Coco Loco is gekend voor zijn adembenemende show. Zijn buitengewone feestcombinatie tussen een magische halloween, kleurrijk carnaval & vintage circus. Een avond vol sensationele acrobaten & circusartiesten, headliner dj’s en acts, spectaculaire shows en tonnen confetti.",
                             EventDate = new DateTime(2021, 10, 31, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 65,
+                            MaxAvailableTickets = 0,
                             Name = "Cocô Loco",
                             WebsiteUrl = "http://www.sportpaleis.be/nl/kalender/2021-2022/coco-loco"
                         },
@@ -1670,6 +1710,7 @@ namespace YES.API.Migrations
                             Description = "Daar is-ie dan. De fonkelnieuwe plaat van Bazart! ‘Onderweg’ is al het derde album van de razendpopulaire band rond Mathieu Terryn, Simon Nuytten en Oliver Symons. De heren hebben er de afgelopen maanden enorm hard aan gewerkt en staan te popelen om hun nieuwe muziek nu ook live naar hun publiek te brengen. Dat doen ze deze zomer op Werchter Parklife en dit najaar op vrijdag 19 november in de Antwerpse Lotto Arena. Dat de goesting niet alleen bij Bazart erg groot is, maar ook bij hun fans, bleek uit de ticketverkoop voor beide concerten. Daarom kondigt de indiepopgroep een extra concert aan in de Lotto Arena op zaterdag 20 november.",
                             EventDate = new DateTime(2021, 11, 19, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 66,
+                            MaxAvailableTickets = 0,
                             Name = "Bazart",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/bazart"
                         },
@@ -1680,6 +1721,7 @@ namespace YES.API.Migrations
                             Description = "Daar is-ie dan. De fonkelnieuwe plaat van Bazart! ‘Onderweg’ is al het derde album van de razendpopulaire band rond Mathieu Terryn, Simon Nuytten en Oliver Symons. De heren hebben er de afgelopen maanden enorm hard aan gewerkt en staan te popelen om hun nieuwe muziek nu ook live naar hun publiek te brengen. Dat doen ze deze zomer op Werchter Parklife en dit najaar op vrijdag 19 november in de Antwerpse Lotto Arena. Dat de goesting niet alleen bij Bazart erg groot is, maar ook bij hun fans, bleek uit de ticketverkoop voor beide concerten. Daarom kondigt de indiepopgroep een extra concert aan in de Lotto Arena op zaterdag 20 november.",
                             EventDate = new DateTime(2021, 11, 20, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 67,
+                            MaxAvailableTickets = 0,
                             Name = "Bazart",
                             WebsiteUrl = "http://www.lotto-arena.be/nl/kalender/2021-2022/bazart"
                         },
@@ -1690,6 +1732,7 @@ namespace YES.API.Migrations
                             Description = "Isabelle Beernaert presenteert ‘Naakt’. Puur, eerlijk, transparant, rauw. ",
                             EventDate = new DateTime(2021, 6, 25, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 68,
+                            MaxAvailableTickets = 0,
                             Name = "Isabelle Beernaert | Naakt",
                             WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2020-2021/isabelle-beernaert"
                         },
@@ -1700,6 +1743,7 @@ namespace YES.API.Migrations
                             Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
                             EventDate = new DateTime(2021, 9, 10, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 69,
+                            MaxAvailableTickets = 0,
                             Name = "An Evening with Alex Agnew",
                             WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
                         },
@@ -1710,6 +1754,7 @@ namespace YES.API.Migrations
                             Description = "De wereld is klaar voor een nieuwe start, zo ook Alex Agnew. Tijdens BCWYWF was er al de #MeToo, het genderdebat, maar plots was daar een virus, Black Lives Matter, en waar zijn die klimaatactivisten naartoe? Benieuwd wat Alex Agnew over deze en nog tal van andere onderwerpen te vertellen heeft?",
                             EventDate = new DateTime(2021, 9, 11, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 70,
+                            MaxAvailableTickets = 0,
                             Name = "An Evening with Alex Agnew",
                             WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/an-evening-with-alex-agnew"
                         },
@@ -1720,6 +1765,7 @@ namespace YES.API.Migrations
                             Description = "Jimmy vertelt in zijn gloednieuwe show grappen over allerlei verschrikkelijke zaken. Verschrikkelijke zaken waar jij of één van je geliefden misschien mee te maken kreeg. Maar het zijn gewoon grappen – het zijn niet de verschrikkelijke zaken zelf. Politieke correctheid bij een comedy show is zoals gezondheid en veiligheid bij een rodeo.",
                             EventDate = new DateTime(2021, 9, 16, 19, 30, 0, 0, DateTimeKind.Unspecified),
                             EventId = 71,
+                            MaxAvailableTickets = 0,
                             Name = "Jimmy Carr: Terribly Fun",
                             WebsiteUrl = "http://www.stadsschouwburg-antwerpen.be/nl/kalender/2021-2022/jimmy-carr"
                         },
@@ -1730,6 +1776,7 @@ namespace YES.API.Migrations
                             Description = "Tomorrowland Full Madness: Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 8, 27, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 72,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 1)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1740,6 +1787,7 @@ namespace YES.API.Migrations
                             Description = "Tomorrowland Full Madness: Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.",
                             EventDate = new DateTime(2021, 9, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 73,
+                            MaxAvailableTickets = 0,
                             Name = "Tomorrowland (Weekend 2)",
                             WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome"
                         },
@@ -1750,6 +1798,7 @@ namespace YES.API.Migrations
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 74,
+                            MaxAvailableTickets = 0,
                             Name = "Pukkelpop (combi)",
                             WebsiteUrl = "https://www.pukkelpop.be/en/"
                         },
@@ -1760,12 +1809,13 @@ namespace YES.API.Migrations
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 75,
+                            MaxAvailableTickets = 0,
                             Name = "Extrema Outdoor Extra: September edition (full)",
                             WebsiteUrl = "https://extrema.be"
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Ticket", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Ticket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1798,6 +1848,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 1,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 1
@@ -1805,6 +1856,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 2,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 1
@@ -1812,6 +1864,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 3,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 1
@@ -1819,6 +1872,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 4,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 1
@@ -1826,6 +1880,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 5,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 1
@@ -1833,6 +1888,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 6,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 2
@@ -1840,6 +1896,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 7,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 2
@@ -1847,6 +1904,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 8,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 3
@@ -1854,6 +1912,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 9,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 3
@@ -1861,6 +1920,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 10,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 3
@@ -1868,6 +1928,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 11,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 3
@@ -1875,6 +1936,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 12,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 4
@@ -1882,6 +1944,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 13,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 4
@@ -1889,6 +1952,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 14,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 5
@@ -1896,6 +1960,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 15,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 5
@@ -1903,6 +1968,7 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 16,
+                            DateOfPurchase = new DateTime(2021, 6, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 1,
                             TicketCategoryId = 1,
                             TicketCustomerId = 5
@@ -2181,12 +2247,14 @@ namespace YES.API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("YES.API.Data.Entities.TicketCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("EventId")
                         .HasColumnType("int");
 
                     b.Property<int>("MaxAmount")
@@ -3567,7 +3635,7 @@ namespace YES.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketCustomer", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.TicketCustomer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3575,7 +3643,6 @@ namespace YES.API.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BankAccount")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -3597,7 +3664,6 @@ namespace YES.API.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -3608,348 +3674,189 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 1,
-                            AddressId = 0,
                             BankAccount = "BE68 5390 0754 7034",
                             Email = "kobe@mail.com",
                             FirstName = "Kobe",
                             LastName = "Delobelle",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0473 288 888"
                         },
                         new
                         {
                             Id = 2,
-                            AddressId = 0,
                             BankAccount = "BE68 6990 5800 7574",
                             Email = "ward@mail.com",
                             FirstName = "Ward",
                             LastName = "Impe",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0473 422 458"
                         },
                         new
                         {
                             Id = 3,
-                            AddressId = 0,
                             BankAccount = "BE60 5590 0994 7021",
                             Email = "Pieter@mail.com",
                             FirstName = "Pieter",
                             LastName = "Corp",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0453 288 888"
                         },
                         new
                         {
                             Id = 4,
-                            AddressId = 0,
                             BankAccount = "BE70 5560 1278 7078",
                             Email = "Seba@mail.com",
                             FirstName = "Seba",
                             LastName = "Stiaan",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0485 345 349"
                         },
                         new
                         {
                             Id = 5,
-                            AddressId = 0,
                             BankAccount = "BE77 7893 0824 7304",
                             Email = "Nick@mail.com",
                             FirstName = "Nick",
                             LastName = "Angularlover",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0478 365 852"
                         },
                         new
                         {
                             Id = 6,
-                            AddressId = 0,
                             BankAccount = "BE41 7563 7835 0157",
                             Email = "Dries@mail.com",
                             FirstName = "Dries",
                             LastName = "Maes",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0432 457 896"
                         },
                         new
                         {
                             Id = 7,
-                            AddressId = 0,
                             BankAccount = "BE96 4278 6420 5496",
                             Email = "Olivia@mail.com",
                             FirstName = "Olivia",
                             LastName = "Goossens",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0478 687 138"
                         },
                         new
                         {
                             Id = 8,
-                            AddressId = 0,
                             BankAccount = "BE77 1046 8642 5676",
                             Email = "Mila@mail.com",
                             FirstName = "Mila",
                             LastName = "Vandevoorde",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0485 377 352"
                         },
                         new
                         {
                             Id = 9,
-                            AddressId = 0,
                             BankAccount = "BE86 7831 5701 5684",
                             Email = "Alice@mail.com",
                             FirstName = "Alice",
                             LastName = "Mcgregor",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0478 785 125"
                         },
                         new
                         {
                             Id = 10,
-                            AddressId = 0,
                             BankAccount = "BE68 4578 3025 7304",
                             Email = "Louise@mail.com",
                             FirstName = "Louise",
                             LastName = "Degroote",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0477 765 782"
                         },
                         new
                         {
                             Id = 11,
-                            AddressId = 0,
                             BankAccount = "BE89 4785 2015 3065",
                             Email = "Mohamed@mail.com",
                             FirstName = "Mohamed",
                             LastName = "Yilmaz",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0472 752 785"
                         },
                         new
                         {
                             Id = 12,
-                            AddressId = 0,
                             BankAccount = "BE58 7520 4778 8214",
                             Email = "Emir@mail.com",
                             FirstName = "Emir",
                             LastName = "Öztürk",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0473 478 795"
                         },
                         new
                         {
                             Id = 13,
-                            AddressId = 0,
                             BankAccount = "BE72 0145 7857 6375",
                             Email = "Kurt@mail.com",
                             FirstName = "Kurt",
                             LastName = "Debolle",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0478 140 349"
                         },
                         new
                         {
                             Id = 14,
-                            AddressId = 0,
                             BankAccount = "BE86 4576 0445 4873",
                             Email = "Arthur@mail.com",
                             FirstName = "Arthur",
                             LastName = "Vangeest",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0490 785 457"
                         },
                         new
                         {
                             Id = 15,
-                            AddressId = 0,
                             BankAccount = "BE69 2467 0468 0478",
                             Email = "Noah@mail.com",
                             FirstName = "Noah",
                             LastName = "Vanarke",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0475 850 852"
                         },
                         new
                         {
                             Id = 16,
-                            AddressId = 0,
                             BankAccount = "BE88 4785 9785 9620",
                             Email = "Victor@mail.com",
                             FirstName = "Victor",
                             LastName = "De Putte",
-                            PasswordHash = new byte[] { 12, 145, 68, 97, 233, 98, 173, 74, 152, 116, 233, 222, 29, 4, 164, 199, 36, 178, 131, 99, 25, 148, 172, 47, 137, 133, 193, 231, 131, 242, 116, 76, 225, 25, 155, 127, 114, 246, 232, 146, 86, 220, 56, 51, 191, 149, 161, 105, 162, 208, 168, 192, 12, 155, 180, 162, 215, 206, 240, 39, 10, 123, 47, 115 },
-                            PasswordSalt = new byte[] { 88, 13, 12, 3, 92, 76, 139, 149, 202, 11, 86, 60, 224, 13, 189, 19, 39, 161, 221, 101, 233, 113, 118, 77, 176, 180, 132, 189, 228, 123, 208, 217, 124, 81, 187, 134, 174, 102, 150, 153, 62, 236, 15, 144, 14, 40, 193, 42, 197, 120, 227, 75, 95, 231, 74, 128, 116, 7, 231, 176, 69, 58, 91, 189, 80, 20, 179, 34, 196, 0, 15, 2, 106, 140, 213, 140, 178, 219, 149, 219, 178, 147, 17, 207, 62, 244, 68, 43, 127, 109, 29, 86, 193, 69, 231, 20, 41, 52, 244, 193, 64, 250, 216, 147, 157, 141, 92, 65, 66, 27, 87, 27, 141, 191, 43, 130, 18, 227, 123, 221, 92, 230, 225, 235, 95, 72, 173, 49 },
+                            PasswordHash = new byte[] { 190, 18, 190, 167, 164, 199, 209, 233, 189, 172, 74, 160, 246, 43, 236, 99, 170, 153, 179, 75, 33, 115, 200, 110, 190, 227, 55, 52, 92, 112, 156, 61, 198, 128, 101, 80, 189, 187, 27, 76, 185, 56, 77, 247, 137, 237, 124, 104, 35, 38, 126, 152, 102, 116, 196, 14, 73, 111, 77, 217, 227, 209, 110, 127 },
+                            PasswordSalt = new byte[] { 96, 36, 14, 35, 251, 233, 114, 182, 105, 70, 231, 159, 199, 168, 129, 90, 137, 219, 125, 176, 27, 32, 157, 167, 132, 33, 216, 201, 156, 22, 213, 98, 208, 14, 137, 197, 227, 137, 202, 131, 213, 125, 179, 86, 156, 149, 34, 255, 24, 15, 168, 199, 71, 85, 73, 186, 76, 104, 146, 187, 75, 97, 187, 85, 174, 114, 46, 243, 197, 154, 74, 111, 233, 97, 227, 176, 42, 15, 179, 8, 250, 31, 122, 152, 47, 8, 135, 67, 50, 238, 65, 222, 240, 194, 37, 131, 151, 210, 125, 78, 69, 89, 188, 243, 188, 77, 126, 79, 42, 18, 109, 112, 76, 222, 187, 197, 11, 224, 211, 94, 206, 82, 211, 131, 81, 88, 144, 209 },
                             PhoneNumber = "0488 754 752"
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketPrice", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.TicketProvider", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TicketId")
-                        .IsUnique();
-
-                    b.ToTable("TicketPrices");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 10
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 11
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 12
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 13
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 14
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 15
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Category = "zitplaats",
-                            Price = 1,
-                            TicketId = 16
-                        });
-                });
-
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketProvider", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
 
                     b.Property<string>("BankAccount")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -3967,7 +3874,6 @@ namespace YES.API.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -3978,105 +3884,96 @@ namespace YES.API.Migrations
                         new
                         {
                             Id = 1,
-                            AddressId = 0,
                             BankAccount = "BE78 3590 0754 7674",
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 267 28 20"
                         },
                         new
                         {
                             Id = 2,
-                            AddressId = 0,
                             BankAccount = "BE78 7854 3585 7820",
                             Email = "info@tomorrowland.be",
                             NameProvider = "WAREONE.world bvba",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 147 27 78"
                         },
                         new
                         {
                             Id = 3,
-                            AddressId = 0,
                             BankAccount = "BE78 7768 3578 1220",
                             Email = "info@rockwerchter.be",
                             NameProvider = "Live Nation Festivals NV",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 754 87 78"
                         },
                         new
                         {
                             Id = 4,
-                            AddressId = 0,
                             BankAccount = "BE76 5455 8725 7824",
                             Email = "info@couleurcafe.be",
                             NameProvider = "Couleur Cafe",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 785 24 86"
                         },
                         new
                         {
                             Id = 5,
-                            AddressId = 0,
                             BankAccount = "BE34 8792 4687 2565",
                             Email = "info@pukkelpop.be",
                             NameProvider = "Chokri Mahassine",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 765 78 86"
                         },
                         new
                         {
                             Id = 6,
-                            AddressId = 0,
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@extremaoutdoor.be",
                             NameProvider = "Extrema",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 485 35 41"
                         },
                         new
                         {
                             Id = 7,
-                            AddressId = 0,
                             BankAccount = "BE78 6872 3968 7821",
                             Email = "info@sportpaleisgroup.be",
                             NameProvider = "Sportpaleis Group NV",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 879 87 74"
                         },
                         new
                         {
                             Id = 8,
-                            AddressId = 0,
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@elixir.be",
                             NameProvider = "eLiXir",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 782 71 42"
                         },
                         new
                         {
                             Id = 9,
-                            AddressId = 0,
                             BankAccount = "BE55 4752 7836 4878",
                             Email = "info@trix.be",
                             NameProvider = "Team Trix",
-                            PasswordHash = new byte[] { 186, 202, 148, 14, 20, 84, 64, 114, 98, 14, 251, 230, 164, 104, 219, 131, 121, 87, 196, 0, 23, 135, 37, 87, 70, 43, 237, 252, 220, 60, 233, 167, 96, 169, 126, 156, 219, 26, 216, 98, 76, 48, 32, 91, 230, 102, 73, 154, 241, 244, 23, 119, 197, 137, 226, 84, 225, 92, 180, 244, 95, 128, 113, 167 },
-                            PasswordSalt = new byte[] { 214, 161, 185, 194, 125, 151, 121, 36, 229, 158, 88, 84, 255, 171, 21, 160, 241, 196, 43, 26, 215, 79, 7, 77, 247, 54, 14, 128, 188, 99, 171, 248, 234, 38, 147, 242, 22, 143, 133, 117, 105, 125, 59, 40, 146, 14, 44, 238, 122, 7, 222, 234, 218, 5, 127, 10, 10, 17, 19, 58, 142, 212, 172, 202, 50, 178, 233, 130, 131, 107, 207, 30, 226, 52, 126, 80, 252, 232, 237, 64, 123, 39, 158, 15, 41, 13, 32, 121, 13, 173, 179, 133, 23, 56, 65, 190, 200, 202, 41, 38, 7, 68, 90, 42, 92, 36, 27, 89, 104, 201, 141, 46, 81, 19, 252, 204, 208, 138, 73, 115, 62, 216, 191, 23, 121, 225, 47, 46 },
+                            PasswordHash = new byte[] { 156, 145, 61, 92, 49, 85, 189, 239, 94, 104, 13, 96, 139, 211, 170, 143, 192, 245, 164, 223, 97, 39, 228, 82, 36, 166, 243, 141, 120, 198, 60, 135, 189, 208, 96, 6, 68, 72, 85, 219, 67, 138, 72, 75, 222, 173, 62, 118, 6, 172, 101, 25, 158, 187, 183, 105, 81, 154, 67, 137, 171, 215, 124, 155 },
+                            PasswordSalt = new byte[] { 225, 157, 144, 94, 170, 14, 70, 152, 95, 91, 120, 210, 76, 255, 46, 103, 68, 183, 24, 141, 83, 86, 28, 96, 119, 211, 102, 129, 23, 113, 98, 154, 56, 168, 162, 26, 144, 154, 87, 131, 75, 90, 102, 201, 124, 248, 139, 128, 252, 13, 101, 221, 72, 149, 171, 121, 179, 169, 90, 100, 79, 177, 93, 126, 121, 83, 47, 117, 11, 86, 26, 87, 160, 235, 130, 155, 249, 182, 132, 133, 192, 216, 87, 225, 154, 78, 248, 80, 214, 25, 139, 65, 187, 85, 44, 203, 137, 14, 124, 224, 181, 118, 16, 28, 223, 72, 16, 224, 230, 100, 188, 118, 156, 63, 173, 192, 20, 247, 6, 236, 142, 207, 49, 131, 5, 64, 234, 35 },
                             PhoneNumber = "09 456 79 17"
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Venue", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Venue", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -4169,75 +4066,64 @@ namespace YES.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Address", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Address", b =>
                 {
+                    b.HasOne("YES.API.Data.Entities.TicketCustomer", null)
                         .WithOne("Address")
-                        .HasForeignKey("YES.Server.Data.Entities.Address", "TicketCustomerId");
+                        .HasForeignKey("YES.API.Data.Entities.Address", "TicketCustomerId");
 
+                    b.HasOne("YES.API.Data.Entities.TicketProvider", null)
                         .WithOne("Address")
-                        .HasForeignKey("YES.Server.Data.Entities.Address", "TicketProviderId");
+                        .HasForeignKey("YES.API.Data.Entities.Address", "TicketProviderId");
 
+                    b.HasOne("YES.API.Data.Entities.Venue", null)
                         .WithOne("Address")
-                        .HasForeignKey("YES.Server.Data.Entities.Address", "VenueId");
-
-                    b.Navigation("TicketCustomer");
-
-                    b.Navigation("TicketProvider");
-
-                    b.Navigation("Venue");
+                        .HasForeignKey("YES.API.Data.Entities.Address", "VenueId");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Event", b =>
                 {
-                    b.HasOne("YES.Server.Data.Entities.EventInfo", "EventInfo")
-                        .WithMany()
-                        .HasForeignKey("EventInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("YES.Server.Data.Entities.TicketProvider", "TicketProvider")
+                    b.HasOne("YES.API.Data.Entities.TicketProvider", "TicketProvider")
                         .WithMany("Events")
                         .HasForeignKey("TicketProviderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("YES.Server.Data.Entities.Venue", "Venue")
+                    b.HasOne("YES.API.Data.Entities.Venue", "Venue")
                         .WithMany("Events")
                         .HasForeignKey("VenueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("EventInfo");
 
                     b.Navigation("TicketProvider");
 
                     b.Navigation("Venue");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.EventInfo", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.EventInfo", b =>
                 {
-                    b.HasOne("YES.Server.Data.Entities.Event", null)
+                    b.HasOne("YES.API.Data.Entities.Event", null)
                         .WithOne("EventInfo")
-                        .HasForeignKey("YES.Server.Data.Entities.EventInfo", "EventId")
+                        .HasForeignKey("YES.API.Data.Entities.EventInfo", "EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Ticket", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Ticket", b =>
                 {
-                    b.HasOne("YES.Server.Data.Entities.Event", "Event")
+                    b.HasOne("YES.API.Data.Entities.Event", "Event")
                         .WithMany()
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("YES.Server.Data.Entities.TicketCategory", "TicketCategory")
+                    b.HasOne("YES.API.Data.Entities.TicketCategory", "TicketCategory")
                         .WithMany("Tickets")
                         .HasForeignKey("TicketCategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("YES.Server.Data.Entities.TicketCustomer", "TicketCustomer")
+                    b.HasOne("YES.API.Data.Entities.TicketCustomer", "TicketCustomer")
                         .WithMany("Tickets")
                         .HasForeignKey("TicketCustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -4250,35 +4136,42 @@ namespace YES.API.Migrations
                     b.Navigation("TicketCustomer");
                 });
 
+            modelBuilder.Entity("YES.API.Data.Entities.TicketCategory", b =>
                 {
+                    b.HasOne("YES.API.Data.Entities.Event", null)
+                        .WithMany("TicketCategories")
+                        .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Event", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Event", b =>
                 {
                     b.Navigation("EventInfo");
 
+                    b.Navigation("TicketCategories");
                 });
 
+            modelBuilder.Entity("YES.API.Data.Entities.TicketCategory", b =>
                 {
+                    b.Navigation("Tickets");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketCustomer", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.TicketCustomer", b =>
                 {
                     b.Navigation("Address");
 
                     b.Navigation("Tickets");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.TicketProvider", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.TicketProvider", b =>
                 {
                     b.Navigation("Address");
 
                     b.Navigation("Events");
                 });
 
-            modelBuilder.Entity("YES.Server.Data.Entities.Venue", b =>
+            modelBuilder.Entity("YES.API.Data.Entities.Venue", b =>
                 {
                     b.Navigation("Address");
 

@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using YES.API.Data.Entities;
+using YES.Api.Data.Entities;
 
-namespace YES.API.Data.Database
+namespace YES.Api.Data.Database
 {
     public class YesDBContext : DbContext
     {
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<TicketProvider> TicketProviders { get; set; }
         public DbSet<TicketCustomer> TicketCustomers { get; set; }
-        public DbSet<TicketPrice> TicketPrices { get; set; }
+        public DbSet<TicketCategory> TicketCategories { get; set; }
 
         public DbSet<Event> Events { get; set; }
         public DbSet<EventInfo> EventInfo { get; set; }
@@ -22,6 +22,11 @@ namespace YES.API.Data.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+
+            modelBuilder.Entity<Ticket>()
+                        .HasOne(x => x.TicketCategory)
+                        .WithMany(x => x.Tickets)
+                        .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

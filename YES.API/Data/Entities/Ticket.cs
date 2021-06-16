@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.API.Data.Entities
+namespace YES.Api.Data.Entities
 {
     public class Ticket : EntityBase
     {
@@ -25,6 +25,9 @@ namespace YES.API.Data.Entities
         public DateTime DateOfPurchase { get; set; }
 
         [Required]
-        public virtual TicketPrice TicketPrice { get; set; }
+        [ForeignKey("TicketCategory")]
+        public int TicketCategoryId { get; set; }
+
+        public virtual TicketCategory TicketCategory { get; set; }
     }
 }
