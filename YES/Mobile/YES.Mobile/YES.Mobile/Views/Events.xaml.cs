@@ -9,28 +9,26 @@ using Xamarin.Forms;
 using YES.Mobile.Models;
 using Newtonsoft.Json;
 using YES.Mobile.Dto;
+using YES.Mobile.Services;
 
 namespace YES.Mobile.Views
 {
     public partial class Events : ContentPage
     {
-        public Events()
+        private IEventService _eventService { get; set; }
+        public Events(IEventService eventService)
         {
             InitializeComponent();
+            _eventService = eventService;
         }
 
-        private async void Button_Clicked(System.Object sender, System.EventArgs e)
+        private async void LoadEvents(System.Object sender, System.EventArgs e)
         {
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-            HttpClientHandler insecureHandler = handler;
-            HttpClient httpClient = new HttpClient(insecureHandler);
-
-            var resultJson = await httpClient.GetStringAsync("https://yesapi.azurewebsites.net/api/Event");
-
-            var resultEvents = JsonConvert.DeserializeObject<EventDto[]>(resultJson);
+            EventDto[] resultEvents = await _eventService.GetAllEvents();
 
             ListOfEvents.ItemsSource = resultEvents;
         }
+
+  
     }
 }

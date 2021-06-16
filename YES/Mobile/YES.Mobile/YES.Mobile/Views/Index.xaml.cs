@@ -13,9 +13,9 @@ using YES.Mobile.Models;
 namespace YES.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class Index : ContentPage
     {
-        public Page1()
+        public Index()
         {
             InitializeComponent();
         }
