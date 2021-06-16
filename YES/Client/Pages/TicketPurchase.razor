@@ -55,7 +55,7 @@
                     </button>
                     <button type="button"
                             class="btn btn-outline-danger btn-addremove"
-                            @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.Category == priceCategory.Name))">
+                            @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
                         -
                     </button>
                 </div>
@@ -74,10 +74,10 @@
             {
                 <div class="row">
                     <div class="col">
-                        @ticket.Category
+                        @ticket.TicketCategory.Name
                     </div>
                     <div class="col">
-                        @ticket.Price
+                        @ticket.TicketCategory.Price
                     </div>
                     <div class="col">
                         #@ticket.Amount
@@ -155,7 +155,7 @@
             bool itemFound = false;
             foreach (var item in TicketsPurchasingList)
             {
-                if (ticketCategory.Name == item.Category)
+                if (ticketCategory.Id == item.TicketCategory.Id)
                 {
                     item.Amount++;
                     itemFound = true;
@@ -216,8 +216,7 @@
         {
             TicketCustomerId = Customer.Id,
             EventId = Event.Id,
-            Category = categoryDto.Name,
-            Price = categoryDto.Price,
+            TicketCategory = categoryDto,
             Amount = 1
 
         };
@@ -228,7 +227,7 @@
         double price = 0;
         foreach (var item in TicketsPurchasingList)
         {
-            price += (item.Price * item.Amount);
+            price += (item.TicketCategory.Price * item.Amount);
         }
 
         return price;
