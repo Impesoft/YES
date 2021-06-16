@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.Server.Data.Entities
+namespace YES.API.Data.Entities
 {
     public class Address : EntityBase
     {
