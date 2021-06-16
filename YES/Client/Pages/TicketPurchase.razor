@@ -24,6 +24,11 @@
             </div>
             <div class="col">
                 <h5>
+                    Available Tickets
+                </h5>
+            </div>
+            <div class="col">
+                <h5>
                     Quantity
                 </h5>
             </div>
@@ -32,22 +37,29 @@
         <div>
             @foreach (var priceCategory in Event.TicketCategories)
             {
-                <div class="row">
-                    <div class="col">
-                        @priceCategory.Name
-                    </div>
-                    <div class="col">
-                        € @priceCategory.Price
-                    </div>
-                    <div class="col">
-                        <button type="button" 
-                                class="btn btn-outline-warning btn-addremove" 
-                                @onclick="() => AddTicketToPurchasingList(priceCategory)">+</button>
-                        <button type="button" 
-                                class="btn btn-outline-danger btn-addremove" 
-                                @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.Category == priceCategory.Name))">-</button>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    @priceCategory.Name
                 </div>
+                <div class="col">
+                    € @priceCategory.Price
+                </div>
+                <div class="col">
+                    @priceCategory.AvailableAmount
+                </div>
+                <div class="col">
+                    <button type="button"
+                            class="btn btn-outline-warning btn-addremove"
+                            @onclick="() => AddTicketToPurchasingList(priceCategory)">
+                        +
+                    </button>
+                    <button type="button"
+                            class="btn btn-outline-danger btn-addremove"
+                            @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.Category == priceCategory.Name))">
+                        -
+                    </button>
+                </div>
+            </div>
                 <hr />
             }
         </div>
@@ -77,18 +89,19 @@
             }
 
 
-            <div class="row mt-4">
-                <div class="col">
-                    <h3 class="mt-3"> Total Price: €@Math.Round(TotalPrice, 2)</h3>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-warning mt-3" @onclick="() => PurchaseTickets()"> Order Tickets! </button>
-                    <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearPurchaseList()">Cancel</button>
+    <div class="row mt-4">
+        <div class="col">
+            <h4 class="mt-3"> Total Price: €@Math.Round(TotalPrice, 2)</h4>
+        </div>
+        <div class="col">
+            <h4 class="mt-3"> Total Tickets: @AmountOfTicketsToPurchase</h4>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-warning mt-3" @onclick="() => PurchaseTickets()"> Order Tickets! </button>
+            <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearPurchaseList()">Cancel</button>
 
-                </div>
-            </div>
-
-
+        </div>
+    </div>
 
             @if (PurchaseSuccesful == true)
             {
@@ -117,6 +130,8 @@
     public EventDto Event { get; set; }
 
     public double TotalPrice { get; set; }
+
+    public int AmountOfTicketsToPurchase { get; set; }
 
     public bool PurchaseSuccesful { get; set; } = false;
 
@@ -160,6 +175,8 @@
         }
 
         TotalPrice = CalculateTotalPrice();
+        AmountOfTicketsToPurchase = CountTotalTickets();
+
     }
 
     private void ClearItemFromPurchaseList(TicketPurchaseDto ticket)
@@ -174,6 +191,7 @@
         }
 
         TotalPrice = CalculateTotalPrice();
+        AmountOfTicketsToPurchase = CountTotalTickets();
     }
 
     private void ClearPurchaseList()
@@ -214,6 +232,17 @@
         }
 
         return price;
+    }
+
+    private int CountTotalTickets()
+    {
+        int amount = 0;
+        foreach (var item in TicketsPurchasingList)
+        {
+            amount += item.Amount;
+        }
+
+        return amount;
     }
 
 }
