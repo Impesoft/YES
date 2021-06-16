@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YES.Server.Data.Entities
+namespace YES.API.Data.Entities
 {
     public class Venue : EntityBase
     {

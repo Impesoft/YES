@@ -46,7 +46,6 @@
     protected override async Task OnInitializedAsync()
     {
         _events = await _service.GetEventsAsync();
-        
     }
 
     private void ShowEventInfo(EventDto eventDto)
@@ -59,6 +58,4 @@
     {
         _events.OrderBy(x => x.EventInfo.EventDate);
     }
-
-
 }
