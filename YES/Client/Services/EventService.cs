@@ -38,7 +38,7 @@ namespace YES.Client.Services
 
         public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
         {
-            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("https://localhost:44316/api/Event");
+            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("/api/Event");
             return _events.Take(3);
         }
 

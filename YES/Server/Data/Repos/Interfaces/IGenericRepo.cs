@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.Server.Data.Entities;
+using YES.API.Data.Entities;
 
-namespace YES.Server.Data.Repos
+namespace YES.API.Data.Repos
 {
     public interface IGenericRepo<T> where T : EntityBase
     {

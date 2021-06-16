@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.Server.Business.Services;
+using YES.API.Business.Services;
 using YES.Shared.Dto;
 
-namespace YES.Server.Controllers
+namespace YES.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

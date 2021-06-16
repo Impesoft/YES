@@ -7,7 +7,7 @@ using YES.Server.Data.Entities;
 using YES.Server.Enums;
 using System.Security.Cryptography;
 
-namespace YES.Server.Data.Database
+namespace YES.API.Data.Database
 {
     public static class ModelBuilderExtensions
     {
