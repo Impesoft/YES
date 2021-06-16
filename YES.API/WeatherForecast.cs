@@ -1,6 +1,6 @@
 using System;
 
-namespace YES.API
+namespace YES.Api
 {
     public class WeatherForecast
     {

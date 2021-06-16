@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.API.Data.Entities;
-using YES.API.Data.Repos;
+using YES.Api.Data.Entities;
+using YES.Api.Data.Repos;
+using YES.Api.Data.Repos.Interfaces;
 using YES.Shared.Dto;
 
-namespace YES.API.Business.Services
+namespace YES.Api.Business.Services
 {
     public class EventService : IEventService
     {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.API.Data.Entities;
+using YES.Api.Data.Entities;
 
-namespace YES.API.Data.Repos
+namespace YES.Api.Data.Repos.Interfaces
 {
     public interface IEventRepo : IGenericRepo<Event>
     {

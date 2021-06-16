@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YES.API.Data.Entities
+namespace YES.Api.Data.Entities
 {
     public class EventInfo : EntityBase
     {
