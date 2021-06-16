@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using YES.Server.Enums;
+using YES.API.Enums;
 
-namespace YES.Server.Data.Entities
+namespace YES.API.Data.Entities
 {
     public class Event : EntityBase
     {

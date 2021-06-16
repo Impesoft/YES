@@ -11,13 +11,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using System.Linq;
 using Microsoft.OpenApi.Models;
-using YES.Server.Data.Database;
-using YES.Server.Data.Entities;
-using YES.Server.Data.Repos;
-using YES.Server.Configuration;
-using YES.Server.Business.Services;
+using YES.API.Data.Database;
+using YES.API.Data.Entities;
+using YES.API.Data.Repos;
+using YES.API.Configuration;
+using YES.API.Business.Services;
 
-namespace YES.Server
+namespace YES.API
 {
     public class Startup
     {
@@ -48,6 +48,12 @@ namespace YES.Server
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5002"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5000"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5002"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5003"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5002"));
+
+
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44316"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44317"));
 
@@ -80,7 +86,7 @@ namespace YES.Server
 
             services.AddDbContext<YesDBContext>(x =>
             {
-                x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
+                x.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString"));
             });
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);

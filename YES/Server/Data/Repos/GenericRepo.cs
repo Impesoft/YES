@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using YES.Server.Data.Database;
-using YES.Server.Data.Entities;
+using YES.API.Data.Database;
+using YES.API.Data.Entities;
 
-namespace YES.Server.Data.Repos
+namespace YES.API.Data.Repos
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : EntityBase
     {
