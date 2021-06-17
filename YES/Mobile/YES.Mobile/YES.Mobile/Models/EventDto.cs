@@ -2,7 +2,7 @@
 
 namespace YES.Mobile.Dto
 {
-    public class EventDto
+    public class EventDto : ObservableObject
     {
         public int Id { get; set; }
         public string Status { get; set; }

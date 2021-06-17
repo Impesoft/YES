@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using YES.Mobile.Dto;
 using YES.Mobile.Services;
 
@@ -8,16 +11,29 @@ namespace YES.Mobile.ViewModels
 {
     class EventsViewModel : BaseViewModel
     {
+        private static ICollection<EventDto> _events;
+        //private EventService _eventService;
         private static IEventService _eventService { get; set; }
-
-        public EventsViewModel(IEventService eventService)
+        public ICollection<EventDto> Events
         {
-            _eventService = eventService;
+            get => _events;
+            set
+            {
+                _events = value;
+                OnPropertyChanged(nameof(Events));
+            }
+        }
+
+        public EventsViewModel()
+        {
+            _eventService = new EventService();
+            Events = new ObservableCollection<EventDto>();
+            LoadEvents(_eventService);
 
         }
-        public static async void LoadEvents(System.Object sender, System.EventArgs e)
+        public async void LoadEvents(IEventService eventService)
         {
-            EventDto[] resultEvents = await _eventService.GetAllEvents();
+            Events = await eventService.GetAllEvents();
 
         }
 
