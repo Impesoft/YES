@@ -1,44 +1,53 @@
 ﻿@page "/Calendar"
 @inject NavigationManager navigationManager
 
-<div class="page-background">
-    <div class="row content">
-        <div class="col-xl-3 mb-3">
-            <section>
-                <h2 class="mb-3">Search</h2>
-                <form class="d-flex">
-                    <input class="form-control bg-dark me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-warning" type="submit">Search</button>
-                </form>
-            </section>
-        </div>
-        <div class="col-xl-9">
+@* <div class="banner"></div> *@
 
-
-            <section>
-                <h2 class="mb-3">Events</h2>
-                @if (_events != null)
-                {
-                    <div class="scrollable">
-                        @foreach (EventDto eventDto in _events)
-                        {
-                            <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)" />
-                        }
-                    </div>
-                }
-                else
-                {
-                    <p>No events found.</p>
-                }
-
-            </section>
+<div class="page-bg">
+<section>
+    <div class="head-wrapper">
+        <h2 class="mb-3">Events</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search" @bind-value="_searchValue" @bind-value:event="oninput">
+            <button class="btn btn-outline-secondary" type="button" @onclick="@(() => _searchValue = "")" ><i class="fas fa-eraser"></i></button>
         </div>
     </div>
+    @if (_events != null)
+    {
+        <div class="scrollable">
+
+            <table class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th class="text-end" scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (EventDto eventDto in _events.Where(x => x.EventInfo.Name.ToLower().Contains(_searchValue.ToLower()) 
+                                                                  || x.EventInfo.Description.ToLower().Contains(_searchValue.ToLower())
+                                                                  || x.Status.ToLower().Contains(_searchValue.ToLower())).ToList())
+                {
+                    <EventList Event="eventDto" EventInfo="() => ShowEventInfo(eventDto)"/>
+                }
+                </tbody>
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <p>No events found.</p>
+    }
+</section>
 </div>
 
+
 @code {
-    private IEnumerable<EventDto> _events;
-    
+    private IEnumerable<EventDto> _events { get; set; }
+    private IEnumerable<EventDto> _filteredList { get; set; }
+    private string _searchValue { get; set; } = "";
 
     [Inject]
     private IEventService _service { get; set; }
@@ -46,11 +55,11 @@
     protected override async Task OnInitializedAsync()
     {
         _events = await _service.GetEventsAsync();
+        _filteredList = _events;
     }
 
     private void ShowEventInfo(EventDto eventDto)
     {
-
         navigationManager.NavigateTo($"/EventDetail/{eventDto.Id}");
     }
 
