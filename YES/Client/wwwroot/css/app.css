@@ -69,9 +69,7 @@ html, body {
 }
 
 section {
-    margin: 100px auto;
     width: 90vw;
-    /*box-shadow: 0 0 5px 0 rgb(0, 0, 0, .15);*/
     box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
     padding: 20px 20px 50px;
     color: var(--dark-light);
@@ -80,9 +78,13 @@ section {
 }
 
 .page-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 0;
-    min-height: 100vh;
+    top: 4rem;
+    min-height: calc(100vh - 7rem);
+    max-height: calc(100vh - 7rem);
     min-width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
