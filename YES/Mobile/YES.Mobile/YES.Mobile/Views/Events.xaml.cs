@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using YES.Mobile.Dto;
 using YES.Mobile.Services;
 using YES.Mobile.ViewModels;
+using Xamarin.Forms.Xaml;
 
 namespace YES.Mobile.Views
 {
@@ -20,14 +21,14 @@ namespace YES.Mobile.Views
         public Events()
         {
             InitializeComponent();
-            BindingContext = eventsViewModel = new EventsViewModel();
+            eventsViewModel = new EventsViewModel();
+            ListOfEvents.ItemsSource = eventsViewModel.Events;
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
-            base.OnAppearing();
-            eventsViewModel.LoadEvents();
-            ListOfEvents.ItemsSource = resultEvents;
+           // base.OnAppearing();
+                ListOfEvents.ItemsSource = eventsViewModel.Events;
 
         }
 
