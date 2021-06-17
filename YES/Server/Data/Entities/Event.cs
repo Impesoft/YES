@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using YES.Server.Enums;
+using YES.API.Enums;
 
-namespace YES.Server.Data.Entities
+namespace YES.API.Data.Entities
 {
     public class Event : EntityBase
     {
@@ -10,7 +12,7 @@ namespace YES.Server.Data.Entities
         [ForeignKey("Venue")]
         public int VenueId { get; set; }
 
-        public virtual Venue Venue { get; set; }
+        public Venue Venue { get; set; }
 
         [Required]
         [ForeignKey("TicketProvider")]
@@ -21,10 +23,7 @@ namespace YES.Server.Data.Entities
         [Required]
         public Status Status { get; set; }
 
-        [Required]
-        [ForeignKey("EventInfo")]
-        public int EventInfoId { get; set; }
-
         public virtual EventInfo EventInfo { get; set; }
+        public virtual ICollection<TicketCategory> TicketCategories { get; set; }
     }
 }
