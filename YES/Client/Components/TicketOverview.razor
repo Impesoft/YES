@@ -1,20 +1,23 @@
 ﻿
-    <div class="col">
-        @Ticket.DateOfPurchase.ToString("dd/MM/yyyy")
-    </div>
-    <div class="col">
-        @Ticket.EventDate.ToString($"dd/MM/yyyy HH:mm")
-    </div>
-    <div class="col">
-        € @Ticket.TicketCategory.Price
-    </div>    
-    <div class="col">
-        @Ticket.EventName
-    </div>
-    <div class="col">
-        @Ticket.VanueName
-    </div>    
-    
+<div class="col">
+    @Ticket.DateOfPurchase.ToString("dd/MM/yyyy")
+</div>
+<div class="col">
+    @Ticket.EventDate.ToString($"dd/MM/yyyy HH:mm")
+</div>
+<div class="col">
+    @Ticket.TicketCategory.Name
+</div>
+<div class="col">
+    € @Ticket.TicketCategory.Price
+</div>
+<div class="col">
+    @Ticket.EventName
+</div>
+<div class="col">
+    @Ticket.VanueName
+</div>
+
 
 
 @code {
