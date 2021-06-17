@@ -10,6 +10,8 @@ namespace YES.Client.Services
 {
     public class CustomerService : ICustomerService
     {
+        private int LoggedInUserId { get; set; } = 1;
+
         private HttpClient _http;
         public CustomerService(HttpClient http)
         {
@@ -20,7 +22,13 @@ namespace YES.Client.Services
         {
             var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
 
+            LoggedInUserId = _customer.Id;
             return _customer;
+        }
+
+        public int GetLoggedInUser()
+        {
+            return LoggedInUserId;
         }
 
     }
