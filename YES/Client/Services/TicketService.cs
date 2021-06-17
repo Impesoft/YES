@@ -26,7 +26,7 @@ namespace YES.Client.Services
 
         public async Task AddNewTicketsAsync(List<TicketPurchaseDto> tickets)
         {
-            await _http.PostAsJsonAsync<List<TicketPurchaseDto>>("api/Ticket/", tickets);
+            await _http.PostAsJsonAsync<List<TicketPurchaseDto>>("api/Ticket/Buy", tickets);
           
         }
 
