@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
     height: 3rem;
     background: var(--test-dark-dark);
     color: var(--dark-light);
