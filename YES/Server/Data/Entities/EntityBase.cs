@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace YES.Server.Data.Entities
+namespace YES.API.Data.Entities
 {
     public class EntityBase
     {
