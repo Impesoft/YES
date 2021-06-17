@@ -1,6 +1,6 @@
 ﻿namespace YES.Mobile.Dto
 {
-    public class AddressDto
+    public class AddressDto : ObservableObject
     {
         public int Id { get; set; }
         public string Street { get; set; }

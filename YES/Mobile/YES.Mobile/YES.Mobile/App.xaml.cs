@@ -14,6 +14,8 @@ namespace YES.Mobile
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<IEventService, EventService>();
+
             MainPage = new AppShell();
         }
 
