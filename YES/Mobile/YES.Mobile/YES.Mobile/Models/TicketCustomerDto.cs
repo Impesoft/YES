@@ -1,6 +1,6 @@
 ﻿namespace YES.Mobile.Dto
 {
-    public class TicketCustomerDto
+    public class TicketCustomerDto : ObservableObject
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
