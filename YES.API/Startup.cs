@@ -17,6 +17,8 @@ using YES.Api.Data.Repos;
 using YES.Api.Configuration;
 using YES.Api.Business.Services;
 using YES.Api.Data.Repos.Interfaces;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace YES.Api
 {
@@ -44,12 +46,12 @@ namespace YES.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5000"));
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5002"));
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));         
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5003"));
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5002"));
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5000"));
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5002"));
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));         
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5003"));
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5002"));
 
 
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44316"));
@@ -75,9 +77,21 @@ namespace YES.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
+                    };
+                });
 
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "Yes", Version = "v1" }));
 
@@ -95,6 +109,9 @@ namespace YES.Api
             services.AddScoped<IEventRepo, EventRepo>();
             services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
             services.AddScoped<ITicketRepo, TicketRepo>();
+
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ITokenService, TokenService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
