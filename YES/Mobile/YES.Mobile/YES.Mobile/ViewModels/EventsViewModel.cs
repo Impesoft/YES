@@ -12,7 +12,6 @@ namespace YES.Mobile.ViewModels
     class EventsViewModel : BaseViewModel
     {
         private static ICollection<EventDto> _events;
-        //private EventService _eventService;
         private static IEventService _eventService { get; set; }
         public ICollection<EventDto> Events
         {
@@ -31,9 +30,9 @@ namespace YES.Mobile.ViewModels
             LoadEvents(_eventService);
 
         }
-        public async void LoadEvents(IEventService eventService)
+        public void LoadEvents(IEventService eventService)
         {
-            Events = await eventService.GetAllEvents();
+            Events = eventService.GetAllEvents();
 
         }
 

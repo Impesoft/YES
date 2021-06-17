@@ -11,11 +11,11 @@ namespace YES.Api.Data.Entities
         [Required]
         public string Email { get; set; }
 
-        //[Required]
-        public byte[]? PasswordHash { get; set; }
+        [Required]
+        public byte[] PasswordHash { get; set; }
 
-        //[Required]
-        public byte[]? PasswordSalt { get; set; }
+        [Required]
+        public byte[] PasswordSalt { get; set; }
 
         public string PhoneNumber { get; set; }
 
