@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using YES.Mobile.Dto;
 
 namespace YES.Mobile.Services
 {
-   public interface IEventService
+    public interface IEventService
     {
-        Task<ObservableCollection<EventDto>> GetAllEvents();
+        ObservableCollection<EventDto> GetAllEvents();
+        EventDto GetEventDetails(int id);
     }
 }

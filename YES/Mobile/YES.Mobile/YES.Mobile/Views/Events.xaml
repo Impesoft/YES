@@ -16,11 +16,14 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <AbsoluteLayout HorizontalOptions="Center">
-                            <!--<AbsoluteLayout.GestureRecognizers>
+
+                            <AbsoluteLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:LikeOverviewViewModel}}, Path=DeveloperTappedCommand}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventsViewModel}}, Path=EventTappedCommand}"
                                                                   CommandParameter="{Binding .}" />
-                            </AbsoluteLayout.GestureRecognizers>-->
+                            </AbsoluteLayout.GestureRecognizers>
+
+
                             <Image Source="{Binding EventInfo.BannerImgUrl}" HeightRequest="300" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"></Image>
                             <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent">
                                 <Frame HorizontalOptions="Fill" VerticalOptions="EndAndExpand" >
