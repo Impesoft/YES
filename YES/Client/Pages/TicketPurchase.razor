@@ -106,7 +106,7 @@
             @if (PurchaseSuccesful == true)
             {
                 <div class="mt-5 alert alert-warning">
-                    @Customer.FirstName succesfully ordered @TicketsPurchasingList.Count() ticket(s) for €@Math.Round(TotalPrice, 2) !
+                    @Customer.FirstName succesfully ordered @CountTotalTickets() ticket(s) for €@Math.Round(TotalPrice, 2) !
                 </div>
             }
 
@@ -181,17 +181,21 @@
 
     private void ClearItemFromPurchaseList(TicketPurchaseDto ticket)
     {
-        if (ticket.Amount > 1)
+        if (ticket != null)
         {
-            ticket.Amount--;
-        }
-        else if(ticket.Amount == 1)
-        {
-            TicketsPurchasingList.Remove(ticket);
+            if (ticket.Amount > 1)
+            {
+                ticket.Amount--;
+            }
+            else if (ticket.Amount == 1)
+            {
+                TicketsPurchasingList.Remove(ticket);
+            }
+
+            TotalPrice = CalculateTotalPrice();
+            AmountOfTicketsToPurchase = CountTotalTickets();
         }
 
-        TotalPrice = CalculateTotalPrice();
-        AmountOfTicketsToPurchase = CountTotalTickets();
     }
 
     private void ClearPurchaseList()
