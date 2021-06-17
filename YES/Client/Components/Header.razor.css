@@ -12,6 +12,11 @@
     max-width: 80vw;
 }
 
-.bg-darktrans {
-    background-color: rgba(0, 0, 0, .75);
+header {
+    max-width: 100vw;
+    height: 4rem;
+}
+
+.bg-dark {
+    background: var(--test-dark);
 }

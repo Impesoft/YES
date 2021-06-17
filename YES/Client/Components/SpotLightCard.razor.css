@@ -1,14 +1,28 @@
-﻿body {
-}
-
-.card {
+﻿.card {
     width: 18rem;
-    color: white;
-    background-color: black;
-    margin: auto;
+    margin: 40px auto;
 }
 
-.image {
-    width: 200px;
-    height: 120px;
+.card-body a {
+    text-decoration: none;
+    color: var(--dark-light);
+    text-align: center;
+    transition: color .1s ease-in-out;
+}
+
+.card-body a:hover {
+    color: var(--primary-light);
+}
+
+.card-img-top {
+    height: 150px;
+}
+
+h5 {
+    font-weight: 300;
+}
+
+.card-bg {
+    background: var(--test-dark-dark);
+    box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
 }
