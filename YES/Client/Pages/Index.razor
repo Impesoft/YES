@@ -1,7 +1,8 @@
 ﻿@page "/"
 @using YES.Shared
 
-<div class="page-background">
+@* <div class="banner"></div> *@
+<div class="page-bg">
     <section>
         <h3 class="mb-4">Spotlight</h3>
         <div class="row card-row">
@@ -11,15 +12,13 @@
                 {
                     if (item != null)
                     {
-                    <SpotLightCard Event="item" />
+                        <SpotLightCard Event="item" />
                     }
                 }
             }
         </div>
     </section>
-</div>          
-
-
+</div>
 
 @code {
     private IEnumerable<EventDto> _spotlights { get; set; }
