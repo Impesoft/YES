@@ -87,15 +87,14 @@ namespace YES.Api
             });
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
-
-            services.AddScoped<IGenericRepo<Ticket>, GenericRepo<Ticket>>();
-
+            
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<ITicketCustomerService, TicketCustomerService>();
             services.AddScoped<ITicketService, TicketService>();
 
             services.AddScoped<IEventRepo, EventRepo>();
             services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
+            services.AddScoped<ITicketRepo, TicketRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
