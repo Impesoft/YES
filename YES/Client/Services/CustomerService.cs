@@ -26,6 +26,11 @@ namespace YES.Client.Services
             return _customer;
         }
 
+        public async Task UpdateCustomer(CustomerWithTicketsDto customer)
+        {
+            await _http.PutAsJsonAsync("api/TicketCustomer", customer);
+        }
+
         public int GetLoggedInUser()
         {
             return LoggedInUserId;
