@@ -11,9 +11,27 @@
     </td>
     <td>@Event.EventInfo.Name</td>
     <td>
+        @* TODO make component because used multiple times in other components *@
         @if (@Event.Status != "Default")
         {
-            <span class="@(Event.Status=="Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
+            <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">
+                @switch (Event.Status)
+                {
+                    case "ToBeAnnounced":
+                        eventStatus = "TBA";
+                        break;
+                    case "Postponed":
+                        eventStatus = "Postponed";
+                        break;
+                    case "SoldOut":
+                        eventStatus = "Sold Out";
+                        break;
+                    case "Cancelled":
+                        eventStatus = "Cancelled";
+                        break;
+                }
+                @eventStatus
+            </span>
         }
     </td>
 </tr>
@@ -22,6 +40,9 @@
 @code {
     [Parameter]
     public EventDto Event { get; set; }
+
     [Parameter]
     public EventCallback<EventDto> EventInfo { get; set; }
+
+    private string eventStatus { get; set; }
 }

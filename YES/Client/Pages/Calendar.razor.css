@@ -21,15 +21,15 @@
 
 /* width */
 .scrollable::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 /* Track */
 .scrollable::-webkit-scrollbar-track {
-    background: var(--light);
+    background: var(--dark);
 }
 /* Handle */
 .scrollable::-webkit-scrollbar-thumb {
-    background: var(--light-dark);
+    background: var(--dark-dark);
 }
 /* Handle on hover */
 .scrollable::-webkit-scrollbar-thumb:hover {
