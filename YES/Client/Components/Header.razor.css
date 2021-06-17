@@ -17,6 +17,10 @@ header, nav {
     height: 4rem;
 }
 
+nav {
+    box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
+}
+
 .bg-dark {
     background: var(--test-dark);
 }
