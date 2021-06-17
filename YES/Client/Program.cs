@@ -38,7 +38,7 @@ namespace YES.Client
             builder.Services.AddScoped(sp =>
                                 new HttpClient
                                 {
-                                    BaseAddress = new Uri("https://localhost:5001/")
+                                    BaseAddress = new Uri("https://localhost:5003/")
                                 });
             // https://yesapi.azurewebsites.net/
             
