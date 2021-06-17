@@ -11,6 +11,7 @@ namespace YES.Shared.Dto
         public string VanueName { get; set; }
         public AddressDto VenueAddress { get; set; }
         public DateTime DateOfPurchase { get; set; }
+        public DateTime EventDate { get; set; }
         public TicketCategoryDto TicketCategory { get; set; }
     }
 }
