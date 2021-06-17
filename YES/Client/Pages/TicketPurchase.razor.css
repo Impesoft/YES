@@ -22,7 +22,11 @@ section {
     border-radius: 5px;
 }
 
-.small-bars{
-    max-width: 40%;
+
+.btn-addremove {
+    height: 40px;
+    width: 40px;
 }
+
+
 
