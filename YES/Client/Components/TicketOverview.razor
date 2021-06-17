@@ -1,9 +1,9 @@
 ﻿
     <div class="col">
-        @Ticket.DateOfPurchase.ToShortDateString()
+        @Ticket.DateOfPurchase.ToString("dd/MM/yyyy")
     </div>
     <div class="col">
-        -
+        @Ticket.EventDate.ToString($"dd/MM/yyyy HH:mm")
     </div>
     <div class="col">
         € @Ticket.TicketCategory.Price
