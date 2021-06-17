@@ -15,7 +15,7 @@
             <div class="mb-4">
                 @if (Customer != null)
                 {
-                    <CustomerForm Customer="Customer"></CustomerForm>
+                    <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
                 }
             </div>
             
@@ -80,6 +80,11 @@
     private async Task GetUserWithId(int id)
     {
         Customer = await customerService.GetCustomerByIdAsync(id);
+    }
+
+    private async Task UpdateCustomer()
+    {
+        await customerService.UpdateCustomer(Customer);
     }
 
 }
