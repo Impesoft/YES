@@ -38,10 +38,10 @@ namespace YES.Client
             builder.Services.AddScoped(sp =>
                                 new HttpClient
                                 {
-                                    BaseAddress = new Uri("https://localhost:44367/")
+                                    BaseAddress = new Uri("https://yesapi.azurewebsites.net/")
                                 });
+            
             //https://localhost:44367/
-
             //https://yesapi.azurewebsites.net/
 
             builder.Services.AddScoped<IEventService, EventService>();
