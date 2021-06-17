@@ -10,7 +10,7 @@ using YES.Api.Data.Database;
 namespace YES.Api.Migrations
 {
     [DbContext(typeof(YesDBContext))]
-    [Migration("20210616133937_init")]
+    [Migration("20210617082321_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1123,7 +1123,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 13,
-                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/68947152_10156578134447644_7759879836461432832_n.png?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=IDm1dnxmhosAX-EYdU6&_nc_ht=scontent-bru2-1.xx&oh=18d225698aa70604374adbaf32077950&oe=60CA125B",
+                            BannerImgUrl = "https://impesoft.github.io/cv/Ward_Impe.jpg",
                             Description = "VJ Ward in the Mix",
                             EventDate = new DateTime(2021, 9, 10, 1, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 13,
@@ -1134,7 +1134,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 14,
-                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/68947152_10156578134447644_7759879836461432832_n.png?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=IDm1dnxmhosAX-EYdU6&_nc_ht=scontent-bru2-1.xx&oh=18d225698aa70604374adbaf32077950&oe=60CA125B",
+                            BannerImgUrl = "https://impesoft.github.io/cv/Ward_Impe.jpg",
                             Description = "Na lang anticiperen krijgt VJ Ward een kans zich op het grote podium te bewijzen. Dit jonge talent draait overal de pannen van het dak, mis deze kans dus niet want de plaatsen zijn beperkt.",
                             EventDate = new DateTime(2021, 10, 10, 23, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 14,
@@ -1299,7 +1299,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 29,
-                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            BannerImgUrl = "https://cdn.stayhappening.com/events10/banners/9b45e1fb9b14a6a30fa89fc1e6b0583569013cebd6d69737b862f0273192446b-rimg-w526-h296-gmir.jpg?v=1621779724",
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 29,
@@ -1310,7 +1310,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 30,
-                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            BannerImgUrl = "https://cdn.stayhappening.com/events10/banners/9b45e1fb9b14a6a30fa89fc1e6b0583569013cebd6d69737b862f0273192446b-rimg-w526-h296-gmir.jpg?v=1621779724",
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 20, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 30,
@@ -1321,7 +1321,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 31,
-                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            BannerImgUrl = "https://cdn.stayhappening.com/events10/banners/9b45e1fb9b14a6a30fa89fc1e6b0583569013cebd6d69737b862f0273192446b-rimg-w526-h296-gmir.jpg?v=1621779724",
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 21, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 31,
@@ -1332,7 +1332,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 32,
-                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            BannerImgUrl = "https://cdn.stayhappening.com/events10/banners/9b45e1fb9b14a6a30fa89fc1e6b0583569013cebd6d69737b862f0273192446b-rimg-w526-h296-gmir.jpg?v=1621779724",
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 22, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 32,
@@ -1343,7 +1343,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 33,
-                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            BannerImgUrl = "https://partyflock.nl/images/party/415369_1000x524_592192/Extrema-Outdoor.webp",
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 33,
@@ -1354,7 +1354,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 34,
-                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            BannerImgUrl = "https://partyflock.nl/images/party/415369_1000x524_592192/Extrema-Outdoor.webp",
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 18, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 34,
@@ -1365,7 +1365,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 35,
-                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            BannerImgUrl = "https://partyflock.nl/images/party/415369_1000x524_592192/Extrema-Outdoor.webp",
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 35,
@@ -1794,7 +1794,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 74,
-                            BannerImgUrl = "https://www.pukkelpop.be/assets/default/dist/images/PKP21-logo.e121aecf.svg",
+                            BannerImgUrl = "https://cdn.stayhappening.com/events10/banners/9b45e1fb9b14a6a30fa89fc1e6b0583569013cebd6d69737b862f0273192446b-rimg-w526-h296-gmir.jpg?v=1621779724",
                             Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.",
                             EventDate = new DateTime(2021, 9, 19, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 74,
@@ -1805,7 +1805,7 @@ namespace YES.Api.Migrations
                         new
                         {
                             Id = 75,
-                            BannerImgUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/162265388_3896238790437215_4033182633678490037_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=340051&_nc_ohc=NJa6V9eplsUAX9HsJnM&_nc_ht=scontent-bru2-1.xx&oh=3194a5fb0274bb9d1bfd2979a66d43c5&oe=60C9D8E1",
+                            BannerImgUrl = "https://partyflock.nl/images/party/415369_1000x524_592192/Extrema-Outdoor.webp",
                             Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.",
                             EventDate = new DateTime(2021, 9, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             EventId = 75,
@@ -2244,6 +2244,14 @@ namespace YES.Api.Migrations
                             EventId = 13,
                             TicketCategoryId = 17,
                             TicketCustomerId = 16
+                        },
+                        new
+                        {
+                            Id = 51,
+                            DateOfPurchase = new DateTime(2021, 6, 17, 10, 13, 0, 0, DateTimeKind.Unspecified),
+                            EventId = 65,
+                            TicketCategoryId = 150,
+                            TicketCustomerId = 3
                         });
                 });
 
@@ -3678,8 +3686,8 @@ namespace YES.Api.Migrations
                             Email = "kobe@mail.com",
                             FirstName = "Kobe",
                             LastName = "Delobelle",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0473 288 888"
                         },
                         new
@@ -3689,8 +3697,8 @@ namespace YES.Api.Migrations
                             Email = "ward@mail.com",
                             FirstName = "Ward",
                             LastName = "Impe",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0473 422 458"
                         },
                         new
@@ -3700,8 +3708,8 @@ namespace YES.Api.Migrations
                             Email = "Pieter@mail.com",
                             FirstName = "Pieter",
                             LastName = "Corp",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0453 288 888"
                         },
                         new
@@ -3711,8 +3719,8 @@ namespace YES.Api.Migrations
                             Email = "Seba@mail.com",
                             FirstName = "Seba",
                             LastName = "Stiaan",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0485 345 349"
                         },
                         new
@@ -3722,8 +3730,8 @@ namespace YES.Api.Migrations
                             Email = "Nick@mail.com",
                             FirstName = "Nick",
                             LastName = "Angularlover",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0478 365 852"
                         },
                         new
@@ -3733,8 +3741,8 @@ namespace YES.Api.Migrations
                             Email = "Dries@mail.com",
                             FirstName = "Dries",
                             LastName = "Maes",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0432 457 896"
                         },
                         new
@@ -3744,8 +3752,8 @@ namespace YES.Api.Migrations
                             Email = "Olivia@mail.com",
                             FirstName = "Olivia",
                             LastName = "Goossens",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0478 687 138"
                         },
                         new
@@ -3755,8 +3763,8 @@ namespace YES.Api.Migrations
                             Email = "Mila@mail.com",
                             FirstName = "Mila",
                             LastName = "Vandevoorde",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0485 377 352"
                         },
                         new
@@ -3766,8 +3774,8 @@ namespace YES.Api.Migrations
                             Email = "Alice@mail.com",
                             FirstName = "Alice",
                             LastName = "Mcgregor",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0478 785 125"
                         },
                         new
@@ -3777,8 +3785,8 @@ namespace YES.Api.Migrations
                             Email = "Louise@mail.com",
                             FirstName = "Louise",
                             LastName = "Degroote",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0477 765 782"
                         },
                         new
@@ -3788,8 +3796,8 @@ namespace YES.Api.Migrations
                             Email = "Mohamed@mail.com",
                             FirstName = "Mohamed",
                             LastName = "Yilmaz",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0472 752 785"
                         },
                         new
@@ -3799,8 +3807,8 @@ namespace YES.Api.Migrations
                             Email = "Emir@mail.com",
                             FirstName = "Emir",
                             LastName = "Öztürk",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0473 478 795"
                         },
                         new
@@ -3810,8 +3818,8 @@ namespace YES.Api.Migrations
                             Email = "Kurt@mail.com",
                             FirstName = "Kurt",
                             LastName = "Debolle",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0478 140 349"
                         },
                         new
@@ -3821,8 +3829,8 @@ namespace YES.Api.Migrations
                             Email = "Arthur@mail.com",
                             FirstName = "Arthur",
                             LastName = "Vangeest",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0490 785 457"
                         },
                         new
@@ -3832,8 +3840,8 @@ namespace YES.Api.Migrations
                             Email = "Noah@mail.com",
                             FirstName = "Noah",
                             LastName = "Vanarke",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0475 850 852"
                         },
                         new
@@ -3843,8 +3851,8 @@ namespace YES.Api.Migrations
                             Email = "Victor@mail.com",
                             FirstName = "Victor",
                             LastName = "De Putte",
-                            PasswordHash = new byte[] { 116, 181, 82, 159, 38, 175, 192, 70, 39, 81, 203, 16, 236, 127, 123, 42, 39, 128, 230, 29, 209, 99, 34, 76, 118, 0, 53, 236, 194, 181, 190, 37, 155, 99, 134, 14, 213, 151, 34, 158, 81, 233, 117, 11, 114, 143, 242, 17, 27, 30, 126, 67, 188, 176, 46, 174, 181, 13, 126, 146, 38, 208, 139, 47 },
-                            PasswordSalt = new byte[] { 70, 22, 95, 161, 135, 230, 96, 81, 54, 67, 158, 224, 70, 170, 0, 251, 135, 113, 101, 168, 56, 7, 197, 82, 3, 148, 1, 33, 173, 50, 161, 246, 104, 177, 87, 31, 32, 159, 2, 100, 133, 183, 66, 35, 182, 117, 145, 46, 155, 140, 195, 27, 32, 171, 108, 89, 88, 93, 96, 62, 25, 187, 198, 52, 153, 251, 18, 197, 224, 108, 247, 188, 68, 212, 145, 10, 113, 121, 130, 58, 152, 55, 35, 63, 139, 152, 243, 41, 216, 232, 156, 79, 170, 182, 150, 211, 229, 34, 36, 99, 164, 81, 165, 172, 113, 91, 38, 181, 254, 99, 52, 252, 216, 198, 29, 111, 158, 244, 123, 62, 224, 105, 94, 200, 180, 37, 86, 115 },
+                            PasswordHash = new byte[] { 232, 82, 8, 98, 123, 69, 67, 186, 176, 67, 152, 32, 194, 207, 114, 121, 202, 12, 247, 1, 62, 49, 119, 87, 215, 249, 132, 35, 126, 178, 198, 65, 210, 190, 76, 201, 198, 232, 210, 236, 200, 244, 230, 216, 163, 88, 130, 162, 192, 130, 3, 103, 187, 131, 80, 105, 188, 149, 126, 31, 56, 111, 158, 125 },
+                            PasswordSalt = new byte[] { 102, 67, 127, 105, 65, 16, 152, 138, 24, 60, 83, 247, 25, 179, 140, 93, 27, 152, 184, 36, 253, 201, 100, 66, 35, 139, 2, 184, 164, 45, 43, 229, 126, 160, 140, 224, 160, 81, 153, 124, 128, 170, 175, 190, 48, 37, 168, 248, 19, 20, 38, 212, 151, 2, 255, 155, 82, 19, 168, 222, 6, 243, 139, 208, 175, 201, 92, 213, 218, 124, 228, 10, 67, 97, 0, 27, 182, 179, 72, 229, 126, 92, 155, 235, 44, 65, 216, 122, 129, 15, 53, 102, 206, 126, 130, 71, 249, 4, 80, 93, 149, 70, 244, 20, 63, 142, 58, 96, 73, 247, 19, 93, 242, 28, 185, 97, 213, 7, 202, 250, 94, 225, 217, 155, 199, 191, 195, 135 },
                             PhoneNumber = "0488 754 752"
                         });
                 });
@@ -3887,8 +3895,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE78 3590 0754 7674",
                             Email = "info@vooruit.be",
                             NameProvider = "Vooruit",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 267 28 20"
                         },
                         new
@@ -3897,8 +3905,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE78 7854 3585 7820",
                             Email = "info@tomorrowland.be",
                             NameProvider = "WAREONE.world bvba",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 147 27 78"
                         },
                         new
@@ -3907,8 +3915,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE78 7768 3578 1220",
                             Email = "info@rockwerchter.be",
                             NameProvider = "Live Nation Festivals NV",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 754 87 78"
                         },
                         new
@@ -3917,8 +3925,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE76 5455 8725 7824",
                             Email = "info@couleurcafe.be",
                             NameProvider = "Couleur Cafe",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 785 24 86"
                         },
                         new
@@ -3927,8 +3935,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE34 8792 4687 2565",
                             Email = "info@pukkelpop.be",
                             NameProvider = "Chokri Mahassine",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 765 78 86"
                         },
                         new
@@ -3937,8 +3945,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@extremaoutdoor.be",
                             NameProvider = "Extrema",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 485 35 41"
                         },
                         new
@@ -3947,8 +3955,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE78 6872 3968 7821",
                             Email = "info@sportpaleisgroup.be",
                             NameProvider = "Sportpaleis Group NV",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 879 87 74"
                         },
                         new
@@ -3957,8 +3965,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE55 7865 7874 1237",
                             Email = "info@elixir.be",
                             NameProvider = "eLiXir",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 782 71 42"
                         },
                         new
@@ -3967,8 +3975,8 @@ namespace YES.Api.Migrations
                             BankAccount = "BE55 4752 7836 4878",
                             Email = "info@trix.be",
                             NameProvider = "Team Trix",
-                            PasswordHash = new byte[] { 85, 115, 200, 41, 190, 141, 101, 16, 80, 218, 91, 227, 65, 80, 67, 166, 165, 69, 46, 2, 7, 150, 207, 71, 245, 173, 218, 81, 57, 5, 151, 234, 13, 5, 39, 243, 156, 233, 67, 85, 19, 127, 142, 59, 29, 105, 88, 73, 210, 131, 112, 65, 123, 252, 112, 154, 52, 153, 151, 217, 133, 86, 240, 168 },
-                            PasswordSalt = new byte[] { 22, 194, 139, 158, 196, 168, 214, 20, 163, 97, 121, 119, 236, 87, 83, 47, 181, 69, 232, 3, 136, 238, 37, 79, 82, 136, 76, 25, 173, 228, 255, 32, 131, 34, 45, 137, 52, 70, 38, 209, 32, 156, 155, 255, 173, 34, 61, 19, 44, 124, 211, 115, 199, 135, 123, 160, 44, 14, 38, 23, 186, 134, 86, 196, 163, 196, 18, 248, 229, 8, 35, 80, 131, 156, 233, 7, 133, 38, 87, 13, 17, 98, 56, 133, 67, 126, 112, 211, 238, 72, 143, 14, 11, 251, 69, 95, 130, 217, 210, 33, 155, 189, 242, 121, 178, 97, 188, 48, 184, 98, 90, 247, 32, 232, 203, 34, 55, 1, 134, 139, 251, 192, 103, 174, 170, 252, 192, 162 },
+                            PasswordHash = new byte[] { 234, 57, 206, 245, 124, 170, 210, 249, 170, 94, 102, 66, 205, 190, 68, 193, 38, 203, 124, 160, 124, 171, 130, 129, 189, 33, 216, 95, 209, 200, 233, 34, 20, 204, 75, 243, 92, 72, 29, 133, 165, 120, 84, 224, 250, 100, 187, 6, 212, 219, 117, 213, 88, 156, 85, 55, 3, 195, 61, 107, 182, 234, 129, 1 },
+                            PasswordSalt = new byte[] { 253, 56, 243, 96, 90, 187, 36, 132, 230, 190, 190, 139, 8, 192, 72, 86, 233, 111, 198, 45, 183, 181, 189, 157, 88, 237, 239, 98, 155, 136, 154, 109, 44, 142, 162, 100, 80, 70, 17, 52, 219, 4, 175, 91, 246, 215, 161, 55, 28, 194, 156, 126, 85, 83, 61, 173, 52, 211, 152, 87, 116, 148, 202, 174, 5, 70, 85, 252, 212, 104, 211, 105, 154, 110, 237, 88, 235, 242, 69, 157, 26, 21, 251, 91, 109, 42, 175, 87, 234, 254, 225, 246, 60, 15, 44, 110, 38, 194, 165, 105, 173, 84, 90, 52, 158, 17, 39, 21, 58, 198, 162, 180, 255, 148, 220, 13, 179, 211, 178, 66, 74, 79, 13, 70, 80, 194, 24, 20 },
                             PhoneNumber = "09 456 79 17"
                         });
                 });
