@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YES.Mobile.Dto
 {
-    public class TicketPurchaseDto
+    public class TicketPurchaseDto : ObservableObject
     {
         public int TicketCustomerId { get; set; }
         public int EventId { get; set; }
