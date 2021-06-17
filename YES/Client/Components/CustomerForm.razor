@@ -1,4 +1,6 @@
-﻿<EditForm Model="Customer" class="">
+﻿
+
+<EditForm Model="Customer" OnSubmit="OnSubmit">
     <div>
         <label class="row">
             <div class="col-xl-2">
@@ -78,4 +80,8 @@
 @code {
     [Parameter]
     public CustomerWithTicketsDto Customer { get; set; }
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+    
 }
