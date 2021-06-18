@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using YES.Api.Data.Entities;
 
 namespace YES.Api.Data.Repos.Interfaces
