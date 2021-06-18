@@ -57,3 +57,10 @@ p {
     width: 150px;
     margin: 5px;
 }
+
+.btn-disabled,
+.btn-disabled[disabled] {
+    opacity: .4;
+    cursor: default !important;
+    pointer-events: none;
+}
