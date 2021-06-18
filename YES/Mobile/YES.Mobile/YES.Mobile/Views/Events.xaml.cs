@@ -25,7 +25,7 @@ namespace YES.Mobile.Views
             ListOfEvents.ItemsSource = eventsViewModel.Events;
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
            // base.OnAppearing();
                 ListOfEvents.ItemsSource = eventsViewModel.Events;
