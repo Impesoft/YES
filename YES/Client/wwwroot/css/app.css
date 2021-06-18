@@ -9,7 +9,7 @@
     --green: #4caf50;
     --grey: #AAAAAA;
     --indigo: #3f51b5;
-    --light-blue: #03a9f4;
+    --light-blue: cornflowerblue;
     --light-green: #8bc34a;
     --lime: #cddc39;
     --orange: #ff9800;
@@ -91,6 +91,18 @@ section {
     background-size: cover;
     background-attachment: fixed;
     /*filter: blur(10px);*/
+}
+
+@media (max-width: 1400px) {
+    .display-venue {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .display-date {
+        display: none;
+    }
 }
 
 /* width */

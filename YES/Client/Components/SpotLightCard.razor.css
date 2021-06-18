@@ -5,13 +5,13 @@
 
 .card-body a {
     text-decoration: none;
-    color: var(--dark-light);
+    color: var(--light-dark);
     text-align: center;
-    transition: color .1s ease-in-out;
+    transition: color .2s ease-in-out;
 }
 
 .card-body a:hover {
-    color: var(--primary-light);
+    color: var(--light-blue);
 }
 
 .card-img-top {
@@ -25,4 +25,16 @@ h5 {
 .card-bg {
     background: var(--test-dark-dark);
     box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
+}
+
+span {
+    position: absolute;
+    top: 20px;
+}
+
+mark {
+    background: var(--white);
+    color: var(--light-blue);
+    padding: 5px;
+    box-shadow: 2px 5px 14px 0px rgb(5, 5, 5, .5);
 }
