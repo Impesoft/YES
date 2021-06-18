@@ -1,30 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:YES.Mobile.ViewModels"
+             xmlns:dto="clr-namespace:YES.Mobile.Dto"
              x:Class="YES.Mobile.Views.CalendarPage">
-    <ContentPage.Content>
+
+    <RefreshView x:DataType="local:CalendarViewModel"
+                 Command="{Binding EventLoadCommand}">
         <StackLayout BackgroundColor="#000">
             <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </ContentView>
-                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="Large">Your Event Services</Label>
+                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="Large">Upcoming Events</Label>
             </StackLayout>
 
             <!--<Button Text="Load Events" Clicked="Button_Clicked" />-->
-            <CollectionView x:Name="ListOfEvents" HorizontalOptions="Center">
+            <CollectionView x:Name="ListOfEvents"
+                            ItemsSource="{Binding Events}"
+                            HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="dto:EventDto">
                         <AbsoluteLayout HorizontalOptions="Center">
 
-                            <!--<AbsoluteLayout.GestureRecognizers>
+                            <AbsoluteLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventsViewModel}}, Path=EventTappedCommand}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:CalendarViewModel}}, Path=EventTappedCommand}"
                                                                   CommandParameter="{Binding .}" />
-                            </AbsoluteLayout.GestureRecognizers>-->
+                            </AbsoluteLayout.GestureRecognizers>
 
-                            <Image Source="{Binding EventInfo.BannerImgUrl}" HeightRequest="300" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"></Image>
-                            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent">
+                            <Image Source="{Binding EventInfo.BannerImgUrl}"
+                                   HeightRequest="300"
+                                   AbsoluteLayout.LayoutBounds="1,1,1,1"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   Aspect="AspectFill"></Image>
+                            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1"
+                                         AbsoluteLayout.LayoutFlags="All"
+                                         BackgroundColor="Transparent">
                                 <Frame HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
                                     <StackLayout VerticalOptions="EndAndExpand">
                                         <Label FontSize="24" Text="{Binding EventInfo.Name}" />
@@ -37,5 +50,5 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </StackLayout>
-    </ContentPage.Content>
+    </RefreshView>
 </ContentPage>

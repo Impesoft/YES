@@ -10,7 +10,7 @@ namespace YES.Mobile
     {
         public AppShell()
         {
-            //InitializeComponent();
+            InitializeComponent();
             Routing.RegisterRoute(nameof(EventDetailPage), typeof(EventDetailPage));
             Routing.RegisterRoute(nameof(UserTicketsPage), typeof(UserTicketsPage));
         }

@@ -4,7 +4,11 @@ using System.Text;
 
 namespace YES.Mobile.ViewModels
 {
-    class UserTicketsViewModel
+    public class UserTicketsViewModel : BaseViewModel
     {
+        public UserTicketsViewModel()
+        {
+            Title = "User Tickets";
+        }
     }
 }
