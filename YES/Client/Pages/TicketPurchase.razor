@@ -133,6 +133,8 @@
 
     public int AmountOfTicketsToPurchase { get; set; }
 
+    public int LoggedInUserId { get; set; }
+
     public bool PurchaseSuccesful { get; set; } = false;
 
     public List<TicketPurchaseDto> TicketsPurchasingList { get; set; } = new();
@@ -141,8 +143,9 @@
 
     protected override async Task OnInitializedAsync()
     {
+        LoggedInUserId = _customerService.GetLoggedInUser();
         Event = await _eventService.GetEventByIdAsync(Id);
-        Customer = await _customerService.GetCustomerByIdAsync(1);
+        Customer = await _customerService.GetCustomerByIdAsync(LoggedInUserId);
         PurchaseSuccesful = false;
     }
 
@@ -207,10 +210,12 @@
 
     private void PurchaseTickets()
     {
+        if (TicketsPurchasingList != null)
+        {
+            _ticketService.AddNewTicketsAsync(TicketsPurchasingList);
 
-        //_ticketService.AddNewTicketsAsync(TicketsPurchasingList);
-
-        PurchaseSuccesful = true;
+            PurchaseSuccesful = true;
+        }
 
     }
 
