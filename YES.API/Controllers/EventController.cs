@@ -7,7 +7,7 @@ using YES.Shared.Dto;
 
 namespace YES.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class EventController : ControllerBase
@@ -19,7 +19,7 @@ namespace YES.Api.Controllers
             _eventService = eventService;
         }
 
-
+        [Authorize(Roles = "ticketProvider")]
         [HttpGet()]
         public async Task<ActionResult<IEnumerable<EventDto>>> GetAllEvents()
         {
