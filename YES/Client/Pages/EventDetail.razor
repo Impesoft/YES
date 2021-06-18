@@ -1,4 +1,4 @@
-﻿@page "/EventDetail/{Id:int}"
+@page "/EventDetail/{Id:int}"
 @inject IEventService _service
 
 @if (Event != null)
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-xl-4">
                 <p>@Event.EventInfo.Description</p>
-                <p>Maximum amount of tickets: 500</p>
+                 <p>Tickets left: @CountTotalTicketsLeft() </p>
             </div>
             <div class="col-xl-3">
                 <h5>@Event.Venue.Name</h5>
@@ -65,7 +65,14 @@
             <div class="col-xl-2">
                 @if (Event.Status != "Cancelled")
                 {
-                    <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                    @if (Event.Status == "SoldOut")
+                    {
+                        <a class="btn btn-warning float-end btn-disabled">Tickets</a>
+                    }
+                    else
+                    {
+                        <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                    }
                 }
                 <Button Clicked="@ShowModal" class="btn btn-warning float-end">Tickets</Button>
                 <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
@@ -129,6 +136,17 @@ else
     protected override async Task OnInitializedAsync()
     {
         Event = await _service.GetEventByIdAsync(Id);
+    }
+
+    private int CountTotalTicketsLeft()
+    {
+        int totalTickets = 0;
+        foreach (var category in Event.TicketCategories)
+        {
+            totalTickets += category.AvailableAmount;
+        }
+
+        return totalTickets;
     }
 
 }
