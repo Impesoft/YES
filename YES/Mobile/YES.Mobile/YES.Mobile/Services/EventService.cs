@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Mobile.Dto;
@@ -17,6 +18,7 @@ namespace YES.Mobile.Services
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             HttpClient httpClient = new HttpClient(insecureHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJib2JAaG90bWFsZS5jb20iLCJuYmYiOjE2MjM5NjU5ODIsImV4cCI6MTYyNDU3MDc4MiwiaWF0IjoxNjIzOTY1OTgyfQ.ylvckb4lGHQBMeK2i1TR9auSZkYWhB7nYg9ZbkA0QrexHVeT9ES1WaXJDkpN3C4YemcquCbV6o-IAMvI1cAMUA");
 
             var resultJson = httpClient.GetStringAsync("https://yesapi.azurewebsites.net/api/Event").Result;
 
