@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using YES.Api.Data.Entities;
-using YES.Api.Enums;
 using System.Security.Cryptography;
+using YES.Shared.Enums;
 
 namespace YES.Api.Data.Database
 {
