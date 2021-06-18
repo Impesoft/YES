@@ -5,23 +5,22 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 
-using YES.Mobile.Models;
 using YES.Mobile.Services;
 
 namespace YES.Mobile.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        private bool isBusy = false;
 
-        bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }
             set { SetProperty(ref isBusy, value); }
         }
 
-        string title = string.Empty;
+        private string title = string.Empty;
+
         public string Title
         {
             get { return title; }
@@ -42,7 +41,9 @@ namespace YES.Mobile.ViewModels
         }
 
         #region INotifyPropertyChanged
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
@@ -51,6 +52,7 @@ namespace YES.Mobile.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
+
+        #endregion INotifyPropertyChanged
     }
 }

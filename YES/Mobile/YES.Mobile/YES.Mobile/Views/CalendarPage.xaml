@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YES.Mobile.Views.Events">
+             x:Class="YES.Mobile.Views.CalendarPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#000">
             <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
@@ -23,11 +23,10 @@
                                                                   CommandParameter="{Binding .}" />
                             </AbsoluteLayout.GestureRecognizers>-->
 
-
                             <Image Source="{Binding EventInfo.BannerImgUrl}" HeightRequest="300" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"></Image>
                             <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent">
-                                <Frame HorizontalOptions="Fill" VerticalOptions="EndAndExpand" >
-                                    <StackLayout VerticalOptions="EndAndExpand" >
+                                <Frame HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
+                                    <StackLayout VerticalOptions="EndAndExpand">
                                         <Label FontSize="24" Text="{Binding EventInfo.Name}" />
                                         <Label Text="{Binding Venue.Name}" />
                                     </StackLayout>

@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 
 namespace YES.Mobile.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class UserDetailPage : ContentPage
     {
-        public AboutPage()
+        public UserDetailPage()
         {
             InitializeComponent();
         }
