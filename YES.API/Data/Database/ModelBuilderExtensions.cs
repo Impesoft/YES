@@ -144,7 +144,11 @@ namespace YES.Api.Data.Database
                 new Event { Id = 72, TicketProviderId = 2, VenueId = 6, Status = Status.Default },
                 new Event { Id = 73, TicketProviderId = 2, VenueId = 6, Status = Status.Default },
                 new Event { Id = 74, TicketProviderId = 5, VenueId = 9, Status = Status.Default },
-                new Event { Id = 75, TicketProviderId = 6, VenueId = 10, Status = Status.Default }
+                new Event { Id = 75, TicketProviderId = 6, VenueId = 10, Status = Status.Default },
+
+                //bbq
+                new Event { Id = 76, TicketProviderId = 10, VenueId = 13, Status = Status.Default }
+
                 );
             });
         }
@@ -228,7 +232,8 @@ namespace YES.Api.Data.Database
                 new EventInfo { Id = 72, EventId = 72, Name = "Tomorrowland (Weekend 1)", EventDate = DateTime.ParseExact("27/08/2021 12:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Tomorrowland Full Madness: Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.", WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome", BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg" },
                 new EventInfo { Id = 73, EventId = 73, Name = "Tomorrowland (Weekend 2)", EventDate = DateTime.ParseExact("03/09/2021 12:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Tomorrowland Full Madness: Live Today, Love Tomorrow, Unite Forever: In the coming months, the line-up for Tomorrowland 2021 will be announced.", WebsiteUrl = "https://www.tomorrowland.com/en/festival/welcome", BannerImgUrl = "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg" },
                 new EventInfo { Id = 74, EventId = 74, Name = "Pukkelpop (combi)", EventDate = DateTime.ParseExact("19/09/2021 11:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Pukkelpop selects a musical line-up with an alternative fringe.  Almost 200 current musical sensations, living legends and visionary alternative artists all come to perform on one of our many stages. Pukkelpop opens up a world of possibilities, from hi-octane rock to low-fi singer-songwriters, bright splashes of pure pop to banging house and hot metal. Petit Bazar and Salon Fou usher in street theatre, entertainment and well-being in all senses of the word. Food Wood serves up dishes from around the world whereas Baraque Futur focuses on sustainability.", WebsiteUrl = "https://www.pukkelpop.be/en/", BannerImgUrl = "https://cdn.stayhappening.com/events10/banners/9b45e1fb9b14a6a30fa89fc1e6b0583569013cebd6d69737b862f0273192446b-rimg-w526-h296-gmir.jpg?v=1621779724" },
-                new EventInfo { Id = 75, EventId = 75, Name = "Extrema Outdoor Extra: September edition (full)", EventDate = DateTime.ParseExact("17/09/2021 12:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.", WebsiteUrl = "https://extrema.be", BannerImgUrl = "https://partyflock.nl/images/party/415369_1000x524_592192/Extrema-Outdoor.webp" }
+                new EventInfo { Id = 75, EventId = 75, Name = "Extrema Outdoor Extra: September edition (full)", EventDate = DateTime.ParseExact("17/09/2021 12:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Extrema Outdoor Extra is our scalable edition in September. This new edition will allow us to be more flexible than a festival at full power. We want to fully take advantage of any opportunity we get and our team is working diligently to bring us all together on a dance floor sooner rather than later.", WebsiteUrl = "https://extrema.be", BannerImgUrl = "https://partyflock.nl/images/party/415369_1000x524_592192/Extrema-Outdoor.webp" },
+                new EventInfo { Id = 76, EventId = 76, Name = "BBQ chez Nique", EventDate = DateTime.ParseExact("04/07/2021 18:00:00", "dd/MM/yyyy HH:mm:ss", null), Description = "Een BBQ in het uiterst gezellige dorpje Sint-Niklaas, met als mysterieuze gastheer Nick Angularlover, met muziek verzorgd door DJ Ward, vlees gebakken door Pieter Corp, groen voorzien door Marieke Vanholland en amusement met 'het grote spinning wheel-spel' gebracht door Jens Opzolder, belooft het een onvergetelijke avond te worden.", WebsiteUrl = "https://www.nivr.dev", BannerImgUrl = "https://avatars.githubusercontent.com/u/7573050?v=4" }
 
                 );
             });
@@ -255,40 +260,40 @@ namespace YES.Api.Data.Database
                 new Ticket { Id = 14, EventId = 1, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("12/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 1 },
                 new Ticket { Id = 15, EventId = 1, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("12/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 1 },
                 new Ticket { Id = 16, EventId = 1, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("12/06/2021 21:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 1 },
-                new Ticket { Id = 17, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 18, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 19, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 20, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 21, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 22, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 23, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 24, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 25, EventId = 13, TicketCustomerId = 4, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 26, EventId = 13, TicketCustomerId = 4, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 27, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 28, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 29, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 30, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
-                new Ticket { Id = 31, EventId = 13, TicketCustomerId = 6, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 32, EventId = 13, TicketCustomerId = 7, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 33, EventId = 13, TicketCustomerId = 8, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 34, EventId = 13, TicketCustomerId = 8, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 35, EventId = 13, TicketCustomerId = 9, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 36, EventId = 13, TicketCustomerId = 9, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 37, EventId = 13, TicketCustomerId = 10, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 38, EventId = 13, TicketCustomerId = 11, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 39, EventId = 13, TicketCustomerId = 12, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 40, EventId = 13, TicketCustomerId = 12, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 41, EventId = 13, TicketCustomerId = 13, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 42, EventId = 13, TicketCustomerId = 13, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 43, EventId = 13, TicketCustomerId = 13, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 44, EventId = 13, TicketCustomerId = 14, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 45, EventId = 13, TicketCustomerId = 15, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 46, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 47, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 48, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 49, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
-                new Ticket { Id = 50, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 17, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 18, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 19, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 20, EventId = 13, TicketCustomerId = 1, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 21, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 22, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 23, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 24, EventId = 13, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 25, EventId = 13, TicketCustomerId = 4, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 26, EventId = 13, TicketCustomerId = 4, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 27, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 28, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 29, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 30, EventId = 13, TicketCustomerId = 5, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 17 },
+                new Ticket { Id = 31, EventId = 13, TicketCustomerId = 6, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 32, EventId = 13, TicketCustomerId = 7, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 33, EventId = 13, TicketCustomerId = 8, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 34, EventId = 13, TicketCustomerId = 8, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 35, EventId = 13, TicketCustomerId = 9, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 36, EventId = 13, TicketCustomerId = 9, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 37, EventId = 13, TicketCustomerId = 10, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 38, EventId = 13, TicketCustomerId = 11, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 39, EventId = 13, TicketCustomerId = 12, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 40, EventId = 13, TicketCustomerId = 12, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 41, EventId = 13, TicketCustomerId = 13, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 42, EventId = 13, TicketCustomerId = 13, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 43, EventId = 13, TicketCustomerId = 13, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 44, EventId = 13, TicketCustomerId = 14, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 45, EventId = 13, TicketCustomerId = 15, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 46, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 47, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 48, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 49, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
+                new Ticket { Id = 50, EventId = 13, TicketCustomerId = 16, DateOfPurchase = DateTime.ParseExact("14/06/2021 20:00:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 16 },
                 new Ticket { Id = 51, EventId = 65, TicketCustomerId = 3, DateOfPurchase = DateTime.ParseExact("17/06/2021 10:13:00", "dd/MM/yyyy HH:mm:ss", null), TicketCategoryId = 150 }
 
                 );
@@ -480,7 +485,10 @@ namespace YES.Api.Data.Database
                 new TicketCategory { Id = 167, Price = 55, MaxAmount = 200, EventId = 70, Name = "hot seat" },
                 new TicketCategory { Id = 168, Price = 38, MaxAmount = 1200, EventId = 71, Name = "regular" },
                 new TicketCategory { Id = 169, Price = 40, MaxAmount = 600, EventId = 71, Name = "better seat" },
-                new TicketCategory { Id = 170, Price = 50, MaxAmount = 200, EventId = 71, Name = "hot seat" }
+                new TicketCategory { Id = 170, Price = 50, MaxAmount = 200, EventId = 71, Name = "hot seat" },
+                //chez nique
+                new TicketCategory { Id = 171, Price = 1, MaxAmount = 25, EventId = 76, Name = "bbq tuin" }
+
                 );
             });
         }
@@ -499,7 +507,8 @@ namespace YES.Api.Data.Database
                 new TicketProvider { Id = 6, NameProvider = "Extrema", PhoneNumber = "09 485 35 41", Email = "info@extremaoutdoor.be", BankAccount = "BE55 7865 7874 1237", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
                 new TicketProvider { Id = 7, NameProvider = "Sportpaleis Group NV", PhoneNumber = "09 879 87 74", Email = "info@sportpaleisgroup.be", BankAccount = "BE78 6872 3968 7821", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
                 new TicketProvider { Id = 8, NameProvider = "eLiXir", PhoneNumber = "09 782 71 42", Email = "info@elixir.be", BankAccount = "BE55 7865 7874 1237", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketProvider { Id = 9, NameProvider = "Team Trix", PhoneNumber = "09 456 79 17", Email = "info@trix.be", BankAccount = "BE55 4752 7836 4878", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) }
+                new TicketProvider { Id = 9, NameProvider = "Team Trix", PhoneNumber = "09 456 79 17", Email = "info@trix.be", BankAccount = "BE55 4752 7836 4878", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
+                new TicketProvider { Id = 10, NameProvider = "Chez Nique vzw", PhoneNumber = "09 022 44 57", Email = "info@cheznique.be", BankAccount = "BE57 7862 1427 3457", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) }
                 );
             });
         }
@@ -546,7 +555,8 @@ namespace YES.Api.Data.Database
                 new Venue { Id = 9, Name = "Pukkelpop", Capacity = 100000 },
                 new Venue { Id = 10, Name = "Extrema Outdoor", Capacity = 60000 },
                 new Venue { Id = 11, Name = "Lotto Arena", Capacity = 5218 },
-                new Venue { Id = 12, Name = "Stadsschouwburg Antwerpen", Capacity = 2000 }
+                new Venue { Id = 12, Name = "Stadsschouwburg Antwerpen", Capacity = 2000 },
+                new Venue { Id = 13, Name = "Chez Nique", Capacity = 25 }
                 );
             });
         }
