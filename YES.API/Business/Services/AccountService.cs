@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Api.Data.Entities;
+using YES.Api.Data.Repos;
 using YES.Api.Data.Repos.Interfaces;
 using YES.Shared.Dto;
 
@@ -11,19 +12,75 @@ namespace YES.Api.Business.Services
 {
     public class AccountService : IAccountService
     {
-        private readonly ITicketCustomerRepo _ticketCustomerRepo;
+        private readonly IUserService _userService;
         private readonly ITokenService _tokenService;
-        public AccountService(ITicketCustomerRepo ticketCustomerRepo, ITokenService tokenService)
+        private readonly ITicketCustomerRepo _ticketCustomerRepo;
+        private readonly ITicketProviderRepo _ticketProviderRepo;
+        public AccountService(IUserService userService, ITokenService tokenService, ITicketCustomerRepo ticketCustomerRepo, ITicketProviderRepo ticketProviderRepo)
         {
-            _ticketCustomerRepo = ticketCustomerRepo;
+            _userService = userService;
             _tokenService = tokenService;
+            _ticketCustomerRepo = ticketCustomerRepo;
+            _ticketProviderRepo = ticketProviderRepo;
         }
         public async Task<UserTokenDto> RegisterAsync(RegisterDto dto)
         {
-            if (await _ticketCustomerRepo.UserExistsAsync(dto.Email))
+            if (await _userService.UserExistsAsync(dto.Email))
             {
                 throw new UnauthorizedAccessException("Email already exists, please try again or login");
             }
+
+            if (dto.Role == "ticketCustomer")
+            {
+                TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
+                await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
+                return CreateUserTokenDto(ticketCustomer);
+            }
+            else if (dto.Role == "ticketProvider")
+            {
+                TicketProvider ticketProvider = CreateTicketProvider(dto);
+                await _ticketProviderRepo.AddEntityAsync(ticketProvider);
+                return CreateUserTokenDto(ticketProvider);
+            }
+            else
+            {
+                throw new InvalidOperationException("Role was not valid");
+            }
+        }
+
+        public async Task<UserTokenDto> LoginAsync(string eMail, string password)
+        {
+            User user = await _userService.GetUserByEmailAsync(eMail);
+
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("Invalid Email");
+            }
+
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+            var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            if (!hash.SequenceEqual(user.PasswordHash))
+            {
+                throw new UnauthorizedAccessException("Invalid password");
+            }
+
+            return CreateUserTokenDto(user);
+        }
+
+        private UserTokenDto CreateUserTokenDto(User user)
+        {
+            return new UserTokenDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Token = _tokenService.CreateToken(user),
+                Role = user.Role
+            };
+        }
+
+        private TicketCustomer CreateTicketCustomer(RegisterDto dto)
+        {
             using var hmac = new HMACSHA512();
 
             TicketCustomer ticketCustomer = new()
@@ -32,42 +89,26 @@ namespace YES.Api.Business.Services
                 LastName = dto.LastName,
                 Email = dto.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                Role = dto.Role
             };
 
-            await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
-
-            return CreateUserTokenDto(ticketCustomer);
+            return ticketCustomer;
         }
-
-        public async Task<UserTokenDto> LoginAsync(string eMail, string password)
+        private TicketProvider CreateTicketProvider(RegisterDto dto)
         {
-            TicketCustomer ticketCustomer = await _ticketCustomerRepo.GetTicketCustomerByEmailAsync(eMail);
+            using var hmac = new HMACSHA512();
 
-            if (ticketCustomer == null)
+            TicketProvider ticketProvider = new()
             {
-                throw new UnauthorizedAccessException("Invalid Email");
-            }
-
-            using var hmac = new HMACSHA512(ticketCustomer.PasswordSalt);
-            var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-
-            if (!hash.SequenceEqual(ticketCustomer.PasswordHash))
-            {
-                throw new UnauthorizedAccessException("Invalid password");
-            }
-
-            return CreateUserTokenDto(ticketCustomer);
-        }
-
-        private UserTokenDto CreateUserTokenDto(TicketCustomer ticketCustomer)
-        {
-            return new UserTokenDto
-            {
-                Id = ticketCustomer.Id,
-                Email = ticketCustomer.Email,
-                Token = _tokenService.CreateToken(ticketCustomer)
+                NameProvider = dto.NameProvider,
+                Email = dto.Email.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password)),
+                PasswordSalt = hmac.Key,
+                Role = dto.Role
             };
+
+            return ticketProvider;
         }
 
     }

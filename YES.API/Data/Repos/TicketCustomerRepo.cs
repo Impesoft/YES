@@ -46,10 +46,6 @@ namespace YES.Api.Data.Repos
             }
             return false;           
         }
-        public async Task<bool> UserExistsAsync(string eMail)
-        {
-            return await _context.TicketCustomers.AnyAsync(x => x.Email == eMail.ToLower());
-        }
         public virtual async Task<TicketCustomer> GetTicketCustomerByEmailAsync(string email)
         {
             return await _context.TicketCustomers.SingleOrDefaultAsync(x => x.Email == email);

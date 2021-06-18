@@ -4,6 +4,6 @@ namespace YES.Api.Business.Services
 {
     public interface ITokenService
     {
-        string CreateToken(TicketCustomer ticketCustomer);
+        string CreateToken(User user);
     }
 }

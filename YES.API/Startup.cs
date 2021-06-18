@@ -97,7 +97,7 @@ namespace YES.Api
 
             services.AddDbContext<YesDBContext>(x =>
             {
-                x.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString"));
+                x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
             });
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
@@ -105,10 +105,13 @@ namespace YES.Api
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<ITicketCustomerService, TicketCustomerService>();
             services.AddScoped<ITicketService, TicketService>();
+            services.AddScoped<IUserService, UserService>();
+            
 
             services.AddScoped<IEventRepo, EventRepo>();
             services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
             services.AddScoped<ITicketRepo, TicketRepo>();
+            services.AddScoped<ITicketProviderRepo, TicketProviderRepo>();
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ITokenService, TokenService>();
