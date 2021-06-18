@@ -1,5 +1,4 @@
-﻿
-namespace YES.Shared.Dto
+﻿namespace YES.Shared.Dto
 {
     public class UserTokenDto
     {
