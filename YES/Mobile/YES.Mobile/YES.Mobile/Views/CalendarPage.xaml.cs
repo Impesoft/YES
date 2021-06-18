@@ -16,7 +16,6 @@ namespace YES.Mobile.Views
 {
     public partial class CalendarPage : ContentPage
     {
-        private CalendarViewModel eventsViewModel;
 
         public CalendarPage()
         {
@@ -24,10 +23,6 @@ namespace YES.Mobile.Views
             BindingContext = new CalendarViewModel();
         }
 
-        protected override void OnAppearing()
-        {
-            // base.OnAppearing();
-            //ListOfEvents.ItemsSource = eventsViewModel.Events;
-        }
+
     }
 }

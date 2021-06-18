@@ -10,9 +10,9 @@
                  Command="{Binding EventLoadCommand}">
         <StackLayout BackgroundColor="#000">
             <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,20,0,0" VerticalOptions="Fill">
+                <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
-                </ContentView>
+                </RefreshView>
                 <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="Large">Upcoming Events</Label>
             </StackLayout>
 
