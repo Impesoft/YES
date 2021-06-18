@@ -1,5 +1,8 @@
 @page "/EventDetail/{Id:int}"
-@inject IEventService _service
+@inject IEventService _eventService
+@inject ICustomerService _customerService
+
+
 
 @if (Event != null)
 {
@@ -71,30 +74,38 @@
                     }
                     else
                     {
-                        <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                        @*<a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>*@
+                        <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button>
                     }
                 }
-                <Button Clicked="@ShowModal" class="btn btn-warning float-end">Tickets</Button>
+                @* <Button Clicked="@ShowModal" class="btn btn-warning float-end btn-modal">Tickets</Button> *@
+                
                 <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
+                
             </div>
         </div>
     </section>
     
     <Modal @ref="modalRef">
-        <ModalContent Centered="true">
+        <ModalContent Centered="true" Class="bg-dark">
             <ModalHeader>
                 <ModalTitle>Employee edit</ModalTitle>
                 <CloseButton />
             </ModalHeader>
             <ModalBody>
-                <Field>
-                    <FieldLabel>Name</FieldLabel>
-                    <TextEdit Placeholder="Enter name..." />
-                </Field>
-                <Field>
-                    <FieldLabel>Surname</FieldLabel>
-                    <TextEdit Placeholder="Enter surname..." />
-                </Field>
+                <BuyTicket LoggedInUserId="@LoggedInUserId"
+                           Customer="@Customer"
+                           Event="@Event"
+                           Id="@Id"
+                           />
+                @* <Field> *@
+                @*     <FieldLabel>Name</FieldLabel> *@
+                @*     <TextEdit Placeholder="Enter name..." /> *@
+                @* </Field> *@
+                @* <Field> *@
+                @*     <FieldLabel>Surname</FieldLabel> *@
+                @*     <TextEdit Placeholder="Enter surname..." /> *@
+                @* </Field> *@
             </ModalBody>
             <ModalFooter>
                 <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
@@ -102,9 +113,6 @@
             </ModalFooter>
         </ModalContent>
     </Modal>
-
-
-
 }
 else
 {
@@ -115,10 +123,10 @@ else
 @code {
     [Parameter]
     public int Id { get; set; }
-    
     public EventDto Event { get; set; }
-    
     private string eventStatus { get; set; }
+    public int LoggedInUserId { get; set; }
+    public CustomerWithTicketsDto Customer { get; set; }
     
     // reference to the modal component
     private Modal modalRef;
@@ -135,7 +143,9 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        Event = await _service.GetEventByIdAsync(Id);
+        LoggedInUserId = _customerService.GetLoggedInUser();
+        Event = await _eventService.GetEventByIdAsync(Id);
+        Customer = await _customerService.GetCustomerByIdAsync(LoggedInUserId);
     }
 
     private int CountTotalTicketsLeft()

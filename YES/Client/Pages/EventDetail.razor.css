@@ -64,3 +64,18 @@ p {
     cursor: default !important;
     pointer-events: none;
 }
+
+.btn-modal {
+    width: 150px !important;
+    margin: 5px;
+}
+
+.modal-content {
+    width: 800px !important;
+    min-width: 800px !important;
+}
+
+.modal-dialog {
+    min-width: 800px !important;
+    width: 800px !important;
+}
