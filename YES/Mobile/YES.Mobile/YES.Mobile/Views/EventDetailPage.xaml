@@ -2,17 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
+             xmlns:dto="clr-namespace:YES.Mobile.Dto" 
+             x:DataType="local:EventDetailViewModel"
              Title="{Binding Title}"
              x:Class="YES.Mobile.Views.EventDetailPage">
-    <ContentPage.BindingContext>
-        <local:EventDetailViewModel />
-    </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <StackLayout>
-            <Image Source="Event.EventInfo.BannerImgUrl" />
-            <Label Text="Welcome to Xamarin.Forms!"
+ 
+    <RefreshView
+        x:DataType="local:EventDetailViewModel"
+        Command="{Binding LoadEventCommand}">
+        <StackLayout VerticalOptions="StartAndExpand" >
+            <Label Text="Event Detail Page"
+                   FontSize="36"/>
+            <!--<Button Command="{Binding LoadEventCommand}" Text="load"/>-->
+            <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
+            <Label Text="{Binding Event.EventInfo.Name}"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="{Binding Event.EventInfo.Description}"
+                VerticalOptions="End"
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-    </ContentPage.Content>
+    </RefreshView>
 </ContentPage>

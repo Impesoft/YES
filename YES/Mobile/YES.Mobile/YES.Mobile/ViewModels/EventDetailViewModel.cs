@@ -4,39 +4,55 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 using YES.Mobile.Dto;
 using YES.Mobile.Services;
 
 namespace YES.Mobile.ViewModels
 {
+    [QueryProperty(nameof(EventId), "id")]
     public class EventDetailViewModel : BaseViewModel
     {
-        private static EventDto _event;
-        private static IEventService _eventService { get; set; }
+      public ICommand LoadEventCommand { get; }
 
-        public EventDto Event
-        {
+        //LoadEventCommand
+        private int _eventId;
+        private static IEventService _eventService { get; set; }
+        private EventDto _event;
+        public EventDto Event {
             get => _event;
+            
             set
             {
                 _event = value;
                 OnPropertyChanged(nameof(Event));
+
+            }
+        }
+        public int EventId
+        {
+            get => _eventId;
+            set
+            {
+                _eventId = value;
+                OnPropertyChanged(nameof(EventId));
+                LoadEvent();
             }
         }
 
         public EventDetailViewModel()
         {
             Title = "Event Details";
-            _eventService = new EventService();
-            //Event = new EventDto();
-
-            int id = Event.Id;
-            LoadEvent(_eventService, id);
+            LoadEventCommand = new Command(LoadEvent);
+            //LoadEvent();
         }
 
-        private void LoadEvent(IEventService eventService, int id)
+        public async void LoadEvent()
         {
-            Event = eventService.GetEventDetails(id);
+            _eventService = new EventService();
+            Event = await _eventService.GetEventDetails(EventId);
+            // breakpoint hit
         }
     }
 }
