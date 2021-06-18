@@ -18,11 +18,11 @@ namespace YES.Api.Business.Services
                 Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
 
-        public string CreateToken(TicketCustomer ticketCustomer)
+        public string CreateToken(User user)
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, ticketCustomer.Email)
+                new Claim(JwtRegisteredClaimNames.Email, user.Email)
             };
 
             var creds = new SigningCredentials(

@@ -19,6 +19,8 @@ namespace YES.Api.Data.Entities
 
         public string PhoneNumber { get; set; }
 
+        public string Role { get; set; }
+
         public virtual Address Address { get; set; }
     }
 }

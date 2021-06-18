@@ -4,10 +4,9 @@ namespace YES.Shared.Dto
 {
     public class RegisterDto
     {
-        [Required]
+        public string NameProvider { get; set; }
         public string FirstName { get; set; }
 
-        [Required]
         public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
@@ -16,5 +15,8 @@ namespace YES.Shared.Dto
         [MinLength(4)]
         [MaxLength(8)]
         public string Password { get; set; }
+
+        [Required]
+        public string  Role { get; set; }
     }
 }
