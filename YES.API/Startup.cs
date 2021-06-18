@@ -1,18 +1,12 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Identity.Web;
-using System.Linq;
 using Microsoft.OpenApi.Models;
 using YES.Api.Data.Database;
-using YES.Api.Data.Entities;
 using YES.Api.Data.Repos;
 using YES.Api.Configuration;
 using YES.Api.Business.Services;
@@ -106,7 +100,6 @@ namespace YES.Api
             services.AddScoped<ITicketCustomerService, TicketCustomerService>();
             services.AddScoped<ITicketService, TicketService>();
             services.AddScoped<IUserService, UserService>();
-            
 
             services.AddScoped<IEventRepo, EventRepo>();
             services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
