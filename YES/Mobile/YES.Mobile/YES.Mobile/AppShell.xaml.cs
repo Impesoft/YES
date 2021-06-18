@@ -10,9 +10,9 @@ namespace YES.Mobile
     {
         public AppShell()
         {
-            InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            //InitializeComponent();
+            Routing.RegisterRoute(nameof(EventDetailPage), typeof(EventDetailPage));
+            Routing.RegisterRoute(nameof(UserTicketsPage), typeof(UserTicketsPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

@@ -9,30 +9,31 @@ using YES.Mobile.Services;
 
 namespace YES.Mobile.ViewModels
 {
-    class EventDetailsViewModel : BaseViewModel
+    internal class EventDetailViewModel : BaseViewModel
     {
         private static EventDto _event;
         private static IEventService _eventService { get; set; }
 
         public EventDto Event
-    {
-        get => _event;
-        set
         {
-            _event = value;
+            get => _event;
+            set
+            {
+                _event = value;
                 OnPropertyChanged(nameof(Event));
             }
         }
-    //public EventDetailsViewModel()
-    //{
-    //        _eventService = new EventService();
-    //        Event = new EventDto();
-    //        LoadEvent(_eventService, id);
-    //}
+
+        //public EventDetailsViewModel()
+        //{
+        //        _eventService = new EventService();
+        //        Event = new EventDto();
+        //        LoadEvent(_eventService, id);
+        //}
 
         private void LoadEvent(IEventService eventService, int id)
         {
             Event = eventService.GetEventDetails(id);
-                }
+        }
     }
 }

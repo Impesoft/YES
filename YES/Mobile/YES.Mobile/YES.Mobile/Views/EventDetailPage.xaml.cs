@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace YES.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EventDetails : ContentPage
+    public partial class EventDetailPage : ContentPage
     {
-        public EventDetails()
+        public EventDetailPage()
         {
             InitializeComponent();
         }
