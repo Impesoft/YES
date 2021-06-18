@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using YES.Api.Business.Services;
 using YES.Shared.Dto;
@@ -19,7 +17,7 @@ namespace YES.Api.Controllers
             _ticketService = ticketService;
         }
 
-        [HttpPost("api/Ticket/Buy")]
+        [HttpPost("Buy")]
         public async Task<ActionResult<bool>> BuyTickets(ICollection<TicketPurchaseDto> ticketPurchaseDtos)
         {
             return Ok(await _ticketService.BuyTickets(ticketPurchaseDtos));
