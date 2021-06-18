@@ -162,6 +162,7 @@
                 {
                     item.Amount++;
                     itemFound = true;
+                    ticketCategory.AvailableAmount--;
                 }
             }
 
@@ -169,12 +170,14 @@
             {
                 var newTicket = CreateTicket(ticketCategory);
                 TicketsPurchasingList.Add(newTicket);
+                ticketCategory.AvailableAmount--;
             }
         }
         else
         {
             var newTicket = CreateTicket(ticketCategory);
             TicketsPurchasingList.Add(newTicket);
+            ticketCategory.AvailableAmount--;
         }
 
         TotalPrice = CalculateTotalPrice();
@@ -189,10 +192,12 @@
             if (ticket.Amount > 1)
             {
                 ticket.Amount--;
+                Event.TicketCategories.FirstOrDefault(x=>x.Id == ticket.TicketCategory.Id).AvailableAmount++;
             }
             else if (ticket.Amount == 1)
             {
                 TicketsPurchasingList.Remove(ticket);
+                Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
             }
 
             TotalPrice = CalculateTotalPrice();
