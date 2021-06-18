@@ -30,22 +30,40 @@ namespace YES.Api.Business.Services
                 throw new UnauthorizedAccessException("Email already exists, please try again or login");
             }
 
-            if (dto.Role == "ticketCustomer")
-            {
-                TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
-                await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
-                return CreateUserTokenDto(ticketCustomer);
+            switch (dto.Role)
+            {               
+                case Shared.Enums.Roles.TicketCustomer:
+
+                    TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
+                    await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
+                    return CreateUserTokenDto(ticketCustomer);
+
+                case Shared.Enums.Roles.TicketProvider:
+
+                    TicketProvider ticketProvider = CreateTicketProvider(dto);
+                    await _ticketProviderRepo.AddEntityAsync(ticketProvider);
+                    return CreateUserTokenDto(ticketProvider);
+
+                default:
+
+                    throw new InvalidOperationException("Role was not valid");                    
             }
-            else if (dto.Role == "ticketProvider")
-            {
-                TicketProvider ticketProvider = CreateTicketProvider(dto);
-                await _ticketProviderRepo.AddEntityAsync(ticketProvider);
-                return CreateUserTokenDto(ticketProvider);
-            }
-            else
-            {
-                throw new InvalidOperationException("Role was not valid");
-            }
+            //if (dto.Role == "ticketCustomer")
+            //{
+            //    TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
+            //    await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
+            //    return CreateUserTokenDto(ticketCustomer);
+            //}
+            //else if (dto.Role == "ticketProvider")
+            //{
+            //    TicketProvider ticketProvider = CreateTicketProvider(dto);
+            //    await _ticketProviderRepo.AddEntityAsync(ticketProvider);
+            //    return CreateUserTokenDto(ticketProvider);
+            //}
+            //else
+            //{
+            //    throw new InvalidOperationException("Role was not valid");
+            //}
         }
 
         public async Task<UserTokenDto> LoginAsync(string eMail, string password)
