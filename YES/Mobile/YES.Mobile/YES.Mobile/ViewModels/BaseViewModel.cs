@@ -46,11 +46,10 @@ namespace YES.Mobile.ViewModels
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            var changed = PropertyChanged;
-            if (changed == null)
+            if (PropertyChanged == null)
                 return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion INotifyPropertyChanged
