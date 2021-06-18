@@ -49,14 +49,14 @@
                 </div>
                 <div class="col">
                     <button type="button"
-                            class="btn btn-outline-warning btn-addremove"
+                            class="btn btn-add-remove"
                             @onclick="() => AddTicketToPurchasingList(priceCategory)">
-                        +
+                        <i class="far fa-plus-square"></i>
                     </button>
                     <button type="button"
-                            class="btn btn-outline-danger btn-addremove"
+                            class="btn btn-add-remove"
                             @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
-                        -
+                        <i class="far fa-minus-square"></i>
                     </button>
                 </div>
             </div>
