@@ -1,5 +1,6 @@
 ﻿<div class="col-md-6 col-lg-4">
     <div class="card card-bg">
+        <span><mark>@Event.EventInfo.EventDate.ToString("dd/MM/yyyy")</mark></span>
         <img class="card-img-top" src="@Event.EventInfo.BannerImgUrl" alt="Card image cap">
         <div class="card-body">
             <a href="/EventDetail/@Event.Id"><h5 class="card-title">@Event.EventInfo.Name</h5></a>
@@ -7,9 +8,9 @@
     </div>
 </div>
 
-
-
 @code {
+
     [Parameter]
     public EventDto Event { get; set; }
+
 }
