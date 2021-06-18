@@ -23,12 +23,12 @@ namespace YES.Mobile.ViewModels
                 OnPropertyChanged(nameof(Event));
             }
         }
-    public EventDetailsViewModel()
-    {
-            _eventService = new EventService();
-            Event = new EventDto();
-            LoadEvent(_eventService, id);
-    }
+    //public EventDetailsViewModel()
+    //{
+    //        _eventService = new EventService();
+    //        Event = new EventDto();
+    //        LoadEvent(_eventService, id);
+    //}
 
         private void LoadEvent(IEventService eventService, int id)
         {
