@@ -68,3 +68,10 @@ section {
 .full-height {
     min-height: calc(100vh - 2rem);
 }
+
+.btn-disabled,
+.btn-disabled[disabled] {
+    opacity: .4;
+    cursor: default !important;
+    pointer-events: none;
+}
