@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Xamarin.Forms;
-using YES.Mobile.Models;
 using Newtonsoft.Json;
 using YES.Mobile.Dto;
 using YES.Mobile.Services;
@@ -15,23 +14,21 @@ using Xamarin.Forms.Xaml;
 
 namespace YES.Mobile.Views
 {
-    public partial class Events : ContentPage
+    public partial class CalendarPage : ContentPage
     {
-        EventsViewModel eventsViewModel;
-        public Events()
+        private CalendarViewModel eventsViewModel;
+
+        public CalendarPage()
         {
             InitializeComponent();
-            eventsViewModel = new EventsViewModel();
+            eventsViewModel = new CalendarViewModel();
             ListOfEvents.ItemsSource = eventsViewModel.Events;
         }
 
         protected override void OnAppearing()
         {
-           // base.OnAppearing();
-                ListOfEvents.ItemsSource = eventsViewModel.Events;
-
+            // base.OnAppearing();
+            ListOfEvents.ItemsSource = eventsViewModel.Events;
         }
-
-
     }
 }

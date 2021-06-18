@@ -9,10 +9,11 @@ using YES.Mobile.Services;
 
 namespace YES.Mobile.ViewModels
 {
-    class EventsViewModel : BaseViewModel
+    internal class CalendarViewModel : BaseViewModel
     {
         private static ICollection<EventDto> _events;
         private static IEventService _eventService { get; set; }
+
         public ICollection<EventDto> Events
         {
             get => _events;
@@ -23,18 +24,16 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public EventsViewModel()
+        public CalendarViewModel()
         {
             _eventService = new EventService();
             Events = new ObservableCollection<EventDto>();
             LoadEvents(_eventService);
-
         }
+
         public void LoadEvents(IEventService eventService)
         {
             Events = eventService.GetAllEvents();
-
         }
-
     }
 }
