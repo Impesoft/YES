@@ -54,7 +54,7 @@ namespace YES.Api.Business.Services
 
             if (user == null)
             {
-                throw new UnauthorizedAccessException("Invalid Email");
+                throw new UnauthorizedAccessException("Invalid input");
             }
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
@@ -62,7 +62,7 @@ namespace YES.Api.Business.Services
 
             if (!hash.SequenceEqual(user.PasswordHash))
             {
-                throw new UnauthorizedAccessException("Invalid password");
+                throw new UnauthorizedAccessException("Invalid input");
             }
 
             return CreateUserTokenDto(user);

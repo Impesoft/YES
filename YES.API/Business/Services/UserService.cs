@@ -51,7 +51,5 @@ namespace YES.Api.Business.Services
                 return null;
             }
         }
-
-
     }
 }
