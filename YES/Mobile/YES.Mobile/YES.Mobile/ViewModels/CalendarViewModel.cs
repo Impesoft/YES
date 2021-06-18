@@ -40,31 +40,20 @@ namespace YES.Mobile.ViewModels
             Events = new ObservableCollection<EventDto>();
             LoadEvents();
 
-            EventLoadCommand = new Command(LoadEvents);
+            EventLoadCommand = new Command((async () => await LoadEvents()));
             EventTappedCommand = new Command<EventDto>(OnEventSelected);
         }
 
-        private async void OnEventSelected(EventDto test)
+        private async void OnEventSelected(EventDto eventDto)
         {
-            await Shell.Current.GoToAsync($"{nameof(EventDetailPage)}?{nameof(EventDetailViewModel.Event.Id)}={test.Id}");
+            await Shell.Current.GoToAsync($"{nameof(EventDetailPage)}?id={eventDto.Id}");
         }
 
-        public void LoadEvents()
+        public async Task LoadEvents()
         {
-            Events = _eventService.GetAllEvents();
+            Events = await _eventService.GetAllEvents();
         }
 
-        //private bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
-        //{
-        //    if (!Equals(field, newValue))
-        //    {
-        //        field = newValue;
-        //        PropertyChanged ?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //        PropertyChanged += new PropertyChangedEventArgs(propertyName);
-        //        return true;
-        //    }
-
-        //    return false;
-        //}
+ 
     }
 }
