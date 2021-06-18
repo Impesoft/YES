@@ -23,7 +23,7 @@ namespace YES.Api.Business.Services
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role)
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString())
             };
 
             var creds = new SigningCredentials(

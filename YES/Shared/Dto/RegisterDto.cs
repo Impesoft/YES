@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using YES.Shared.Enums;
 
 namespace YES.Shared.Dto
 {
@@ -16,6 +17,6 @@ namespace YES.Shared.Dto
         public string Password { get; set; }
 
         [Required]
-        public string  Role { get; set; }
+        public Roles  Role { get; set; }
     }
 }
