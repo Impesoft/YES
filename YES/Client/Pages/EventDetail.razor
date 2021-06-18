@@ -25,7 +25,7 @@
 
             @if (@Event.Status != "Default")
             {
-                <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
+               <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
             }
         </h5>
         
@@ -48,9 +48,17 @@
             <div class="col-xl-2">
                 @if (Event.Status != "Cancelled")
                 {
-                    <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                    @if (Event.Status == "SoldOut")
+                    {
+                        <a class="btn btn-warning float-end btn-disabled">Tickets</a>
+                    }
+                    else
+                    {
+                        <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                    }
                 }
-        
+
+
                 <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
             </div>
         </div>
