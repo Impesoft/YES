@@ -1,3 +1,9 @@
 ﻿tr:hover {
     cursor: pointer; 
 }
+
+@media (max-width: 970px) {
+    td{
+        font-size: .8rem;
+    }
+}

@@ -1,9 +1,8 @@
 ﻿footer {
-    z-index: 100;
+    height: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3rem;
     background: var(--test-dark-dark);
     color: var(--dark-light);
     text-align: center;
