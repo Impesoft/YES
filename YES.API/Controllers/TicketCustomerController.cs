@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using YES.Api.Business.Services;
 using YES.Shared.Dto;
@@ -28,6 +29,7 @@ namespace YES.Api.Controllers
             return Ok(await _ticketCustomerService.GetTicketCustomerByIdAsync(id));
         }
 
+        [Authorize(Roles = "Admin, SuperUser")]
         [HttpPost]
         public async Task<ActionResult> AddTicketCustomer(TicketCustomerDto ticketCustomerDto)
         {
@@ -40,6 +42,7 @@ namespace YES.Api.Controllers
             return Ok(await _ticketCustomerService.UpdateTicketCustomer(ticketCustomerDto));
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> DeleteTicketCustomer(int id)
         {

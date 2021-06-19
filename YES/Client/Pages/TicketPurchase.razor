@@ -49,14 +49,14 @@
                 </div>
                 <div class="col">
                     <button type="button"
-                            class="btn btn-outline-warning btn-addremove"
+                            class="btn btn-add-remove"
                             @onclick="() => AddTicketToPurchasingList(priceCategory)">
-                        +
+                        <i class="far fa-plus-square"></i>
                     </button>
                     <button type="button"
-                            class="btn btn-outline-danger btn-addremove"
+                            class="btn btn-add-remove"
                             @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
-                        -
+                        <i class="far fa-minus-square"></i>
                     </button>
                 </div>
             </div>
@@ -162,6 +162,7 @@
                 {
                     item.Amount++;
                     itemFound = true;
+                    ticketCategory.AvailableAmount--;
                 }
             }
 
@@ -169,12 +170,14 @@
             {
                 var newTicket = CreateTicket(ticketCategory);
                 TicketsPurchasingList.Add(newTicket);
+                ticketCategory.AvailableAmount--;
             }
         }
         else
         {
             var newTicket = CreateTicket(ticketCategory);
             TicketsPurchasingList.Add(newTicket);
+            ticketCategory.AvailableAmount--;
         }
 
         TotalPrice = CalculateTotalPrice();
@@ -189,10 +192,12 @@
             if (ticket.Amount > 1)
             {
                 ticket.Amount--;
+                Event.TicketCategories.FirstOrDefault(x=>x.Id == ticket.TicketCategory.Id).AvailableAmount++;
             }
             else if (ticket.Amount == 1)
             {
                 TicketsPurchasingList.Remove(ticket);
+                Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
             }
 
             TotalPrice = CalculateTotalPrice();
