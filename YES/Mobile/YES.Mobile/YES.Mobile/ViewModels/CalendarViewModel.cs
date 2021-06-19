@@ -53,7 +53,7 @@ namespace YES.Mobile.ViewModels
         {
             Events = await _eventService.GetAllEvents();
         }
-
+        
  
     }
 }

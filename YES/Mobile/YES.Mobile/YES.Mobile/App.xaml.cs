@@ -14,7 +14,7 @@ namespace YES.Mobile
 
             DependencyService.Register<IEventService, EventService>();
 
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

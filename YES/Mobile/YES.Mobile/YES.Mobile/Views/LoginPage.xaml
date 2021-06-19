@@ -6,8 +6,11 @@
              mc:Ignorable="d"
              x:Class="YES.Mobile.Views.LoginPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
+    <ContentPage.Content>        
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Entry Placeholder="Login Email"/>
+            <Entry IsPassword="True" Placeholder="Your Password"  />
+
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
