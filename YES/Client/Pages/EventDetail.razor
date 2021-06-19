@@ -1,22 +1,22 @@
-﻿@page "/EventDetail/{Id:int}"
+@page "/EventDetail/{Id:int}"
 @inject IEventService _service
 
 @if (Event != null)
 {
 
-<div class="py-5 bg-dark text-light full-height">
-
-    <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
-    </div>
-    <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
-        <h3>@Event.EventInfo.Name</h3>
+    <div class="py-5 banner-wrapper">
+        <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
+        </div>
+        <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
+            <h3>@Event.EventInfo.Name</h3>
+        </div>
     </div>
     
     <section>
         <h5 class="event-date-line event-date">
             @if (Event.EventInfo.EventDate > DateTime.MinValue)
             {
-               @Event.EventInfo.EventDate.ToLongDateString()
+                @Event.EventInfo.EventDate.ToLongDateString()
             }
             else
             {
@@ -25,20 +25,37 @@
 
             @if (@Event.Status != "Default")
             {
-                <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">@Event.Status</span>
+                <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">
+                    @switch (Event.Status)
+                    {
+                        case "ToBeAnnounced":
+                            eventStatus = "TBA";
+                            break;
+                        case "Postponed":
+                            eventStatus = "Postponed";
+                            break;
+                        case "SoldOut":
+                            eventStatus = "Sold Out";
+                            break;
+                        case "Cancelled":
+                            eventStatus = "Cancelled";
+                            break;
+                    }
+                    @eventStatus
+                </span>
             }
         </h5>
         
         <div class="row">
             <div class="col-xl-4">
                 <p>@Event.EventInfo.Description</p>
-                 <p>Maximum amount of tickets: </p>
+                 <p>Tickets left: @CountTotalTicketsLeft() </p>
             </div>
             <div class="col-xl-3">
                 <h5>@Event.Venue.Name</h5>
-                                <p>@Event.Venue.Address.Street @Event.Venue.Address.StreetNumber </p>
-                                <p>@Event.Venue.Address.PostalCode @Event.Venue.Address.City </p>
-                                <p>@Event.Venue.Address.Country</p>
+                <p>@Event.Venue.Address.Street @Event.Venue.Address.StreetNumber </p>
+                <p>@Event.Venue.Address.PostalCode @Event.Venue.Address.City </p>
+                <p>@Event.Venue.Address.Country</p>
             </div>
             <div class="col-xl-3">
                 <h5>@Event.TicketProvider.NameProvider</h5>
@@ -48,15 +65,45 @@
             <div class="col-xl-2">
                 @if (Event.Status != "Cancelled")
                 {
-                    <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                    @if (Event.Status == "SoldOut")
+                    {
+                        <a class="btn btn-warning float-end btn-disabled">Tickets</a>
+                    }
+                    else
+                    {
+                        <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                    }
                 }
-        
+                <Button Clicked="@ShowModal" class="btn btn-warning float-end">Show Modal</Button>
                 <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
             </div>
         </div>
     </section>
+    
+    <Modal @ref="modalRef">
+        <ModalContent Centered="true">
+            <ModalHeader>
+                <ModalTitle>Employee edit</ModalTitle>
+                <CloseButton />
+            </ModalHeader>
+            <ModalBody>
+                <Field>
+                    <FieldLabel>Name</FieldLabel>
+                    <TextEdit Placeholder="Enter name..." />
+                </Field>
+                <Field>
+                    <FieldLabel>Surname</FieldLabel>
+                    <TextEdit Placeholder="Enter surname..." />
+                </Field>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
+                <Button Color="Color.Primary" Clicked="@HideModal">Save Changes</Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
 
-</div>
+
 
 }
 else
@@ -68,12 +115,38 @@ else
 @code {
     [Parameter]
     public int Id { get; set; }
-
+    
     public EventDto Event { get; set; }
+    
+    private string eventStatus { get; set; }
+    
+    // reference to the modal component
+    private Modal modalRef;
+
+    private void ShowModal()
+    {
+        modalRef.Show();
+    }
+
+    private void HideModal()
+    {
+        modalRef.Hide();
+    }
 
     protected override async Task OnInitializedAsync()
     {
         Event = await _service.GetEventByIdAsync(Id);
+    }
+
+    private int CountTotalTicketsLeft()
+    {
+        int totalTickets = 0;
+        foreach (var category in Event.TicketCategories)
+        {
+            totalTickets += category.AvailableAmount;
+        }
+
+        return totalTickets;
     }
 
 }

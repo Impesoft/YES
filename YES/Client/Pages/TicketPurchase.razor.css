@@ -2,7 +2,11 @@
     background-image: url("images/page-bg3.jpg");
 }
 
-.btn-addremove {
+.btn-add-remove {
     height: 40px;
     width: 40px;
+}
+
+i {
+    color: var(--grey);
 }
