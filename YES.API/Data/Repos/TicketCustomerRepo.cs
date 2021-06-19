@@ -46,6 +46,10 @@ namespace YES.Api.Data.Repos
             }
             return false;           
         }
+        public virtual async Task<TicketCustomer> GetTicketCustomerByEmailAsync(string email)
+        {
+            return await _context.TicketCustomers.SingleOrDefaultAsync(x => x.Email == email);
+        }
 
     }
 }
