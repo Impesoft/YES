@@ -13,6 +13,7 @@ namespace YES.Mobile
             InitializeComponent();
 
             DependencyService.Register<IEventService, EventService>();
+            DependencyService.Register<IAccountService, AccountService>();
 
             MainPage = new LoginPage();
         }
