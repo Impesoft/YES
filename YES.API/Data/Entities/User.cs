@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using YES.Shared.Enums;
 
 namespace YES.Api.Data.Entities
 {
@@ -18,6 +17,8 @@ namespace YES.Api.Data.Entities
         public byte[] PasswordSalt { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public Roles Role { get; set; }
 
         public virtual Address Address { get; set; }
     }

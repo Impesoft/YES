@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using YES.Api.Data.Entities;
-using YES.Api.Enums;
 using YES.Shared.Dto;
+using YES.Shared.Enums;
 
 namespace YES.Api.Configuration
 {

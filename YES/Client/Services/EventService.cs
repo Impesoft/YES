@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -39,7 +40,7 @@ namespace YES.Client.Services
         public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
         {
             var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("/api/Event");
-            return _events.Take(6);
+            return _events.Where(x => x.EventInfo.EventDate > DateTime.Now).OrderBy(x => Guid.NewGuid()).Take(6).OrderBy(x => x.EventInfo.EventDate);
         }
     }
 }
