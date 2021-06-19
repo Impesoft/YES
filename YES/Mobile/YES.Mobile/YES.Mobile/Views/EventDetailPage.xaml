@@ -6,10 +6,9 @@
              x:DataType="local:EventDetailViewModel"
              Title="{Binding Title}"
              x:Class="YES.Mobile.Views.EventDetailPage">
- 
-    <RefreshView
-        x:DataType="local:EventDetailViewModel"
-        Command="{Binding LoadEventCommand}">
+
+    <ContentPage.Content
+        x:DataType="local:EventDetailViewModel">
         <StackLayout VerticalOptions="StartAndExpand" >
             <Label Text="Event Detail Page"
                    FontSize="36"/>
@@ -22,6 +21,30 @@
             <Label Text="{Binding Event.EventInfo.Description}"
                 VerticalOptions="End"
                 HorizontalOptions="CenterAndExpand" />
+            
+            <ListView x:Name="TicketCategoryList"
+                      Grid.Row="0"
+                      ItemsSource="{Binding Event.TicketCategories}"
+                      Margin="28,28,68,67">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="dto:TicketCategoryDto">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <Label 
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Price, StringFormat='price: {0}€'}" />
+                                <Label 
+                                    HorizontalOptions="End"
+                                    Text="{Binding Name, StringFormat='Ticket:{0}'}" />
+
+                            </StackLayout>
+                        </ViewCell>
+                                     
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-    </RefreshView>
+    </ContentPage.Content>
 </ContentPage>
