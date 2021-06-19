@@ -1,4 +1,4 @@
-﻿namespace YES.Api.Enums
+﻿namespace YES.Mobile.Enums
 {
     public enum Status
     {
