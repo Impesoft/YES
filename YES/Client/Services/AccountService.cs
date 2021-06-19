@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using YES.Shared.Dto;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Newtonsoft.Json;
+using System.Web;
+using System.Net;
+
 
 namespace YES.Client.Services
 {
@@ -24,16 +22,17 @@ namespace YES.Client.Services
         public async Task LogIn(LoginDto logindto)
         {
             var _loggedInUser = await _http.PostAsJsonAsync("/api/Account/Login", logindto);
-            
-            //var responseStream = await _loggedInUser.Content.ReadAsStreamAsync();
+
+            //HttpResponseHeader.SetCookie(new (_loggedInUser);
+
             var responseString = await _loggedInUser.Content.ReadAsStringAsync();
 
             if (_loggedInUser != null)
-            {
-                //LoggedInUser = await JsonSerializer.DeserializeAsync<UserTokenDto>(responseStream);
+            {                
                 LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(responseString);
-            }
-           
+
+                
+            }           
         }
 
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
@@ -47,6 +46,6 @@ namespace YES.Client.Services
         public UserTokenDto GetLoggedInUser()
         {
             return LoggedInUser;
-        }
+        }        
     }
 }
