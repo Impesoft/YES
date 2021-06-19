@@ -1,0 +1,53 @@
+﻿@page "/login"
+
+<div class="page-bg">
+    <section>
+        <h3>Log In</h3>
+        <form >
+            <div>
+                <input class="form-control" placeholder="Username"/>
+            </div>
+            <div>
+                <input class="form-control" placeholder="Username"/>
+            </div>
+            <button class="btn btn-outline-success" @onclick="LogIn">Log In</button>
+        </form>
+
+        <div>
+            No account yet? Register <a href="">here</a>.
+        </div>
+
+        @*<LoginForm ></LoginForm>*@
+
+
+        <div>
+            Currently logged in user is: @LoginTest
+        </div>
+
+    </section>
+</div>
+
+
+@code {
+    public string LoginTest { get; set; }
+
+    private CustomerWithTicketsDto Customer { get; set; }
+
+    [Inject]
+    private ICustomerService _service { get; set; }
+
+    //protected override async Task OnInitializedAsync()
+    //{
+
+    //}
+
+    private  void LogIn()
+    {
+        //if (LogIn is valid)
+        //{
+        //    Customer = _service.GetLoggedInUser();
+        //}
+        LoginTest = "Dagobert";
+    }
+
+}
