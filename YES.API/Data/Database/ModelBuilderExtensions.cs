@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using YES.Api.Data.Entities;
-using YES.Api.Enums;
 using System.Security.Cryptography;
+using YES.Shared.Enums;
 
 namespace YES.Api.Data.Database
 {
@@ -519,22 +517,22 @@ namespace YES.Api.Data.Database
             {
                 using var hmac = new HMACSHA512();
                 x.HasData(
-                new TicketCustomer { Id = 1, FirstName = "Kobe", LastName = "Delobelle", PhoneNumber = "0473 288 888", Email = "kobe@mail.com", BankAccount = "BE68 5390 0754 7034", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 2, FirstName = "Ward", LastName = "Impe", PhoneNumber = "0473 422 458", Email = "ward@mail.com", BankAccount = "BE68 6990 5800 7574", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 3, FirstName = "Pieter", LastName = "Corp", PhoneNumber = "0453 288 888", Email = "Pieter@mail.com", BankAccount = "BE60 5590 0994 7021", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 4, FirstName = "Seba", LastName = "Stiaan", PhoneNumber = "0485 345 349", Email = "Seba@mail.com", BankAccount = "BE70 5560 1278 7078", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 5, FirstName = "Nick", LastName = "Angularlover", PhoneNumber = "0478 365 852", Email = "Nick@mail.com", BankAccount = "BE77 7893 0824 7304", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 6, FirstName = "Dries", LastName = "Maes", PhoneNumber = "0432 457 896", Email = "Dries@mail.com", BankAccount = "BE41 7563 7835 0157", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 7, FirstName = "Olivia", LastName = "Goossens", PhoneNumber = "0478 687 138", Email = "Olivia@mail.com", BankAccount = "BE96 4278 6420 5496", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 8, FirstName = "Mila", LastName = "Vandevoorde", PhoneNumber = "0485 377 352", Email = "Mila@mail.com", BankAccount = "BE77 1046 8642 5676", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 9, FirstName = "Alice", LastName = "Mcgregor", PhoneNumber = "0478 785 125", Email = "Alice@mail.com", BankAccount = "BE86 7831 5701 5684", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 10, FirstName = "Louise", LastName = "Degroote", PhoneNumber = "0477 765 782", Email = "Louise@mail.com", BankAccount = "BE68 4578 3025 7304", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 11, FirstName = "Mohamed", LastName = "Yilmaz", PhoneNumber = "0472 752 785", Email = "Mohamed@mail.com", BankAccount = "BE89 4785 2015 3065", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 12, FirstName = "Emir", LastName = "Öztürk", PhoneNumber = "0473 478 795", Email = "Emir@mail.com", BankAccount = "BE58 7520 4778 8214", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 13, FirstName = "Kurt", LastName = "Debolle", PhoneNumber = "0478 140 349", Email = "Kurt@mail.com", BankAccount = "BE72 0145 7857 6375", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 14, FirstName = "Arthur", LastName = "Vangeest", PhoneNumber = "0490 785 457", Email = "Arthur@mail.com", BankAccount = "BE86 4576 0445 4873", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 15, FirstName = "Noah", LastName = "Vanarke", PhoneNumber = "0475 850 852", Email = "Noah@mail.com", BankAccount = "BE69 2467 0468 0478", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) },
-                new TicketCustomer { Id = 16, FirstName = "Victor", LastName = "De Putte", PhoneNumber = "0488 754 752", Email = "Victor@mail.com", BankAccount = "BE88 4785 9785 9620", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")) }
+                new TicketCustomer { Id = 1, FirstName = "Kobe", LastName = "Delobelle", PhoneNumber = "0473 288 888", Email = "kobe@mail.com", BankAccount = "BE68 5390 0754 7034", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 2, FirstName = "Ward", LastName = "Impe", PhoneNumber = "0473 422 458", Email = "ward@mail.com", BankAccount = "BE68 6990 5800 7574", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 3, FirstName = "Pieter", LastName = "Corp", PhoneNumber = "0453 288 888", Email = "Pieter@mail.com", BankAccount = "BE60 5590 0994 7021", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 4, FirstName = "Seba", LastName = "Stiaan", PhoneNumber = "0485 345 349", Email = "Seba@mail.com", BankAccount = "BE70 5560 1278 7078", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 5, FirstName = "Nick", LastName = "Angularlover", PhoneNumber = "0478 365 852", Email = "Nick@mail.com", BankAccount = "BE77 7893 0824 7304", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 6, FirstName = "Dries", LastName = "Maes", PhoneNumber = "0432 457 896", Email = "Dries@mail.com", BankAccount = "BE41 7563 7835 0157", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 7, FirstName = "Olivia", LastName = "Goossens", PhoneNumber = "0478 687 138", Email = "Olivia@mail.com", BankAccount = "BE96 4278 6420 5496", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 8, FirstName = "Mila", LastName = "Vandevoorde", PhoneNumber = "0485 377 352", Email = "Mila@mail.com", BankAccount = "BE77 1046 8642 5676", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 9, FirstName = "Alice", LastName = "Mcgregor", PhoneNumber = "0478 785 125", Email = "Alice@mail.com", BankAccount = "BE86 7831 5701 5684", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 10, FirstName = "Louise", LastName = "Degroote", PhoneNumber = "0477 765 782", Email = "Louise@mail.com", BankAccount = "BE68 4578 3025 7304", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 11, FirstName = "Mohamed", LastName = "Yilmaz", PhoneNumber = "0472 752 785", Email = "Mohamed@mail.com", BankAccount = "BE89 4785 2015 3065", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 12, FirstName = "Emir", LastName = "Öztürk", PhoneNumber = "0473 478 795", Email = "Emir@mail.com", BankAccount = "BE58 7520 4778 8214", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 13, FirstName = "Kurt", LastName = "Debolle", PhoneNumber = "0478 140 349", Email = "Kurt@mail.com", BankAccount = "BE72 0145 7857 6375", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 14, FirstName = "Arthur", LastName = "Vangeest", PhoneNumber = "0490 785 457", Email = "Arthur@mail.com", BankAccount = "BE86 4576 0445 4873", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 15, FirstName = "Noah", LastName = "Vanarke", PhoneNumber = "0475 850 852", Email = "Noah@mail.com", BankAccount = "BE69 2467 0468 0478", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer },
+                new TicketCustomer { Id = 16, FirstName = "Victor", LastName = "De Putte", PhoneNumber = "0488 754 752", Email = "Victor@mail.com", BankAccount = "BE88 4785 9785 9620", PasswordSalt = hmac.Key, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1234")), Role = Roles.TicketCustomer }
                 );
             });
         }
