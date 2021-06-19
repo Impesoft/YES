@@ -38,13 +38,14 @@ namespace YES.Client
             builder.Services.AddScoped(sp =>
                                 new HttpClient
                                 {
-                                    //BaseAddress = new Uri("https://yesapi.azurewebsites.net/")
-                                    BaseAddress = new Uri("https://localhost:44367/")
+                                    BaseAddress = new Uri("https://yesapi.azurewebsites.net/")
+                                    //BaseAddress = new Uri("https://localhost:44367/")
                                 });
 
             builder.Services.AddScoped<IEventService, EventService>();
             builder.Services.AddScoped<ICustomerService, CustomerService>();
             builder.Services.AddScoped<ITicketService, TicketService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             builder.Services.AddMsalAuthentication(options =>
             {

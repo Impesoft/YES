@@ -5,24 +5,37 @@
         <h3>Log In</h3>
         <form >
             <div>
-                <input class="form-control" placeholder="Username"/>
+                <input class="form-control mt-1" placeholder="Email" type="email" @bind="LoginInfo.Email"/>
             </div>
             <div>
-                <input class="form-control" placeholder="Username"/>
+                <input class="form-control mt-1" placeholder="Password" type="password" @bind="LoginInfo.Password"/>
             </div>
-            <button class="btn btn-outline-success" @onclick="LogIn">Log In</button>
+            <button class="btn btn-outline-success mt-1" type="button" @onclick="LogIn">Log In</button>
         </form>
 
         <div>
             No account yet? Register <a href="">here</a>.
         </div>
 
-        @*<LoginForm ></LoginForm>*@
+        
 
-
-        <div>
+        <hr />
+        <div class="mt-5">
             Currently logged in user is: @LoginTest
         </div>
+        <div>
+            <button @onclick="GetCurrentLoggedInUser">
+                Get User
+            </button>
+        </div>
+           
+        @if (Customer != null)
+        {
+            <div>
+                Currently logged in user from backend is: @Customer.Email
+            </div>
+        }
+        
 
     </section>
 </div>
@@ -31,23 +44,29 @@
 @code {
     public string LoginTest { get; set; }
 
-    private CustomerWithTicketsDto Customer { get; set; }
+    private UserTokenDto Customer { get; set; }
+
+    public LoginDto LoginInfo { get; set; }
 
     [Inject]
-    private ICustomerService _service { get; set; }
+    private IAccountService _accountService { get; set; }
 
-    //protected override async Task OnInitializedAsync()
-    //{
-
-    //}
+    protected override async Task OnInitializedAsync()
+    {
+        LoginInfo = new();
+        Customer = _accountService.GetLoggedInUser();
+    }
 
     private  void LogIn()
     {
-        //if (LogIn is valid)
-        //{
-        //    Customer = _service.GetLoggedInUser();
-        //}
-        LoginTest = "Dagobert";
+        _accountService.LogIn(LoginInfo);
+
+        LoginTest = LoginInfo.Email + " " + LoginInfo.Password;
+    }
+
+    private void GetCurrentLoggedInUser()
+    {
+        Customer = _accountService.GetLoggedInUser();
     }
 
 }
