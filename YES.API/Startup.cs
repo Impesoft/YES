@@ -91,7 +91,7 @@ namespace YES.Api
 
             services.AddDbContext<YesDBContext>(x =>
             {
-                x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
+                x.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString"));
             });
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
