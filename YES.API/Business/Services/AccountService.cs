@@ -7,6 +7,7 @@ using YES.Api.Data.Entities;
 using YES.Api.Data.Repos;
 using YES.Api.Data.Repos.Interfaces;
 using YES.Shared.Dto;
+using YES.Shared.Enums;
 
 namespace YES.Api.Business.Services
 {
@@ -32,13 +33,13 @@ namespace YES.Api.Business.Services
 
             switch (dto.Role)
             {               
-                case Shared.Enums.Roles.TicketCustomer:
+                case Roles.TicketCustomer:
 
                     TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
                     await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
                     return CreateUserTokenDto(ticketCustomer);
 
-                case Shared.Enums.Roles.TicketProvider:
+                case Roles.TicketProvider:
 
                     TicketProvider ticketProvider = CreateTicketProvider(dto);
                     await _ticketProviderRepo.AddEntityAsync(ticketProvider);
@@ -48,22 +49,6 @@ namespace YES.Api.Business.Services
 
                     throw new InvalidOperationException("Role was not valid");                    
             }
-            //if (dto.Role == "ticketCustomer")
-            //{
-            //    TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
-            //    await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
-            //    return CreateUserTokenDto(ticketCustomer);
-            //}
-            //else if (dto.Role == "ticketProvider")
-            //{
-            //    TicketProvider ticketProvider = CreateTicketProvider(dto);
-            //    await _ticketProviderRepo.AddEntityAsync(ticketProvider);
-            //    return CreateUserTokenDto(ticketProvider);
-            //}
-            //else
-            //{
-            //    throw new InvalidOperationException("Role was not valid");
-            //}
         }
 
         public async Task<UserTokenDto> LoginAsync(string eMail, string password)
