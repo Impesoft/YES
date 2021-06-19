@@ -23,6 +23,9 @@ namespace YES.Mobile.Views
             BindingContext = new CalendarViewModel();
         }
 
-
+        private void LoadEvents(object sender, EventArgs e)
+        {
+         //   LoadEvents();
+        }
     }
 }
