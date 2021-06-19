@@ -1,4 +1,6 @@
 ﻿@page "/login"
+@using Newtonsoft.Json;
+@inject IJSRuntime JSRuntime  
 
 <div class="page-bg">
     <section>
@@ -21,13 +23,9 @@
 
         <hr />
         <div class="mt-5">
-            Currently logged in user is: @LoginTest
+            logging in user @LoginTest;...
         </div>
-        <div>
-            <button @onclick="GetCurrentLoggedInUser">
-                Get User
-            </button>
-        </div>
+
            
         @if (Customer != null)
         {
@@ -42,6 +40,8 @@
 
 
 @code {
+
+
     public string LoginTest { get; set; }
 
     private UserTokenDto Customer { get; set; }
@@ -54,26 +54,21 @@
     protected override async Task OnInitializedAsync()
     {
         LoginInfo = new();
-        Customer = _accountService.GetLoggedInUser();
+       var JsonUser =  await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+        Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+        if (Customer == null)
+        {
+        }
+        //  currentInputValue = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "name");
     }
 
-    private  void LogIn()
+    private async Task LogIn()
     {
-        _accountService.LogIn(LoginInfo);
+        await _accountService.LogIn(LoginInfo);
+        Customer = _accountService.GetLoggedInUser();           
 
         LoginTest = LoginInfo.Email + " " + LoginInfo.Password;
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", _accountService.LoggedInUserJson);
     }
-
-    private void GetCurrentLoggedInUser()
-    {
-        Customer = _accountService.GetLoggedInUser();
-    }
-
-    private void helppls()
-        {
-
-        
-        }
-
-
-}
+    // delete => await JSRuntime.InvokeAsync<string>("localStorage.removeItem", "name");
+}}

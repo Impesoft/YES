@@ -1,0 +1,69 @@
+﻿@using Newtonsoft.Json;
+@inject IJSRuntime JSRuntime
+
+@if (Customer == null)
+{
+       <span>
+ <form class="navbar-form navbar-left" role="form">
+           
+       <div class="form-group d-inline-flex">
+<input class="form-control mt-1" placeholder="Email" type="email" @bind="LoginInfo.Email"/>
+ <input class="form-control mt-1" placeholder="Password" type="password" @bind="LoginInfo.Password"/>    
+         </div>
+      </form>
+       </span>
+<a class="nav-link active" aria-current="page"  @onclick="LogIn">Log In</a>
+
+ <span class="d-inline-flex text-light">
+            <a  class="nav-link text-warning" href="">No account yet? Register here</a>
+        </span>
+
+} else
+{
+                <span class="nav-link text-light d-inline-flex">
+            <a class="nav-link text-info">Welkom @Customer.Email</a>   
+            <a class="nav-link active" aria-current="page"  @onclick="LogOut">Log Out</a>
+            </span>
+
+
+}
+
+
+@code {
+
+
+    public string LoginTest { get; set; }
+
+    private UserTokenDto Customer { get; set; }
+
+    public LoginDto LoginInfo { get; set; }
+
+    [Inject]
+    private IAccountService _accountService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoginInfo = new();
+       var JsonUser =  await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+        Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+        if (Customer == null)
+        {
+        }
+        //  currentInputValue = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "name");
+    }
+
+    private async Task LogIn()
+    {
+        await _accountService.LogIn(LoginInfo);
+        Customer = _accountService.GetLoggedInUser();           
+
+        LoginTest = LoginInfo.Email + " " + LoginInfo.Password;
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", _accountService.LoggedInUserJson);
+    }
+    private async Task LogOut()
+    {
+    await JSRuntime.InvokeAsync<string>("localStorage.removeItem", "user");
+        Customer = null;
+    }
+
+}}

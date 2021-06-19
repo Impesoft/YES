@@ -12,7 +12,7 @@ namespace YES.Client.Services
     public class AccountService : IAccountService
     {
         private UserTokenDto LoggedInUser { get; set; }
-
+        public string LoggedInUserJson { get; set; }
         private HttpClient _http;
         public AccountService(HttpClient http)
         {
@@ -25,11 +25,11 @@ namespace YES.Client.Services
 
             //HttpResponseHeader.SetCookie(new (_loggedInUser);
 
-            var responseString = await _loggedInUser.Content.ReadAsStringAsync();
+            LoggedInUserJson = await _loggedInUser.Content.ReadAsStringAsync();
 
             if (_loggedInUser != null)
             {                
-                LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(responseString);
+                LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
 
                 
             }           
@@ -46,6 +46,10 @@ namespace YES.Client.Services
         public UserTokenDto GetLoggedInUser()
         {
             return LoggedInUser;
-        }        
+        }
+
+    
+
+        //responseString
     }
 }
