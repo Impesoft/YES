@@ -25,11 +25,6 @@ namespace YES.Mobile.ViewModels
         {
             LoginCommand = new Command(OnLoginClicked);
             _accountService = new AccountService();
-            LoadUserIfExists();
-            if (GlobalVariables.LoggedInUser != null)
-            {
-                OpenApp();
-            }
         }
 
         private void LoadUserIfExists()
@@ -52,14 +47,10 @@ namespace YES.Mobile.ViewModels
 
 
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            OpenApp();
+            Application.Current.MainPage = new AppShell();
             //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
         }
 
-        private void OpenApp()
-        {
-            Application.Current.MainPage = new AppShell();
-        }
 
         private async Task LogIn()
     {
