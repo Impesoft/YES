@@ -26,6 +26,10 @@ namespace YES.Mobile.ViewModels
             LoginCommand = new Command(OnLoginClicked);
             _accountService = new AccountService();
             LoadUserIfExists();
+            if (GlobalVariables.LoggedInUser != null)
+            {
+                OpenApp();
+            }
         }
 
         private void LoadUserIfExists()
@@ -38,7 +42,6 @@ namespace YES.Mobile.ViewModels
             if (LoggedInUserJson != null)
             {
                GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
-                OpenApp();
             }
         }
 
