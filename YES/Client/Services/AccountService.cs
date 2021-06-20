@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 using System.Web;
 using System.Net;
 
-
 namespace YES.Client.Services
 {
     public class AccountService : IAccountService
