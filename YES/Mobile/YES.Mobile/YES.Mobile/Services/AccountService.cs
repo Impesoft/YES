@@ -8,6 +8,7 @@ using YES.Mobile.Dto;
 using System.Text;
 using Xamarin.Essentials;
 using System.IO;
+using YES.Mobile.Enums;
 
 namespace YES.Mobile.Services
 {
@@ -32,7 +33,6 @@ namespace YES.Mobile.Services
             StringContent myStringContent = new StringContent(logindtoJson.ToString(), Encoding.UTF8, "application/json");
             
             //message = await _http.PostAsync("https://yesapi.azurewebsites.net/api/Account/Login", myStringContent);
-            int pieter = 0; pieter++;
             //HttpResponseHeader.SetCookie(new (_loggedInUser);
             message = _http.PostAsync("https://yesapi.azurewebsites.net/api/Account/Login", myStringContent).GetAwaiter().GetResult();
             string responseContent = message.Content.ReadAsStringAsync().GetAwaiter().GetResult();
@@ -40,16 +40,14 @@ namespace YES.Mobile.Services
             LoggedInUserJson = await message.Content.ReadAsStringAsync();
 
             // store userjson
-            string FileNameForStorage = "LocalStorage";
-            string path = Path.Combine(FileSystem.AppDataDirectory, FileNameForStorage);
-            File.WriteAllText(path, LoggedInUserJson);
-
-            string testLoad = File.ReadAllText(path);
+        
+            File.WriteAllText(GlobalVariables.FileName, LoggedInUserJson);
+            //example load user
+            string testLoad = File.ReadAllText(GlobalVariables.FileName);
+            
             if (LoggedInUserJson != null)
             {              
                 LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
-
-                int test = 1; test++;
             }           
         }
 
