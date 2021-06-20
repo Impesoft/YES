@@ -7,7 +7,7 @@ using System.Net;
 using YES.Mobile.Dto;
 using System.Text;
 using Xamarin.Essentials;
-
+using System.IO;
 
 namespace YES.Mobile.Services
 {
@@ -39,6 +39,12 @@ namespace YES.Mobile.Services
 
             LoggedInUserJson = await message.Content.ReadAsStringAsync();
 
+            // store userjson
+            string FileNameForStorage = "LocalStorage";
+            string path = Path.Combine(FileSystem.AppDataDirectory, FileNameForStorage);
+            File.WriteAllText(path, LoggedInUserJson);
+
+            string testLoad = File.ReadAllText(path);
             if (LoggedInUserJson != null)
             {              
                 LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
