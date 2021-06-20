@@ -30,6 +30,21 @@ namespace YES.Api.Business.Services
             return await _ticketRepo.AddEntitiesAsync(tickets);
         }
 
+        public async Task<bool> CancelTickets(IEnumerable<int> canceledTicketIds)
+        {
+            List<Ticket> CancelledTickets = new();
+
+            foreach (var canceledTicketId in canceledTicketIds)
+            {
+                Ticket ticket = new()
+                {
+                    Id = canceledTicketId
+                };
+                CancelledTickets.Add(ticket);
+            }
+            return await _ticketRepo.DeleteEntitiesAsync(CancelledTickets);
+        }
+
         private Ticket CreateTicket(TicketPurchaseDto ticketPurchaseDto)
         {
             return new()
@@ -43,19 +58,7 @@ namespace YES.Api.Business.Services
         }
 
         public int GetAmountOfSoldTickets(int eventId, int TicketCategoryId)
-        {
-            //int amount = 0;
-            //IEnumerable<Ticket> tickets = await _ticketRepo.GetTicketsForEvent(eventId);
-
-            //foreach (var ticket in tickets)
-            //{
-            //    if (ticket.TicketCategory.Id == TicketCategoryId)
-            //    {
-            //        amount++;
-            //    }
-            //} 
-
-            //return amount;
+        {           
             return  _ticketRepo.GetCountOfTicketsForEvent(eventId, TicketCategoryId);
         }        
     }
