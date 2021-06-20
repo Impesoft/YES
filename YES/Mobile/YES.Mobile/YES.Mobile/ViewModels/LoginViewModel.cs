@@ -7,12 +7,16 @@ using Xamarin.Forms;
 using YES.Mobile.Dto;
 using YES.Mobile.Services;
 using YES.Mobile.Views;
+using Xamarin.Essentials;
+using System.IO;
+using YES.Mobile.Enums;
 
 namespace YES.Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
         public Command LoginCommand { get; }
+        private string LoggedInUserJson;
         private IAccountService _accountService { get; set; }
     private UserTokenDto Customer { get; set; }
         public LoginDto LoginInfo { get; set; } = new LoginDto();
@@ -21,6 +25,21 @@ namespace YES.Mobile.ViewModels
         {
             LoginCommand = new Command(OnLoginClicked);
             _accountService = new AccountService();
+            LoadUserIfExists();
+        }
+
+        private void LoadUserIfExists()
+        {
+            if (File.Exists(GlobalVariables.FileName))
+            {
+                LoggedInUserJson = File.ReadAllText(GlobalVariables.FileName);
+
+            }
+            if (LoggedInUserJson != null)
+            {
+               GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
+                OpenApp();
+            }
         }
 
         private void OnLoginClicked(object obj)
@@ -30,12 +49,16 @@ namespace YES.Mobile.ViewModels
 
 
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            Application.Current.MainPage = new AppShell();
+            OpenApp();
             //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
         }
 
+        private void OpenApp()
+        {
+            Application.Current.MainPage = new AppShell();
+        }
 
-    private async Task LogIn()
+        private async Task LogIn()
     {
         await _accountService.LogIn(LoginInfo);
         Customer = _accountService.GetLoggedInUser();           
