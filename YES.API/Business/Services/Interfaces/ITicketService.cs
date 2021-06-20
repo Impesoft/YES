@@ -7,6 +7,6 @@ namespace YES.Api.Business.Services
     public interface ITicketService
     {
         Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos);
-        Task<int> GetAmountOfSoldTickets(int eventId, int TicketCategoryId);
+        int GetAmountOfSoldTickets(int eventId, int TicketCategoryId);
     }
 }

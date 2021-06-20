@@ -42,19 +42,21 @@ namespace YES.Api.Business.Services
             };
         }
 
-        public async Task<int> GetAmountOfSoldTickets(int eventId, int TicketCategoryId)
+        public int GetAmountOfSoldTickets(int eventId, int TicketCategoryId)
         {
-            int amount = 0;
-            IEnumerable<Ticket> tickets = await _ticketRepo.GetTicketsForEvent(eventId);
+            //int amount = 0;
+            //IEnumerable<Ticket> tickets = await _ticketRepo.GetTicketsForEvent(eventId);
 
-            foreach (var ticket in tickets)
-            {
-                if (ticket.TicketCategory.Id == TicketCategoryId)
-                {
-                    amount++;
-                }
-            }
-            return amount;
-        }
+            //foreach (var ticket in tickets)
+            //{
+            //    if (ticket.TicketCategory.Id == TicketCategoryId)
+            //    {
+            //        amount++;
+            //    }
+            //} 
+
+            //return amount;
+            return  _ticketRepo.GetCountOfTicketsForEvent(eventId, TicketCategoryId);
+        }        
     }
 }

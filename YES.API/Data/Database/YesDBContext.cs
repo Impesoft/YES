@@ -9,7 +9,6 @@ namespace YES.Api.Data.Database
         public DbSet<TicketProvider> TicketProviders { get; set; }
         public DbSet<TicketCustomer> TicketCustomers { get; set; }
         public DbSet<TicketCategory> TicketCategories { get; set; }
-
         public DbSet<Event> Events { get; set; }
         public DbSet<EventInfo> EventInfo { get; set; }
         public DbSet<Venue> Venues { get; set; }
