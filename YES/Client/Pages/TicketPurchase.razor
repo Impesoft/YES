@@ -2,124 +2,125 @@
 @inject IEventService _eventService
 @inject ICustomerService _customerService
 @inject ITicketService _ticketService
+@inject IJSRuntime JSRuntime
 
 <div class="page-bg">
 
     @if (Event != null)
     {
-        
-    <section>
-        <h3 class="mb-5">Tickets for @Event.EventInfo.Name @Event.EventInfo.EventDate</h3>
 
-        <div class="row mb-3">
-            <div class="col">
-                <h5>
-                    Type
-                </h5>
+        <section>
+            <h3 class="mb-5">Tickets for @Event.EventInfo.Name @Event.EventInfo.EventDate</h3>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <h5>
+                        Type
+                    </h5>
+                </div>
+                <div class="col">
+                    <h5>
+                        Price
+                    </h5>
+                </div>
+                <div class="col">
+                    <h5>
+                        Available Tickets
+                    </h5>
+                </div>
+                <div class="col">
+                    <h5>
+                        Quantity
+                    </h5>
+                </div>
             </div>
-            <div class="col">
-                <h5>
-                    Price
-                </h5>
+            <hr />
+            <div>
+                @foreach (var priceCategory in Event.TicketCategories)
+                {
+                    <div class="row">
+                        <div class="col">
+                            @priceCategory.Name
+                        </div>
+                        <div class="col">
+                            € @priceCategory.Price
+                        </div>
+                        <div class="col">
+                            @priceCategory.AvailableAmount
+                        </div>
+                        <div class="col">
+                            <button type="button"
+                                    class="btn btn-add-remove"
+                                    @onclick="() => AddTicketToPurchasingList(priceCategory)">
+                                <i class="far fa-plus-square"></i>
+                            </button>
+                            <button type="button"
+                                    class="btn btn-add-remove"
+                                    @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
+                                <i class="far fa-minus-square"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <hr />
+                }
             </div>
-            <div class="col">
-                <h5>
-                    Available Tickets
-                </h5>
-            </div>
-            <div class="col">
-                <h5>
-                    Quantity
-                </h5>
-            </div>
-        </div>
-        <hr />
-        <div>
-            @foreach (var priceCategory in Event.TicketCategories)
+
+
+            @if (TicketsPurchasingList.Any())
             {
-            <div class="row">
-                <div class="col">
-                    @priceCategory.Name
+
+                <h5>Your current purchase:</h5>
+
+                @foreach (var ticket in TicketsPurchasingList)
+                {
+                    <div class="row">
+                        <div class="col">
+                            @ticket.TicketCategory.Name
+                        </div>
+                        <div class="col">
+                            @ticket.TicketCategory.Price
+                        </div>
+                        <div class="col">
+                            #@ticket.Amount
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                }
+
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <h4 class="mt-3"> Total Price: €@Math.Round(TotalPrice, 2)</h4>
+                    </div>
+                    <div class="col">
+                        <h4 class="mt-3"> Total Tickets: @AmountOfTicketsToPurchase</h4>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-warning mt-3" @onclick="() => PurchaseTickets()"> Order Tickets! </button>
+                        <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearPurchaseList()">Cancel</button>
+
+                    </div>
                 </div>
-                <div class="col">
-                    € @priceCategory.Price
-                </div>
-                <div class="col">
-                    @priceCategory.AvailableAmount
-                </div>
-                <div class="col">
-                    <button type="button"
-                            class="btn btn-add-remove"
-                            @onclick="() => AddTicketToPurchasingList(priceCategory)">
-                        <i class="far fa-plus-square"></i>
-                    </button>
-                    <button type="button"
-                            class="btn btn-add-remove"
-                            @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
-                        <i class="far fa-minus-square"></i>
-                    </button>
-                </div>
-            </div>
-                <hr />
+
+                @if (PurchaseSuccesful == true)
+                {
+                    <div class="mt-5 alert alert-warning">
+                        @Customer.FirstName succesfully ordered @CountTotalTickets() ticket(s) for €@Math.Round(TotalPrice, 2) !
+                    </div>
+                }
+
             }
-        </div>
+        </section>
 
-
-        @if (TicketsPurchasingList.Any())
-        {
-
-            <h5>Your current purchase:</h5>
-
-            @foreach (var ticket in TicketsPurchasingList)
-            {
-                <div class="row">
-                    <div class="col">
-                        @ticket.TicketCategory.Name
-                    </div>
-                    <div class="col">
-                        @ticket.TicketCategory.Price
-                    </div>
-                    <div class="col">
-                        #@ticket.Amount
-                    </div>
-                    <div class="col">
-                        
-                    </div>
-                </div>
-            }
-
-
-    <div class="row mt-4">
-        <div class="col">
-            <h4 class="mt-3"> Total Price: €@Math.Round(TotalPrice, 2)</h4>
-        </div>
-        <div class="col">
-            <h4 class="mt-3"> Total Tickets: @AmountOfTicketsToPurchase</h4>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-warning mt-3" @onclick="() => PurchaseTickets()"> Order Tickets! </button>
-            <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearPurchaseList()">Cancel</button>
-
-        </div>
-    </div>
-
-            @if (PurchaseSuccesful == true)
-            {
-                <div class="mt-5 alert alert-warning">
-                    @Customer.FirstName succesfully ordered @CountTotalTickets() ticket(s) for €@Math.Round(TotalPrice, 2) !
-                </div>
-            }
-
-        }
-    </section>            
-            
-        }
-        else
-        {
-            <section>
-                <p>No events found.</p>
-            </section>
-        }
+    }
+    else
+    {
+        <section>
+            <p>No events found.</p>
+        </section>
+    }
 
 </div>
 
@@ -133,8 +134,6 @@
 
     public int AmountOfTicketsToPurchase { get; set; }
 
-    public int LoggedInUserId { get; set; }
-
     public bool PurchaseSuccesful { get; set; } = false;
 
     public List<TicketPurchaseDto> TicketsPurchasingList { get; set; } = new();
@@ -143,9 +142,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        LoggedInUserId = _customerService.GetLoggedInUser();
         Event = await _eventService.GetEventByIdAsync(Id);
-        Customer = await _customerService.GetCustomerByIdAsync(LoggedInUserId);
+
+        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+        var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+
+        Customer = await _customerService.GetCustomerByIdAsync(loggedInUser.Id);
         PurchaseSuccesful = false;
     }
 
@@ -192,7 +194,7 @@
             if (ticket.Amount > 1)
             {
                 ticket.Amount--;
-                Event.TicketCategories.FirstOrDefault(x=>x.Id == ticket.TicketCategory.Id).AvailableAmount++;
+                Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
             }
             else if (ticket.Amount == 1)
             {
@@ -226,7 +228,7 @@
 
     private TicketPurchaseDto CreateTicket(TicketCategoryDto categoryDto)
     {
-        return  new TicketPurchaseDto
+        return new TicketPurchaseDto
         {
             TicketCustomerId = Customer.Id,
             EventId = Event.Id,

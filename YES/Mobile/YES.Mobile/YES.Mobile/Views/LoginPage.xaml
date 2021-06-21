@@ -3,11 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dto="clr-namespace:YES.Mobile.Dto" 
+             xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              mc:Ignorable="d"
              x:Class="YES.Mobile.Views.LoginPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
+    <ContentPage.BindingContext>
+        <local:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>        
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Entry Placeholder="Login Email"   Text="{Binding LoginInfo.Email}" />
+            <Entry Placeholder="Your Password" Text="{Binding LoginInfo.Password}" IsPassword="True" />
+
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>

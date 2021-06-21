@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using YES.Shared.Dto;
 using static System.Net.WebRequestMethods;
 
-
 namespace YES.Client.Services
 {
     public class EventService : IEventService
     {
         private HttpClient _http;
+
         public EventService(HttpClient http)
         {
             _http = http;
@@ -37,13 +37,10 @@ namespace YES.Client.Services
             return _event;
         }
 
-
-
         public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
         {
             var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("/api/Event");
             return _events.Where(x => x.EventInfo.EventDate > DateTime.Now).OrderBy(x => Guid.NewGuid()).Take(6).OrderBy(x => x.EventInfo.EventDate);
         }
-
     }
 }

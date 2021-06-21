@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:YES.Mobile.ViewModels"
+             xmlns:dto="clr-namespace:YES.Mobile.Dto" 
+             x:DataType="local:EventDetailViewModel"
+             Title="{Binding Title}"
+             x:Class="YES.Mobile.Views.EventDetailPage">
+
+    <ContentPage.Content
+        x:DataType="local:EventDetailViewModel">
+        <StackLayout VerticalOptions="StartAndExpand" >
+            <Label Text="Event Detail Page"
+                   FontSize="36"/>
+            <!--<Button Command="{Binding LoadEventCommand}" Text="load"/>-->
+            <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
+            <Label Text="{Binding Event.EventInfo.Name}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="{Binding Event.EventInfo.Description}"
+                VerticalOptions="End"
+                HorizontalOptions="CenterAndExpand" />
+            
+            <ListView x:Name="TicketCategoryList"
+                      Grid.Row="0"
+                      ItemsSource="{Binding Event.TicketCategories}"
+                      Margin="28,28,68,67">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="dto:TicketCategoryDto">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <Label 
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Price, StringFormat='price: {0}€'}" />
+                                <Label 
+                                    HorizontalOptions="End"
+                                    Text="{Binding Name, StringFormat='Ticket:{0}'}" />
+
+                            </StackLayout>
+                        </ViewCell>
+                                     
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
