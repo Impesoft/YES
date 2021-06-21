@@ -17,9 +17,9 @@ namespace YES.Mobile.ViewModels
     {
         public bool IsLoggingIn { get; set; } = false;
         public Command LoginCommand { get; }
-        private string LoggedInUserJson;
+  //      private string LoggedInUserJson;
         private IAccountService _accountService { get; set; }
-    private UserTokenDto Customer { get; set; }
+   // private UserTokenDto Customer { get; set; }
         public LoginDto LoginInfo { get; set; } = new LoginDto();
 
         public LoginViewModel()
@@ -34,7 +34,7 @@ namespace YES.Mobile.ViewModels
             IsLoggingIn = true;
           //  LoginDto loginInfo = new LoginDto();
             _accountService.LogIn(LoginInfo);
-        GlobalVariables.LoggedInUser = Customer;
+    //    GlobalVariables.LoggedInUser = Customer;
             if (GlobalVariables.LoggedInUser?.Id>0)
             {
                 IsLoggingIn = true;

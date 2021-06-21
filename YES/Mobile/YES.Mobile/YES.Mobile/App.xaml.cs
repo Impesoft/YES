@@ -32,13 +32,16 @@ namespace YES.Mobile
                 {
                     //destroy file
                     File.Delete(GlobalVariables.FileName);
-
+                    GlobalVariables.LoggedInUser = null;
                 }
+                else
+                {
                 MainPage = new AppShell();
+                }
             }
             else
             {
-                GlobalVariables.LoggedInUser = new UserTokenDto();
+            //GlobalVariables.LoggedInUser = new UserTokenDto();
             MainPage = new LoginPage();
             }
 
@@ -61,10 +64,10 @@ namespace YES.Mobile
             {
                 LoggedInUserJson = File.ReadAllText(GlobalVariables.FileName);
 
-            }
-            if (LoggedInUserJson != null)
+            if (LoggedInUserJson != "Invalid input")
             {
                 GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
+            }
             }
         }
 
