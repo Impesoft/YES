@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using YES.Mobile.Dto;
+using YES.Mobile.Enums;
 using YES.Mobile.Services;
 
 namespace YES.Mobile.ViewModels
@@ -42,23 +44,26 @@ namespace YES.Mobile.ViewModels
             }
         }
 
+        private ICustomerService _customerService { get; set; }
+
         public Command<TicketCategoryDto> AddTicketCommand { get; set; }
 
         public Command<TicketCategoryDto> DeductTicketCommand { get; set; }
 
-        private ObservableCollection<TicketPurchaseDto> ticketPurchasingList;
+        private ObservableCollection<TicketPurchaseDto> ticketsPurchasingList;
 
-        public ObservableCollection<TicketPurchaseDto> TicketPurchasingList
+        public ObservableCollection<TicketPurchaseDto> TicketsPurchasingList
         {
-            get { return ticketPurchasingList; }
+            get { return ticketsPurchasingList; }
             set
             {
-                ticketPurchasingList = value;
+                ticketsPurchasingList = value;
 
-                OnPropertyChanged(nameof(TicketPurchasingList));
+                OnPropertyChanged(nameof(TicketsPurchasingList));
             }
         }
 
+        public UserTokenDto LoggedInUser { get; set; }
         public CustomerWithTicketsDto Customer { get; set; }
 
         private double totalPrice;
@@ -74,6 +79,7 @@ namespace YES.Mobile.ViewModels
         }
 
         public int AmountOfTicketsToPurchase { get; set; }
+        public bool PurchaseSuccesful { get; set; } = false;
 
         public EventDetailViewModel()
         {
@@ -82,11 +88,13 @@ namespace YES.Mobile.ViewModels
 
             AddTicketCommand = new Command<TicketCategoryDto>(OnAddTicket);
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
-            //LoggedInUserId = _customerService.GetLoggedInUser();
-            //Customer = await _customerService.GetCustomerByIdAsync(LoggedInUserId)
-            CalcTotalPrice();
 
-            //PurchaseSuccesful = false;
+            LoggedInUser = GlobalVariables.LoggedInUser;
+
+            TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
+            CalcTotalPrice();
+            SetCustomer();
+            PurchaseSuccesful = false;
         }
 
         public async void LoadEvent()
@@ -95,11 +103,17 @@ namespace YES.Mobile.ViewModels
             Event = await _eventService.GetEventDetails(EventId);
         }
 
+        public async void SetCustomer()
+        {
+            _customerService = new CustomerService();
+            Customer = await _customerService.GetCustomerByIdAsync(LoggedInUser);
+        }
+
         private TicketPurchaseDto CreateTicket(TicketCategoryDto categoryDto)
         {
             return new TicketPurchaseDto
             {
-                //TicketCustomerId = Customer.Id,
+                TicketCustomerId = Customer.Id,
                 EventId = Event.Id,
                 TicketCategory = categoryDto,
                 Amount = 1
@@ -108,21 +122,22 @@ namespace YES.Mobile.ViewModels
 
         private void OnAddTicket(TicketCategoryDto ticketCategory)
         {
-            if (TicketPurchasingList != null)
+            PurchaseSuccesful = false;
+
+            bool itemFound = false;
+            foreach (var item in TicketsPurchasingList)
             {
-                foreach (var item in TicketPurchasingList)
+                if (ticketCategory.Id == item.TicketCategory.Id)
                 {
-                    if (ticketCategory.Id == item.TicketCategory.Id)
-                    {
-                        item.Amount++;
-                        ticketCategory.AvailableAmount--;
-                    }
+                    item.Amount++;
+                    itemFound = true;
+                    ticketCategory.AvailableAmount--;
                 }
             }
-            else
+            if (!itemFound)
             {
                 var newTicket = CreateTicket(ticketCategory);
-                TicketPurchasingList.Add(newTicket);
+                TicketsPurchasingList.Add(newTicket);
                 ticketCategory.AvailableAmount--;
             }
 
@@ -130,24 +145,59 @@ namespace YES.Mobile.ViewModels
             AmountOfTicketsToPurchase = CountTotalTickets();
         }
 
-        private void OnDeductTicket(TicketCategoryDto ticketCategory)
+        private void OnDeductTicket(TicketCategoryDto categoryDto)
         {
+            return new TicketPurchaseDto
+            {
+                TicketCustomerId = Customer.Id,
+                EventId = Event.Id,
+                TicketCategory = categoryDto,
+                //Amount = TicketsPurchasingList.Count(categoryDto)
+
+                TicketsPurchasingList.Where(x => x.TicketCategory.Id = categoryDto.Id)
+            };
+
+            //if (ticket != null)
+            //{
+            //    if (ticket.Amount > 1)
+            //    {
+            //        ticket.Amount--;
+            //        Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
+            //    }
+            //    else if (ticket.Amount == 1)
+            //    {
+            //        TicketsPurchasingList.Remove(ticket);
+            //        Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
+            //    }
+
+            //    TotalPrice = CalcTotalPrice();
+            //    AmountOfTicketsToPurchase = CountTotalTickets();
+            //}
         }
 
         private double CalcTotalPrice()
         {
-            double price = 0;
-            foreach (var item in TicketPurchasingList)
+            double price;
+            if (TicketsPurchasingList == null)
             {
-                price += (item.TicketCategory.Price * item.Amount);
+                price = 0;
             }
+            else
+            {
+                price = 0;
+                foreach (var item in TicketsPurchasingList)
+                {
+                    price += (item.TicketCategory.Price * item.Amount);
+                }
+            }
+
             return price;
         }
 
         private int CountTotalTickets()
         {
             int amount = 0;
-            foreach (var item in TicketPurchasingList)
+            foreach (var item in TicketsPurchasingList)
             {
                 amount += item.Amount;
             }
