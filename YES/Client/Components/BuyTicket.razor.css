@@ -6,3 +6,27 @@
 i {
     color: var(--grey);
 }
+
+
+
+@media (max-width: 730px) {
+    td {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 540px) {
+    td {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .td-amount {
+        display: none;
+    }
+    
+    .th-amount {
+        display: none;
+    }
+}
