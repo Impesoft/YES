@@ -14,8 +14,9 @@ namespace YES.Mobile.Services
 {
     public class AccountService : IAccountService
     {
-        private UserTokenDto LoggedInUser { get; set; }
+        //private UserTokenDto LoggedInUser { get; set; }
         private HttpResponseMessage message;
+
         public string LoggedInUserJson { get; set; }
         private HttpClient _http;
 
@@ -51,17 +52,17 @@ namespace YES.Mobile.Services
             }
         }
 
-        public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
-        {
-            //   var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-            var content = await _http.GetStringAsync("api/TicketCustomer/IncludeTickets/" + id);
-            return JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
-        }
+        //public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
+        //{
+        //    //   var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
+        //    var content = await _http.GetStringAsync("api/TicketCustomer/IncludeTickets/" + id);
+        //    return JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
+        //}
 
-        public UserTokenDto GetLoggedInUser()
-        {
-            return LoggedInUser;
-        }
+        //public UserTokenDto GetLoggedInUser()
+        //{
+        //    return LoggedInUser;
+        //}
 
         //responseString
     }

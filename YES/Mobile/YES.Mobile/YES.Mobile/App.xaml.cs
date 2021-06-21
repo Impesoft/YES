@@ -21,6 +21,7 @@ namespace YES.Mobile
 
             DependencyService.Register<IEventService, EventService>();
             DependencyService.Register<IAccountService, AccountService>();
+            DependencyService.Register<ICustomerService, CustomerService>();
 
             LoadUserIfExists();
             if (GlobalVariables.LoggedInUser != null)
@@ -38,13 +39,13 @@ namespace YES.Mobile
                 }
                 else
                 {
-                MainPage = new AppShell();
+                    MainPage = new AppShell();
                 }
             }
             else
             {
-            //GlobalVariables.LoggedInUser = new UserTokenDto();
-            MainPage = new LoginPage();
+                //GlobalVariables.LoggedInUser = new UserTokenDto();
+                MainPage = new LoginPage();
             }
         }
 
@@ -66,10 +67,10 @@ namespace YES.Mobile
             {
                 LoggedInUserJson = File.ReadAllText(GlobalVariables.FileName);
 
-            if (LoggedInUserJson != "Invalid input")
-            {
-                GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
-            }
+                if (LoggedInUserJson != "Invalid input")
+                {
+                    GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
+                }
             }
         }
     }
