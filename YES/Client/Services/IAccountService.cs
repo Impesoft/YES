@@ -8,7 +8,7 @@ namespace YES.Client.Services
         UserTokenDto GetLoggedInUser();
         string GetLoggedInUserJson();
         Task<string> LogIn(LoginDto logindto);
-        Task RegisterUser(RegisterDto registerDto);
+        Task<bool> RegisterUser(RegisterDto registerDto);
         void LogOut();
     }
 }
