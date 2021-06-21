@@ -11,17 +11,25 @@
         x:DataType="local:EventDetailViewModel">
         <ScrollView>
             <StackLayout VerticalOptions="StartAndExpand">
-                <Label Text="Event Detail Page"
-                   FontSize="36" />
-                <!--<Button Command="{Binding LoadEventCommand}" Text="load" />-->
-                <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
                 <Label Text="{Binding Event.EventInfo.Name}"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="36" />
+                <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
                 <Label Text="{Binding Event.EventInfo.Description}"
                 VerticalOptions="End"
                 HorizontalOptions="CenterAndExpand" />
+
+                <Label Text="Total Price:"
+                       TextDecorations="Underline"
+                       FontSize="20"
+                       Margin="8"
+                       HorizontalOptions="Start" />
+
+                <Label Text="{Binding TotalPrice}"
+                       FontSize="25"
+                       Margin="8"
+                       HorizontalOptions="Start" />
 
                 <ListView x:Name="TicketCategoryList"
                       Grid.Row="0"
@@ -31,14 +39,43 @@
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="dto:TicketCategoryDto">
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <Grid HeightRequest="100">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
                                     <Label
+                                        Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Name, StringFormat='Ticket: {0}'}" />
+                                    <Label Grid.Column="1"
                                     HorizontalOptions="Start"
                                     Text="{Binding Price, StringFormat='price: {0}€'}" />
-                                    <Label
-                                    HorizontalOptions="End"
-                                    Text="{Binding Name, StringFormat='Ticket:{0}'}" />
-                                </StackLayout>
+
+                                    <StackLayout Grid.Column="2" Orientation="Horizontal">
+                                        <Button
+                                        FontFamily="FontAwesome"
+                                        Text="&#xf067;"
+                                        Margin="4"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=AddTicketCommand}"
+                                        CommandParameter="{Binding .}" />
+                                        <Button
+                                        FontFamily="FontAwesome"
+                                        Text="&#xf068;"
+                                        Margin="4"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=DeductTicketCommand}"
+                                        CommandParameter="{Binding .}" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="3">
+                                        <Label Text="Amount:" />
+                                        <Label Text="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=CartItemQuantity}" />
+                                    </StackLayout>
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
