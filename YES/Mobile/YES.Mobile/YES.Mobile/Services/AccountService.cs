@@ -47,7 +47,7 @@ namespace YES.Mobile.Services
             
             if (LoggedInUserJson != null)
             {              
-                LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
+                GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
             }           
         }
 
