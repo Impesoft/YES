@@ -15,11 +15,39 @@ namespace YES.Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public bool IsLoggingIn { get; set; } = false;
+        private bool showLoginFields = true;
+
+        public bool ShowLoginFields
+        {
+            get => showLoginFields;
+
+            set
+            {
+                showLoginFields = value;
+                OnPropertyChanged(nameof(ShowLoginFields));
+            }
+        }
+
+        private bool isLoggingIn;
+
+        public bool IsLoggingIn
+        {
+            get => isLoggingIn;
+
+            set
+            {
+                isLoggingIn = value;
+                ShowLoginFields = !isLoggingIn;
+                OnPropertyChanged(nameof(IsLoggingIn));
+            }
+        }
+
         public Command LoginCommand { get; }
-  //      private string LoggedInUserJson;
+
+        //      private string LoggedInUserJson;
         private IAccountService _accountService { get; set; }
-   // private UserTokenDto Customer { get; set; }
+
+        // private UserTokenDto Customer { get; set; }
         public LoginDto LoginInfo { get; set; } = new LoginDto();
 
         public LoginViewModel()
@@ -31,21 +59,29 @@ namespace YES.Mobile.ViewModels
         private void OnLoginClicked(object obj)
         {
             IsLoggingIn = true;
+
             //  LoginDto loginInfo = new LoginDto();
+            Task.Run(() => Login()).Wait();
+            if (IsLoggingIn)
+            {
+                Application.Current.MainPage = new AppShell();
+            }
+            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+            //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
+        }
+
+        private void Login()
+        {
             _accountService.LogIn(LoginInfo);
-    //    GlobalVariables.LoggedInUser = Customer;
-            if (GlobalVariables.LoggedInUser?.Id>0)
+            //    GlobalVariables.LoggedInUser = Customer;
+            if (GlobalVariables.LoggedInUser?.Id > 0)
             {
                 IsLoggingIn = true;
-                Application.Current.MainPage = new AppShell();
             }
             else
             {
                 IsLoggingIn = false;
             }
-
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
         }
     }
 }
