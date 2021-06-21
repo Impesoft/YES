@@ -27,14 +27,29 @@ namespace YES.Client.Services
             return _customer;
         }
 
-        public async Task UpdateCustomer(CustomerWithTicketsDto customer)
+        public async Task UpdateCustomer(CustomerWithTicketsDto customerWithTickets)
         {
+            TicketCustomerDto customer = ConvertToTicketCustomer(customerWithTickets);
             await _http.PutAsJsonAsync("api/TicketCustomer", customer);
         }
 
         public int GetLoggedInUser()
         {
             return LoggedInUserId;
+        }
+
+        private TicketCustomerDto ConvertToTicketCustomer(CustomerWithTicketsDto customer)
+        {
+            return new TicketCustomerDto()
+            {
+                Id = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                BankAccount = customer.BankAccount,
+                Email = customer.Email,
+                PhoneNumber = customer.PhoneNumber,
+                Address = customer.Address
+            };
         }
 
     }
