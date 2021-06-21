@@ -19,7 +19,7 @@ namespace YES.Mobile.ViewModels
         public Command LoginCommand { get; }
         private string LoggedInUserJson;
         private IAccountService _accountService { get; set; }
-    private UserTokenDto Customer { get; set; }
+        private UserTokenDto Customer { get; set; }
         public LoginDto LoginInfo { get; set; } = new LoginDto();
 
         public LoginViewModel()
@@ -28,28 +28,25 @@ namespace YES.Mobile.ViewModels
             _accountService = new AccountService();
         }
 
-
         private void OnLoginClicked(object obj)
         {
             IsLoggingIn = true;
-          //  LoginDto loginInfo = new LoginDto();
+            //  LoginDto loginInfo = new LoginDto();
             _accountService.LogIn(LoginInfo);
-        GlobalVariables.LoggedInUser = Customer;
-            if (GlobalVariables.LoggedInUser?.Id>0)
+
+            GlobalVariables.LoggedInUser = Customer;
+            if (GlobalVariables.LoggedInUser?.Id > 0)
             {
                 IsLoggingIn = true;
-            Application.Current.MainPage = new AppShell();
-            } 
+                Application.Current.MainPage = new AppShell();
+            }
             else
             {
                 IsLoggingIn = false;
             }
 
-
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
         }
-
-
     }
 }
