@@ -5,10 +5,10 @@ namespace YES.Client.Services
 {
     public interface IAccountService
     {
-        Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id);
         UserTokenDto GetLoggedInUser();
         string GetLoggedInUserJson();
         Task<string> LogIn(LoginDto logindto);
+        Task RegisterUser(RegisterDto registerDto);
         void LogOut();
     }
 }

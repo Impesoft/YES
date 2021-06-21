@@ -33,11 +33,10 @@ namespace YES.Client.Services
             return LoggedInUserJson;
         }
 
-        public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
+        public async Task RegisterUser(RegisterDto registerDto)
         {
-            var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-
-            return _customer;
+            var registerResult = await _http.PostAsJsonAsync("/api/Account/Register", registerDto);
+            var RegisterUserJson = await registerResult.Content.ReadAsStringAsync();
         }
 
         public UserTokenDto GetLoggedInUser()
@@ -54,6 +53,5 @@ namespace YES.Client.Services
         {
             LoggedInUser = null;
         }
-
     }
 }
