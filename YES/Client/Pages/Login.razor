@@ -1,0 +1,45 @@
+﻿@page "/login"
+@inject IJSRuntime JSRuntime
+@inject IAccountService _accountService
+@inject NavigationManager navigationManager;
+
+
+<div class="page-bg">
+    <section>
+        <h3>Log In</h3>
+        <form>
+            <div>
+                <input class="form-control mt-1" placeholder="Email" type="email" @bind="LoginInfo.Email" />
+            </div>
+            <div>
+                <input class="form-control mt-1" placeholder="Password" type="password" @bind="LoginInfo.Password" />
+            </div>
+            <button class="btn btn-outline-success mt-1" type="button" @onclick="LogIn">Log In</button>
+        </form>
+
+        <div>
+            No account yet? Register <a href="">here</a>.
+        </div>
+
+    </section>
+</div>
+
+
+@code {
+
+    public LoginDto LoginInfo { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoginInfo = new();
+    }
+
+    private async Task LogIn()
+    {
+        //check with form validation
+        var loggedInUserJson = await _accountService.LogIn(LoginInfo);
+
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+        navigationManager.NavigateTo("/", true);
+    }
+}
