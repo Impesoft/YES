@@ -147,32 +147,23 @@ namespace YES.Mobile.ViewModels
 
         private void OnDeductTicket(TicketCategoryDto categoryDto)
         {
-            return new TicketPurchaseDto
+            var category = TicketsPurchasingList.ToList().FirstOrDefault(x => x.TicketCategory == categoryDto);
+            if (category != null)
             {
-                TicketCustomerId = Customer.Id,
-                EventId = Event.Id,
-                TicketCategory = categoryDto,
-                //Amount = TicketsPurchasingList.Count(categoryDto)
+                if (category.Amount > 1)
+                {
+                    category.Amount--;
+                    Event.TicketCategories.FirstOrDefault(x => x.Id == category.TicketCategory.Id).AvailableAmount++;
+                }
+                else
+                {
+                    TicketsPurchasingList.Remove(category);
+                    Event.TicketCategories.FirstOrDefault(x => x.Id == category.TicketCategory.Id).AvailableAmount++;
+                }
 
-                TicketsPurchasingList.Where(x => x.TicketCategory.Id = categoryDto.Id)
-            };
-
-            //if (ticket != null)
-            //{
-            //    if (ticket.Amount > 1)
-            //    {
-            //        ticket.Amount--;
-            //        Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
-            //    }
-            //    else if (ticket.Amount == 1)
-            //    {
-            //        TicketsPurchasingList.Remove(ticket);
-            //        Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
-            //    }
-
-            //    TotalPrice = CalcTotalPrice();
-            //    AmountOfTicketsToPurchase = CountTotalTickets();
-            //}
+                TotalPrice = CalcTotalPrice();
+                AmountOfTicketsToPurchase = CountTotalTickets();
+            }
         }
 
         private double CalcTotalPrice()
