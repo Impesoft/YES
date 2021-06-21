@@ -57,12 +57,14 @@
                         }
                         else
                         {
-                            @*<a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>*@
-                            <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button>
+                            if (Customer?.Id > 0)
+                            {
+                                <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button>
+                            }
+                            <button class="btn btn-warning float-end" @onclick="@NavigateToLogin">Tickets</button>
+                            
                         }
                     }
-                    @* <Button Clicked="@ShowModal" class="btn btn-warning float-end btn-modal">Tickets</Button> *@
-
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
 
                 </div>
@@ -87,13 +89,6 @@
                 </ModalContent>
             </Modal>
         }
-                else
-                {
-                    //TODO error/modal/alert to please log in 
-                }
-
-
-
     }
     else
     {
@@ -145,18 +140,9 @@
         return totalTickets;
     }
 
-    private async Task NavigateBasedOnLoggedIn()
+    private void NavigateToLogin()
     {
-        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-
-        if (JsonUser != null )
-        {
-            navigationManager.NavigateTo($"/TicketPurchase/{Event.Id}");
-        }
-        else
-        {
-            navigationManager.NavigateTo("/login");
-        }
+        navigationManager.NavigateTo("/login");
     }
 
 }
