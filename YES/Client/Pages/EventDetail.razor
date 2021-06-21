@@ -25,28 +25,8 @@
                 {
                     @:To Be Announced
                 }
-
-                @if (@Event.Status != "Default")
-                {
-                    <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">
-                        @switch (Event.Status)
-                        {
-                            case "ToBeAnnounced":
-                                eventStatus = "TBA";
-                                break;
-                            case "Postponed":
-                                eventStatus = "Postponed";
-                                break;
-                            case "SoldOut":
-                                eventStatus = "Sold Out";
-                                break;
-                            case "Cancelled":
-                                eventStatus = "Cancelled";
-                                break;
-                        }
-                        @eventStatus
-                    </span>
-                }
+                <EventStatus Event="@Event"
+                             eventStatus="@eventStatus"/>
             </h5>
             
             <div class="row">
