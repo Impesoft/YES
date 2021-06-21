@@ -17,6 +17,12 @@ namespace YES.Api.Data.Repos
             return await _context.Tickets
                                    .Where(x => x.EventId == eventId)
                                    .ToListAsync();
-        }        
+        }
+
+        public int GetCountOfTicketsForEvent(int eventId, int categoryId)
+        {
+            return _context.Tickets.Where(x => x.EventId == eventId)
+                                   .Count(x => x.TicketCategoryId == categoryId);                                   
+        }
     }
 }

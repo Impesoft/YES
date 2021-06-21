@@ -5,50 +5,54 @@ using YES.Shared.Dto;
 using Newtonsoft.Json;
 using System.Web;
 using System.Net;
+using Microsoft.JSInterop;
+using YES.Client.Components;
 
 namespace YES.Client.Services
 {
     public class AccountService : IAccountService
     {
         private UserTokenDto LoggedInUser { get; set; }
-        public string LoggedInUserJson { get; set; }
+        private string LoggedInUserJson { get; set; }
         private HttpClient _http;
         public AccountService(HttpClient http)
         {
-            _http = http;
+            _http = http;            
         }
 
-        public async Task LogIn(LoginDto logindto)
+        public async Task<string> LogIn(LoginDto logindto)
         {
             var _loggedInUser = await _http.PostAsJsonAsync("/api/Account/Login", logindto);
-
-            //HttpResponseHeader.SetCookie(new (_loggedInUser);
-
             LoggedInUserJson = await _loggedInUser.Content.ReadAsStringAsync();
 
             if (_loggedInUser != null)
-            {                
+            {
                 LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
+            }
 
-                
-            }           
+            return LoggedInUserJson;
         }
 
-        public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
+        public async Task<bool> RegisterUser(RegisterDto registerDto)
         {
-            var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-
-            return _customer;
+            var registerResult = await _http.PostAsJsonAsync("/api/Account/Register", registerDto);
+            //var RegisterUserJson = await registerResult.Content.ReadAsStringAsync();
+            return registerResult.IsSuccessStatusCode;
         }
-
 
         public UserTokenDto GetLoggedInUser()
         {
             return LoggedInUser;
         }
 
-    
+        public string GetLoggedInUserJson()
+        {
+            return LoggedInUserJson;
+        }
 
-        //responseString
+        public void LogOut()
+        {
+            LoggedInUser = null;
+        }
     }
 }
