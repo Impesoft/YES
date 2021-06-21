@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace YES.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserDetailsPage : ContentPage
+    public partial class PurchaseTicketPage : ContentPage
     {
-        public UserDetailsPage()
+        public PurchaseTicketPage()
         {
             InitializeComponent();
         }
