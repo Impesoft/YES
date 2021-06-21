@@ -58,10 +58,19 @@
             
         </div>
 
-        @if (PurchaseSuccesful == true)
+        @if (PurchaseSuccessful == true)
         {
             <div class="mt-5 alert alert-warning">
-                @Customer.FirstName succesfully ordered @CountTotalTickets() ticket(s) for €@Math.Round(TotalPrice, 2) !
+                @Customer.FirstName succesfully ordered @CountTotalTickets() @if (CountTotalTickets() > 1)
+                                                                             {
+                                                                                 @: tickets
+                                                                             }
+                                                                             else
+                                                                             {
+                                                                                 @: ticket
+                                                                             }
+                                                                                 
+                                                                              for €@Math.Round(TotalPrice, 2) !
             </div>
         }
     
@@ -88,13 +97,13 @@ else
 
     private double TotalPrice { get; set; }
     private int AmountOfTicketsToPurchase { get; set; }
-    private bool PurchaseSuccesful { get; set; } = false;
+    private bool PurchaseSuccessful { get; set; } = false;
     private List<TicketPurchaseDto> TicketsPurchasingList { get; set; } = new();
 
 
     private void AddTicketToPurchasingList(TicketCategoryDto ticketCategory)
     {
-        PurchaseSuccesful = false;
+        PurchaseSuccessful = false;
 
         if (TicketsPurchasingList.Any())
         {
@@ -153,7 +162,7 @@ else
     {
         TotalPrice = 0;
         TicketsPurchasingList.Clear();
-        PurchaseSuccesful = false;
+        PurchaseSuccessful = false;
         AmountOfTicketsToPurchase = 0;
         modalRef.Hide();
     }
@@ -164,7 +173,7 @@ else
         {
             _ticketService.AddNewTicketsAsync(TicketsPurchasingList);
 
-            PurchaseSuccesful = true;
+            PurchaseSuccessful = true;
         }
 
     }
