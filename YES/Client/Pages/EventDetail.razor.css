@@ -15,7 +15,7 @@
     font-style: oblique;
     font-weight: 100;
     position: absolute;
-    top: 8rem;
+    top: 4rem;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -26,8 +26,8 @@
     vertical-align: bottom;
 }
 
-.banner-wrapper {
-    
+.page-bg {
+    background-image: url("images/page-bg3.jpg");
 }
 
 h3 {
@@ -70,12 +70,27 @@ p {
     margin: 5px;
 }
 
-.modal-content {
-    width: 800px !important;
-    min-width: 800px !important;
+::deep .modal-dialog {
+    min-width: 700px;
 }
 
-.modal-dialog {
-    min-width: 800px !important;
-    width: 800px !important;
+@media (max-width: 500px) {
+    ::deep .modal-dialog {
+        margin: 0;
+    }
+}
+
+@media (max-width: 730px) {
+    ::deep .modal-dialog {
+        min-width: 100%;
+    }
+}
+
+::deep .modal-header{
+    border-bottom: none;
+}
+
+::deep .close-btn {
+    color: var(--white);
+    font-size: 2rem;
 }
