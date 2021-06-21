@@ -33,10 +33,11 @@ namespace YES.Client.Services
             return LoggedInUserJson;
         }
 
-        public async Task RegisterUser(RegisterDto registerDto)
+        public async Task<bool> RegisterUser(RegisterDto registerDto)
         {
             var registerResult = await _http.PostAsJsonAsync("/api/Account/Register", registerDto);
-            var RegisterUserJson = await registerResult.Content.ReadAsStringAsync();
+            //var RegisterUserJson = await registerResult.Content.ReadAsStringAsync();
+            return registerResult.IsSuccessStatusCode;
         }
 
         public UserTokenDto GetLoggedInUser()
