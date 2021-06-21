@@ -11,6 +11,17 @@ namespace YES.Mobile.Dto
         public int TicketCustomerId { get; set; }
         public int EventId { get; set; }
         public TicketCategoryDto TicketCategory { get; set; }
-        public int Amount { get; set; }
+
+        private int amount;
+
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                amount = value;
+                OnPropertyChanged(nameof(Amount));
+            }
+        }
     }
 }

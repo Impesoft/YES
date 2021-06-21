@@ -80,6 +80,35 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
+                <ListView x:Name="PurchaseList"
+                      ItemsSource="{Binding TicketsPurchasingList}"
+                      Margin="28,28,68,67">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="dto:TicketPurchaseDto">
+                            <ViewCell>
+                                <Grid HeightRequest="40">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding TicketCategory.Name, StringFormat='Ticket: {0}'}" />
+                                    <Label Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Amount}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
