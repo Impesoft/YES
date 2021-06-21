@@ -14,12 +14,14 @@ namespace YES.Mobile
     public partial class App : Application
     {
         private string LoggedInUserJson;
+
         public App()
         {
             InitializeComponent();
 
             DependencyService.Register<IEventService, EventService>();
             DependencyService.Register<IAccountService, AccountService>();
+
             LoadUserIfExists();
             if (GlobalVariables.LoggedInUser != null)
             {
@@ -32,16 +34,14 @@ namespace YES.Mobile
                 {
                     //destroy file
                     File.Delete(GlobalVariables.FileName);
-
                 }
                 MainPage = new AppShell();
             }
             else
             {
                 GlobalVariables.LoggedInUser = new UserTokenDto();
-            MainPage = new LoginPage();
+                MainPage = new LoginPage();
             }
-
         }
 
         protected override void OnStart()
@@ -55,18 +55,17 @@ namespace YES.Mobile
         protected override void OnResume()
         {
         }
+
         private void LoadUserIfExists()
         {
             if (File.Exists(GlobalVariables.FileName))
             {
                 LoggedInUserJson = File.ReadAllText(GlobalVariables.FileName);
-
             }
             if (LoggedInUserJson != null)
             {
                 GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
             }
         }
-
     }
 }
