@@ -7,7 +7,7 @@
              x:Class="YES.Mobile.Views.CalendarPage"
              Appearing="LoadEvents">
 
-    <RefreshView x:DataType="local:CalendarViewModel"
+    <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
         <StackLayout BackgroundColor="#000">
             <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
@@ -51,5 +51,5 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </StackLayout>
-    </RefreshView>
+    </ContentPage.Content>
 </ContentPage>
