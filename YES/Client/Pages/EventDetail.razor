@@ -1,126 +1,113 @@
 @page "/EventDetail/{Id:int}"
-@inject IEventService _service
+@inject IEventService _eventService
 @inject IJSRuntime JSRuntime
 @inject NavigationManager navigationManager
+@inject ICustomerService _customerService
 
-@if (Event != null)
-{
 
-    <div class="py-5 banner-wrapper">
-        <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
+
+<div class="page-bg">
+    @if (Event?.Id > 0  )
+    {
+
+        <div class="py-5 banner-wrapper">
+            <div class="banner" style="background-image: url(@Event.EventInfo.BannerImgUrl); filter: blur(8px); -webkit-filter: blur(8px);">
+            </div>
+            <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
+                <h3>@Event.EventInfo.Name</h3>
+            </div>
         </div>
-        <div class="mt-5 banner2" style="background-image: url(@Event.EventInfo.BannerImgUrl">
-            <h3>@Event.EventInfo.Name</h3>
-        </div>
-    </div>
 
-    <section>
-        <h5 class="event-date-line event-date">
-            @if (Event.EventInfo.EventDate > DateTime.MinValue)
-            {
-                @Event.EventInfo.EventDate.ToLongDateString()
-            }
-            else
-            {
-                @:To Be Announced
-            }
-
-            @if (@Event.Status != "Default")
-            {
-                <span class="@(Event.Status == "Cancelled" ? "text-danger" : "text-warning") float-end">
-                    @switch (Event.Status)
-                    {
-                        case "ToBeAnnounced":
-                            eventStatus = "TBA";
-                            break;
-                        case "Postponed":
-                            eventStatus = "Postponed";
-                            break;
-                        case "SoldOut":
-                            eventStatus = "Sold Out";
-                            break;
-                        case "Cancelled":
-                            eventStatus = "Cancelled";
-                            break;
-                    }
-                    @eventStatus
-                </span>
-            }
-        </h5>
-
-        <div class="row">
-            <div class="col-xl-4">
-                <p>@Event.EventInfo.Description</p>
-                <p>Tickets left: @CountTotalTicketsLeft() </p>
-            </div>
-            <div class="col-xl-3">
-                <h5>@Event.Venue.Name</h5>
-                <p>@Event.Venue.Address.Street @Event.Venue.Address.StreetNumber </p>
-                <p>@Event.Venue.Address.PostalCode @Event.Venue.Address.City </p>
-                <p>@Event.Venue.Address.Country</p>
-            </div>
-            <div class="col-xl-3">
-                <h5>@Event.TicketProvider.NameProvider</h5>
-                <p>@Event.TicketProvider.Email </p>
-                <p>@Event.TicketProvider.PhoneNumber</p>
-            </div>
-            <div class="col-xl-2">
-                @if (Event.Status != "Cancelled")
+        <section>
+            <h5 class="event-date-line event-date">
+                @if (Event.EventInfo.EventDate > DateTime.MinValue)
                 {
-                    @if (Event.Status == "SoldOut")
-                    {
-                        <a class="btn btn-warning float-end btn-disabled">Tickets</a>
-                    }
-                    else
-                    {
-                        <a href="" @onclick="NavigateBasedOnLoggedIn" class="btn btn-warning float-end">Tickets</a>
-                    }
+                    @Event.EventInfo.EventDate.ToLongDateString()
                 }
-                <Button Clicked="@ShowModal" class="btn btn-warning float-end">Show Modal</Button>
-                <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
+                else
+                {
+                    @:To Be Announced
+                }
+                <EventStatus Event="@Event"
+                             eventStatus="@eventStatus" />
+            </h5>
+
+            <div class="row">
+                <div class="col-xl-4">
+                    <p>@Event.EventInfo.Description</p>
+                    <p>Tickets left: @CountTotalTicketsLeft() </p>
+                </div>
+                <div class="col-xl-3">
+                    <h5>@Event.Venue.Name</h5>
+                    <p>@Event.Venue.Address.Street @Event.Venue.Address.StreetNumber </p>
+                    <p>@Event.Venue.Address.PostalCode @Event.Venue.Address.City </p>
+                    <p>@Event.Venue.Address.Country</p>
+                </div>
+                <div class="col-xl-3">
+                    <h5>@Event.TicketProvider.NameProvider</h5>
+                    <p>@Event.TicketProvider.Email </p>
+                    <p>@Event.TicketProvider.PhoneNumber</p>
+                </div>
+                <div class="col-xl-2">
+                    @if (Event.Status != "Cancelled")
+                    {
+                        @if (Event.Status == "SoldOut")
+                        {
+                            <a class="btn btn-warning float-end btn-disabled">Tickets</a>
+                        }
+                        else
+                        {
+                            @*<a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>*@
+                            <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button>
+                        }
+                    }
+                    @* <Button Clicked="@ShowModal" class="btn btn-warning float-end btn-modal">Tickets</Button> *@
+
+                    <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
+
+                </div>
             </div>
-        </div>
-    </section>
-
-    <Modal @ref="modalRef">
-        <ModalContent Centered="true">
-            <ModalHeader>
-                <ModalTitle>Employee edit</ModalTitle>
-                <CloseButton />
-            </ModalHeader>
-            <ModalBody>
-                <Field>
-                    <FieldLabel>Name</FieldLabel>
-                    <TextEdit Placeholder="Enter name..." />
-                </Field>
-                <Field>
-                    <FieldLabel>Surname</FieldLabel>
-                    <TextEdit Placeholder="Enter surname..." />
-                </Field>
-            </ModalBody>
-            <ModalFooter>
-                <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
-                <Button Color="Color.Primary" Clicked="@HideModal">Save Changes</Button>
-            </ModalFooter>
-        </ModalContent>
-    </Modal>
+        </section>
 
 
+        @if (Customer?.Id > 0)
+        {
+            <Modal @ref="modalRef">
+                <ModalContent Centered="true" Class="bg-dark text-light">
+                    <ModalHeader>
+                        <ModalTitle>@Event.EventInfo.Name <br /> @Event.EventInfo.EventDate</ModalTitle>
+                        <CloseButton Class="close-btn btn" />
+                    </ModalHeader>
+                    <ModalBody>
+                        <BuyTicket Customer="@Customer"
+                                   Event="@Event"
+                                   Id="@Id"
+                                   modalRef="@modalRef" />
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
+        }
+                else
+                {
+                    //TODO error/modal/alert to please log in 
+                }
 
-}
-else
-{
-    <p>No Event found</p>
-}
 
+
+    }
+    else
+    {
+        <p>No Event found</p>
+    }
+</div>
 
 @code {
     [Parameter]
     public int Id { get; set; }
-
     public EventDto Event { get; set; }
-
     private string eventStatus { get; set; }
+
+    public CustomerWithTicketsDto Customer { get; set; }
 
     // reference to the modal component
     private Modal modalRef;
@@ -137,7 +124,14 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        Event = await _service.GetEventByIdAsync(Id);
+        Event = await _eventService.GetEventByIdAsync(Id);
+
+        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+        if (JsonUser != null)
+        {
+            var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            Customer = await _customerService.GetCustomerByIdAsync(loggedInUser.Id);
+        }
     }
 
     private int CountTotalTicketsLeft()
@@ -153,7 +147,6 @@ else
 
     private async Task NavigateBasedOnLoggedIn()
     {
-       
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
 
         if (JsonUser != null )
@@ -163,21 +156,6 @@ else
         else
         {
             navigationManager.NavigateTo("/login");
-        }
-    }
-
-    public async Task<bool> IsUserLoggedIn()
-    {
-        var JsonUser = "";
-        JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-
-        if (JsonUser == "")
-        {
-            return false;
-        }
-        else
-        {
-            return true;
         }
     }
 
