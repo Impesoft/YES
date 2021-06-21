@@ -18,6 +18,7 @@ namespace YES.Mobile.Services
         private HttpResponseMessage message;
         public string LoggedInUserJson { get; set; }
         private HttpClient _http;
+
         public AccountService()
         {
             HttpClientHandler handler = new HttpClientHandler();
@@ -28,10 +29,9 @@ namespace YES.Mobile.Services
 
         public async Task LogIn(LoginDto logindto)
         {
-
             string logindtoJson = JsonConvert.SerializeObject(logindto);
             StringContent myStringContent = new StringContent(logindtoJson.ToString(), Encoding.UTF8, "application/json");
-            
+
             //message = await _http.PostAsync("https://yesapi.azurewebsites.net/api/Account/Login", myStringContent);
             //HttpResponseHeader.SetCookie(new (_loggedInUser);
             message = _http.PostAsync("https://yesapi.azurewebsites.net/api/Account/Login", myStringContent).GetAwaiter().GetResult();
@@ -40,33 +40,28 @@ namespace YES.Mobile.Services
             LoggedInUserJson = await message.Content.ReadAsStringAsync();
 
             // store userjson
-        
-            File.WriteAllText(GlobalVariables.FileName, LoggedInUserJson);
-            //example load user
-            string testLoad = File.ReadAllText(GlobalVariables.FileName);
-            
-            if (LoggedInUserJson != null)
-            {              
-                GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
-            }           
+            if (LoggedInUserJson != "Invalid input")
+            {
+                File.WriteAllText(GlobalVariables.FileName, LoggedInUserJson);
+
+                if (LoggedInUserJson != null)
+                {
+                    GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
+                }
+            }
         }
 
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
         {
-
             //   var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
             var content = await _http.GetStringAsync("api/TicketCustomer/IncludeTickets/" + id);
             return JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
-
         }
-
 
         public UserTokenDto GetLoggedInUser()
         {
             return LoggedInUser;
         }
-
-    
 
         //responseString
     }

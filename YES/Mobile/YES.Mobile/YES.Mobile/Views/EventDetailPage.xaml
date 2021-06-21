@@ -9,6 +9,7 @@
 
     <ContentPage.Content
         x:DataType="local:EventDetailViewModel">
+        <ScrollView>
         <StackLayout VerticalOptions="StartAndExpand" >
             <Label Text="Event Detail Page"
                    FontSize="36"/>
@@ -46,5 +47,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
