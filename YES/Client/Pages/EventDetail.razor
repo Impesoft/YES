@@ -1,5 +1,7 @@
 @page "/EventDetail/{Id:int}"
 @inject IEventService _service
+@inject IJSRuntime JSRuntime
+@inject NavigationManager navigationManager
 
 @if (Event != null)
 {
@@ -11,7 +13,7 @@
             <h3>@Event.EventInfo.Name</h3>
         </div>
     </div>
-    
+
     <section>
         <h5 class="event-date-line event-date">
             @if (Event.EventInfo.EventDate > DateTime.MinValue)
@@ -45,11 +47,11 @@
                 </span>
             }
         </h5>
-        
+
         <div class="row">
             <div class="col-xl-4">
                 <p>@Event.EventInfo.Description</p>
-                 <p>Tickets left: @CountTotalTicketsLeft() </p>
+                <p>Tickets left: @CountTotalTicketsLeft() </p>
             </div>
             <div class="col-xl-3">
                 <h5>@Event.Venue.Name</h5>
@@ -71,7 +73,7 @@
                     }
                     else
                     {
-                        <a href="/TicketPurchase/@Event.Id" class="btn btn-warning float-end">Tickets</a>
+                        <a href="" @onclick="NavigateBasedOnLoggedIn" class="btn btn-warning float-end">Tickets</a>
                     }
                 }
                 <Button Clicked="@ShowModal" class="btn btn-warning float-end">Show Modal</Button>
@@ -79,7 +81,7 @@
             </div>
         </div>
     </section>
-    
+
     <Modal @ref="modalRef">
         <ModalContent Centered="true">
             <ModalHeader>
@@ -115,11 +117,11 @@ else
 @code {
     [Parameter]
     public int Id { get; set; }
-    
+
     public EventDto Event { get; set; }
-    
+
     private string eventStatus { get; set; }
-    
+
     // reference to the modal component
     private Modal modalRef;
 
@@ -147,6 +149,36 @@ else
         }
 
         return totalTickets;
+    }
+
+    private async Task NavigateBasedOnLoggedIn()
+    {
+       
+        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+
+        if (JsonUser != null )
+        {
+            navigationManager.NavigateTo($"/TicketPurchase/{Event.Id}");
+        }
+        else
+        {
+            navigationManager.NavigateTo("/login");
+        }
+    }
+
+    public async Task<bool> IsUserLoggedIn()
+    {
+        var JsonUser = "";
+        JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+
+        if (JsonUser == "")
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
 }
