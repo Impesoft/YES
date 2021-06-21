@@ -1,0 +1,47 @@
+﻿@using Newtonsoft.Json;
+@inject IJSRuntime JSRuntime
+@inject IAccountService _accountService
+@inject NavigationManager navigationManager
+
+
+@if (Customer == null)
+{
+    <a href="login" class="nav-link active" aria-current="page">Log In</a>    
+}
+else
+{
+    <span class="nav-link text-light d-inline-flex">
+        <a href="customerdetail" class="nav-link text-warning">Welkom @Customer.Email</a>
+        <a class="nav-link active" aria-current="page" @onclick="LogOut">Log Out</a>
+    </span>
+}
+
+
+@code {
+
+    private UserTokenDto Customer { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await SetCustomer();
+    }
+
+
+    private async Task LogOut()
+    {
+        await JSRuntime.InvokeAsync<string>("localStorage.removeItem", "user");
+        _accountService.LogOut();
+        Customer = null;
+        navigationManager.NavigateTo("/");
+    }
+
+    public async Task SetCustomer()
+    {
+        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+        Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+    }
+
+
+
+
+}

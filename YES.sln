@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YES.Mobile.Android", "YES\Mobile\YES.Mobile\YES.Mobile.Android\YES.Mobile.Android.csproj", "{43F4EDD8-5564-4237-ABCA-410E1AC4D231}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YES.Mobile", "YES\Mobile\YES.Mobile\YES.Mobile\YES.Mobile.csproj", "{C7F021FA-C0D3-443D-BDB6-BBB413403CD2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C7AAA29A-92C7-4BD7-85AD-B7E0B17D24A1} = {C7AAA29A-92C7-4BD7-85AD-B7E0B17D24A1}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YES.Api", "YES.API\YES.Api.csproj", "{1DF46D90-FBB8-423A-9F58-F57A1DCFC697}"
 EndProject

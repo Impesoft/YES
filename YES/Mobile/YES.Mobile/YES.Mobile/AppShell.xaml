@@ -78,14 +78,17 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="Events" Icon="icon_feed.png">
-        <ShellContent Route="Events" ContentTemplate="{DataTemplate local:Events}" />
+    <FlyoutItem Title="Calendar" Icon="icon_feed.png">
+        <ShellContent Route="CalendarPage" ContentTemplate="{DataTemplate local:CalendarPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="About" Icon="icon_about.png">
+    <FlyoutItem Title="User Settings" Icon="icon_about.png">
+        <ShellContent Route="UserDetailPage" ContentTemplate="{DataTemplate local:UserDetailPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="My tickets" Icon="icon_feed.png">
+        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:UserTicketsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="About" Icon="icon_feed.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Browse" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
@@ -101,6 +104,7 @@
     -->
     <TabBar>
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+        <!--<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />-->
     </TabBar>
 
     <!-- Optional Templates
