@@ -17,7 +17,6 @@
                 <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="Large">Upcoming Events</Label>
             </StackLayout>
 
-            <!--<Button Text="Load Events" Clicked="Button_Clicked" />-->
             <CollectionView x:Name="ListOfEvents"
                             ItemsSource="{Binding Events}"
                             HorizontalOptions="Center">
