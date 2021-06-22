@@ -7,7 +7,7 @@
 
 
 <div class="page-bg">
-    @if (Event?.Id > 0  )
+    @if (Event?.Id > 0)
     {
 
         <div class="py-5 banner-wrapper">
@@ -29,7 +29,7 @@
                     @:To Be Announced
                 }
                 <EventStatus Event="@Event"
-                             eventStatus="@eventStatus" />
+                             eventStatus="@eventStatus"/>
             </h5>
 
             <div class="row">
@@ -65,7 +65,7 @@
                             {
                                 <button class="btn btn-warning float-end" @onclick="@NavigateToLogin">Tickets</button>
                             }
-                            
+
                         }
                     }
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
@@ -80,14 +80,14 @@
             <Modal @ref="modalRef">
                 <ModalContent Centered="true" Class="bg-dark text-light">
                     <ModalHeader>
-                        <ModalTitle>@Event.EventInfo.Name <br /> @Event.EventInfo.EventDate</ModalTitle>
-                        <CloseButton Class="close-btn btn" />
+                        <ModalTitle>@Event.EventInfo.Name <br/> @Event.EventInfo.EventDate</ModalTitle>
+                        <CloseButton Class="close-btn btn"/>
                     </ModalHeader>
                     <ModalBody>
                         <BuyTicket Customer="@Customer"
                                    Event="@Event"
                                    Id="@Id"
-                                   modalRef="@modalRef" />
+                                   modalRef="@modalRef"/>
                     </ModalBody>
                 </ModalContent>
             </Modal>
