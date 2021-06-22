@@ -2,30 +2,87 @@
 @inject IJSRuntime JSRuntime
 @inject IAccountService _accountService
 @inject NavigationManager navigationManager
+@using YES.Shared.Enums
 
+<div>
+    @if (Customer == null)
+    {
+        @*<a href="login" class="nav-link active" aria-current="page">Log In</a>*@
+        <i class="fas fa-sign-in-alt" @onclick="@ShowLoginModal"></i>
+    }
+    else
+    {
+            @*<a href="customerdetail" class="nav-link text-warning">Welkom @Customer.Email</a>*@
+            <a href="customerdetail" class="nav-link text-warning">Welkom @Customer.FirstName</a>
+            @*<a class="nav-link active" aria-current="page" @onclick="LogOut">Log Out</a>*@
+            <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
+    }
 
-@if (Customer == null)
-{
-    <a href="login" class="nav-link active" aria-current="page">Log In</a>    
-}
-else
-{
-    <span class="nav-link text-light d-inline-flex">
-        <a href="customerdetail" class="nav-link text-warning">Welkom @Customer.Email</a>
-        <a class="nav-link active" aria-current="page" @onclick="LogOut">Log Out</a>
-    </span>
-}
-
+    <Modal @ref="loginModal">
+        <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.Small">
+            <ModalHeader>
+                <ModalTitle>Log In</ModalTitle>
+                <CloseButton Class="close-btn btn" />
+            </ModalHeader>
+            <ModalBody>
+                <Login LoginInfo="@LoginInfo" LogIn="@(() => LogIn())" />
+                <div>
+                    No account yet? Register <span class="open-register-modal" @onclick="@ShowRegisterModal">here</span>.
+                </div>
+            </ModalBody>
+            @* <ModalFooter> *@
+            @*     <Button class="btn btn-outline-success mt-1" Clicked="@LogIn">Log In</Button> *@
+            @* </ModalFooter> *@
+        </ModalContent>
+    </Modal>
+    
+    <Modal @ref="registerModal">
+        <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.ExtraLarge">
+            <ModalHeader>
+                <ModalTitle>Register</ModalTitle>
+                <CloseButton Class="close-btn btn" />
+            </ModalHeader>
+            <ModalBody>
+                <Register RegisterInfo="@RegisterInfo" />
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Primary" Clicked="@RegisterUser">Register</Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
+</div>
 
 @code {
 
     private UserTokenDto Customer { get; set; }
+    private LoginDto LoginInfo { get; set; } = new();
+    private RegisterDto RegisterInfo { get; set; } = new();
+    private bool RegisterSuccessful { get; set; }
+    
+    // reference to the modal components
+    private Modal loginModal;
+    private Modal registerModal;
 
     protected override async Task OnInitializedAsync()
     {
         await SetCustomer();
     }
-
+    
+    private void ShowLoginModal()
+    {
+        loginModal.Show();
+    }   
+    
+    private void HideLoginModal()
+    {
+        loginModal.Hide();
+    } 
+    
+    private void ShowRegisterModal()
+    {
+        HideLoginModal();
+        registerModal.Show();
+    }
 
     private async Task LogOut()
     {
@@ -38,10 +95,27 @@ else
     public async Task SetCustomer()
     {
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+        if (JsonUser != null) Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
     }
+    
+    private async Task LogIn()
+    {
+        //check with form validation
+        var loggedInUserJson = await _accountService.LogIn(LoginInfo);
 
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+        navigationManager.NavigateTo("/", true);
+    }
+    
+    private async Task RegisterUser()
+    {
+        RegisterInfo.Role = Roles.TicketCustomer;
+        var isSuccess = await _accountService.RegisterUser(RegisterInfo);
 
-
-
+        if (isSuccess)
+        {
+            RegisterSuccessful = true;
+        }
+    //TODO MORE RESPONSE MESSAGES
+    }
 }
