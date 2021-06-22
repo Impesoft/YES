@@ -23,7 +23,7 @@
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
                 <Label Text="{Binding LocalUser}" HorizontalOptions="Center" TextColor="PaleVioletRed" FontSize="Large" />
-                <Label Text="{Binding ExpiryDate}" HorizontalOptions="Center" TextColor="PaleVioletRed" FontSize="Large" />
+                <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="PaleVioletRed" FontSize="Large" />
                 <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="PaleVioletRed" FontSize="Large">Your Event Services</Label>
                 <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
             </StackLayout>
