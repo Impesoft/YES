@@ -121,3 +121,8 @@ section {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--dark-light);
 }
+
+.error-message {
+    color: var(--red);
+    margin: 2rem 0;
+}
