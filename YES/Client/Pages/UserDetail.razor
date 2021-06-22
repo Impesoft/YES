@@ -1,73 +1,78 @@
 ﻿@page "/CustomerDetail"
 @inject ICustomerService customerService
+@inject IAccountService accountService
+@inject IJSRuntime JSRuntime
 
 <div class="page-bg">
-
-    @if (Customer != null)
-    {
-
     <section>
-        <div class="mb-4">
-            <input @bind="LoggedInCustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(LoggedInCustomerId)">Set Current User</button>
-        </div>
-
-        <h3 class="mb-4">Customer Form</h3>
-        <div class="mb-4">
-            @if (Customer != null)
-            {
-                <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
-            }
-        </div>
-
-        @if (EditSuccesful == true)
+        @if (Customer != null)
         {
-            <div class="mt-5 alert alert-warning">
-                @Customer.FirstName succesfully edited.
+            @*<div class="mb-4">
+                    <input @bind="LoggedInCustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(LoggedInCustomerId)">Set Current User</button>
+                </div>*@
+
+            <h3 class="mb-4">Customer Form</h3>
+            <div class="mb-4">
+                @if (Customer != null)
+                {
+                    <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
+                }
             </div>
-        }
 
-
-        <hr />
-        <h3 class="mb-3">Ticket List</h3>
-        @if (Tickets != null)
-        {
-            <div class="row mb-4 ticket-overview-header">
-                <div class="col">
-                    Purchased On
-                </div>
-                <div class="col">
-                    Event Date
-                </div>
-                <div class="col">
-                    Category
-                </div>
-                <div class="col">
-                    Price
-                </div>
-
-                <div class="col">
-                    Event Name
-                </div>
-                <div class="col">
-                    Event Location
-                </div>
-
-            </div>
-            @foreach (var ticket in Customer.Tickets)
+            @if (EditSuccesful == true)
             {
-                <div class="row ticket-item">
-                    <TicketOverview Ticket="ticket"></TicketOverview>
+                <div class="mt-5 alert alert-warning">
+                    @Customer.FirstName succesfully edited.
                 </div>
-
             }
 
+
+            <hr />
+            <h3 class="mb-3">Ticket List</h3>
+            @if (Tickets != null)
+            {
+                <div class="row mb-4 ticket-overview-header">
+                    <div class="col">
+                        Purchased On
+                    </div>
+                    <div class="col">
+                        Event Date
+                    </div>
+                    <div class="col">
+                        Category
+                    </div>
+                    <div class="col">
+                        Price
+                    </div>
+
+                    <div class="col">
+                        Event Name
+                    </div>
+                    <div class="col">
+                        Event Location
+                    </div>
+
+                </div>
+                @foreach (var ticket in Customer.Tickets)
+                {
+                    <div class="row ticket-item">
+                        <TicketOverview Ticket="ticket"></TicketOverview>
+                    </div>
+
+                }
+
+            }
         }
+        else
+        {
+            <p> No Customer Found</p>
+        }
+
     </section>
 
-    }
-    
+
 </div>
-            
+
 
 @code {
     [Parameter]
@@ -75,15 +80,16 @@
 
     public List<TicketDto> Tickets { get; set; }
 
-    public int LoggedInCustomerId { get; set; }
-
     public bool EditSuccesful { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
         EditSuccesful = false;
-        LoggedInCustomerId = customerService.GetLoggedInUser();
-        Customer = await customerService.GetCustomerByIdAsync(LoggedInCustomerId);
+
+        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+        var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+
+        Customer = await customerService.GetCustomerByIdAsync(loggedInUser.Id);
         Tickets = Customer.Tickets.ToList();
     }
 

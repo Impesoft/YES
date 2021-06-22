@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 using YES.Api.Data.Database;
 using YES.Api.Data.Entities;
@@ -24,17 +25,16 @@ namespace YES.Api.Data.Repos
                                  .Include(x => x.Tickets)
                                  .ThenInclude(x => x.Event)
                                  .ThenInclude(x => x.Venue)
-                                 .ThenInclude(x => x.Address) 
+                                 .ThenInclude(x => x.Address)
                                  .FirstOrDefaultAsync(x => x.Id == id);
-
         }
 
         public override async Task<bool> DeleteEntityAsync(int id)
         {
             TicketCustomer customer = await _context.TicketCustomers
-                                     .Include(x => x.Address) 
-                                     .FirstOrDefaultAsync(x => x.Id ==id);
-            if (customer!= null)
+                                     .Include(x => x.Address)
+                                     .FirstOrDefaultAsync(x => x.Id == id);
+            if (customer != null)
             {
                 if (customer.Address != null)
                 {
@@ -44,12 +44,22 @@ namespace YES.Api.Data.Repos
                 await _context.SaveChangesAsync();
                 return true;
             }
-            return false;           
+            return false;
         }
+
         public virtual async Task<TicketCustomer> GetTicketCustomerByEmailAsync(string email)
         {
             return await _context.TicketCustomers.SingleOrDefaultAsync(x => x.Email == email);
         }
 
+        public override async Task<bool> UpdateEntityAsync(TicketCustomer entity)
+        {
+            _context.Update(entity);
+            _context.Entry(entity).Property(p => p.PasswordHash).IsModified = false;
+            _context.Entry(entity).Property(p => p.PasswordSalt).IsModified = false;
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

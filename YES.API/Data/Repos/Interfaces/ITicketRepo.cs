@@ -7,6 +7,7 @@ namespace YES.Api.Data.Repos
 {
     public interface ITicketRepo : IGenericRepo<Ticket>
     {     
-        Task<IEnumerable<Ticket>> GetTicketsForEvent(int eventId);       
+        Task<IEnumerable<Ticket>> GetTicketsForEvent(int eventId);
+        int GetCountOfTicketsForEvent(int eventId, int categoryId);
     }
 }

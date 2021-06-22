@@ -12,6 +12,7 @@ namespace YES.Api.Business.Services
     public class TokenService : ITokenService
     {
         private readonly SymmetricSecurityKey _key;
+
         public TokenService(IConfiguration config)
         {
             _key = new SymmetricSecurityKey(
@@ -32,7 +33,7 @@ namespace YES.Api.Business.Services
             var tokenDescription = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
+                Expires = DateTime.Now.AddMinutes(7),
                 SigningCredentials = creds
             };
 

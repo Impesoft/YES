@@ -1,0 +1,30 @@
+﻿.btn-add-remove {
+    height: 40px;
+    width: 40px;
+}
+
+i {
+    color: var(--grey);
+}
+
+td {
+    vertical-align: middle;
+}
+
+@media (max-width: 730px) {
+    td {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 540px) {
+    td {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 374px) {
+    .amount {
+        display: none;
+    }
+}

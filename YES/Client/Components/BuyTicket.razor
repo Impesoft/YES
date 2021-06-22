@@ -1,0 +1,218 @@
+﻿@using System.Security.Cryptography
+@inject ITicketService _ticketService
+
+@if (Event != null)
+    {
+        <table class="table table-dark table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+                <th scope="col" class="amount text-end">Available</th>
+                <th scope="col" class="text-end">Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var priceCategory in Event.TicketCategories)
+                {
+                    <tr>
+                        <td>@priceCategory.Name</td>
+                        <td>€ @priceCategory.Price</td>
+                        <td class="amount text-end">@priceCategory.AvailableAmount</td>
+                        <td class="text-end">
+                            <button type="button"
+                                    class="btn btn-add-remove"
+                                    @onclick="() => AddTicketToPurchasingList(priceCategory)">
+                                <i class="far fa-plus-square"></i>
+                            </button>
+                            <button type="button"
+                                    class="btn btn-add-remove"
+                                    @onclick="() => RemoveTicketFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
+                                <i class="far fa-minus-square"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+        <div class="row mt-4">
+            <div class="col">
+                <p class="mt-3">Total Price: € @Math.Round(TotalPrice, 2)</p>
+            </div>
+            <div class="col">
+                <p class="mt-3">Total Tickets: @AmountOfTicketsToPurchase</p>
+            </div>
+
+        </div>
+        <div class="row mt-4">
+            <button type="button" class="btn btn-outline-danger mt-3" @onclick="() => ClearPurchaseList()">Cancel</button>
+             @if (TicketsPurchasingList.Any())
+             {
+                 <button type="button" class="btn btn-warning mt-3" @onclick="() => PurchaseTickets()">Order Tickets!</button>
+             }
+             else
+             {
+                 <button type="button" class="btn btn-warning mt-3" disabled>No Tickets added</button>
+             }
+            
+        </div>
+
+        @if (PurchaseSuccessful == true)
+        {
+            <div class="mt-5 alert alert-warning">
+                @Customer.FirstName succesfully ordered @CountTotalTickets() @if (CountTotalTickets() > 1)
+                                                                             {
+                                                                                 @: tickets
+                                                                             }
+                                                                             else
+                                                                             {
+                                                                                 @: ticket
+                                                                             }
+                                                                                 
+                                                                              for €@Math.Round(TotalPrice, 2) !
+            </div>
+        }
+    
+        
+}
+else
+{
+    <p>No events found.</p>
+}
+
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    [Parameter]
+    public EventDto Event { get; set; }
+    [Parameter]
+    public CustomerWithTicketsDto Customer { get; set; }
+    [Parameter]
+    public Modal modalRef { get; set; }
+
+    private double TotalPrice { get; set; }
+    private int AmountOfTicketsToPurchase { get; set; }
+    private bool PurchaseSuccessful { get; set; } = false;
+    private List<TicketPurchaseDto> TicketsPurchasingList { get; set; } = new();
+
+
+    private void AddTicketToPurchasingList(TicketCategoryDto ticketCategory)
+    {
+        PurchaseSuccessful = false;
+
+        if (TicketsPurchasingList.Any())
+        {
+            bool itemFound = false;
+            foreach (var item in TicketsPurchasingList)
+            {
+                if (ticketCategory.Id == item.TicketCategory.Id)
+                {
+                    item.Amount++;
+                    itemFound = true;
+                    ticketCategory.AvailableAmount--;
+                }
+            }
+
+            if (!itemFound)
+            {
+                var newTicket = CreateTicket(ticketCategory);
+                TicketsPurchasingList.Add(newTicket);
+                ticketCategory.AvailableAmount--;
+            }
+        }
+        else
+        {
+            var newTicket = CreateTicket(ticketCategory);
+            TicketsPurchasingList.Add(newTicket);
+            ticketCategory.AvailableAmount--;
+        }
+
+        TotalPrice = CalculateTotalPrice();
+        AmountOfTicketsToPurchase = CountTotalTickets();
+
+    }
+
+    private void RemoveTicketFromPurchaseList(TicketPurchaseDto ticket)
+    {
+        if (ticket != null)
+        {
+            if (ticket.Amount > 1)
+            {
+                ticket.Amount--;
+                Event.TicketCategories.FirstOrDefault(x=>x.Id == ticket.TicketCategory.Id).AvailableAmount++;
+            }
+            else if (ticket.Amount == 1)
+            {
+                TicketsPurchasingList.Remove(ticket);
+                Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount++;
+            }
+
+            TotalPrice = CalculateTotalPrice();
+            AmountOfTicketsToPurchase = CountTotalTickets();
+        }
+
+    }
+
+    private void ClearPurchaseList()
+    {
+        foreach (var ticket in TicketsPurchasingList)
+        {     
+            Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount += ticket.Amount;
+        }
+
+        TotalPrice = 0;
+        TicketsPurchasingList.Clear();
+        PurchaseSuccessful = false;
+        AmountOfTicketsToPurchase = 0;
+        modalRef.Hide();
+    }
+
+    private void PurchaseTickets()
+    {
+        if (TicketsPurchasingList != null)
+        {
+            _ticketService.AddNewTicketsAsync(TicketsPurchasingList);
+
+            PurchaseSuccessful = true;
+        }
+
+    }
+
+    private TicketPurchaseDto CreateTicket(TicketCategoryDto categoryDto)
+    {
+        return  new TicketPurchaseDto
+        {
+            TicketCustomerId = Customer.Id,
+            EventId = Event.Id,
+            TicketCategory = categoryDto,
+            Amount = 1
+
+        };
+    }
+
+    private double CalculateTotalPrice()
+    {
+        double price = 0;
+        foreach (var item in TicketsPurchasingList)
+        {
+            price += (item.TicketCategory.Price * item.Amount);
+        }
+
+        return price;
+    }
+
+    private int CountTotalTickets()
+    {
+        int amount = 0;
+        foreach (var item in TicketsPurchasingList)
+        {
+            amount += item.Amount;
+        }
+
+        return amount;
+    }
+
+}
