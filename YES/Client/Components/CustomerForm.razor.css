@@ -1,0 +1,13 @@
+﻿body {
+}
+
+
+.error-message {
+    color: var(--red);
+    margin: 2rem 0;
+}
+
+.v-align {
+    vertical-align: central;
+    
+}

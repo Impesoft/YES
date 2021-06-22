@@ -2,9 +2,9 @@
 
 <EditForm Model="Customer" OnValidSubmit="OnSubmit">
     <DataAnnotationsValidator />
-    <div>
-        <label class="row">
-            <div class="col-xl-2">
+    
+        <div class="row">
+            <div class="col-xl-2 v-align">
                 Name:
             </div>
             <div class="col-xl-5">
@@ -15,10 +15,9 @@
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.LastName"></InputText>
                 <span class="error-message"><ValidationMessage For="() => Customer.LastName" /></span>
             </div>            
-        </label>
-    </div>
-    <div>
-        <label class="row">
+        </div>
+   
+        <div class="row">
             <div class="col-xl-2">
                 Contact:
             </div>
@@ -31,10 +30,9 @@
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Email"></InputText>
                 <span class="error-message"><ValidationMessage For="() => Customer.Email" /></span>
             </div>
-        </label>    
-    </div>
-    <div>
-        <label class="row">
+        </div>    
+   
+        <div class="row">
             <div class="col-xl-2">
                 Bank Account:
 
@@ -43,10 +41,9 @@
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.BankAccount" placeholder="ex. BE70 5560 1278 7078"></InputText>
                 <span class="error-message"><ValidationMessage For="() => Customer.BankAccount" /></span>
             </div>            
-        </label>        
-    </div>
-    <div>
-        <label class="row">
+        </div>        
+   
+        <div class="row">
             <div class="col-xl-2">
                 Address:
             </div>
@@ -58,11 +55,9 @@
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.StreetNumber"></InputText>
                 <span class="error-message"><ValidationMessage For="() => Customer.Address.StreetNumber" /></span>
             </div>
-        </label>
-        
-    </div>
-    <div>
-        <label class="row">
+        </div>
+    
+        <div class="row">
             <div class="col-xl-2">
             </div>
             <div class="col-xl-3">
@@ -77,13 +72,8 @@
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.Country"></InputText>
                 <span class="error-message"><ValidationMessage For="() => Customer.Address.Country" /></span>
             </div>
-        </label>
-
-    </div>
-    <div>
+        </div>
         <button type="submit" class="btn btn-outline-warning">Save</button>
-    </div>
-
 
 </EditForm>
 
