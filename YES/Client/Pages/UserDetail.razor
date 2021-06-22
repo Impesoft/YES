@@ -7,16 +7,9 @@
     <section>
         @if (Customer != null)
         {
-            @*<div class="mb-4">
-                    <input @bind="LoggedInCustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(LoggedInCustomerId)">Set Current User</button>
-                </div>*@
-
             <h3 class="mb-4">Customer Form</h3>
-            <div class="mb-4">
-                @if (Customer != null)
-                {
-                    <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
-                }
+            <div class="mb-4">                
+                    <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>                
             </div>
 
             @if (EditSuccesful == true)
@@ -75,34 +68,62 @@
 
 
 @code {
-    [Parameter]
-    public CustomerWithTicketsDto Customer { get; set; }
+        [Parameter]
+        public CustomerWithTicketsDto Customer { get; set; }
 
-    public List<TicketDto> Tickets { get; set; }
+        public List<TicketDto> Tickets { get; set; }
 
-    public bool EditSuccesful { get; set; }
+        public bool EditSuccesful { get; set; }
 
-    protected async override Task OnInitializedAsync()
-    {
-        EditSuccesful = false;
+        protected async override Task OnInitializedAsync()
+        {
+            EditSuccesful = false;
 
-        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
+            var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
 
-        Customer = await customerService.GetCustomerByIdAsync(loggedInUser.Id);
-        Tickets = Customer.Tickets.ToList();
-    }
+            Customer = await customerService.GetCustomerByIdAsync(loggedInUser.Id);
 
-    private async Task GetUserWithId(int id)
-    {
-        EditSuccesful = false;
-        Customer = await customerService.GetCustomerByIdAsync(id);
-    }
+            TurnNullFieldsToEmptyString();
 
-    private async Task UpdateCustomer()
-    {
-        EditSuccesful = true;
-        await customerService.UpdateCustomer(Customer);
-    }
+            if (Customer.Tickets.Any())
+            {
+                Tickets = Customer.Tickets.ToList();
+            }
+        }
+
+        private async Task GetUserWithId(int id)
+        {
+            EditSuccesful = false;
+            Customer = await customerService.GetCustomerByIdAsync(id);
+        }
+
+        private async Task UpdateCustomer()
+        {
+            EditSuccesful = true;
+            await customerService.UpdateCustomer(Customer);
+        }
+
+
+        private void TurnNullFieldsToEmptyString()
+        {
+            if (Customer.FirstName == null)     Customer.FirstName = "";
+            if (Customer.LastName == null)      Customer.LastName = "";
+            if (Customer.Email == null)         Customer.Email = "";
+            if (Customer.BankAccount == null)   Customer.BankAccount = "";
+            if (Customer.PhoneNumber == null)   Customer.PhoneNumber = "";
+            if (Customer.Address == null)
+            {
+                Customer.Address =  new AddressDto
+                {
+                    Id = 0,
+                    City = "",
+                    Country = "",
+                    PostalCode = "",
+                    Street ="",
+                    StreetNumber=""
+                };
+            }
+        }
 
 }
