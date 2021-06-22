@@ -1,0 +1,18 @@
+﻿i {
+    color: var(--white);
+    cursor: pointer;
+}
+
+::deep .close-btn {
+    color: var(--white);
+    font-size: 2rem;
+}
+
+::deep .modal-header, ::deep .modal-footer{
+    border: none;
+}
+
+.open-register-modal {
+    color: var(--light-blue);
+    cursor: pointer;
+}

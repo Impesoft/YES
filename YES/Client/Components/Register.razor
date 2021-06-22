@@ -1,0 +1,43 @@
+﻿<Tabs SelectedTab="@SelectedTab" SelectedTabChanged="@OnSelectedTabChanged">
+    <Items>
+        <Tab Name="customer">Customer</Tab>
+        <Tab Name="provider">Provider</Tab>
+    </Items>
+    <Content>
+        <TabPanel Name="customer">
+            <EditForm Model="@RegisterInfo">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control mt-1" placeholder="First Name" type="email" @bind="RegisterInfo.FirstName" />
+                    </div>
+                    <div class="col">
+                        <input class="form-control mt-1" placeholder="Last Name" type="email" @bind="RegisterInfo.LastName" />
+                    </div>
+                </div>
+                <div>
+                    <input class="form-control mt-1" placeholder="Email" type="email" @bind="RegisterInfo.Email" />
+                </div>
+                <div>
+                    <input class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterInfo.Password" />
+                </div>
+                @* <button class="btn btn-outline-success mt-1" @onclick="RegisterUser" type="button">Register</button> *@
+            </EditForm>
+        </TabPanel>
+        <TabPanel Name="provider">
+            Content for profile.
+        </TabPanel>
+
+    </Content>
+</Tabs>
+
+@code{
+    [Parameter]
+    public RegisterDto RegisterInfo { get; set; }
+    
+    private string SelectedTab { get; set; } = "customer";
+
+    private void OnSelectedTabChanged( string name )
+    {
+        SelectedTab = name;
+    }
+}
