@@ -28,9 +28,9 @@ namespace YES.Mobile.Services
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(UserTokenDto loggedInUser)
         {
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loggedInUser.Token);
-            var content = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + loggedInUser.Id);
-            var test = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
-            return test;
+            var loggedInUserWithTicketJson = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + loggedInUser.Id);
+            var loggedInUserWithTicket = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(loggedInUserWithTicketJson);
+            return loggedInUserWithTicket;
         }
 
         public UserTokenDto GetLoggedInUser()
