@@ -33,7 +33,7 @@ namespace YES.Api.Business.Services
             var tokenDescription = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddMinutes(7),
+                Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = creds
             };
 
