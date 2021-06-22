@@ -37,14 +37,18 @@ namespace YES.Api.Business.Services
                     throw new InvalidOperationException("Role was not valid");
 
                 case Roles.TicketCustomer:
-                    TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
+                    TicketCustomer ticketCustomer = CreateTicketCustomer(dto);                    
                     await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
-                    return CreateUserTokenDto(ticketCustomer);
+                    UserTokenDto customer = CreateUserTokenDto(ticketCustomer);
+                    customer.FirstName = dto.FirstName;
+                    return customer;
 
                 case Roles.TicketProvider:
-                    TicketProvider ticketProvider = CreateTicketProvider(dto);
+                    TicketProvider ticketProvider = CreateTicketProvider(dto);                    
                     await _ticketProviderRepo.AddEntityAsync(ticketProvider);
-                    return CreateUserTokenDto(ticketProvider);
+                    UserTokenDto provider = CreateUserTokenDto(ticketProvider);
+                    provider.NameProvider = dto.NameProvider;
+                    return provider;
 
                 case Roles.Admin:
 
@@ -85,7 +89,7 @@ namespace YES.Api.Business.Services
                 Id = user.Id,
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
-                Role = user.Role
+                Role = user.Role                
             };
         }
 
