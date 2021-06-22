@@ -1,0 +1,26 @@
+﻿.logo {
+    margin: 0;
+    padding: 0;
+    width: 50px;
+}
+
+.navbar-brand > img {
+    width: 50px;
+}
+
+.navbar-container {
+    max-width: 80vw;
+}
+
+header, nav {
+    max-width: 100vw;
+    height: 4rem;
+}
+
+nav {
+    box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
+}
+
+.bg-dark {
+    background: var(--test-dark);
+}

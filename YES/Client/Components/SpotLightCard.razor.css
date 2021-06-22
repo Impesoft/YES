@@ -1,0 +1,43 @@
+﻿.card {
+    width: 18rem;
+    margin: 40px auto;
+}
+
+.card-body a {
+    text-decoration: none;
+    color: var(--light-dark);
+    text-align: center;
+    transition: color .2s ease-in-out;
+}
+
+.card-body:hover mark, .card-body:hover a {
+    color: var(--light-blue);
+}
+
+.card-img-top {
+    height: 150px;
+}
+
+h5 {
+    font-weight: 300;
+}
+
+.card-bg {
+    background: var(--test-dark-dark);
+    box-shadow: 0 0 10px 0 rgba(5, 5, 5, .3);
+}
+
+span {
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+mark {
+    /*background: var(--white);*/
+    background: var(--test-dark-dark);
+    transition: color .2s ease-in-out;
+    color: var(--white);
+    padding: 5px;
+    box-shadow: 1px 3px 5px 0px rgb(5, 5, 5, .3);
+}

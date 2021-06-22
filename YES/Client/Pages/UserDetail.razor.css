@@ -1,0 +1,12 @@
+﻿.page-bg {
+    background-image: url("images/page-bg4.jpg");
+}
+
+.ticket-overview-header {
+    color: peachpuff ;
+}
+
+.ticket-item {
+    font-size: 0.75rem;
+    min-height: 1.5rem;
+}

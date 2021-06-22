@@ -1,0 +1,14 @@
+﻿.page-bg {
+    background-image: url("images/page-bg.jpg");
+}
+
+.card-row {
+    justify-content: space-around;
+}
+
+h3 {
+    color: var(--white);
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(117, 117, 117, .15);
+}

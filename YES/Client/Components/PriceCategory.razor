@@ -1,0 +1,26 @@
+﻿<div class="row">
+    <div class="col">
+        @ticketCategory.Name
+    </div>
+    <div class="col">
+        @ticketCategory.Price
+    </div>
+    <div class="col">
+        <input type="number" class="form-control" />
+    </div>
+
+</div>
+
+@*<tr>
+    <td> @ticketCategory.Name</td>
+    <td> @ticketCategory.Price</td>
+    <td><InputNumber type="number" class="form-control" id="vip" @bind-Value="AmountOfTickets"/></td>
+</tr>*@
+
+@code {
+    [Parameter]
+    public TicketCategoryDto ticketCategory { get; set; }
+
+    [Parameter]
+    public int AmountOfTickets { get; set; }
+}

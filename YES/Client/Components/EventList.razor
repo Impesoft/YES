@@ -1,0 +1,29 @@
+﻿<tr @onclick="() => EventInfo.InvokeAsync(Event)">
+    <td class="display-date">
+        @if (Event.EventInfo.EventDate > DateTime.MinValue)
+        {
+            @Event.EventInfo.EventDate.ToString("dd-MM-yyyy");
+        }
+        else
+        {
+            @:TBA
+        }
+    </td>
+    <td>@Event.EventInfo.Name</td>
+    <td class="display-venue">@Event.Venue.Name</td>
+    <td>
+        <EventStatus Event="@Event"
+                     eventStatus="@eventStatus"/>
+    </td>
+</tr>
+
+
+@code {
+    [Parameter]
+    public EventDto Event { get; set; }
+
+    [Parameter]
+    public EventCallback<EventDto> EventInfo { get; set; }
+
+    private string eventStatus { get; set; }
+}

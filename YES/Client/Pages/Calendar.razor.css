@@ -1,0 +1,43 @@
+﻿.page-bg {
+    background-image: url("images/page-bg2.jpg");
+}
+
+.scrollable {
+    padding: 0 10px;
+    max-height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.head-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.input-group {
+    width: 250px;
+}
+
+@media (max-width: 640px) {
+    .input-group {
+        width: 150px;
+    }
+}
+
+/* width */
+.scrollable::-webkit-scrollbar {
+    width: 5px;
+}
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+    background: var(--dark-dark);
+}
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-light);
+}

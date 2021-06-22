@@ -1,0 +1,87 @@
+﻿
+
+<EditForm Model="Customer" OnSubmit="OnSubmit">
+    <div>
+        <label class="row">
+            <div class="col-xl-2">
+                Name:
+            </div>
+            <div class="col-xl-5">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.FirstName" Label="First Name"></InputText>
+            </div>
+            <div class="col-xl-5">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.LastName"></InputText>
+            </div>            
+        </label>
+    </div>
+    <div>
+        <label class="row">
+            <div class="col-xl-2">
+                Contact:
+            </div>
+            <div class="col-xl-5">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.PhoneNumber"></InputText>
+
+            </div>
+            <div class="col-xl-5">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Email"></InputText>
+            </div>
+        </label>    
+    </div>
+    <div>
+        <label class="row">
+            <div class="col-xl-2">
+                Bank Account:
+
+            </div>
+            <div class="col-xl-10">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.BankAccount"></InputText>
+            </div>            
+        </label>        
+    </div>
+    <div>
+        <label class="row">
+            <div class="col-xl-2">
+                Address:
+            </div>
+            <div class="col-xl-5">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.Street"></InputText>
+            </div>
+            <div class="col-xl-5">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.StreetNumber"></InputText>
+            </div>
+        </label>
+        
+    </div>
+    <div>
+        <label class="row">
+            <div class="col-xl-2">
+            </div>
+            <div class="col-xl-3">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.PostalCode"></InputText>
+            </div>
+            <div class="col-xl-3">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.City"></InputText>
+            </div>
+            <div class="col-xl-4">
+                <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.Country"></InputText>
+            </div>
+        </label>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-outline-warning">Save</button>
+    </div>
+
+
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public CustomerWithTicketsDto Customer { get; set; }
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+    
+}
