@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -46,9 +47,15 @@ namespace YES.Mobile.ViewModels
 
         private ICustomerService _customerService { get; set; }
 
+        private ITicketService _ticketService { get; set; }
+
         public Command<TicketCategoryDto> AddTicketCommand { get; set; }
 
         public Command<TicketCategoryDto> DeductTicketCommand { get; set; }
+
+        public Command ClearPurchaseList { get; set; }
+
+        public Command BuyTickets { get; set; }
 
         private ObservableCollection<TicketPurchaseDto> ticketsPurchasingList;
 
@@ -78,7 +85,18 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public int AmountOfTicketsToPurchase { get; set; }
+        private int amountOfTicketsToPurchase;
+
+        public int AmountOfTicketsToPurchase
+        {
+            get { return amountOfTicketsToPurchase; }
+            set
+            {
+                amountOfTicketsToPurchase = value;
+                OnPropertyChanged(nameof(AmountOfTicketsToPurchase));
+            }
+        }
+
         public bool PurchaseSuccesful { get; set; } = false;
 
         public EventDetailViewModel()
@@ -89,12 +107,17 @@ namespace YES.Mobile.ViewModels
             AddTicketCommand = new Command<TicketCategoryDto>(OnAddTicket);
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
+            ClearPurchaseList = new Command(OnCancelPurchase);
+            BuyTickets = new Command(OnBuyTickets);
+
             LoggedInUser = GlobalVariables.LoggedInUser;
 
             TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
             CalcTotalPrice();
             SetCustomer();
             PurchaseSuccesful = false;
+
+            _ticketService = new TicketService();
         }
 
         public async void LoadEvent()
@@ -194,6 +217,28 @@ namespace YES.Mobile.ViewModels
             }
 
             return amount;
+        }
+
+        private void OnCancelPurchase()
+        {
+            LoadEvent();
+            TotalPrice = 0;
+            TicketsPurchasingList.Clear();
+            PurchaseSuccesful = false;
+        }
+
+        private async void OnBuyTickets()
+        {
+            if (TicketsPurchasingList != null)
+            {
+                HttpResponseMessage responseMessage = await _ticketService.BuyTicketsAsync(TicketsPurchasingList);
+                PurchaseSuccesful = responseMessage.IsSuccessStatusCode;
+
+                if (PurchaseSuccesful)
+                {
+                    
+                }
+            }
         }
     }
 }
