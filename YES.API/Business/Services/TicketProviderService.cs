@@ -21,13 +21,7 @@ namespace YES.Api.Business.Services
         {
             TicketProvider provider = await _ticketProviderRepo.GetEntityAsync(id);
             return _mapper.Map<TicketProviderDto>(provider);
-        }
-
-        public async Task<bool> AddTicketProvider(TicketProviderDto ticketProviderDto)
-        {
-            TicketProvider provider = _mapper.Map<TicketProvider>(ticketProviderDto);
-            return await _ticketProviderRepo.AddEntityAsync(provider);
-        }
+        }     
 
         public async Task<bool> UpdateTicketProvider(TicketProviderDto ticketProviderDto)
         {
