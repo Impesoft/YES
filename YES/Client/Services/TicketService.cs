@@ -32,5 +32,12 @@ namespace YES.Client.Services
           
         }
 
+        public async Task<bool> CancelTicketsAsync(List<int> ticketsToCancel)
+        {
+            var result = await _http.PostAsJsonAsync("api/Ticket/Cancel", ticketsToCancel);
+
+            return result.IsSuccessStatusCode;
+        }
+
     }
 }
