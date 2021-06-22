@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Mobile.Dto;
+using YES.Mobile.Enums;
 
 namespace YES.Mobile.Services
 {
@@ -23,19 +24,15 @@ namespace YES.Mobile.Services
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             _http = new HttpClient(insecureHandler);
+            LoggedInUser = GlobalVariables.LoggedInUser;
         }
 
-        public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(UserTokenDto loggedInUser)
+        public async Task<CustomerWithTicketsDto> GetCustomerAsync()
         {
-            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loggedInUser.Token);
-            var loggedInUserWithTicketJson = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + loggedInUser.Id);
+            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", LoggedInUser.Token);
+            var loggedInUserWithTicketJson = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + LoggedInUser.Id);
             var loggedInUserWithTicket = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(loggedInUserWithTicketJson);
             return loggedInUserWithTicket;
-        }
-
-        public UserTokenDto GetLoggedInUser()
-        {
-            return LoggedInUser;
         }
     }
 }
