@@ -129,7 +129,7 @@ namespace YES.Mobile.ViewModels
         public async void SetCustomer()
         {
             _customerService = new CustomerService();
-            Customer = await _customerService.GetCustomerByIdAsync(LoggedInUser);
+            Customer = await _customerService.GetCustomerAsync();
         }
 
         private TicketPurchaseDto CreateTicket(TicketCategoryDto categoryDto)
@@ -236,7 +236,6 @@ namespace YES.Mobile.ViewModels
 
                 if (PurchaseSuccesful)
                 {
-                    
                 }
             }
         }
