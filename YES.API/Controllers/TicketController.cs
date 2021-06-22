@@ -22,5 +22,11 @@ namespace YES.Api.Controllers
         {
             return Ok(await _ticketService.BuyTickets(ticketPurchaseDtos));
         }
+
+        [HttpPost("Cancel")]
+        public async Task<ActionResult<bool>> CancelTickets(ICollection<int> canceledTicketIds)
+        {
+            return Ok(await _ticketService.CancelTickets(canceledTicketIds));
+        }
     }
 }
