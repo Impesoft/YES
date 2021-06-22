@@ -40,5 +40,19 @@ namespace YES.Mobile.Services
         {
             return LoggedInUser;
         }
+
+        private TicketCustomerDto ConvertToTicketCustomer(CustomerWithTicketsDto customer)
+        {
+            return new TicketCustomerDto()
+            {
+                Id = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                BankAccount = customer.BankAccount,
+                Email = customer.Email,
+                PhoneNumber = customer.PhoneNumber,
+                Address = customer.Address
+            };
+        }
     }
 }

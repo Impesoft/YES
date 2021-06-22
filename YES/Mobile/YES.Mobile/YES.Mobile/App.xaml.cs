@@ -36,6 +36,7 @@ namespace YES.Mobile
                     //destroy file
                     File.Delete(GlobalVariables.FileName);
                     GlobalVariables.LoggedInUser = null;
+                    MainPage = new LoginPage();
                 }
                 else
                 {
