@@ -16,6 +16,7 @@ namespace YES.Mobile.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         private bool showLoginFields = true;
+        private Task logingIn;
 
         public bool ShowLoginFields
         {
@@ -72,8 +73,12 @@ namespace YES.Mobile.ViewModels
 
         private void Login()
         {
-            _accountService.LogIn(LoginInfo);
+            logingIn = Task.Run(() => _accountService.LogIn(LoginInfo));
             //    GlobalVariables.LoggedInUser = Customer;
+            while (!logingIn.IsCompleted)
+            {
+                //wait
+            }
             if (GlobalVariables.LoggedInUser?.Id > 0)
             {
                 IsLoggingIn = true;
