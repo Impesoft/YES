@@ -1,6 +1,7 @@
 ﻿
 
-<EditForm Model="Customer" OnSubmit="OnSubmit">
+<EditForm Model="Customer" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
     <div>
         <label class="row">
             <div class="col-xl-2">
@@ -8,9 +9,11 @@
             </div>
             <div class="col-xl-5">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.FirstName" Label="First Name"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.FirstName" /></span>
             </div>
             <div class="col-xl-5">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.LastName"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.LastName" /></span>
             </div>            
         </label>
     </div>
@@ -21,10 +24,12 @@
             </div>
             <div class="col-xl-5">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.PhoneNumber"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.PhoneNumber" /></span>
 
             </div>
             <div class="col-xl-5">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Email"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.Email" /></span>
             </div>
         </label>    
     </div>
@@ -36,6 +41,7 @@
             </div>
             <div class="col-xl-10">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.BankAccount"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.BankAccount" /></span>
             </div>            
         </label>        
     </div>
@@ -46,9 +52,11 @@
             </div>
             <div class="col-xl-5">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.Street"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.Address.Street" /></span>
             </div>
             <div class="col-xl-5">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.StreetNumber"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.Address.StreetNumber" /></span>
             </div>
         </label>
         
@@ -59,12 +67,15 @@
             </div>
             <div class="col-xl-3">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.PostalCode"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.Address.PostalCode" /></span>
             </div>
             <div class="col-xl-3">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.City"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.Address.City" /></span>
             </div>
             <div class="col-xl-4">
                 <InputText class="form-control text-white bg-dark" @bind-Value="Customer.Address.Country"></InputText>
+                <span class="error-message"><ValidationMessage For="() => Customer.Address.Country" /></span>
             </div>
         </label>
 
