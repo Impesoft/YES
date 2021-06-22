@@ -148,7 +148,7 @@
                        Margin="15"
                        HorizontalOptions="Start" />
 
-                <StackLayout Margin="8">
+                <StackLayout Margin="8" MinimumHeightRequest="300">
                     <Button Text="Buy Tickets"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=BuyTickets}"
                             CommandParameter="{Binding .}" />
@@ -156,7 +156,11 @@
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=ClearPurchaseList}"
                             CommandParameter="{Binding .}" />
                 </StackLayout>
+                
             </StackLayout>
+            
         </ScrollView>
+
+
     </ContentPage.Content>
 </ContentPage>
