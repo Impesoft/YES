@@ -32,22 +32,29 @@ namespace YES.Api.Business.Services
             }
 
             switch (dto.Role)
-            {               
-                case Roles.TicketCustomer:
+            {
+                case Roles.Default:
+                    throw new InvalidOperationException("Role was not valid");
 
+                case Roles.TicketCustomer:
                     TicketCustomer ticketCustomer = CreateTicketCustomer(dto);
                     await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
                     return CreateUserTokenDto(ticketCustomer);
 
                 case Roles.TicketProvider:
-
                     TicketProvider ticketProvider = CreateTicketProvider(dto);
                     await _ticketProviderRepo.AddEntityAsync(ticketProvider);
                     return CreateUserTokenDto(ticketProvider);
 
+                case Roles.Admin:
+
+                    throw new UnauthorizedAccessException("No permission for role Admin");
+                case Roles.SuperUser:
+
+                    throw new UnauthorizedAccessException("No permission for role SuperUser");
                 default:
 
-                    throw new InvalidOperationException("Role was not valid");                    
+                    throw new UnauthorizedAccessException("Role was not valid");
             }
         }
 
@@ -113,6 +120,5 @@ namespace YES.Api.Business.Services
 
             return ticketProvider;
         }
-
     }
 }
