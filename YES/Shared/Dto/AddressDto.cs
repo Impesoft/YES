@@ -12,7 +12,6 @@ namespace YES.Shared.Dto
 
         [Required(ErrorMessage = "Please enter your postal code.")]
         [MaxLength(10, ErrorMessage = "Maximum length is 10 characters.")]
-        [MinLength(3, ErrorMessage = "Minimum length is 3 characters.")]
         public string PostalCode { get; set; }
 
         [Required(ErrorMessage = "Please enter your city")]
