@@ -29,13 +29,6 @@ namespace YES.Api.Controllers
             return Ok(await _ticketCustomerService.GetTicketCustomerByIdAsync(id));
         }
 
-        [Authorize(Roles = "Admin, SuperUser")]
-        [HttpPost]
-        public async Task<ActionResult> AddTicketCustomer(TicketCustomerDto ticketCustomerDto)
-        {
-            return Ok(await _ticketCustomerService.AddTicketCustomer(ticketCustomerDto));
-        }
-
         [HttpPut]
         public async Task<ActionResult> UpdateTicketCustomer(TicketCustomerDto ticketCustomerDto)
         {
