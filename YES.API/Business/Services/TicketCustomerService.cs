@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using System.Threading.Tasks;
 using YES.Api.Data.Entities;
-using YES.Api.Data.Repos;
 using YES.Api.Data.Repos.Interfaces;
 using YES.Shared.Dto;
 
@@ -42,7 +41,6 @@ namespace YES.Api.Business.Services
         {
             return await _ticketCustomerRepo.DeleteEntityAsync(id);
         }
-
     }
 }
 
