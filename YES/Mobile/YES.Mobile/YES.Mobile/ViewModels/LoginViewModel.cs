@@ -15,10 +15,39 @@ namespace YES.Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        private bool showLoginFields = true;
+
+        public bool ShowLoginFields
+        {
+            get => showLoginFields;
+
+            set
+            {
+                showLoginFields = value;
+                OnPropertyChanged(nameof(ShowLoginFields));
+            }
+        }
+
+        private bool isLoggingIn;
+
+        public bool IsLoggingIn
+        {
+            get => isLoggingIn;
+
+            set
+            {
+                isLoggingIn = value;
+                ShowLoginFields = !isLoggingIn;
+                OnPropertyChanged(nameof(IsLoggingIn));
+            }
+        }
+
         public Command LoginCommand { get; }
-        private string LoggedInUserJson;
+
+        //      private string LoggedInUserJson;
         private IAccountService _accountService { get; set; }
-    private UserTokenDto Customer { get; set; }
+
+        // private UserTokenDto Customer { get; set; }
         public LoginDto LoginInfo { get; set; } = new LoginDto();
 
         public LoginViewModel()
@@ -27,48 +56,32 @@ namespace YES.Mobile.ViewModels
             _accountService = new AccountService();
         }
 
-        private void LoadUserIfExists()
-        {
-            if (File.Exists(GlobalVariables.FileName))
-            {
-                LoggedInUserJson = File.ReadAllText(GlobalVariables.FileName);
-
-            }
-            if (LoggedInUserJson != null)
-            {
-               GlobalVariables.LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
-            }
-        }
-
         private void OnLoginClicked(object obj)
         {
-          //  LoginDto loginInfo = new LoginDto();
-            _accountService.LogIn(LoginInfo);
+            IsLoggingIn = true;
 
-
+            //  LoginDto loginInfo = new LoginDto();
+            Task.Run(() => Login()).Wait();
+            if (IsLoggingIn)
+            {
+                Application.Current.MainPage = new AppShell();
+            }
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            Application.Current.MainPage = new AppShell();
             //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
         }
 
-
-        private async Task LogIn()
-    {
-        await _accountService.LogIn(LoginInfo);
-        Customer = _accountService.GetLoggedInUser();           
-
-      //  await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", _accountService.LoggedInUserJson);
-    }
-        /*
-         * 
-
-
-
-    [Inject]
-    private IAccountService _accountService { get; set; }
-
-
-    // delete => await JSRuntime.InvokeAsync<string>("localStorage.removeItem", "name");
-         * */
+        private void Login()
+        {
+            _accountService.LogIn(LoginInfo);
+            //    GlobalVariables.LoggedInUser = Customer;
+            if (GlobalVariables.LoggedInUser?.Id > 0)
+            {
+                IsLoggingIn = true;
+            }
+            else
+            {
+                IsLoggingIn = false;
+            }
+        }
     }
 }
