@@ -13,7 +13,6 @@ namespace YES.Mobile.Services
     {
         private UserTokenDto LoggedInUser { get; set; }
 
-        //private HttpResponseMessage message;
         public string LoggedInUserJson { get; set; }
 
         private HttpClient _http;
@@ -28,12 +27,10 @@ namespace YES.Mobile.Services
 
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(UserTokenDto loggedInUser)
         {
-            //   var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loggedInUser.Token);
             var content = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + loggedInUser.Id);
             var test = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
             return test;
-            //return JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
         }
 
         public UserTokenDto GetLoggedInUser()

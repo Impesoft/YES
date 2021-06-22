@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout Padding="10,0,10,0" VerticalOptions="Center" IsVisible="{Binding ShowLoginFields}">
-            <Entry Placeholder="Login Email"   Text="{Binding LoginInfo.Email}" />
+            <Entry Placeholder="Login Email" Keyboard="Email"  Text="{Binding LoginInfo.Email}"  />
             <Entry Placeholder="Your Password" Text="{Binding LoginInfo.Password}" IsPassword="True" />
 
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
