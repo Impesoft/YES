@@ -50,6 +50,8 @@ namespace YES.Mobile.ViewModels
 
         public Command<TicketCategoryDto> DeductTicketCommand { get; set; }
 
+        public Command ClearPurchaseList { get; set; }
+
         private ObservableCollection<TicketPurchaseDto> ticketsPurchasingList;
 
         public ObservableCollection<TicketPurchaseDto> TicketsPurchasingList
@@ -78,7 +80,18 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public int AmountOfTicketsToPurchase { get; set; }
+        private int amountOfTicketsToPurchase;
+
+        public int AmountOfTicketsToPurchase
+        {
+            get { return amountOfTicketsToPurchase; }
+            set
+            {
+                amountOfTicketsToPurchase = value;
+                OnPropertyChanged(nameof(AmountOfTicketsToPurchase));
+            }
+        }
+
         public bool PurchaseSuccesful { get; set; } = false;
 
         public EventDetailViewModel()
@@ -89,6 +102,7 @@ namespace YES.Mobile.ViewModels
             AddTicketCommand = new Command<TicketCategoryDto>(OnAddTicket);
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
+            ClearPurchaseList = new Command(ClearPurchases);
             LoggedInUser = GlobalVariables.LoggedInUser;
 
             TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
@@ -194,6 +208,14 @@ namespace YES.Mobile.ViewModels
             }
 
             return amount;
+        }
+
+        private void ClearPurchases()
+        {
+            LoadEvent();
+            TotalPrice = 0;
+            TicketsPurchasingList.Clear();
+            PurchaseSuccesful = false;
         }
     }
 }
