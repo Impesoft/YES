@@ -72,8 +72,8 @@
                                     </StackLayout>
 
                                     <StackLayout Grid.Column="3">
-                                        <Label Text="Amount:" />
-                                        <Label Text="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=CartItemQuantity}" />
+                                        <Label Text="TicketsLeft:" />
+                                        <Label Text="{Binding AvailableAmount}" />
                                     </StackLayout>
                                 </Grid>
                             </ViewCell>
