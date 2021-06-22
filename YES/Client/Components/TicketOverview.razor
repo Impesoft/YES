@@ -17,11 +17,22 @@
 <div class="col">
     @Ticket.VanueName
 </div>
+<div class="col">
+   <input type="checkbox"  @onchange="OnChange"/>
+</div>
 
 
 
 @code {
     [Parameter]
     public TicketDto Ticket { get; set; }
+
+    [Parameter]
+    public bool ToBeCancelled { get; set; }
+
+    [Parameter]
+    public EventCallback OnChange { get; set; }
+
+
 
 }
