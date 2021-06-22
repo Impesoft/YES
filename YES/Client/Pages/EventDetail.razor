@@ -61,7 +61,10 @@
                             {
                                 <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button>
                             }
-                            <button class="btn btn-warning float-end" @onclick="@NavigateToLogin">Tickets</button>
+                            else
+                            {
+                                <button class="btn btn-warning float-end" @onclick="@NavigateToLogin">Tickets</button>
+                            }
                             
                         }
                     }
