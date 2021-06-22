@@ -7,17 +7,34 @@
              Title="{Binding Title}"
              x:Class="YES.Mobile.Views.EventDetailPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="Vet" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content
         x:DataType="local:EventDetailViewModel">
         <ScrollView>
             <StackLayout VerticalOptions="StartAndExpand">
                 <Label Text="{Binding Event.EventInfo.Name}"
                        HorizontalOptions="CenterAndExpand"
-                       FontSize="36" />
+                       FontSize="36" 
+                       Margin="8"/>
                 <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
                 <Label Text="{Binding Event.EventInfo.Description}"
                 VerticalOptions="End"
+                Margin="15"
                 HorizontalOptions="CenterAndExpand" />
 
                 <Label Text="Buy Tickets:"
@@ -29,11 +46,11 @@
                 <StackLayout BindableLayout.ItemsSource="{Binding Event.TicketCategories}"
                              x:Name="TicketCategoryList"
                              Grid.Row="0"
-                             Margin="28,28,68,67">
+                             Margin="15,0,15,5">
 
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="dto:TicketCategoryDto">
-                            <Grid HeightRequest="100">
+                            <Grid HeightRequest="150">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
@@ -42,33 +59,46 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label
-                                        Grid.Column="0"
+                                <StackLayout Grid.Column="0" Spacing="0" VerticalOptions="Center">
+                                    <Label Text="Ticket:" TextDecorations="Underline"/>
+                                    <Label
                                     HorizontalOptions="Start"
-                                    Text="{Binding Name, StringFormat='Ticket: {0}'}" />
-                                <Label Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    Text="{Binding Price, StringFormat='Price: {0}€'}" />
-
-                                <StackLayout Grid.Column="2" Orientation="Horizontal">
-                                    <Button
-                                        FontFamily="FontAwesome"
-                                        Text="&#xf067;"
-                                        Margin="4"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=AddTicketCommand}"
-                                        CommandParameter="{Binding .}" />
-                                    <Button
-                                        FontFamily="FontAwesome"
-                                        Text="&#xf068;"
-                                        Margin="4"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=DeductTicketCommand}"
-                                        CommandParameter="{Binding .}" />
+                                    Text="{Binding Name}"
+                                    Style="{StaticResource Vet}" />
+                                    
                                 </StackLayout>
 
-                                <StackLayout Grid.Column="3">
-                                    <Label Text="Tickets left:" />
+                                <StackLayout Grid.Column="1" 
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center">
+                                <Label
+                                    TextDecorations="Underline"
+                                    Text="Price:" />
+                                <Label
+                                    Text="{Binding Price, StringFormat='{0} €'}" />
+                                
+                                </StackLayout>
+                                <StackLayout Grid.Column="2"
+                                             HorizontalOptions="Start"
+                                             VerticalOptions="Center">
+                                    <Label Text="available:" TextDecorations="Underline"/>
                                     <Label Text="{Binding AvailableAmount}" />
                                 </StackLayout>
+                                <Button
+                                        Grid.Column="3"
+                                        FontFamily="FontAwesome"
+                                        Text="&#xf067;"
+                                        Margin="2"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=AddTicketCommand}"
+                                        CommandParameter="{Binding .}" />
+                                <Button
+                                        Grid.Column="4"
+                                        FontFamily="FontAwesome"
+                                        Text="&#xf068;"
+                                        Margin="2"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=DeductTicketCommand}"
+                                        CommandParameter="{Binding .}" />
+                                
                             </Grid>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
@@ -76,11 +106,12 @@
 
                 <StackLayout BindableLayout.ItemsSource="{Binding TicketsPurchasingList}"
                              x:Name="PurchaseList"
-                             Margin="28,28,68,67">
+                             Margin="15,0,15,5">
 
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="dto:TicketPurchaseDto">
-                            <Grid HeightRequest="40">
+                            <Frame BorderColor="Black">
+                                <Grid HeightRequest="50">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
@@ -89,14 +120,22 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
+                                <Label Text="Ticket:" 
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       TextDecorations="Underline"/>
                                 <Label
-                                        Grid.Column="0"
+                                    Grid.Row="1"
                                     HorizontalOptions="Start"
-                                    Text="{Binding TicketCategory.Name, StringFormat='Ticket: {0}'}" />
+                                    Text="{Binding TicketCategory.Name}"
+                                    Style="{StaticResource Vet}" />
                                 <Label Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    Text="{Binding Amount}" />
-                            </Grid>
+                                       Grid.RowSpan="2"
+                                    VerticalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Amount, StringFormat='x {0}'}" />
+                                </Grid>
+                            </Frame>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
@@ -106,10 +145,15 @@
                        Margin="8"
                        HorizontalOptions="Start" />
 
-                <Label Text="{Binding TotalPrice}"
+                <Label Text="{Binding TotalPrice, StringFormat='{0} €'}"
                        FontSize="25"
-                       Margin="8"
+                       Margin="15"
                        HorizontalOptions="Start" />
+
+                <StackLayout Margin="8">
+                <Button Text="Buy Tickets" />
+                <Button Text="Cancel" />
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
