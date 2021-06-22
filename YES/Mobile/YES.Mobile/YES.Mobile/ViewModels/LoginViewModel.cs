@@ -57,24 +57,14 @@ namespace YES.Mobile.ViewModels
             _accountService = new AccountService();
         }
 
-        private void OnLoginClicked(object obj)
+        private async void OnLoginClicked(object obj)
         {
             IsLoggingIn = true;
 
             //  LoginDto loginInfo = new LoginDto();
-            Task.Run(() => Login()));
+            await Task.Run(() => Login());
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
-        }
-
-        private async void Login()
-        {
-            logingIn = Task.Run(() => _accountService.LogIn(LoginInfo));
-            //    GlobalVariables.LoggedInUser = Customer;
-            while (!logingIn.IsCompleted)
-            {
-                //wait
-            }
             if (GlobalVariables.LoggedInUser?.Id > 0)
             {
                 IsLoggingIn = true;
@@ -84,6 +74,16 @@ namespace YES.Mobile.ViewModels
             {
                 Application.Current.MainPage = new LoginPage();
             }
-          }
+        }
+
+        private async void Login()
+        {
+            logingIn = _accountService.LogIn(LoginInfo);
+            //    GlobalVariables.LoggedInUser = Customer;
+            while (!logingIn.IsCompleted)
+            {
+                //wait
+            }
+        }
     }
 }
