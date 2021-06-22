@@ -149,9 +149,10 @@
                        HorizontalOptions="Start" />
 
                 <StackLayout Margin="8">
-                    <Button Text="Buy Tickets" />
+                    <Button Text="Buy Tickets"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=BuyTickets}"
+                            CommandParameter="{Binding .}" />
                     <Button Text="Cancel"
-                            x:DataType="dto:TicketCategoryDto"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=ClearPurchaseList}"
                             CommandParameter="{Binding .}" />
                 </StackLayout>
