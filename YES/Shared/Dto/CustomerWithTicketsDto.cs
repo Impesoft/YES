@@ -15,7 +15,10 @@ namespace YES.Shared.Dto
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string LastName { get; set; }
 
+        [MaxLength(34, ErrorMessage = "Maximum length is 34 characters.")]
+        [MinLength(15, ErrorMessage = "Minimum length is 15 characters.")]
         public string BankAccount { get; set; }
+
         [Required(ErrorMessage = "Please enter your e-mail address.")]
         [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string Email { get; set; }
