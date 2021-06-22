@@ -50,7 +50,7 @@
 
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="dto:TicketCategoryDto">
-                            <Grid HeightRequest="150">
+                            <Grid HeightRequest="100">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
@@ -111,25 +111,25 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="dto:TicketPurchaseDto">
                             <Frame BorderColor="Black">
-                                <Grid HeightRequest="50">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
+                                <Grid HeightRequest="47">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Text="Ticket:" 
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Text="Ticket:" 
                                        Grid.Column="0"
                                        Grid.Row="0"
                                        TextDecorations="Underline"/>
-                                <Label
+                                    <Label
                                     Grid.Row="1"
                                     HorizontalOptions="Start"
                                     Text="{Binding TicketCategory.Name}"
                                     Style="{StaticResource Vet}" />
-                                <Label Grid.Column="1"
+                                    <Label Grid.Column="1"
                                        Grid.RowSpan="2"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="Center"
@@ -139,6 +139,7 @@
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
+
                 <Label Text="Total Price:"
                        TextDecorations="Underline"
                        FontSize="20"
@@ -151,10 +152,11 @@
                        HorizontalOptions="Start" />
 
                 <StackLayout Margin="8">
-                <Button Text="Buy Tickets" />
-                <Button Text="Cancel" />
+                    <Button Text="Buy Tickets" />
+                    <Button Text="Cancel" />
                 </StackLayout>
             </StackLayout>
+            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
