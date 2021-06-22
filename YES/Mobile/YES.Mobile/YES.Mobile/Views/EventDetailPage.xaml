@@ -24,7 +24,7 @@
 
     <ContentPage.Content
         x:DataType="local:EventDetailViewModel">
-        <ScrollView>
+        <ScrollView x:Name="scrollview" IsClippedToBounds="True" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout VerticalOptions="StartAndExpand">
                 <Label Text="{Binding Event.EventInfo.Name}"
                        HorizontalOptions="CenterAndExpand"
