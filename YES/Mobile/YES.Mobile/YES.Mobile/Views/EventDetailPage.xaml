@@ -54,7 +54,7 @@
                                     Text="{Binding Name, StringFormat='Ticket: {0}'}" />
                                     <Label Grid.Column="1"
                                     HorizontalOptions="Start"
-                                    Text="{Binding Price, StringFormat='price: {0}€'}" />
+                                    Text="{Binding Price, StringFormat='Price: {0}€'}" />
 
                                     <StackLayout Grid.Column="2" Orientation="Horizontal">
                                         <Button
@@ -72,7 +72,7 @@
                                     </StackLayout>
 
                                     <StackLayout Grid.Column="3">
-                                        <Label Text="TicketsLeft:" />
+                                        <Label Text="Tickets left:" />
                                         <Label Text="{Binding AvailableAmount}" />
                                     </StackLayout>
                                 </Grid>
