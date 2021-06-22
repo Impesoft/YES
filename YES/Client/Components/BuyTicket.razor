@@ -27,7 +27,7 @@
                             </button>
                             <button type="button"
                                     class="btn btn-add-remove"
-                                    @onclick="() => ClearItemFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
+                                    @onclick="() => RemoveTicketFromPurchaseList(TicketsPurchasingList.SingleOrDefault(x => x.TicketCategory.Id == priceCategory.Id))">
                                 <i class="far fa-minus-square"></i>
                             </button>
                         </td>
@@ -135,7 +135,7 @@ else
 
     }
 
-    private void ClearItemFromPurchaseList(TicketPurchaseDto ticket)
+    private void RemoveTicketFromPurchaseList(TicketPurchaseDto ticket)
     {
         if (ticket != null)
         {
@@ -158,6 +158,11 @@ else
 
     private void ClearPurchaseList()
     {
+        foreach (var ticket in TicketsPurchasingList)
+        {     
+            Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount += ticket.Amount;
+        }
+
         TotalPrice = 0;
         TicketsPurchasingList.Clear();
         PurchaseSuccessful = false;
