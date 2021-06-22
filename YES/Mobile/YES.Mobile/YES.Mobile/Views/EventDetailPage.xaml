@@ -20,6 +20,86 @@
                 VerticalOptions="End"
                 HorizontalOptions="CenterAndExpand" />
 
+                <Label Text="Buy Tickets:"
+                       TextDecorations="Underline"
+                       FontSize="20"
+                       Margin="8"
+                       HorizontalOptions="Start" />
+
+                <StackLayout BindableLayout.ItemsSource="{Binding Event.TicketCategories}"
+                             x:Name="TicketCategoryList"
+                             Grid.Row="0"
+                             Margin="28,28,68,67">
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="dto:TicketCategoryDto">
+                            <Grid HeightRequest="100">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                        Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Name, StringFormat='Ticket: {0}'}" />
+                                <Label Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Price, StringFormat='Price: {0}€'}" />
+
+                                <StackLayout Grid.Column="2" Orientation="Horizontal">
+                                    <Button
+                                        FontFamily="FontAwesome"
+                                        Text="&#xf067;"
+                                        Margin="4"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=AddTicketCommand}"
+                                        CommandParameter="{Binding .}" />
+                                    <Button
+                                        FontFamily="FontAwesome"
+                                        Text="&#xf068;"
+                                        Margin="4"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=DeductTicketCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="3">
+                                    <Label Text="Tickets left:" />
+                                    <Label Text="{Binding AvailableAmount}" />
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+
+                <StackLayout BindableLayout.ItemsSource="{Binding TicketsPurchasingList}"
+                             x:Name="PurchaseList"
+                             Margin="28,28,68,67">
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="dto:TicketPurchaseDto">
+                            <Grid HeightRequest="40">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                        Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding TicketCategory.Name, StringFormat='Ticket: {0}'}" />
+                                <Label Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Amount}" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
                 <Label Text="Total Price:"
                        TextDecorations="Underline"
                        FontSize="20"
@@ -30,85 +110,6 @@
                        FontSize="25"
                        Margin="8"
                        HorizontalOptions="Start" />
-
-                <ListView x:Name="TicketCategoryList"
-                      Grid.Row="0"
-                      ItemsSource="{Binding Event.TicketCategories}"
-                      Margin="28,28,68,67">
-
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="dto:TicketCategoryDto">
-                            <ViewCell>
-                                <Grid HeightRequest="100">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label
-                                        Grid.Column="0"
-                                    HorizontalOptions="Start"
-                                    Text="{Binding Name, StringFormat='Ticket: {0}'}" />
-                                    <Label Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    Text="{Binding Price, StringFormat='Price: {0}€'}" />
-
-                                    <StackLayout Grid.Column="2" Orientation="Horizontal">
-                                        <Button
-                                        FontFamily="FontAwesome"
-                                        Text="&#xf067;"
-                                        Margin="4"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=AddTicketCommand}"
-                                        CommandParameter="{Binding .}" />
-                                        <Button
-                                        FontFamily="FontAwesome"
-                                        Text="&#xf068;"
-                                        Margin="4"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=DeductTicketCommand}"
-                                        CommandParameter="{Binding .}" />
-                                    </StackLayout>
-
-                                    <StackLayout Grid.Column="3">
-                                        <Label Text="Tickets left:" />
-                                        <Label Text="{Binding AvailableAmount}" />
-                                    </StackLayout>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-                <ListView x:Name="PurchaseList"
-                      ItemsSource="{Binding TicketsPurchasingList}"
-                      Margin="28,28,68,67">
-
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="dto:TicketPurchaseDto">
-                            <ViewCell>
-                                <Grid HeightRequest="40">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label
-                                        Grid.Column="0"
-                                    HorizontalOptions="Start"
-                                    Text="{Binding TicketCategory.Name, StringFormat='Ticket: {0}'}" />
-                                    <Label Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    Text="{Binding Amount}" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
