@@ -27,8 +27,8 @@
             </ModalHeader>
             <ModalBody>
                 <Login LoginInfo="@LoginInfo" 
-                       LogIn="@(() => LogIn())"
-                       ShowRegisterModal="@(() => ShowRegisterModal())" />
+                       LogIn="@(LogIn)"
+                       ShowRegisterModal="@(ShowRegisterModal)" />
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -41,7 +41,7 @@
             </ModalHeader>
             <ModalBody>
                 <Register RegisterInfo="@RegisterInfo" 
-                          RegisterUser="@(() => RegisterUser())" />
+                          RegisterUser="@(RegisterUser)" />
             </ModalBody>
         </ModalContent>
     </Modal>
