@@ -25,7 +25,7 @@
                 <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start">
                     <Label Text="{Binding LocalUser.FirstName, StringFormat='Welkom {0}' }" HorizontalOptions="Center" TextColor="DimGray" FontSize="Medium" />
                     <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
-                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Large">Your Event Services</Label>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Large">Your Event Service</Label>
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
                 </StackLayout>
             </StackLayout>

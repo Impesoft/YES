@@ -5,18 +5,22 @@
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
              x:DataType="local:EventDetailViewModel"
              Title="{Binding Title}"
-             x:Class="YES.Mobile.Views.EventDetailPage">
+             x:Class="YES.Mobile.Views.EventDetailPage"
+             BackgroundColor="Black">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="#EEEEEE" />
             </Style>
             <Style TargetType="Label">
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="#EEEEEE" />
             </Style>
             <Style x:Key="Vet" TargetType="Label">
                 <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#EEEEEE" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
         </ResourceDictionary>
@@ -27,18 +31,18 @@
         <ContentView>
             <ScrollView x:Name="scrollview" IsClippedToBounds="True" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                 <StackLayout VerticalOptions="StartAndExpand">
-                    <Label Text="{Binding Event.EventInfo.Name}"
+                    <Label TextColor="#EEEEEE" Text="{Binding Event.EventInfo.Name}"
                        HorizontalOptions="CenterAndExpand"
                        FontSize="36"
                        Margin="8" />
                     <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
-                    <Label Text="{Binding Event.EventInfo.Description}"
+                    <Label TextColor="#EEEEEE" Text="{Binding Event.EventInfo.Description}"
                 VerticalOptions="End"
                 Margin="15"
                 HorizontalOptions="CenterAndExpand" />
 
-                    <Label Text="Buy Tickets:"
+                    <Label TextColor="#EEEEEE" Text="Buy Tickets:"
                        TextDecorations="Underline"
                        FontSize="20"
                        Margin="8"
@@ -61,8 +65,8 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="0" Spacing="0" VerticalOptions="Center">
-                                        <Label Text="Ticket:" TextDecorations="Underline" />
-                                        <Label
+                                        <Label TextColor="#EEEEEE" Text="Ticket:" TextDecorations="Underline" />
+                                        <Label TextColor="#EEEEEE"
                                     HorizontalOptions="Start"
                                     Text="{Binding Name}"
                                     Style="{StaticResource Vet}" />
@@ -71,17 +75,17 @@
                                     <StackLayout Grid.Column="1"
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
-                                        <Label
+                                        <Label TextColor="#EEEEEE"
                                     TextDecorations="Underline"
                                     Text="Price:" />
-                                        <Label
+                                        <Label TextColor="#EEEEEE"
                                     Text="{Binding Price, StringFormat='{0} €'}" />
                                     </StackLayout>
                                     <StackLayout Grid.Column="2"
                                              HorizontalOptions="Start"
                                              VerticalOptions="Center">
-                                        <Label Text="available:" TextDecorations="Underline" />
-                                        <Label Text="{Binding AvailableAmount}" />
+                                        <Label Text="available:" TextColor="#EEEEEE" TextDecorations="Underline" />
+                                        <Label Text="{Binding AvailableAmount}" TextColor="#EEEEEE" />
                                     </StackLayout>
                                     <Button
                                         Grid.Column="3"
