@@ -24,8 +24,7 @@ namespace YES.Api
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+                
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -36,8 +35,7 @@ namespace YES.Api
             }
             else
             {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseExceptionHandler("/Error");               
                 app.UseHsts();
             }
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5000"));
@@ -46,8 +44,6 @@ namespace YES.Api
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5003"));         
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5003"));
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://192.168.0.185:5002"));
-
-
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44316"));
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44317"));
 
@@ -66,9 +62,7 @@ namespace YES.Api
                 endpoints.MapFallbackToFile("index.html");
             });
         }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddCors();
@@ -97,17 +91,20 @@ namespace YES.Api
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
             
             services.AddScoped<IEventService, EventService>();
-            services.AddScoped<ITicketCustomerService, TicketCustomerService>();
             services.AddScoped<ITicketService, TicketService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITicketCustomerService, TicketCustomerService>();
+            services.AddScoped<ITicketProviderService, TicketProviderService>();
 
             services.AddScoped<IEventRepo, EventRepo>();
-            services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
             services.AddScoped<ITicketRepo, TicketRepo>();
+            services.AddScoped<ITicketCustomerRepo, TicketCustomerRepo>();
             services.AddScoped<ITicketProviderRepo, TicketProviderRepo>();
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

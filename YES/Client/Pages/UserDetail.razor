@@ -1,25 +1,19 @@
 ﻿@page "/CustomerDetail"
 @inject ICustomerService customerService
 @inject IAccountService accountService
+@inject ITicketService ticketService
 @inject IJSRuntime JSRuntime
 
 <div class="page-bg">
     <section>
         @if (Customer != null)
         {
-            @*<div class="mb-4">
-                    <input @bind="LoggedInCustomerId" /><button class="btn btn-outline-light" @onclick="() => GetUserWithId(LoggedInCustomerId)">Set Current User</button>
-                </div>*@
-
             <h3 class="mb-4">Customer Form</h3>
             <div class="mb-4">
-                @if (Customer != null)
-                {
-                    <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
-                }
+                <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
             </div>
 
-            @if (EditSuccesful == true)
+            @if (EditSuccessful == true)
             {
                 <div class="mt-5 alert alert-warning">
                     @Customer.FirstName succesfully edited.
@@ -28,7 +22,18 @@
 
 
             <hr />
-            <h3 class="mb-3">Ticket List</h3>
+            <div class="row mb-3">
+                <h3 class=" col-lg-10">Ticket List</h3>
+
+                <button class="btn btn-outline-danger col-lg-2" @onclick="CancelTickets">Cancel Tickets</button>
+            </div>
+
+            @if (CancelSuccessful == true)
+            {
+                <div class="my-5 alert alert-danger">
+                    @TicketsToCancelById.Count() Ticket(s) succesfully cancelled.
+                </div>
+            }
             @if (Tickets != null)
             {
                 <div class="row mb-4 ticket-overview-header">
@@ -51,14 +56,17 @@
                     <div class="col">
                         Event Location
                     </div>
+                    <div class="col">
+                        To Be Cancelled
+                    </div>
 
                 </div>
                 @foreach (var ticket in Customer.Tickets)
                 {
                     <div class="row ticket-item">
-                        <TicketOverview Ticket="ticket"></TicketOverview>
+                        <TicketOverview Ticket="ticket" OnChange="() => AddTicketToCancelList(ticket.Id)"></TicketOverview>
                     </div>
-
+                                        
                 }
 
             }
@@ -80,29 +88,104 @@
 
     public List<TicketDto> Tickets { get; set; }
 
-    public bool EditSuccesful { get; set; }
+    public bool EditSuccessful { get; set; }
+    public bool CancelSuccessful { get; set; }
+
+    public bool ToBeCancelled { get; set; }
+
+    public List<int> TicketsToCancelById { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
-        EditSuccesful = false;
+        ResetBools();
 
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
         var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
 
         Customer = await customerService.GetCustomerByIdAsync(loggedInUser.Id);
-        Tickets = Customer.Tickets.ToList();
+
+        TurnNullFieldsToEmptyString();
+
+        if (Customer.Tickets.Any())
+        {
+            Tickets = Customer.Tickets.ToList();
+        }
     }
 
     private async Task GetUserWithId(int id)
     {
-        EditSuccesful = false;
+        EditSuccessful = false;
         Customer = await customerService.GetCustomerByIdAsync(id);
     }
 
     private async Task UpdateCustomer()
     {
-        EditSuccesful = true;
+        EditSuccessful = true;
         await customerService.UpdateCustomer(Customer);
+    }
+
+    private async Task CancelTickets()
+    {
+        var result = await ticketService.CancelTicketsAsync(TicketsToCancelById);
+
+        if (result)
+        {
+            foreach (var ticketsToCancel in TicketsToCancelById)
+            {               
+                Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
+            }
+
+            CancelSuccessful = true;
+        }
+    }
+
+    private void AddTicketToCancelList(int ticketId)
+    {
+        if(TicketsToCancelById != null)
+        {
+            if (!TicketsToCancelById.Contains(ticketId))
+            {
+                TicketsToCancelById.Add(ticketId);
+            }
+            else
+            {
+                TicketsToCancelById.Remove(ticketId);
+            }
+        }
+        else
+        {
+            TicketsToCancelById = new();
+            TicketsToCancelById.Add(ticketId);
+        }
+    }
+
+    private void ResetBools()
+    {
+        EditSuccessful = false;
+        CancelSuccessful = false;
+    }
+
+
+
+    private void TurnNullFieldsToEmptyString()
+    {
+        if (Customer.FirstName == null)     Customer.FirstName = "";
+        if (Customer.LastName == null)      Customer.LastName = "";
+        if (Customer.Email == null)         Customer.Email = "";
+        if (Customer.BankAccount == null)   Customer.BankAccount = "";
+        if (Customer.PhoneNumber == null)   Customer.PhoneNumber = "";
+        if (Customer.Address == null)
+        {
+            Customer.Address =  new AddressDto
+            {
+                Id = 0,
+                City = "",
+                Country = "",
+                PostalCode = "",
+                Street ="",
+                StreetNumber=""
+            };
+        }
     }
 
 }
