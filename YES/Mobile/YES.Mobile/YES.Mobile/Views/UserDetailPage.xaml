@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YES.Mobile.Views.UserDetailPage"
              xmlns:vm="clr-namespace:YES.Mobile.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="Black">
 
     <ContentPage.BindingContext>
         <vm:UserDetailViewModel />
@@ -22,8 +23,8 @@
             </Grid.RowDefinitions>
             <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                 <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start">
-                    <Label Text="{Binding LocalUser.FirstName, StringFormat='Welkom {0}' }" HorizontalOptions="Center" TextColor="Red" FontSize="Medium" />
-                    <Label Text="{Binding ExpiryDate, StringFormat='Your current token expires at {0}'}" HorizontalOptions="Center" TextColor="Red" FontSize="Small" />
+                    <Label Text="{Binding LocalUser.FirstName, StringFormat='Welkom {0}' }" HorizontalOptions="Center" TextColor="DimGray" FontSize="Medium" />
+                    <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
                     <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Large">Your Event Services</Label>
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
                 </StackLayout>
@@ -32,15 +33,17 @@
                 <StackLayout BindableLayout.ItemsSource="{Binding LocalUser.Tickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
-                                <Label TextColor="Red" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
-                                <Label TextColor="Red" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <Label TextColor="Red" Text="{Binding}" FontSize="16" Padding="0,24,0,0" />
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </StackLayout>
+                            <Frame BorderColor="Wheat" BackgroundColor="#110077FF">
+                                <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
+                                    <Label TextColor="Wheat" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
+                                    <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label TextColor="Yellow" Text="{Binding }" FontSize="16" Padding="0,24,0,0" />
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Frame>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>

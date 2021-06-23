@@ -61,10 +61,8 @@ namespace YES.Mobile.ViewModels
         {
             IsLoggingIn = true;
 
-            //  LoginDto loginInfo = new LoginDto();
             await Task.Run(() => Login());
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
+
             if (GlobalVariables.LoggedInUser?.Id > 0)
             {
                 IsLoggingIn = true;
@@ -79,7 +77,6 @@ namespace YES.Mobile.ViewModels
         private async void Login()
         {
             logingIn = _accountService.LogIn(LoginInfo);
-            //    GlobalVariables.LoggedInUser = Customer;
             while (!logingIn.IsCompleted)
             {
                 //wait
