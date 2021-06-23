@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using YES.Api.Data.Entities;
 using YES.Api.Data.Repos.Interfaces;
 using YES.Shared.Dto;
+using YES.Shared.Enums;
 
 namespace YES.Api.Business.Services
 {
@@ -26,8 +28,17 @@ namespace YES.Api.Business.Services
             foreach (var eventDto in eventDtos)
             {
                 UpdateAvailableTickets(eventDto);
+                UpdateStatus(eventDto);                
             }
             return eventDtos;
+        }
+
+        public async Task<EventDto> GetEventByIdAsync(int id)
+        {
+            EventDto eventDto = _mapper.Map<EventDto>(await _eventRepo.GetEventByIdAsync(id));
+            UpdateAvailableTickets(eventDto);
+            UpdateStatus(eventDto);
+            return eventDto;
         }
 
         public async Task<bool> AddEventAsync(EventDto eventDto)
@@ -41,12 +52,6 @@ namespace YES.Api.Business.Services
             return await _eventRepo.UpdateEntityAsync(currentEvent);            
         }
 
-        public async Task<EventDto> GetEventByIdAsync(int id)
-        {
-            EventDto eventDto = _mapper.Map<EventDto>(await _eventRepo.GetEventByIdAsync(id));
-            return UpdateAvailableTickets(eventDto);
-        }
-
         private EventDto UpdateAvailableTickets(EventDto eventDto)
         {
             foreach (var ticketCategory in eventDto.TicketCategories)
@@ -55,6 +60,29 @@ namespace YES.Api.Business.Services
                 ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
             }
             return eventDto;
+        }
+
+        private EventDto UpdateStatus(EventDto eventDto)
+        {
+            if (eventDto.EventInfo.EventDate.Date < DateTime.Now.Date)
+            {
+                eventDto.Status = Status.Completed.ToString();
+            }
+
+            int soldOutCategories = 0;
+
+            foreach (var ticketCategory in eventDto.TicketCategories)
+            {
+                if (ticketCategory.AvailableAmount <= 0)
+                {
+                    soldOutCategories++;
+                }
+            }
+            if (soldOutCategories == eventDto.TicketCategories.Count)
+            {
+                eventDto.Status = Status.SoldOut.ToString();
+            }
+            return eventDto;            
         }
     }
 }

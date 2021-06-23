@@ -8,5 +8,6 @@ namespace YES.Client.Services
     {
         Task AddNewTicketsAsync(List<TicketPurchaseDto> tickets);
         Task<IEnumerable<TicketDto>> GetTicketsByUserIdAsync(int id);
+        Task<bool> CancelTicketsAsync(List<int> ticketsToCancel);
     }
 }
