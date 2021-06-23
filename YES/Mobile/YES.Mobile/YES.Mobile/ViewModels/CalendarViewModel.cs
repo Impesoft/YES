@@ -22,6 +22,7 @@ namespace YES.Mobile.ViewModels
         public Command<EventDto> EventTappedCommand { get; }
 
         public ICommand EventLoadCommand { get; set; }
+        public bool DBIsBusy { get; set; }
 
         public ICollection<EventDto> Events
         {
@@ -52,7 +53,9 @@ namespace YES.Mobile.ViewModels
 
         public async Task LoadEvents()
         {
+            IsBusy = true;
             Events = await _eventService.GetAllEvents();
+            IsBusy = false;
             Debug.Write("Debug:" + Events);
         }
     }
