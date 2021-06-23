@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using System.Threading.Tasks;
 using YES.Mobile.Dto;
 using YES.Mobile.Enums;
 using YES.Mobile.Services;
@@ -39,15 +40,15 @@ namespace YES.Mobile.ViewModels
 
         public UserDetailViewModel()
         {
-            Title = "User Details";
             CustomerService = new CustomerService();
-            LoadUserWithTickets();
+            Task.Run(() => LoadUserWithTickets());
             UserTokenDto user = GlobalVariables.LoggedInUser;
             var stream = user.Token;
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(stream);
             var tokenS = jsonToken as JwtSecurityToken;
             expiryDate = tokenS.ValidTo;
+            Title = "Logged in as: " + user.Email;
         }
 
         private async void LoadUserWithTickets()

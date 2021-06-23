@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Mobile.Dto;
@@ -24,14 +24,14 @@ namespace YES.Mobile.Services
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             _http = new HttpClient(insecureHandler);
+            _http.BaseAddress = new Uri("https://yesapi.azurewebsites.net/");
             LoggedInUser = GlobalVariables.LoggedInUser;
         }
 
         public async Task<CustomerWithTicketsDto> GetCustomerAsync()
         {
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", LoggedInUser.Token);
-            string loggedInUserWithTicketJson = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + LoggedInUser.Id);
-            CustomerWithTicketsDto loggedInUserWithTicket = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(loggedInUserWithTicketJson);
+            CustomerWithTicketsDto loggedInUserWithTicket = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + LoggedInUser.Id);
             return loggedInUserWithTicket;
         }
     }
