@@ -27,6 +27,6 @@ namespace YES.Api.Controllers
         public async Task<ActionResult<bool>> CancelTickets(ICollection<int> canceledTicketIds)
         {
             return Ok(await _ticketService.CancelTickets(canceledTicketIds));
-        }
+        }     
     }
 }

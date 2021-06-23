@@ -6,6 +6,5 @@
         public int EventId { get; set; }
         public TicketCategoryDto TicketCategory { get; set; }
         public int Amount { get; set; }
-
     }
 }
