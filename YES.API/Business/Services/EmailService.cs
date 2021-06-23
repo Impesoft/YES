@@ -1,13 +1,12 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Mail;
 
 namespace YES.Api.Business.Services
 {
     public class EmailService : IEmailService
-    {
-        private bool succes = false;
-
-        public bool SendEmail(string eMailreceiver, string nameReceiver, string subject, string messageHtml)
+    {  
+        public void SendEmail(string eMailreceiver, string nameReceiver, string subject, string messageHtml)
         {
             SmtpClient Client = new()
             {
@@ -34,18 +33,14 @@ namespace YES.Api.Business.Services
             message.To.Add(toEmail);
             Client.SendCompleted += Client_SendCompleted;
             Client.SendMailAsync(message);
-
-            return succes;
         }
 
         private void Client_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             if (e.Error != null)
             {
-                succes = false;
-                return;               
+                throw new Exception("Could not send Email");
             }
-            succes = true;
         }
     }
 }
