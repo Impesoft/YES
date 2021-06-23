@@ -18,15 +18,15 @@ namespace YES.Api.Controllers
         }
 
         [HttpPost("Buy")]
-        public async Task<ActionResult<bool>> BuyTickets(ICollection<TicketPurchaseDto> ticketPurchaseDtos)
+        public async Task<ActionResult<bool>> BuyTickets(ICollection<TicketPurchaseDto> ticketPurchaseDtos, bool sendInvoice)
         {
-            return Ok(await _ticketService.BuyTickets(ticketPurchaseDtos));
+            return Ok(await _ticketService.BuyTickets(ticketPurchaseDtos, sendInvoice));
         }
 
         [HttpPost("Cancel")]
         public async Task<ActionResult<bool>> CancelTickets(ICollection<int> canceledTicketIds)
         {
             return Ok(await _ticketService.CancelTickets(canceledTicketIds));
-        }
+        }     
     }
 }

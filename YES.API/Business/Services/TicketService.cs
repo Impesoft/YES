@@ -9,13 +9,16 @@ namespace YES.Api.Business.Services
 {
     public class TicketService :  ITicketService
     {
-        private ITicketRepo _ticketRepo;
-        public TicketService(ITicketRepo ticketRepo)
+        private readonly ITicketRepo _ticketRepo;
+        private readonly IInvoiceService _invoiceService;
+
+        public TicketService(ITicketRepo ticketRepo, IInvoiceService invoiceService)
         {
             _ticketRepo = ticketRepo;
+            _invoiceService = invoiceService;
         }
 
-        public async Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos)
+        public async Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos, bool sendInvoice)
         {
             List<Ticket> tickets = new();
 
@@ -27,7 +30,16 @@ namespace YES.Api.Business.Services
                 }
             }
 
-            return await _ticketRepo.AddEntitiesAsync(tickets);
+            if (await _ticketRepo.AddEntitiesAsync(tickets))
+            {
+                if (sendInvoice)
+                {
+                    return _invoiceService.SendInvoice();
+                }
+                return true;
+            }  
+            
+            return false;
         }
 
         public async Task<bool> CancelTickets(IEnumerable<int> canceledTicketIds)
@@ -60,6 +72,6 @@ namespace YES.Api.Business.Services
         public int GetAmountOfSoldTickets(int eventId, int TicketCategoryId)
         {           
             return  _ticketRepo.GetCountOfTicketsForEvent(eventId, TicketCategoryId);
-        }        
+        }
     }
 }

@@ -6,8 +6,8 @@ namespace YES.Api.Business.Services
 {
     public interface ITicketService
     {
-        Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos);
+        Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos, bool sendInvoice);
         Task<bool> CancelTickets(IEnumerable<int> canceledTicketIds);
-        int GetAmountOfSoldTickets(int eventId, int TicketCategoryId);
+        int GetAmountOfSoldTickets(int eventId, int TicketCategoryId);        
     }
 }
