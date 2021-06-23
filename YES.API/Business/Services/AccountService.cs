@@ -41,6 +41,7 @@ namespace YES.Api.Business.Services
                     await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
                     UserTokenDto customer = CreateUserTokenDto(ticketCustomer);
                     customer.FirstName = dto.FirstName;
+                    customer.LastName = dto.LastName;
                     return customer;
 
                 case Roles.TicketProvider:
