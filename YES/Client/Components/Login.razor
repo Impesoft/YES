@@ -1,12 +1,14 @@
 ﻿<EditForm Model="@LoginInfo" OnSubmit="@LogIn">
-    <DataAnnotationsValidator />
     <div>
-        <InputText  class="form-control mt-1" placeholder="Email" type="email" @bind-Value="@LoginInfo.Email"/>
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control mt-1" placeholder="Email" type="email" @bind-Value="@LoginInfo.Email"/>
     </div>
     <div>
-        <InputText class="form-control mt-1" placeholder="Password" type="password" @bind-Value="@LoginInfo.Password"/>
+        <label for="password">Password</label>
+        <InputText id="password" class="form-control mt-1" placeholder="Password" type="password" @bind-Value="@LoginInfo.Password"/>
     </div>
-    <button class="btn btn-outline-success mt-1" @onclick="LogIn">Log In</button>
+    <p class="no-account">No account yet? Register <span class="open-register-modal" @onclick="@ShowRegisterModal">here</span>.</p>
+    <button class="btn btn-outline-success mt-1 float-end" type="submit">Login</button>
 </EditForm>
 
 @code {
@@ -14,4 +16,6 @@
     public LoginDto LoginInfo { get; set; }
     [Parameter]
     public EventCallback LogIn { get; set; }
+    [Parameter]
+    public EventCallback ShowRegisterModal { get; set; }
 }
