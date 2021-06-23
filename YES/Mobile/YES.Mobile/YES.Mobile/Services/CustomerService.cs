@@ -20,7 +20,7 @@ namespace YES.Mobile.Services
 
         public CustomerService()
         {
-            HttpClientHandler handler = new HttpClientHandler();
+            HttpClientHandler handler = new();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             _http = new HttpClient(insecureHandler);
@@ -30,8 +30,8 @@ namespace YES.Mobile.Services
         public async Task<CustomerWithTicketsDto> GetCustomerAsync()
         {
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", LoggedInUser.Token);
-            var loggedInUserWithTicketJson = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + LoggedInUser.Id);
-            var loggedInUserWithTicket = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(loggedInUserWithTicketJson);
+            string loggedInUserWithTicketJson = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + LoggedInUser.Id);
+            CustomerWithTicketsDto loggedInUserWithTicket = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(loggedInUserWithTicketJson);
             return loggedInUserWithTicket;
         }
     }
