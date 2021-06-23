@@ -34,5 +34,12 @@ namespace YES.Api.Data.Repos
                                  .Include(x => x.TicketCategories)
                                  .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task<IEnumerable<Venue>> GetAllVenues()
+        {
+            return await _context.Venues
+                                 .Include(x => x.Address)                                 
+                                 .ToListAsync();
+        }
     }
 }
