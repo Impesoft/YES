@@ -30,6 +30,7 @@
                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type local:CalendarViewModel}}, Path=EventTappedCommand}"
                                                                   CommandParameter="{Binding .}" />
                             </AbsoluteLayout.GestureRecognizers>
+                            <ActivityIndicator IsRunning="{Binding Source={RelativeSource AncestorType={x:Type local:CalendarViewModel}}, Path=IsBusy}" Color="Red" />
 
                             <Image Source="{Binding EventInfo.BannerImgUrl}"
                                    HeightRequest="300"
