@@ -3,23 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:dto="clr-namespace:YES.Mobile.Dto" 
+             xmlns:dto="clr-namespace:YES.Mobile.Dto"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              mc:Ignorable="d"
              x:Class="YES.Mobile.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="Black">
     <ContentPage.BindingContext>
-        <local:LoginViewModel/>
+        <local:LoginViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Large">Your Event Service</Label>
+            <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
             <StackLayout Padding="10,0,10,0" VerticalOptions="Center" IsVisible="{Binding ShowLoginFields}">
-            <Entry Placeholder="Login Email" Keyboard="Email"  Text="{Binding LoginInfo.Email}"  />
-            <Entry Placeholder="Your Password" Text="{Binding LoginInfo.Password}" IsPassword="True" />
+                <Entry TextColor="Black" BackgroundColor="#DDFFFFFF" Placeholder="Login Email" Keyboard="Email"  Text="{Binding LoginInfo.Email}" />
+                <Entry TextColor="Black" BackgroundColor="#DDFFFFFF" Placeholder="Your Password" Text="{Binding LoginInfo.Password}" IsPassword="True" />
 
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
-            <Label HorizontalOptions="CenterAndExpand" Text="Logging in..." IsVisible="{Binding IsLoggingIn}"/>
+                <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" />
+            </StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" Color="Red" />
+
+            <Label HorizontalOptions="CenterAndExpand" Text="Logging in..." IsVisible="{Binding IsLoggingIn}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

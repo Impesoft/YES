@@ -74,7 +74,7 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        private async void Login()
+        private void Login()
         {
             logingIn = _accountService.LogIn(LoginInfo);
             while (!logingIn.IsCompleted)
