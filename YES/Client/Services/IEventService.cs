@@ -9,5 +9,7 @@ namespace YES.Client.Services
         Task<IEnumerable<EventDto>> GetEventsAsync();
         Task<EventDto> GetEventByIdAsync(int id);
         Task<IEnumerable<EventDto>> GetEventSpotlightsAsync();
+        Task<bool> CreateNewEventAsync(EventDto eventDto);
+        Task<IEnumerable<VenueDto>> GetVenuesAsync();
     }
 }
