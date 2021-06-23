@@ -2,6 +2,6 @@
 {
     public interface IEmailService
     {
-        bool SendEmail(string eMailreceiver, string nameReceiver, string eMailSubject, string messageToSendInHtml);
+        void SendEmail(string eMailreceiver, string nameReceiver, string eMailSubject, string messageToSendInHtml);
     }
 }
