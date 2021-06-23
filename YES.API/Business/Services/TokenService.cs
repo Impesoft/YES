@@ -33,9 +33,9 @@ namespace YES.Api.Business.Services
             var tokenDescription = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddHours(2).AddMinutes(7),
+                Expires = DateTime.Now.AddDays(7).AddHours(2),
                 SigningCredentials = creds
-            };
+            };  // AddHours(2) to make sure time is the same as on the server
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescription);
