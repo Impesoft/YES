@@ -38,21 +38,21 @@ namespace YES.Api.Business.Services
         {
             string message = "";
 
-            message += $"<h1>Beste {customer.FirstName} {customer.LastName}</h1> <br><br>";
-            message += "<h4>Het Yes-team bedankt u voor u aankoop</h4> <br>";
+            message += $"<h1>Beste {customer.FirstName} {customer.LastName}</h1> <br>";
+            message += "<h2>Het Yes-team bedankt u voor u aankoop</h2>";
             message += "<h4>Onderstaand kan u je factuur terug vinden</h4> <br><br>";
 
             message += $"<h1>{theEvent.EventInfo.Name}</h1>";
-            message += $"<h5>{theEvent.EventInfo.EventDate}</h15> <br><br>";
+            message += $"<h4>{theEvent.EventInfo.EventDate}</h4> <br><br>";
 
             foreach (var ticket in tickets)
             {
-                message += $"<h2>{ticket.TicketCategory.Name} {ticket.TicketCategory.Price} {ticket.Amount}</h2>";
+                message += $"<h3>Ticket: {ticket.TicketCategory.Name} | Prijs/st:  {ticket.TicketCategory.Price} Euro | Aantal: {ticket.Amount}</h3>";
             }
 
-            message += "<br><br>";
+            message += "<br>";
 
-            message += "<h4>Met vriendelijke groeten</h4> <br>";
+            message += "<h4>Met vriendelijke groeten</h4>";
             message += "<h1>Your Event Service</h1> <br><br>";
 
             return message;
