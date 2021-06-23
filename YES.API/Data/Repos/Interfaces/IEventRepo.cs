@@ -8,5 +8,6 @@ namespace YES.Api.Data.Repos.Interfaces
     {
         Task<IEnumerable<Event>> GetEventsAsync();
         Task<Event> GetEventByIdAsync(int id);
+        Task<IEnumerable<Venue>> GetAllVenues();
     }
 }

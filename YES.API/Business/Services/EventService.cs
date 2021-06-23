@@ -52,6 +52,11 @@ namespace YES.Api.Business.Services
             return await _eventRepo.UpdateEntityAsync(currentEvent);            
         }
 
+        public async Task<IEnumerable<VenueDto>> GetAllVenuesAsync()
+        {
+            return _mapper.Map<IEnumerable<VenueDto>> (await _eventRepo.GetAllVenues());
+        }
+
         private EventDto UpdateAvailableTickets(EventDto eventDto)
         {
             foreach (var ticketCategory in eventDto.TicketCategories)
