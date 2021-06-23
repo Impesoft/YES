@@ -8,6 +8,6 @@ namespace YES.Api.Business.Services
     {
         Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos);
         Task<bool> CancelTickets(IEnumerable<int> canceledTicketIds);
-        int GetAmountOfSoldTickets(int eventId, int TicketCategoryId);
+        int GetAmountOfSoldTickets(int eventId, int TicketCategoryId);        
     }
 }
