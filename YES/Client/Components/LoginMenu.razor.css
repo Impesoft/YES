@@ -12,7 +12,36 @@
     border: none;
 }
 
-.open-register-modal {
+.greeting-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.greeting {
     color: var(--light-blue);
-    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+::deep input, textarea {
+    background-color : var(--dark-light);
+    border: none;
+}
+
+::deep input:focus, textarea:focus {
+    background-color : var(--dark-light);
+    color: var(--grey);
+    border: none;
+}
+
+::deep ::placeholder {
+    color: var(--test-dark);
+}
+
+::deep .nav-item {
+    background: var(--test-dark-light);
+}
+
+::deep a, ::deep .nav-link:hover {
+    color: var(--test-dark);
 }

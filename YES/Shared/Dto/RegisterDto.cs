@@ -5,10 +5,17 @@ namespace YES.Shared.Dto
 {
     public class RegisterDto
     {
+        [Required(ErrorMessage = "Please enter your provider name.")]
+        [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string NameProvider { get; set; }
+        [Required(ErrorMessage = "Please enter your first name.")]
+        [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Please enter your last name.")]
+        [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your e-mail address.")]
+        [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string Email { get; set; }
 
         [Required]
