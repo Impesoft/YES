@@ -18,7 +18,7 @@ namespace YES.Api.Business.Services
             _invoiceService = invoiceService;
         }
 
-        public async Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos, bool sendInvoice)
+        public async Task<bool> BuyTickets(IEnumerable<TicketPurchaseDto> ticketPurchaseDtos)
         {
             List<Ticket> tickets = new();
 
@@ -30,16 +30,8 @@ namespace YES.Api.Business.Services
                 }
             }
 
-            if (await _ticketRepo.AddEntitiesAsync(tickets))
-            {
-                if (sendInvoice)
-                {
-                    return _invoiceService.SendInvoice();
-                }
-                return true;
-            }  
-            
-            return false;
+           await _invoiceService.SendInvoiceAsync(ticketPurchaseDtos);
+            return await _ticketRepo.AddEntitiesAsync(tickets);
         }
 
         public async Task<bool> CancelTickets(IEnumerable<int> canceledTicketIds)
