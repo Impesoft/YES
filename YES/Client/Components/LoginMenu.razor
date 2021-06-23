@@ -3,6 +3,7 @@
 @inject IAccountService _accountService
 @inject NavigationManager navigationManager
 @using YES.Shared.Enums
+@using System.Net.Mail
 
 <div>
     @if (Customer == null)
@@ -12,10 +13,10 @@
     }
     else
     {
-            @*<a href="customerdetail" class="nav-link text-warning">Welkom @Customer.Email</a>*@
-            <a href="customerdetail" class="nav-link text-warning">Welkom @Customer.FirstName</a>
-            @*<a class="nav-link active" aria-current="page" @onclick="LogOut">Log Out</a>*@
-            <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
+            <div class="greeting-wrapper">
+                <a href="customerdetail" class="greeting">Welcome, @TruncatedEmail</a>
+                <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
+            </div>
     }
 
     <Modal @ref="loginModal">
@@ -25,29 +26,23 @@
                 <CloseButton Class="close-btn btn" />
             </ModalHeader>
             <ModalBody>
-                <Login LoginInfo="@LoginInfo" LogIn="@(() => LogIn())" />
-                <div>
-                    No account yet? Register <span class="open-register-modal" @onclick="@ShowRegisterModal">here</span>.
-                </div>
+                <Login LoginInfo="@LoginInfo" 
+                       LogIn="@(() => LogIn())"
+                       ShowRegisterModal="@(() => ShowRegisterModal())" />
             </ModalBody>
-            @* <ModalFooter> *@
-            @*     <Button class="btn btn-outline-success mt-1" Clicked="@LogIn">Log In</Button> *@
-            @* </ModalFooter> *@
         </ModalContent>
     </Modal>
     
     <Modal @ref="registerModal">
-        <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.ExtraLarge">
+        <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.Large">
             <ModalHeader>
                 <ModalTitle>Register</ModalTitle>
                 <CloseButton Class="close-btn btn" />
             </ModalHeader>
             <ModalBody>
-                <Register RegisterInfo="@RegisterInfo" />
+                <Register RegisterInfo="@RegisterInfo" 
+                          RegisterUser="@(() => RegisterUser())" />
             </ModalBody>
-            <ModalFooter>
-                <Button Color="Color.Primary" Clicked="@RegisterUser">Register</Button>
-            </ModalFooter>
         </ModalContent>
     </Modal>
 </div>
@@ -58,6 +53,7 @@
     private LoginDto LoginInfo { get; set; } = new();
     private RegisterDto RegisterInfo { get; set; } = new();
     private bool RegisterSuccessful { get; set; }
+    private string TruncatedEmail { get; set; }
     
     // reference to the modal components
     private Modal loginModal;
@@ -92,10 +88,11 @@
         navigationManager.NavigateTo("/");
     }
 
-    public async Task SetCustomer()
+    private async Task SetCustomer()
     {
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
         if (JsonUser != null) Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+        TruncateCustomerEmail();
     }
     
     private async Task LogIn()
@@ -117,5 +114,11 @@
             RegisterSuccessful = true;
         }
     //TODO MORE RESPONSE MESSAGES
+    }
+
+    private void TruncateCustomerEmail()
+    {
+        var mail = new MailAddress(Customer.Email);
+        TruncatedEmail = mail.User;
     }
 }
