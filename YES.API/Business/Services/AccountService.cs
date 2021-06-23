@@ -39,17 +39,12 @@ namespace YES.Api.Business.Services
                 case Roles.TicketCustomer:
                     TicketCustomer ticketCustomer = CreateTicketCustomer(dto);                    
                     await _ticketCustomerRepo.AddEntityAsync(ticketCustomer);
-                    UserTokenDto customer = CreateUserTokenDto(ticketCustomer);
-                    customer.FirstName = dto.FirstName;
-                    customer.LastName = dto.LastName;
-                    return customer;
+                    return CreateUserTokenDto(ticketCustomer);                    
 
                 case Roles.TicketProvider:
                     TicketProvider ticketProvider = CreateTicketProvider(dto);                    
                     await _ticketProviderRepo.AddEntityAsync(ticketProvider);
-                    UserTokenDto provider = CreateUserTokenDto(ticketProvider);
-                    provider.NameProvider = dto.NameProvider;
-                    return provider;
+                    return CreateUserTokenDto(ticketProvider);                    
 
                 case Roles.Admin:
 
@@ -85,12 +80,12 @@ namespace YES.Api.Business.Services
 
         private UserTokenDto CreateUserTokenDto(User user)
         {
-            return new UserTokenDto
+            return new UserTokenDto()
             {
                 Id = user.Id,
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
-                Role = user.Role                
+                Role = user.Role  
             };
         }
 
