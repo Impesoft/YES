@@ -10,5 +10,6 @@ namespace YES.Api.Business.Services
         Task<EventDto> GetEventByIdAsync(int id);
         Task<bool> AddEventAsync(EventDto eventDto);
         Task<bool> UpdateEventAsync(EventDto eventDto);
+        Task<IEnumerable<VenueDto>> GetAllVenuesAsync();
     }
 }
