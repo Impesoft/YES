@@ -1,10 +1,9 @@
 @page "/EventDetail/{Id:int}"
+@using System.Threading
 @inject IEventService _eventService
 @inject IJSRuntime JSRuntime
 @inject NavigationManager navigationManager
 @inject ICustomerService _customerService
-
-
 
 <div class="page-bg">
     @if (Event?.Id > 0)
@@ -17,6 +16,13 @@
                 <h3>@Event.EventInfo.Name</h3>
             </div>
         </div>
+        
+        <Alert Color="Color.Info" Class="alert-position" @bind-Visible="@IsNotLoggedIn">
+            <AlertMessage>
+                 Please login to buy tickets.
+             </AlertMessage>
+            @* <CloseButton Class="close-btn-alert btn"/> *@
+        </Alert>
 
         <section>
             <h5 class="event-date-line event-date">
@@ -63,13 +69,12 @@
                             }
                             else
                             {
-                                <button class="btn btn-warning float-end" @onclick="@NavigateToLogin">Tickets</button>
+                                <button class="btn btn-warning float-end" @onclick="@LoginAlert">Tickets</button>
                             }
 
                         }
                     }
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
-
                 </div>
             </div>
         </section>
@@ -77,7 +82,7 @@
 
         @if (Customer?.Id > 0)
         {
-            <Modal @ref="modalRef">
+            <Modal @ref="_modalRef">
                 <ModalContent Centered="true" Class="bg-dark text-light">
                     <ModalHeader>
                         <ModalTitle>@Event.EventInfo.Name <br/> @Event.EventInfo.EventDate</ModalTitle>
@@ -87,7 +92,7 @@
                         <BuyTicket Customer="@Customer"
                                    Event="@Event"
                                    Id="@Id"
-                                   modalRef="@modalRef"/>
+                                   modalRef="@_modalRef"/>
                     </ModalBody>
                 </ModalContent>
             </Modal>
@@ -104,20 +109,15 @@
     public int Id { get; set; }
     public EventDto Event { get; set; }
     private string eventStatus { get; set; }
-
     public CustomerWithTicketsDto Customer { get; set; }
+    private bool IsNotLoggedIn { get; set; } = false;
 
     // reference to the modal component
-    private Modal modalRef;
+    private Modal _modalRef;
 
     private void ShowModal()
     {
-        modalRef.Show();
-    }
-
-    private void HideModal()
-    {
-        modalRef.Hide();
+        _modalRef.Show();
     }
 
     protected override async Task OnInitializedAsync()
@@ -134,18 +134,14 @@
 
     private int CountTotalTicketsLeft()
     {
-        int totalTickets = 0;
-        foreach (var category in Event.TicketCategories)
-        {
-            totalTickets += category.AvailableAmount;
-        }
-
-        return totalTickets;
+        return Event.TicketCategories.Sum(category => category.AvailableAmount);
     }
 
-    private void NavigateToLogin()
+    private async Task LoginAlert()
     {
-        navigationManager.NavigateTo("/login");
+        if (Customer != null) return;
+        IsNotLoggedIn = true;
+        await Task.Delay(2000);
+        IsNotLoggedIn = false;
     }
-
 }
