@@ -10,12 +10,15 @@ namespace YES.Api.Configuration
         public AutoMapperProfile()
         {
             CreateMap<Venue, VenueDto>().ReverseMap();
-            CreateMap<TicketProvider, TicketProviderDto>().ReverseMap();
             CreateMap<EventInfo, EventInfoDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
             CreateMap<TicketCategory, TicketCategoryDto>().ReverseMap();
-            CreateMap<TicketCustomer, TicketCustomerDto>().ReverseMap();
-            CreateMap<TicketCustomer, CustomerWithTicketsDto>();
+            CreateMap<TicketCustomer, CustomerWithTicketsDto>()
+            .ForMember(d => d.GreetingName, x => x.MapFrom(y => y.FirstName));
+            CreateMap<TicketCustomer, TicketCustomerDto>().ReverseMap()
+            .ForMember(d => d.GreetingName, x => x.MapFrom(y => y.FirstName));
+            CreateMap<TicketProvider, TicketProviderDto>().ReverseMap()
+            .ForMember(d => d.GreetingName, x => x.MapFrom(y => y.NameProvider));
 
             CreateMap<Event, EventDto>()
                 .ForMember(d => d.Status, x => x.MapFrom(y => y.Status.ToString()));
