@@ -18,7 +18,7 @@
 }
 
 .greeting {
-    color: var(--yellow);
+    color: var(--light-blue);
     text-decoration: none;
     margin-right: 10px;
 }
