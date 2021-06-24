@@ -9,7 +9,6 @@
 <div>
     @if (Customer == null)
     {
-        @*<a href="login" class="nav-link active" aria-current="page">Log In</a>*@
         <i class="fas fa-sign-in-alt" @onclick="@ShowLoginModal"></i>
     }
     else
@@ -100,7 +99,8 @@
     {
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
-        navigationManager.NavigateTo("/", true);
+        HideLoginModal();
+        await SetCustomer();
     }
     
     private async Task RegisterUser()
