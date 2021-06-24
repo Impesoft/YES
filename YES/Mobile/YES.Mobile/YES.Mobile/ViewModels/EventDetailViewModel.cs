@@ -253,5 +253,13 @@ namespace YES.Mobile.ViewModels
                 BuyableList = false;
             }
         }
+
+        private async void OnBuyTickets()
+        {
+            if (TicketsPurchasingList != null)
+            {
+                HttpResponseMessage responseMessage = await _ticketService.BuyTicketsAsync(TicketsPurchasingList);
+            }
+        }
     }
 }
