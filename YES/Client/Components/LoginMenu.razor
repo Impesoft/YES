@@ -40,11 +40,10 @@ else
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
         if (JsonUser != null)
         {
-           Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            GlobalVariables.LoggedInUser = Customer;
         }
     }
-
-
 
 
 }
