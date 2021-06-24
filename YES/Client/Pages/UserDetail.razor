@@ -119,7 +119,7 @@
     }
 
     private async Task UpdateCustomer()
-    {
+    {       
         EditSuccessful = true;
         await customerService.UpdateCustomer(Customer);
     }
@@ -131,7 +131,7 @@
         if (result)
         {
             foreach (var ticketsToCancel in TicketsToCancelById)
-            {               
+            {
                 Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
             }
 
