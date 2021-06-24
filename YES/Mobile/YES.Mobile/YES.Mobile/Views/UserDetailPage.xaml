@@ -33,17 +33,26 @@
                 <StackLayout BindableLayout.ItemsSource="{Binding LocalUser.Tickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Frame BorderColor="Wheat" BackgroundColor="#110077FF">
-                                <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
-                                    <Label TextColor="Wheat" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
-                                    <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <Label TextColor="Yellow" Text="{Binding }" FontSize="16" Padding="0,24,0,0" />
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                            </Frame>
+                            <SwipeView  BackgroundColor="#110077FF">
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem BackgroundColor="Red"
+                                                   IconImageSource="{FontImage Glyph=&#xf503;, FontFamily=FontAwesome, Color=Black}" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Frame BorderColor="Wheat">
+
+                                    <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
+                                        <Label TextColor="Wheat" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
+                                        <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label TextColor="Yellow" Text="{Binding }" FontSize="16" Padding="0,24,0,0" />
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </Frame>
+                            </SwipeView>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
