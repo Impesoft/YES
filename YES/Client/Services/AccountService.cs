@@ -2,6 +2,7 @@
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using YES.Shared.Dto;
+using YES.Shared.GlobalClasses;
 using Newtonsoft.Json;
 using System.Web;
 using System.Net;
@@ -12,8 +13,6 @@ namespace YES.Client.Services
 {
     public class AccountService : IAccountService
     {
-        private UserTokenDto LoggedInUser { get; set; }
-        private string LoggedInUserJson { get; set; }
         private HttpClient _http;
         public AccountService(HttpClient http)
         {
@@ -23,12 +22,7 @@ namespace YES.Client.Services
         public async Task<string> LogIn(LoginDto logindto)
         {
             var _loggedInUser = await _http.PostAsJsonAsync("/api/Account/Login", logindto);
-            LoggedInUserJson = await _loggedInUser.Content.ReadAsStringAsync();
-
-            if (_loggedInUser != null)
-            {
-                LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(LoggedInUserJson);
-            }
+            var LoggedInUserJson = await _loggedInUser.Content.ReadAsStringAsync();            
 
             return LoggedInUserJson;
         }
@@ -36,23 +30,12 @@ namespace YES.Client.Services
         public async Task<bool> RegisterUser(RegisterDto registerDto)
         {
             var registerResult = await _http.PostAsJsonAsync("/api/Account/Register", registerDto);
-            //var RegisterUserJson = await registerResult.Content.ReadAsStringAsync();
             return registerResult.IsSuccessStatusCode;
-        }
-
-        public UserTokenDto GetLoggedInUser()
-        {
-            return LoggedInUser;
-        }
-
-        public string GetLoggedInUserJson()
-        {
-            return LoggedInUserJson;
-        }
+        }        
 
         public void LogOut()
         {
-            LoggedInUser = null;
+            GlobalVariables.LoggedInUser = null;
         }
     }
 }
