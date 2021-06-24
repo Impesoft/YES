@@ -8,7 +8,7 @@
     <section>
         @if (Customer != null)
         {
-            <h3 class="mb-4">Customer Form</h3>
+            <h3 class="mb-4">Customer Details</h3>
             <div class="mb-4">
                 <CustomerForm Customer="Customer" OnSubmit="UpdateCustomer"></CustomerForm>
             </div>
@@ -99,10 +99,10 @@
     {
         ResetBools();
 
-        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
-
-        Customer = await customerService.GetCustomerByIdAsync(loggedInUser.Id);
+        if (GlobalVariables.LoggedInUser != null)
+        {
+            Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+        }
 
         TurnNullFieldsToEmptyString();
 

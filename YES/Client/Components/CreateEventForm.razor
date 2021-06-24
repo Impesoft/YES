@@ -76,18 +76,7 @@
             <Button class="btn btn-outline-light" @onclick="DisplayNewVenueForm">Add New Venue</Button>
             <Button class="btn btn-outline-light" @onclick="DisplayEditVenueForm">Edit Venue</Button>
         </div>
-    </div>
-    @*<div>
-            @if (Event.Venue != null)
-            {
-                <p>@Event.Venue.Name</p>
-            }
-            else
-            {
-                <p>0</p>
-            }
-
-        </div>*@
+    </div>   
 
     @if (DisplayEmptyVenueForm)
     {
@@ -169,7 +158,6 @@
         InitializeNewVenue();
         InitializeNewCategory();
 
-        //TODO Get venues from API and add to list
         Venues = new List<VenueDto>();
         Venues.AddRange(await eventservice.GetVenuesAsync());
     }
