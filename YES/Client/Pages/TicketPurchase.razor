@@ -144,10 +144,10 @@
     {
         Event = await _eventService.GetEventByIdAsync(Id);
 
-        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
-
-        Customer = await _customerService.GetCustomerByIdAsync(loggedInUser.Id);
+        if (GlobalVariables.LoggedInUser != null)
+        {
+            Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+        }
         PurchaseSuccesful = false;
     }
 
