@@ -44,8 +44,8 @@ namespace YES.Api.Controllers
             return Ok(await _eventService.UpdateEventAsync(eventDto));
         }
 
-        [HttpGet("Veneus")]
-        public async Task<ActionResult<IEnumerable<VenueDto>>> GetAllVeneus()
+        [HttpGet("Venues")]
+        public async Task<ActionResult<IEnumerable<VenueDto>>> GetAllVenues()
         {
             return Ok(await _eventService.GetAllVenuesAsync());
         }
