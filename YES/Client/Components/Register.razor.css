@@ -13,4 +13,6 @@ label {
 .error-message {
     color: var(--red);
     margin: 2rem 0;
+    font-size: .8rem;
+    font-style: italic;
 }
