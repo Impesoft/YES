@@ -1,0 +1,18 @@
+label {
+    color: var(--grey);
+}
+
+::deep button {
+    margin-top: 25px !important;
+}
+
+::deep form {
+    margin-top: 15px;
+}
+
+.error-message {
+    color: var(--red);
+    margin: 2rem 0;
+    font-size: .8rem;
+    font-style: italic;
+}
