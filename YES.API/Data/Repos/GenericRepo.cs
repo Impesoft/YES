@@ -17,7 +17,7 @@ namespace YES.Api.Data.Repos
         }
 
         public virtual async Task<bool> AddEntityAsync(T entity)
-        {
+        {            
             _context.Add(entity);
             await _context.SaveChangesAsync();
             return true;

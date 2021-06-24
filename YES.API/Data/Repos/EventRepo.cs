@@ -41,5 +41,37 @@ namespace YES.Api.Data.Repos
                                  .Include(x => x.Address)                                 
                                  .ToListAsync();
         }
+
+        public override async Task<bool> AddEntityAsync(Event eventToAdd)
+        {
+            if (eventToAdd.Venue != null)
+            {
+                eventToAdd.Venue = await _context.Venues.FirstOrDefaultAsync(x => x.Id == eventToAdd.VenueId);
+            }
+            if (eventToAdd.TicketProvider != null)
+            {
+                eventToAdd.TicketProvider = await _context.TicketProviders.FirstOrDefaultAsync(x => x.Id == eventToAdd.TicketProviderId);
+            }
+
+            _context.Add(eventToAdd);
+            await _context.SaveChangesAsync();
+            return true;                     
+        }
+
+        public override async Task<bool> UpdateEntityAsync(Event eventToUpdate)
+        {
+            if (eventToUpdate.Venue != null)
+            {
+                eventToUpdate.Venue = await _context.Venues.FirstOrDefaultAsync(x => x.Id == eventToUpdate.VenueId);
+            }
+            if (eventToUpdate.TicketProvider != null)
+            {
+                eventToUpdate.TicketProvider = await _context.TicketProviders.FirstOrDefaultAsync(x => x.Id == eventToUpdate.TicketProviderId);
+            }
+
+            _context.Update(eventToUpdate);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }
