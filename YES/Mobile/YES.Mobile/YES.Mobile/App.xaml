@@ -27,6 +27,10 @@
                 <Setter Property="Margin"
                         Value="30" />
             </Style>
+            <Style  TargetType="ContentPage">
+                <Setter Property="BackgroundColor"
+                        Value="#111111" />
+            </Style>
 
             <Style TargetType="Button">
                 <Setter Property="TextColor"
@@ -60,8 +64,6 @@
                         Value="{AppThemeBinding Dark=#55FFFFFF, Light=#FF000000}"></Setter>
                 <Setter Property="BackgroundColor"
                         Value="{AppThemeBinding Dark=#55000000, Light=#88FFFFFF}"></Setter>
-
-
             </Style>
         </ResourceDictionary>
     </Application.Resources>
