@@ -30,6 +30,7 @@ namespace YES.Api.Business.Services
                 UpdateAvailableTickets(eventDto);
                 UpdateStatus(eventDto);                
             }
+            var test = eventDtos;
             return eventDtos;
         }
 
