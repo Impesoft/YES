@@ -110,22 +110,9 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        private bool eventPassed;
-
-        public bool EventPassed
-        {
-            get { return eventPassed; }
-            set
-            {
-                eventPassed = value;
-                OnPropertyChanged(nameof(EventPassed));
-            }
-        }
-
         public EventDetailViewModel()
         {
             Title = "Event Details";
-            CheckDate();
             LoadEventCommand = new Command(LoadEvent);
 
             AddTicketCommand = new Command<TicketCategoryDto>(OnAddTicket);
@@ -142,18 +129,6 @@ namespace YES.Mobile.ViewModels
             BuyableList = false;
 
             _ticketService = new TicketService();
-        }
-
-        private void CheckDate()
-        {
-            if (Event.EventInfo.EventDate < DateTime.Now)
-            {
-                EventPassed = false;
-            }
-            else
-            {
-                EventPassed = true;
-            }
         }
 
         public async void LoadEvent()
@@ -181,27 +156,30 @@ namespace YES.Mobile.ViewModels
 
         private void OnAddTicket(TicketCategoryDto ticketCategory)
         {
-            bool itemFound = false;
-            foreach (var item in TicketsPurchasingList)
+            if (ticketCategory.AvailableAmount >= 1)
             {
-                if (ticketCategory.Id == item.TicketCategory.Id)
+                bool itemFound = false;
+                foreach (var item in TicketsPurchasingList)
                 {
-                    item.Amount++;
-                    itemFound = true;
+                    if (ticketCategory.Id == item.TicketCategory.Id)
+                    {
+                        item.Amount++;
+                        itemFound = true;
+                        ticketCategory.AvailableAmount--;
+                    }
+                }
+                if (!itemFound)
+                {
+                    var newTicket = CreateTicket(ticketCategory);
+                    TicketsPurchasingList.Add(newTicket);
                     ticketCategory.AvailableAmount--;
                 }
-            }
-            if (!itemFound)
-            {
-                var newTicket = CreateTicket(ticketCategory);
-                TicketsPurchasingList.Add(newTicket);
-                ticketCategory.AvailableAmount--;
-            }
 
-            TotalPrice = CalcTotalPrice();
-            AmountOfTicketsToPurchase = CountTotalTickets();
+                TotalPrice = CalcTotalPrice();
+                AmountOfTicketsToPurchase = CountTotalTickets();
 
-            CheckList();
+                CheckList();
+            }
         }
 
         private void OnDeductTicket(TicketCategoryDto categoryDto)
@@ -266,7 +244,7 @@ namespace YES.Mobile.ViewModels
 
         private void CheckList()
         {
-            if (TicketsPurchasingList.Count > 0 && Event.EventInfo.EventDate < DateTime.Now)
+            if (TicketsPurchasingList.Count > 0 && Event.EventInfo.EventDate > DateTime.Now)
             {
                 BuyableList = true;
             }

@@ -34,11 +34,22 @@
                     <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
                     <Label Text="{Binding Event.EventInfo.EventDate}"
-                           IsVisible="{Binding EventPassed}"
                            FontSize="18"
                            VerticalOptions="End"
                            Margin="15"
                            HorizontalOptions="CenterAndExpand" />
+
+                    <StackLayout
+                           Margin="15">
+                        <Label Text="Status Event:"
+                            TextDecorations="Underline"
+                            VerticalOptions="End"
+                            HorizontalOptions="Center" />
+                        <Label Text="{Binding Event.Status}"
+                           FontSize="18"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center" />
+                    </StackLayout>
 
                     <Label Text="{Binding Event.EventInfo.Description}"
                            VerticalOptions="End"
