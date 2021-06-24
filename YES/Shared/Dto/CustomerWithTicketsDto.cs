@@ -7,6 +7,8 @@ namespace YES.Shared.Dto
     {
         public int Id { get; set; }
 
+        public string GreetingName { get; set; }
+
         [Required(ErrorMessage = "Please enter your first name.")]
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string FirstName { get; set; }
