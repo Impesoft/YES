@@ -58,6 +58,13 @@ namespace YES.Client.Services
             return responseMessage.IsSuccessStatusCode;
         }
 
+        public async Task<bool> UpdateEventAsync(EventDto eventDto)
+        {
+            var responseMessage = await _http.PutAsJsonAsync("api/Event/", eventDto);
+
+            return responseMessage.IsSuccessStatusCode;
+        }
+
         public async Task<IEnumerable<VenueDto>> GetVenuesAsync()
         {
             var venues = await _http.GetFromJsonAsync<IEnumerable<VenueDto>>("api/Event/Veneus");
