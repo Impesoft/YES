@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YES.Mobile.Views.UserDetailPage"
              xmlns:vm="clr-namespace:YES.Mobile.ViewModels"
-             Title="{Binding Title}"
-             BackgroundColor="Black">
+             Title="{Binding Title}">
 
     <ContentPage.BindingContext>
         <vm:UserDetailViewModel />
@@ -25,7 +24,7 @@
                 <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start">
                     <Label Text="{Binding LocalUser.FirstName, StringFormat='Welkom {0}' }" HorizontalOptions="Center" TextColor="DimGray" FontSize="Medium" />
                     <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
-                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Large">Your Event Service</Label>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Your Event Service</Label>
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
                 </StackLayout>
             </StackLayout>
@@ -43,7 +42,7 @@
                                 <Frame BorderColor="Wheat">
 
                                     <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
-                                        <Label TextColor="Wheat" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
+                                        <Label TextColor="#EEEEEE" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
                                         <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
