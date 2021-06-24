@@ -40,6 +40,8 @@
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
 
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+        
+
         navigationManager.NavigateTo("/", true);
     }
 }

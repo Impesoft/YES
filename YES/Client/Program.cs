@@ -46,6 +46,7 @@ namespace YES.Client
             builder.Services.AddScoped<ICustomerService, CustomerService>();
             builder.Services.AddScoped<ITicketService, TicketService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IProviderService, ProviderService>();
 
             builder.Services.AddMsalAuthentication(options =>
             {
