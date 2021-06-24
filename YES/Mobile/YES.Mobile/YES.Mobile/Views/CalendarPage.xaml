@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
              x:Class="YES.Mobile.Views.CalendarPage"
-             Appearing="LoadEvents"
-             BackgroundColor="Black">
+             Appearing="LoadEvents">
 
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
@@ -15,7 +14,7 @@
                 <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </RefreshView>
-                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="Large">Upcoming Events</Label>
+                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Upcoming Events</Label>
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
