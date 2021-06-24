@@ -3,7 +3,8 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:YES.Mobile.Views"
        Title="YES.Mobile"
-       x:Class="YES.Mobile.AppShell">
+       x:Class="YES.Mobile.AppShell"
+       FlyoutBackgroundColor="#111111">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -23,6 +24,7 @@
                 <Setter Property="Shell.TabBarForegroundColor" Value="White" />
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarTitleColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -40,13 +42,14 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="#111111" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="Black" />
+                                    <Setter Property="BackgroundColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -84,9 +87,6 @@
     <FlyoutItem Title="Profile" Icon="icon_about.png">
         <ShellContent Route="UserDetailPage" ContentTemplate="{DataTemplate local:UserDetailPage}" />
     </FlyoutItem>
-    <!--<FlyoutItem Title="My tickets" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:UserTicketsPage}" />
-    </FlyoutItem>-->
     <FlyoutItem Title="About" Icon="icon_feed.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
