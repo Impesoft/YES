@@ -119,7 +119,7 @@ namespace YES.Mobile.ViewModels
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
             ClearPurchaseList = new Command(OnCancelPurchase);
-
+            BuyTickets = new Command(OnBuyTickets);
             LoggedInUser = GlobalVariables.LoggedInUser;
 
             TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
