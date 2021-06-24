@@ -1,4 +1,5 @@
 ﻿@page "/CreateEvent"
+@page "/CreateEvent/{Id:int}"
 @inject IProviderService providerService
 @inject IEventService eventService
 @inject IAccountService accountService
@@ -39,6 +40,9 @@
 
 @code {
     [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
     public EventDto Event { get; set; }
 
     public TicketProviderDto TicketProvider { get; set; }
@@ -59,8 +63,11 @@
             TicketProvider = await providerService.GetProviderByIdAsync(loggedInUser.Id);
         }
 
-
-        if (Event == null)
+        if (Id > 0)
+        {
+            Event = await eventService.GetEventByIdAsync(Id);
+        }
+        else if (Event == null)
         {
             InitializeEvent();
         }
