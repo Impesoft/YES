@@ -32,8 +32,8 @@
                     </div>
                     <div>
                         <label for="customerConfirmPassword">Confirm Password</label>
-                        <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @oninput="OnConfirmPasswordChanged" @bind="ConfirmPassword"/>
-                        <span class="error-message"><ValidationMessage For="() => ConfirmPassword"/></span>
+                        <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterInfo.ConfirmPassword"/>
+                        <span class="error-message"><ValidationMessage For="() => RegisterInfo.ConfirmPassword"/></span>
                     </div>
                     <button class="btn btn-outline-success mt-1 float-end"  type="submit">Register</button>
                 </EditForm>
@@ -60,8 +60,8 @@
                     </div>
                     <div>
                         <label for="providerConfirmPassword">Confirm Password</label>
-                        <input id="providerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @oninput="OnConfirmPasswordChanged" @bind="ConfirmPassword"/>
-                        <span class="error-message"><ValidationMessage For="() => ConfirmPassword"/></span>
+                        <input id="providerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password"  @bind="RegisterInfo.ConfirmPassword"/>
+                        <span class="error-message"><ValidationMessage For="() => RegisterInfo.ConfirmPassword"/></span>
                     </div>
                     <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
                 </EditForm>
@@ -76,21 +76,10 @@
     [Parameter] 
     public EventCallback RegisterUser { get; set; }
     private string SelectedTab { get; set; } = "customer";
-    private string _confirmPassword;
-    [Parameter] 
-    public string ConfirmPassword { get; set; }
-    [Parameter] 
-    public EventCallback<string> ConfirmPasswordChanged { get; set; }
-    
+
     protected override async Task OnInitializedAsync()
     {
         RegisterInfo.Role = Roles.TicketCustomer;
-    }
-    
-    private async Task OnConfirmPasswordChanged(ChangeEventArgs e)
-    {
-        _confirmPassword = e.Value.ToString();
-        await ConfirmPasswordChanged.InvokeAsync(_confirmPassword);
     }
 
     private void OnSelectedTabChanged( string name )
