@@ -1,0 +1,48 @@
+﻿<EditForm Model="TicketCategory" class="border border-warning my-3 p-5">
+    <DataAnnotationsValidator />
+
+    <div class="row" >
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary mt-3" @onclick="Remove">X</button>
+        </div>
+    </div>
+    <h4 class="text-warning my-3">Price Category:</h4>
+
+    <div class="row">
+        <div class="col-xl-3 v-align">
+            Name:
+        </div>
+        <div class="col-xl-9">
+            <InputText class="form-control text-white bg-dark" @bind-Value="TicketCategory.Name" placeholder="Name"></InputText>
+            <span class="error-message"><ValidationMessage For="() => TicketCategory.Name" /></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 v-align">
+            Price:
+        </div>
+        <div class="col-xl-9">
+            <InputNumber class="form-control text-white bg-dark" @bind-Value="TicketCategory.Price" placeholder="Name"></InputNumber>
+            <span class="error-message"><ValidationMessage For="() => TicketCategory.Price" /></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 v-align">
+            Maximum Amount:
+        </div>
+        <div class="col-xl-9">
+            <InputNumber class="form-control text-white bg-dark" @bind-Value="TicketCategory.MaxAmount" placeholder="Name"></InputNumber>
+            <span class="error-message"><ValidationMessage For="() => TicketCategory.Price" /></span>
+        </div>
+    </div>
+
+
+    
+</EditForm>
+
+    @code {
+        [Parameter]
+        public TicketCategoryDto TicketCategory { get; set; }
+        [Parameter]
+        public EventCallback Remove { get; set; }
+    }

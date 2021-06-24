@@ -1,0 +1,14 @@
+﻿label {
+    color: var(--grey);
+}
+
+.open-register-modal {
+    color: var(--light-blue);
+    cursor: pointer;
+}
+
+.no-account {
+    font-size: .8rem;
+    padding-top: 10px;
+    text-align: center;
+}

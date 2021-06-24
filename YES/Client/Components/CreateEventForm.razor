@@ -1,0 +1,231 @@
+﻿@inject IEventService eventservice 
+
+<EditForm Model="Event" OnValidSubmit="OnSubmitEvent">
+    <DataAnnotationsValidator />
+
+    <h4 class="text-warning my-4">Event Information</h4>
+
+    <div class="row">
+        <div class="col-xl-2 v-align">
+            Name:
+        </div>
+        <div class="col-xl-10">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Event.EventInfo.Name" placeholder="Name"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Event.EventInfo.Name" /></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-2 v-align">
+            Description:
+        </div>
+        <div class="col-xl-10">
+            <InputTextArea class="form-control text-white bg-dark" @bind-Value="Event.EventInfo.Description" placeholder="Description"></InputTextArea>
+            <span class="error-message"><ValidationMessage For="() => Event.EventInfo.Description" /></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-2 v-align">
+            Website:
+        </div>
+        <div class="col-xl-10">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Event.EventInfo.WebsiteUrl" placeholder="Website URL"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Event.EventInfo.WebsiteUrl" /></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-2 v-align">
+            Banner:
+        </div>
+        <div class="col-xl-10">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Event.EventInfo.BannerImgUrl" placeholder="Banner URL"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Event.EventInfo.BannerImgUrl" /></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-2 v-align">
+            Date:
+        </div>
+        <div class="col-xl-10">
+            <input type="datetime" class="form-control text-white bg-dark" @bind="Event.EventInfo.EventDate" placeholder="" />
+            <span class="error-message"><ValidationMessage For="() => Event.EventInfo.EventDate" /></span>
+        </div>
+    </div>
+
+    <h4 class="text-warning my-4">Status</h4>
+
+    <InputSelect @bind-Value="Event.Status" class="form-control">
+        @foreach (var value in Enum.GetValues(typeof(Status)))
+        {
+            <option>@value</option>
+        }
+    </InputSelect>
+
+    <h4 class="text-warning my-4">Venue</h4>
+    <div class="row">
+        <div class="col">
+            <InputSelect @bind-Value="SelectedVenueId" class="form-control">
+                <option value="" selected>Select a Venue</option>
+                @foreach (var venue in Venues)
+                {
+                    <option value="@venue.Id">@venue.Name</option>
+                }
+
+            </InputSelect>
+        </div>
+        <div class="col">
+            <Button class="btn btn-outline-light" @onclick="DisplayNewVenueForm">Add New Venue</Button>
+            <Button class="btn btn-outline-light" @onclick="DisplayEditVenueForm">Edit Venue</Button>
+        </div>
+    </div>   
+
+    @if (DisplayEmptyVenueForm)
+    {
+        <NewVenueForm Venue="NewVenue" OnSubmitVenue="OnSubmitVenue"></NewVenueForm>
+    }
+
+    @if (DisplayFilledVenueForm)
+    {
+        <NewVenueForm Venue="Event.Venue" OnSubmitVenue="OnSubmitVenue"></NewVenueForm>
+    }
+
+
+    <h4 class="text-warning my-3">Ticket Categories</h4>
+
+    <div class="row">
+        @*offset ipv lege col -> col-lg-offset-6???*@
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <Button class="btn btn-outline-light" @onclick="AddNewCategory">Add Price Category</Button>
+        </div>
+    </div>
+
+
+
+    @if (Event.TicketCategories != null)
+    {
+        <div class="row">
+            @foreach (var category in Event.TicketCategories)
+            {
+                <div class="col-lg-6 col-xl-4">
+                    <PriceCategoryForm TicketCategory="category" Remove="() => RemovePriceCategory(category)"></PriceCategoryForm>
+                </div>
+            }
+        </div>
+    }
+
+    <hr />
+    <div class="row">
+        <button type="submit" class="btn btn-outline-warning mt-3">Submit</button>
+    </div>
+
+
+</EditForm>
+
+
+@code {
+
+    [Parameter]
+    public EventDto Event { get; set; }
+
+    [Parameter]
+    public EventCallback OnSubmitEvent { get; set; }
+
+    [Parameter]
+    public VenueDto NewVenue { get; set; }
+
+    [Parameter]
+    public TicketCategoryDto NewTicketCategory { get; set; }
+
+    public int SelectedVenueId
+    {
+        get => Event.Venue.Id;
+        set => Event.Venue = Venues.Single(v => v.Id == value);
+        //assign Venue to Event on property set
+    }
+
+    public List<VenueDto> Venues { get; set; }
+
+    public bool DisplayEmptyVenueForm { get; set; }
+
+    public bool DisplayFilledVenueForm { get; set; }
+
+    public bool DisplayTicketCategoryForm { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        InitializeNewVenue();
+        InitializeNewCategory();
+
+        Venues = new List<VenueDto>();
+        Venues.AddRange(await eventservice.GetVenuesAsync());
+    }
+
+    private void OnSubmitVenue()
+    {
+        Venues.Add(NewVenue);
+        InitializeNewVenue();
+        DisplayEmptyVenueForm = false;
+    }
+
+    private void AddNewCategory()
+    {
+        Event.TicketCategories.Add(NewTicketCategory);
+        InitializeNewCategory();
+    }
+
+    private void RemovePriceCategory(TicketCategoryDto ticketCategory)
+    {
+        Event.TicketCategories.Remove(ticketCategory);
+    }
+
+    private void DisplayEditVenueForm()
+    {
+        if (DisplayFilledVenueForm)
+        {
+            DisplayFilledVenueForm = false;
+        }
+        else
+        {
+            DisplayFilledVenueForm = true;
+        }
+    }
+
+    private void DisplayNewVenueForm()
+    {
+        if (DisplayEmptyVenueForm)
+        {
+            DisplayEmptyVenueForm = false;
+        }
+        else
+        {
+            DisplayEmptyVenueForm = true;
+        }
+    }
+
+    private void DisplayNewCategoryForm()
+    {
+        if (DisplayTicketCategoryForm)
+        {
+            DisplayTicketCategoryForm = false;
+        }
+        else
+        {
+            DisplayTicketCategoryForm = true;
+        }
+    }
+
+    private void InitializeNewVenue()
+    {
+        NewVenue = new VenueDto
+        {
+            Address = new()
+        };
+    }
+    private void InitializeNewCategory()
+    {
+        NewTicketCategory = new();
+    }
+
+}
