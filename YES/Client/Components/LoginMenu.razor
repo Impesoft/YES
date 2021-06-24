@@ -4,6 +4,7 @@
 @inject NavigationManager navigationManager
 @using YES.Shared.Enums
 @using System.Net.Mail
+@using System.Diagnostics.Contracts
 
 <div>
     @if (Customer == null)
@@ -19,7 +20,7 @@
             </div>
     }
 
-    <Modal @ref="loginModal">
+    <Modal @ref="_loginModal">
         <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.Small">
             <ModalHeader>
                 <ModalTitle>Log In</ModalTitle>
@@ -28,12 +29,12 @@
             <ModalBody>
                 <Login LoginInfo="@LoginInfo" 
                        LogIn="@(LogIn)"
-                       ShowRegisterModal="@(ShowRegisterModal)" />
+                       ShowRegisterModal="@(ShowRegisterModal)"/>
             </ModalBody>
         </ModalContent>
     </Modal>
     
-    <Modal @ref="registerModal">
+    <Modal @ref="_registerModal">
         <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.Large">
             <ModalHeader>
                 <ModalTitle>Register</ModalTitle>
@@ -41,43 +42,46 @@
             </ModalHeader>
             <ModalBody>
                 <Register RegisterInfo="@RegisterInfo" 
-                          RegisterUser="@(RegisterUser)" />
+                          RegisterUser="@(RegisterUser)"
+                          @bind-ConfirmPassword="_confirmPassword"
+                />
             </ModalBody>
         </ModalContent>
     </Modal>
 </div>
 
 @code {
-
+    private string _confirmPassword;
     private UserTokenDto Customer { get; set; }
     private LoginDto LoginInfo { get; set; } = new();
     private RegisterDto RegisterInfo { get; set; } = new();
-    private bool RegisterSuccessful { get; set; }
     private string TruncatedEmail { get; set; }
-    
+    private bool PasswordsMatch { get; set; }
+
     // reference to the modal components
-    private Modal loginModal;
-    private Modal registerModal;
+    private Modal _loginModal;
+    private Modal _registerModal;
 
     protected override async Task OnInitializedAsync()
     {
         await SetCustomer();
+        if (Customer != null) TruncateCustomerEmail();
     }
-    
+
     private void ShowLoginModal()
     {
-        loginModal.Show();
+        _loginModal.Show();
     }   
     
     private void HideLoginModal()
     {
-        loginModal.Hide();
+        _loginModal.Hide();
     } 
     
     private void ShowRegisterModal()
     {
         HideLoginModal();
-        registerModal.Show();
+        _registerModal.Show();
     }
 
     private async Task LogOut()
@@ -92,28 +96,26 @@
     {
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
         if (JsonUser != null) Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
-        TruncateCustomerEmail();
     }
     
     private async Task LogIn()
     {
-        //check with form validation
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
-
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
         navigationManager.NavigateTo("/", true);
     }
     
     private async Task RegisterUser()
     {
-        RegisterInfo.Role = Roles.TicketCustomer;
-        var isSuccess = await _accountService.RegisterUser(RegisterInfo);
+        PasswordsMatch = RegisterInfo.Password == _confirmPassword;
 
-        if (isSuccess)
+        if (PasswordsMatch)
         {
-            RegisterSuccessful = true;
+            await _accountService.RegisterUser(RegisterInfo);
+            LoginInfo.Email = RegisterInfo.Email;
+            LoginInfo.Password = RegisterInfo.Password;
+            await LogIn();
         }
-    //TODO MORE RESPONSE MESSAGES
     }
 
     private void TruncateCustomerEmail()
