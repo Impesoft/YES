@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Size="200,100"
-             x:Class="YES.Mobile.Views.PurchaseSuccesfulPopup">
+<xct:Popup  xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            Size="200,100"
+            x:Class="YES.Mobile.Views.PurchaseSuccesfulPopup">
 
     <StackLayout BackgroundColor="Black">
         <Label Text="Purchase succesful!"

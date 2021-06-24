@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using YES.Mobile.Dto;
 using YES.Mobile.Enums;
 using YES.Mobile.Services;
+using System.Runtime.CompilerServices;
 
 namespace YES.Mobile.ViewModels
 {
@@ -97,27 +98,62 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public bool PurchaseSuccesful { get; set; } = false;
+        private bool buyableList;
+
+        public bool BuyableList
+        {
+            get { return buyableList; }
+            set
+            {
+                buyableList = value;
+                OnPropertyChanged(nameof(BuyableList));
+            }
+        }
+
+        private bool eventPassed;
+
+        public bool EventPassed
+        {
+            get { return eventPassed; }
+            set
+            {
+                eventPassed = value;
+                OnPropertyChanged(nameof(EventPassed));
+            }
+        }
 
         public EventDetailViewModel()
         {
             Title = "Event Details";
+            CheckDate();
             LoadEventCommand = new Command(LoadEvent);
 
             AddTicketCommand = new Command<TicketCategoryDto>(OnAddTicket);
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
             ClearPurchaseList = new Command(OnCancelPurchase);
-            BuyTickets = new Command(OnBuyTickets);
 
             LoggedInUser = GlobalVariables.LoggedInUser;
 
             TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
             CalcTotalPrice();
             SetCustomer();
-            PurchaseSuccesful = false;
+
+            BuyableList = false;
 
             _ticketService = new TicketService();
+        }
+
+        private void CheckDate()
+        {
+            if (Event.EventInfo.EventDate < DateTime.Now)
+            {
+                EventPassed = false;
+            }
+            else
+            {
+                EventPassed = true;
+            }
         }
 
         public async void LoadEvent()
@@ -145,8 +181,6 @@ namespace YES.Mobile.ViewModels
 
         private void OnAddTicket(TicketCategoryDto ticketCategory)
         {
-            PurchaseSuccesful = false;
-
             bool itemFound = false;
             foreach (var item in TicketsPurchasingList)
             {
@@ -166,6 +200,8 @@ namespace YES.Mobile.ViewModels
 
             TotalPrice = CalcTotalPrice();
             AmountOfTicketsToPurchase = CountTotalTickets();
+
+            CheckList();
         }
 
         private void OnDeductTicket(TicketCategoryDto categoryDto)
@@ -187,6 +223,8 @@ namespace YES.Mobile.ViewModels
                 TotalPrice = CalcTotalPrice();
                 AmountOfTicketsToPurchase = CountTotalTickets();
             }
+
+            CheckList();
         }
 
         private double CalcTotalPrice()
@@ -224,19 +262,17 @@ namespace YES.Mobile.ViewModels
             LoadEvent();
             TotalPrice = 0;
             TicketsPurchasingList.Clear();
-            PurchaseSuccesful = false;
         }
 
-        private async void OnBuyTickets()
+        private void CheckList()
         {
-            if (TicketsPurchasingList != null)
+            if (TicketsPurchasingList.Count > 0 && Event.EventInfo.EventDate < DateTime.Now)
             {
-                HttpResponseMessage responseMessage = await _ticketService.BuyTicketsAsync(TicketsPurchasingList);
-                PurchaseSuccesful = responseMessage.IsSuccessStatusCode;
-
-                if (PurchaseSuccesful)
-                {
-                }
+                BuyableList = true;
+            }
+            else
+            {
+                BuyableList = false;
             }
         }
     }

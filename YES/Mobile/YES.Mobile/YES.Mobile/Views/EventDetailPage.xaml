@@ -33,10 +33,17 @@
                        Margin="8" />
                     <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
+                    <Label Text="{Binding Event.EventInfo.EventDate}"
+                           IsVisible="{Binding EventPassed}"
+                           FontSize="18"
+                           VerticalOptions="End"
+                           Margin="15"
+                           HorizontalOptions="CenterAndExpand" />
+
                     <Label Text="{Binding Event.EventInfo.Description}"
-                VerticalOptions="End"
-                Margin="15"
-                HorizontalOptions="CenterAndExpand" />
+                           VerticalOptions="End"
+                           Margin="15"
+                           HorizontalOptions="CenterAndExpand" />
 
                     <Label Text="Buy Tickets:"
                        TextDecorations="Underline"
@@ -150,10 +157,12 @@
                        HorizontalOptions="Start" />
 
                     <StackLayout Margin="8">
-                        <Button Text="Buy Tickets"
+                        <Button
+                            Text="Buy Tickets"
                             Clicked="Button_Clicked"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=BuyTickets}"
-                            CommandParameter="{Binding .}" />
+                            CommandParameter="{Binding .}"
+                            IsEnabled="{Binding BuyableList}" />
                         <Button Text="Cancel"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=ClearPurchaseList}"
                             CommandParameter="{Binding .}" />
