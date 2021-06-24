@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using YES.Mobile.Dto;
 using YES.Mobile.Enums;
 using YES.Mobile.Services;
+using System.Runtime.CompilerServices;
 
 namespace YES.Mobile.ViewModels
 {
@@ -97,7 +98,17 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public bool PurchaseSuccesful { get; set; } = false;
+        private bool buyableList;
+
+        public bool BuyableList
+        {
+            get { return buyableList; }
+            set
+            {
+                buyableList = value;
+                OnPropertyChanged(nameof(BuyableList));
+            }
+        }
 
         public EventDetailViewModel()
         {
@@ -108,14 +119,14 @@ namespace YES.Mobile.ViewModels
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
             ClearPurchaseList = new Command(OnCancelPurchase);
-            BuyTickets = new Command(OnBuyTickets);
 
             LoggedInUser = GlobalVariables.LoggedInUser;
 
             TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
             CalcTotalPrice();
             SetCustomer();
-            PurchaseSuccesful = false;
+
+            BuyableList = false;
 
             _ticketService = new TicketService();
         }
@@ -145,27 +156,30 @@ namespace YES.Mobile.ViewModels
 
         private void OnAddTicket(TicketCategoryDto ticketCategory)
         {
-            PurchaseSuccesful = false;
-
-            bool itemFound = false;
-            foreach (var item in TicketsPurchasingList)
+            if (ticketCategory.AvailableAmount >= 1)
             {
-                if (ticketCategory.Id == item.TicketCategory.Id)
+                bool itemFound = false;
+                foreach (var item in TicketsPurchasingList)
                 {
-                    item.Amount++;
-                    itemFound = true;
+                    if (ticketCategory.Id == item.TicketCategory.Id)
+                    {
+                        item.Amount++;
+                        itemFound = true;
+                        ticketCategory.AvailableAmount--;
+                    }
+                }
+                if (!itemFound)
+                {
+                    var newTicket = CreateTicket(ticketCategory);
+                    TicketsPurchasingList.Add(newTicket);
                     ticketCategory.AvailableAmount--;
                 }
-            }
-            if (!itemFound)
-            {
-                var newTicket = CreateTicket(ticketCategory);
-                TicketsPurchasingList.Add(newTicket);
-                ticketCategory.AvailableAmount--;
-            }
 
-            TotalPrice = CalcTotalPrice();
-            AmountOfTicketsToPurchase = CountTotalTickets();
+                TotalPrice = CalcTotalPrice();
+                AmountOfTicketsToPurchase = CountTotalTickets();
+
+                CheckList();
+            }
         }
 
         private void OnDeductTicket(TicketCategoryDto categoryDto)
@@ -187,6 +201,8 @@ namespace YES.Mobile.ViewModels
                 TotalPrice = CalcTotalPrice();
                 AmountOfTicketsToPurchase = CountTotalTickets();
             }
+
+            CheckList();
         }
 
         private double CalcTotalPrice()
@@ -224,19 +240,17 @@ namespace YES.Mobile.ViewModels
             LoadEvent();
             TotalPrice = 0;
             TicketsPurchasingList.Clear();
-            PurchaseSuccesful = false;
         }
 
-        private async void OnBuyTickets()
+        private void CheckList()
         {
-            if (TicketsPurchasingList != null)
+            if (TicketsPurchasingList.Count > 0 && Event.EventInfo.EventDate > DateTime.Now)
             {
-                HttpResponseMessage responseMessage = await _ticketService.BuyTicketsAsync(TicketsPurchasingList);
-                PurchaseSuccesful = responseMessage.IsSuccessStatusCode;
-
-                if (PurchaseSuccesful)
-                {
-                }
+                BuyableList = true;
+            }
+            else
+            {
+                BuyableList = false;
             }
         }
     }
