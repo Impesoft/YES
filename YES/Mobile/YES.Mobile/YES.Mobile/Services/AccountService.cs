@@ -14,7 +14,6 @@ namespace YES.Mobile.Services
 {
     public class AccountService : IAccountService
     {
-        //private UserTokenDto LoggedInUser { get; set; }
         private HttpResponseMessage message;
 
         public string LoggedInUserJson { get; set; }
@@ -33,8 +32,6 @@ namespace YES.Mobile.Services
             string logindtoJson = JsonConvert.SerializeObject(logindto);
             StringContent myStringContent = new StringContent(logindtoJson.ToString(), Encoding.UTF8, "application/json");
 
-            //message = await _http.PostAsync("https://yesapi.azurewebsites.net/api/Account/Login", myStringContent);
-            //HttpResponseHeader.SetCookie(new (_loggedInUser);
             message = _http.PostAsync("https://yesapi.azurewebsites.net/api/Account/Login", myStringContent).GetAwaiter().GetResult();
             string responseContent = message.Content.ReadAsStringAsync().GetAwaiter().GetResult();
 
@@ -51,19 +48,5 @@ namespace YES.Mobile.Services
                 }
             }
         }
-
-        //public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
-        //{
-        //    //   var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-        //    var content = await _http.GetStringAsync("api/TicketCustomer/IncludeTickets/" + id);
-        //    return JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
-        //}
-
-        //public UserTokenDto GetLoggedInUser()
-        //{
-        //    return LoggedInUser;
-        //}
-
-        //responseString
     }
 }
