@@ -85,7 +85,8 @@ namespace YES.Api.Business.Services
                 Id = user.Id,
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
-                Role = user.Role  
+                Role = user.Role,  
+                GreetingName = user.GreetingName
             };
         }
 
