@@ -16,6 +16,7 @@ namespace YES.Mobile.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         private bool showLoginFields = true;
+        private Task logingIn;
 
         public bool ShowLoginFields
         {
@@ -56,31 +57,29 @@ namespace YES.Mobile.ViewModels
             _accountService = new AccountService();
         }
 
-        private void OnLoginClicked(object obj)
+        private async void OnLoginClicked(object obj)
         {
             IsLoggingIn = true;
 
-            //  LoginDto loginInfo = new LoginDto();
-            Task.Run(() => Login()).Wait();
-            if (IsLoggingIn)
+            await Task.Run(() => Login());
+
+            if (GlobalVariables.LoggedInUser?.Id > 0)
             {
+                IsLoggingIn = true;
                 Application.Current.MainPage = new AppShell();
             }
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            //await Shell.Current.GoToAsync($"//{nameof(UserDetailPage)}");
+            else
+            {
+                Application.Current.MainPage = new LoginPage();
+            }
         }
 
         private void Login()
         {
-            _accountService.LogIn(LoginInfo);
-            //    GlobalVariables.LoggedInUser = Customer;
-            if (GlobalVariables.LoggedInUser?.Id > 0)
+            logingIn = _accountService.LogIn(LoginInfo);
+            while (!logingIn.IsCompleted)
             {
-                IsLoggingIn = true;
-            }
-            else
-            {
-                IsLoggingIn = false;
+                //wait
             }
         }
     }
