@@ -43,7 +43,6 @@
             <ModalBody>
                 <Register RegisterInfo="@RegisterInfo" 
                           RegisterUser="@(RegisterUser)"
-                          @bind-ConfirmPassword="_confirmPassword"
                 />
             </ModalBody>
         </ModalContent>
@@ -51,7 +50,6 @@
 </div>
 
 @code {
-    private string _confirmPassword;
     private UserTokenDto Customer { get; set; }
     private LoginDto LoginInfo { get; set; } = new();
     private RegisterDto RegisterInfo { get; set; } = new();
@@ -107,9 +105,9 @@
     
     private async Task RegisterUser()
     {
-        PasswordsMatch = RegisterInfo.Password == _confirmPassword;
-
-        if (PasswordsMatch)
+        PasswordsMatch = RegisterInfo.Password == RegisterInfo.ConfirmPassword;
+   
+        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterInfo.Password))
         {
             await _accountService.RegisterUser(RegisterInfo);
             LoginInfo.Email = RegisterInfo.Email;

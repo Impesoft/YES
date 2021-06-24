@@ -23,7 +23,11 @@ namespace YES.Shared.Dto
         [Required]
         [MinLength(4)]
         [MaxLength(8)]
-        public string Password { get; set; }
+        public string Password { get; set; } 
+        
+        [Required]
+        [Compare(nameof(Password), ErrorMessage = "Passwords don't match, make sure CAPS is off :)")]
+        public string ConfirmPassword { get; set; }
 
         [Required]
         public Roles  Role { get; set; }
