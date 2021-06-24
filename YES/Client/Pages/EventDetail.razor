@@ -123,12 +123,10 @@
     protected override async Task OnInitializedAsync()
     {
         Event = await _eventService.GetEventByIdAsync(Id);
-
-        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        if (JsonUser != null)
+       
+        if (GlobalVariables.LoggedInUser != null)
         {
-            var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
-            Customer = await _customerService.GetCustomerByIdAsync(loggedInUser.Id);
+            Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
         }
     }
 

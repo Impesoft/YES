@@ -55,12 +55,9 @@
     {
         ResetBools();
 
-        var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        if (JsonUser != null)
+        if (GlobalVariables.LoggedInUser != null)
         {
-            var loggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
-
-            TicketProvider = await providerService.GetProviderByIdAsync(loggedInUser.Id);
+            TicketProvider = await providerService.GetProviderByIdAsync(GlobalVariables.LoggedInUser.Id);
         }
 
         if (Id > 0)

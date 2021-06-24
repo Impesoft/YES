@@ -14,10 +14,8 @@ namespace YES.Client.Services
     public class TicketService : ITicketService
     {
         private HttpClient _http;
-        private IAccountService _accountService;
-        public TicketService(HttpClient http, IAccountService accountService)
+        public TicketService(HttpClient http)
         {            
-            _accountService = accountService;
             _http = http;
 
             if (GlobalVariables.LoggedInUser != null)
