@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="PaleVioletRed" FontSize="Large">Your Event Services</Label>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Your Event Services</Label>
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
                 </ContentView>
