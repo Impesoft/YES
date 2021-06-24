@@ -63,10 +63,11 @@
     <h4 class="text-warning my-4">Venue</h4>
     <div class="row">
         <div class="col">
-            <InputSelect @bind-Value="Event.Venue" class="form-control">
+            <InputSelect @bind-Value="SelectedVenueId"  class="form-control">
+                <option value="" selected>Select a Venue</option>
                 @foreach (var venue in Venues)
                 {
-                    <option value="@venue">@venue.Name</option>
+                    <option value="@venue.Id">@venue.Name</option>
                 }
 
             </InputSelect>
@@ -74,6 +75,17 @@
         <div class="col">
             <Button class="btn btn-outline-light" @onclick="DisplayNewVenueForm">Add New Venue</Button>
         </div>
+    </div>
+    <div>
+        @if (Event.Venue != null)
+        {
+            <p>@Event.Venue.Name</p>
+        }
+        else
+        {
+            <p>0</p>
+        }
+
     </div>
 
     @if (DisplayVenueForm)
@@ -118,6 +130,13 @@
 
 
 @code {
+
+    public int SelectedVenueId {
+        get => Event.Venue.Id;
+        set => Event.Venue = Venues.Single(v => v.Id == value);
+        //assign Venue to Event on property set
+    }
+
     [Parameter]
     public EventDto Event { get; set; }
 
@@ -129,6 +148,7 @@
 
     [Parameter]
     public TicketCategoryDto NewTicketCategory { get; set; }
+
 
     public List<VenueDto> Venues { get; set; }
 
@@ -162,6 +182,11 @@
     private void RemovePriceCategory(TicketCategoryDto ticketCategory)
     {
         Event.TicketCategories.Remove(ticketCategory);
+    }
+
+    private void SelectVenue()
+    {
+
     }
 
     private void DisplayNewVenueForm()
