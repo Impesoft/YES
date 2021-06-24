@@ -18,8 +18,8 @@ else
 
 
 @code {
-
-    private UserTokenDto Customer { get; set; }
+    [Parameter]
+    public UserTokenDto Customer { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
