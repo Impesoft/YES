@@ -151,6 +151,7 @@
 
                     <StackLayout Margin="8">
                         <Button Text="Buy Tickets"
+                            Clicked="Button_Clicked"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:EventDetailViewModel}}, Path=BuyTickets}"
                             CommandParameter="{Binding .}" />
                         <Button Text="Cancel"
