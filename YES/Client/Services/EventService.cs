@@ -67,7 +67,7 @@ namespace YES.Client.Services
 
         public async Task<IEnumerable<VenueDto>> GetVenuesAsync()
         {
-            var venues = await _http.GetFromJsonAsync<IEnumerable<VenueDto>>("api/Event/Veneus");
+            var venues = await _http.GetFromJsonAsync<IEnumerable<VenueDto>>("api/Event/Venues");
 
             return venues;
         }
