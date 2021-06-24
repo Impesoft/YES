@@ -79,7 +79,18 @@
 
     private async Task SubmitEvent()
     {
-        var result = await eventService.CreateNewEventAsync(Event);
+        bool result;
+
+        if (Id > 0)
+        {
+            result = await eventService.UpdateEventAsync(Event);
+        }
+        else
+        {
+            result = await eventService.CreateNewEventAsync(Event);
+
+        }
+
         if (result)
         {
             CreateEventSuccessful = true;
