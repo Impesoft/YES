@@ -8,11 +8,11 @@
     <Application.Resources>
         <!--<local:BooleanToVisibilityConverter  x:Key="MyVisConverter" />-->
         <ResourceDictionary>
-            <Color x:Key="Primary">#CCCCCC</Color>
+            <Color x:Key="Primary">#000000</Color>
             <Color x:Key="DarkTextColor">#EEEEEE</Color>
             <Color x:Key="LightTextColor">#111111</Color>
             <Color x:Key="PrimaryAndroidLight">#00bdF5</Color>
-            <Color x:Key="PrimaryAndroidDark">#005db5</Color>
+            <Color x:Key="PrimaryAndroidDark">#00bdF5</Color>
             <Color x:Key="PrimaryWindowsLight">#00bdF5</Color>
             <Color x:Key="PrimaryWindowsDark">#005db5</Color>
             <Style TargetType="Label"
@@ -60,7 +60,7 @@
                         Value="{AppThemeBinding Dark=#55FFFFFF, Light=#FF000000}"></Setter>
                 <Setter Property="BackgroundColor"
                         Value="{AppThemeBinding Dark=#55000000, Light=#88FFFFFF}"></Setter>
-                
+
 
             </Style>
         </ResourceDictionary>

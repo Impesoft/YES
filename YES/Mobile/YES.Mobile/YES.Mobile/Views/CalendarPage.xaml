@@ -5,7 +5,8 @@
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
              x:Class="YES.Mobile.Views.CalendarPage"
-             Appearing="LoadEvents">
+             Appearing="LoadEvents"
+             BackgroundColor="Black">
 
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
@@ -29,6 +30,7 @@
                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type local:CalendarViewModel}}, Path=EventTappedCommand}"
                                                                   CommandParameter="{Binding .}" />
                             </AbsoluteLayout.GestureRecognizers>
+                            <ActivityIndicator IsRunning="{Binding Source={RelativeSource AncestorType={x:Type local:CalendarViewModel}}, Path=IsBusy}" Color="Red" />
 
                             <Image Source="{Binding EventInfo.BannerImgUrl}"
                                    HeightRequest="300"

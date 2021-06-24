@@ -35,7 +35,7 @@ namespace YES.Api.Business.Services
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(7).AddHours(2),
                 SigningCredentials = creds
-            };
+            };  // AddHours(2) to make sure time is the same as on the server
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescription);
