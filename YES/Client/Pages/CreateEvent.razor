@@ -1,0 +1,120 @@
+﻿@page "/CreateEvent"
+@page "/CreateEvent/{Id:int}"
+@inject IProviderService providerService
+@inject IEventService eventService
+@inject IAccountService accountService
+@inject ITicketService ticketService
+@inject IJSRuntime JSRuntime
+
+<div class="page-bg">
+    <section>
+        <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+
+        @if (Event != null)
+        {
+            <CreateEventForm Event="Event" OnSubmitEvent="SubmitEvent"></CreateEventForm>
+
+            @if (CreateEventSuccessful)
+            {
+                <div class="alert alert-warning my-4">
+                    Event successfully submitted.
+                </div>
+            }
+            @if (CreateEventFailed)
+            {
+                <div class="alert alert-danger my-4">
+                    Event submit failed!
+                </div>
+            }
+
+
+
+        }
+        else
+        {
+            <p>No event found.</p>
+        }
+    </section>
+</div>
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    public EventDto Event { get; set; }
+
+    public TicketProviderDto TicketProvider { get; set; }
+
+    /* Bools */
+    public bool CreateEventSuccessful { get; set; }
+    public bool CreateEventFailed { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        ResetBools();
+
+        if (GlobalVariables.LoggedInUser != null)
+        {
+            TicketProvider = await providerService.GetProviderByIdAsync(GlobalVariables.LoggedInUser.Id);
+        }
+
+        if (Id > 0)
+        {
+            Event = await eventService.GetEventByIdAsync(Id);
+        }
+        else if (Event == null)
+        {
+            InitializeEvent();
+        }
+
+    }
+
+    private void ResetBools()
+    {
+        CreateEventSuccessful = false;
+        CreateEventFailed = false;
+    }
+
+    private async Task SubmitEvent()
+    {
+        bool result;
+
+        if (Id > 0)
+        {
+            result = await eventService.UpdateEventAsync(Event);
+        }
+        else
+        {
+            result = await eventService.CreateNewEventAsync(Event);
+
+        }
+
+        if (result)
+        {
+            CreateEventSuccessful = true;
+        }
+        else
+        {
+            CreateEventFailed = true;
+        }
+    }
+
+    private void InitializeEvent()
+    {
+        Event = new EventDto
+        {
+            EventInfo = new EventInfoDto { EventDate = DateTime.Now },
+            TicketProvider = this.TicketProvider,
+            TicketCategories = new List<TicketCategoryDto>(),
+            Venue = new VenueDto
+            {
+                Address = new()
+            },
+            Status = Status.Default.ToString()
+        };
+
+
+    }
+}
