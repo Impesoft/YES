@@ -7,7 +7,6 @@ namespace YES.Mobile.Services
     {
         string LoggedInUserJson { get; set; }
 
-        Task<CustomerWithTicketsDto> GetCustomerByIdAsync(UserTokenDto loggedInUser);
-        UserTokenDto GetLoggedInUser();
+        Task<CustomerWithTicketsDto> GetCustomerAsync();
     }
 }

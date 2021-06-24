@@ -6,6 +6,17 @@
         public string Name { get; set; }
         public double Price { get; set; }
         public int MaxAmount { get; set; }
-        public int AvailableAmount { get; set; }
+        private int availableAmount;
+
+        public int AvailableAmount
+        {
+            get => availableAmount;
+
+            set
+            {
+                availableAmount = value;
+                OnPropertyChanged(nameof(AvailableAmount));
+            }
+        }
     }
 }
