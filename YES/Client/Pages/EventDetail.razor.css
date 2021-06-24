@@ -94,3 +94,20 @@ p {
     color: var(--white);
     font-size: 2rem;
 }
+
+::deep .close-btn-alert {
+    color: var(--dark);
+    font-size: 2rem;
+}
+
+::deep .alert-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    top: 30%;
+    margin-left: -150px
+}

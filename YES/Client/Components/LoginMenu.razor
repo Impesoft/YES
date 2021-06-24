@@ -2,30 +2,84 @@
 @inject IJSRuntime JSRuntime
 @inject IAccountService _accountService
 @inject NavigationManager navigationManager
+@using YES.Shared.Enums
+@using System.Net.Mail
+@using System.Diagnostics.Contracts
 
+<div>
+    @if (Customer == null)
+    {
+        <i class="fas fa-sign-in-alt" @onclick="@ShowLoginModal"></i>
+    }
+    else
+    {
+            <div class="greeting-wrapper">
+                <a href="customerdetail" class="greeting">Welcome, @Customer.GreetingName</a>
+                <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
+            </div>
+    }
 
-@if (Customer == null)
-{
-    <a href="login" class="nav-link active" aria-current="page">Log In</a>    
-}
-else
-{
-    <span class="nav-link text-light d-inline-flex">
-        <a href="customerdetail" class="nav-link text-warning">Welkom @Customer.Email</a>
-        <a class="nav-link active" aria-current="page" @onclick="LogOut">Log Out</a>
-    </span>
-}
-
+    <Modal @ref="_loginModal">
+        <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.Small">
+            <ModalHeader>
+                <ModalTitle>Log In</ModalTitle>
+                <CloseButton Class="close-btn btn" />
+            </ModalHeader>
+            <ModalBody>
+                <Login LoginInfo="@LoginInfo" 
+                       LogIn="@(LogIn)"
+                       ShowRegisterModal="@(ShowRegisterModal)"/>
+            </ModalBody>
+        </ModalContent>
+    </Modal>
+    
+    <Modal @ref="_registerModal">
+        <ModalContent Centered="true" Class="bg-dark text-light" Size="ModalSize.Large">
+            <ModalHeader>
+                <ModalTitle>Register</ModalTitle>
+                <CloseButton Class="close-btn btn" />
+            </ModalHeader>
+            <ModalBody>
+                <Register RegisterInfo="@RegisterInfo" 
+                          RegisterUser="@(RegisterUser)"
+                />
+            </ModalBody>
+        </ModalContent>
+    </Modal>
+</div>
 
 @code {
-
     private UserTokenDto Customer { get; set; }
+    private LoginDto LoginInfo { get; set; } = new();
+    private RegisterDto RegisterInfo { get; set; } = new();
+    private string TruncatedEmail { get; set; }
+    private bool PasswordsMatch { get; set; }
+
+    // reference to the modal components
+    private Modal _loginModal;
+    private Modal _registerModal;
 
     protected override async Task OnInitializedAsync()
     {
         await SetCustomer();
+        if (Customer != null) TruncateCustomerEmail();
     }
 
+    private void ShowLoginModal()
+    {
+        _loginModal.Show();
+    }   
+    
+    private void HideLoginModal()
+    {
+        _loginModal.Hide();
+    } 
+    
+    private void ShowRegisterModal()
+    {
+        HideLoginModal();
+        _registerModal.Show();
+    }
 
     private async Task LogOut()
     {
@@ -35,16 +89,40 @@ else
         navigationManager.NavigateTo("/");
     }
 
-    public async Task SetCustomer()
+    private async Task SetCustomer()
     {
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        if (JsonUser != null)
+        if (JsonUser != null) 
         {
-           Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            GlobalVariables.LoggedInUser = Customer;
+        }
+    }
+    
+    private async Task LogIn()
+    {
+        var loggedInUserJson = await _accountService.LogIn(LoginInfo);
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+        HideLoginModal();
+        await SetCustomer();
+    }
+    
+    private async Task RegisterUser()
+    {
+        PasswordsMatch = RegisterInfo.Password == RegisterInfo.ConfirmPassword;
+   
+        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterInfo.Password))
+        {
+            await _accountService.RegisterUser(RegisterInfo);
+            LoginInfo.Email = RegisterInfo.Email;
+            LoginInfo.Password = RegisterInfo.Password;
+            await LogIn();
         }
     }
 
-
-
-
+    private void TruncateCustomerEmail()
+    {
+        var mail = new MailAddress(Customer.Email);
+        TruncatedEmail = mail.User;
+    }
 }
