@@ -62,8 +62,15 @@ namespace YES.Api.Business.Services
         {
             foreach (var ticketCategory in eventDto.TicketCategories)
             {
-                int soldTickets = _ticketService.GetAmountOfSoldTickets(eventDto.Id, ticketCategory.Id);
-                ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
+                if (eventDto.Status == Status.Cancelled.ToString() || eventDto.Status == Status.SoldOut.ToString())
+                {
+                    ticketCategory.AvailableAmount = 0;
+                }
+                else
+                {
+                    int soldTickets = _ticketService.GetAmountOfSoldTickets(eventDto.Id, ticketCategory.Id);
+                    ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
+                }                
             }
             return eventDto;
         }
