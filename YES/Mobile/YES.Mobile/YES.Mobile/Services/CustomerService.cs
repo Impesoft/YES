@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Mobile.Dto;
+using YES.Mobile.Enums;
 
 namespace YES.Mobile.Services
 {
@@ -13,32 +14,25 @@ namespace YES.Mobile.Services
     {
         private UserTokenDto LoggedInUser { get; set; }
 
-        //private HttpResponseMessage message;
         public string LoggedInUserJson { get; set; }
 
         private HttpClient _http;
 
         public CustomerService()
         {
-            HttpClientHandler handler = new HttpClientHandler();
+            HttpClientHandler handler = new();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             _http = new HttpClient(insecureHandler);
+            _http.BaseAddress = new Uri("https://yesapi.azurewebsites.net/");
+            LoggedInUser = GlobalVariables.LoggedInUser;
         }
 
-        public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(UserTokenDto loggedInUser)
+        public async Task<CustomerWithTicketsDto> GetCustomerAsync()
         {
-            //   var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loggedInUser.Token);
-            var content = await _http.GetStringAsync("https://yesapi.azurewebsites.net/api/TicketCustomer/IncludeTickets/" + loggedInUser.Id);
-            var test = JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
-            return test;
-            //return JsonConvert.DeserializeObject<CustomerWithTicketsDto>(content);
-        }
-
-        public UserTokenDto GetLoggedInUser()
-        {
-            return LoggedInUser;
+            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", LoggedInUser.Token);
+            CustomerWithTicketsDto loggedInUserWithTicket = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + LoggedInUser.Id);
+            return loggedInUserWithTicket;
         }
     }
 }

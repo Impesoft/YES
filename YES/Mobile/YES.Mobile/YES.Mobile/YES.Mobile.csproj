@@ -1,49 +1,56 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="fa-solid-900.ttf" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="fa-solid-900.ttf" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="fa-solid-900.ttf" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="fa-solid-900.ttf" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.1" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.0-preview.5.21301.5" />
+		<PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Views\CalendarPage.xaml.cs">
+			<DependentUpon>CalendarPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\AboutPage.xaml.cs">
+			<DependentUpon>AboutPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\UserTicketsPage.xaml.cs">
+			<DependentUpon>UserTicketsPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\UserDetailPage.xaml.cs">
+			<DependentUpon>UserDetailPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\EventDetailPage.xaml.cs">
+			<DependentUpon>EventDetailPage.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Views\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\UserTicketsPage.xaml.cs">
-      <DependentUpon>UserTicketsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\UserDetailPage.xaml.cs">
-      <DependentUpon>UserDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\EventDetailPage.xaml.cs">
-      <DependentUpon>EventDetailPage.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Views\EventDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\CalendarPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Views\EventDetailPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\CalendarPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\PurchaseSuccesfulPopup.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
 </Project>
