@@ -119,7 +119,7 @@ namespace YES.Mobile.ViewModels
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
             ClearPurchaseList = new Command(OnCancelPurchase);
-
+            BuyTickets = new Command(OnBuyTickets);
             LoggedInUser = GlobalVariables.LoggedInUser;
 
             TicketsPurchasingList = new ObservableCollection<TicketPurchaseDto>();
@@ -251,6 +251,14 @@ namespace YES.Mobile.ViewModels
             else
             {
                 BuyableList = false;
+            }
+        }
+
+        private async void OnBuyTickets()
+        {
+            if (TicketsPurchasingList != null)
+            {
+                HttpResponseMessage responseMessage = await _ticketService.BuyTicketsAsync(TicketsPurchasingList);
             }
         }
     }

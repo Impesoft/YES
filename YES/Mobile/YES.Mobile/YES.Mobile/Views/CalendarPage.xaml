@@ -4,22 +4,36 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
+             xmlns:srvc="clr-namespace:YES.Mobile.Services"
              x:Class="YES.Mobile.Views.CalendarPage"
-             Appearing="LoadEvents"
-             BackgroundColor="Black">
+             BackgroundColor="#111111">
 
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
-        <StackLayout BackgroundColor="#000">
-            <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
-                    <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
-                </RefreshView>
-                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Crimson" FontSize="Large">Upcoming Events</Label>
+        <StackLayout>
+            <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
+                <SearchBar x:Name="SearchBar"
+                           Margin="0,10"
+                    HorizontalOptions="Center"
+                           PlaceholderColor="#CCC"
+                           CancelButtonColor="#EEE"
+                           TextColor="#FFF"
+                    BackgroundColor="#111"
+                    SearchCommand="{Binding SearchCommand}"
+                    SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                    Text="{Binding SearchText, Mode=TwoWay}"
+                    VerticalOptions="Center"
+                    Placeholder="Search events"
+                    FontSize="Large">
+                    <SearchBar.Behaviors>
+                        <srvc:TextChangedBehaviour />
+                    </SearchBar.Behaviors>
+                </SearchBar>
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
-                            ItemsSource="{Binding Events}"
+                            ItemsSource="{Binding EventsFiltered}"
                             HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="dto:EventDto">
