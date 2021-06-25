@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -21,6 +22,7 @@ namespace YES.Mobile.ViewModels
         public Command<EventDto> EventTappedCommand { get; }
 
         public ICommand EventLoadCommand { get; set; }
+        public bool DBIsBusy { get; set; }
 
         public ICollection<EventDto> Events
         {
@@ -38,7 +40,7 @@ namespace YES.Mobile.ViewModels
 
             _eventService = new EventService();
             Events = new ObservableCollection<EventDto>();
-            LoadEvents();
+            Task.Run(() => LoadEvents());
 
             EventLoadCommand = new Command((async () => await LoadEvents()));
             EventTappedCommand = new Command<EventDto>(OnEventSelected);
@@ -51,9 +53,10 @@ namespace YES.Mobile.ViewModels
 
         public async Task LoadEvents()
         {
+            IsBusy = true;
             Events = await _eventService.GetAllEvents();
+            IsBusy = false;
+            Debug.Write("Debug:" + Events);
         }
-        
- 
     }
 }
