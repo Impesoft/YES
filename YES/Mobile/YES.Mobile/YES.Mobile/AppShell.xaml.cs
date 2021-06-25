@@ -14,7 +14,6 @@ namespace YES.Mobile
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(EventDetailPage), typeof(EventDetailPage));
-            Routing.RegisterRoute(nameof(UserTicketsPage), typeof(UserTicketsPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
