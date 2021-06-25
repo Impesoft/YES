@@ -71,5 +71,12 @@ namespace YES.Client.Services
 
             return venues;
         }
+
+        public async Task<IEnumerable<EventDto>> GetEventsByProviderIdAsync(int id)
+        {
+            var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("api/Event/Provider/" + id);
+
+            return _events.OrderBy(x => x.EventInfo.EventDate);
+        }
     }
 }
