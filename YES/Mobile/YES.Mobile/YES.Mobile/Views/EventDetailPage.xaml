@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
-             xmlns:dto="clr-namespace:YES.Mobile.Dto"
+             xmlns:dto="clr-namespace:YES.Mobile.Dto" xmlns:local1="clr-namespace:YES.Mobile.Converters"
              x:DataType="local:EventDetailViewModel"
              Title="{Binding Title}"
              x:Class="YES.Mobile.Views.EventDetailPage"
@@ -24,6 +24,8 @@
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
         </ResourceDictionary>
+        <local1:EnumToStringConverter x:Key="EnumToStringConverterKey"></local1:EnumToStringConverter>
+        <local1:DateTimeToStringConverter x:Key="DateTimeToStringCoverterKey"></local1:DateTimeToStringConverter>
     </ContentPage.Resources>
 
     <ContentPage.Content
@@ -37,7 +39,7 @@
                        Margin="8" />
                     <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
-                    <Label Text="{Binding Event.EventInfo.EventDate}"
+                    <Label Text="{Binding Event.EventInfo.EventDate, Converter={StaticResource DateTimeToStringCoverterKey}}"
                            FontSize="18"
                            VerticalOptions="End"
                            Margin="15"
@@ -49,7 +51,7 @@
                             TextDecorations="Underline"
                             VerticalOptions="End"
                             HorizontalOptions="Center" />
-                        <Label Text="{Binding Event.Status}"
+                        <Label Text="{Binding Event.Status, Converter={StaticResource EnumToStringConverterKey}}"
                            FontSize="18"
                            VerticalOptions="End"
                            HorizontalOptions="Center" />
