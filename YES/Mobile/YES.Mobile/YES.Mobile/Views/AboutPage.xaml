@@ -26,22 +26,41 @@
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
                 </ContentView>
+                <StackLayout Margin="10">
+                    <Label Text="Contact: " FontSize="16" FontAttributes="Bold" />
+                    <Label Text="yes.youreventservice@gmail.com" />
+                </StackLayout>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title" />
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0" />
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at " />
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <Label Text="Your reliable source of tickets for all events !" FontSize="Title" />
+
+                <Label Text="Brought to you by: "
+                       FontAttributes="Bold" />
+
+                <StackLayout>
+                    <Label Text="Ward:"
+                           Grid.Row="0" />
+                    <Label Text="Kobe:"
+                           Grid.Row="1" />
+                    <Label Text="Pieter:"
+                           Grid.Row="2" />
+                    <Label Text="Seba:"
+                           Grid.Row="3" />
+                    <Label Text="Nick:"
+                           Grid.Row="4" />
+                    <Label Text="https://impesoft.github.io" Grid.Row="0" />
+                    <Label Text="https://kobedelobelle.github.io" />
+                    <Label Text="https://pietercorp.github.io" />
+                    <Label Text="https://sebastiaan-willem.github.io" />
+                    <Label Text="https://www.nivr.dev" />
+                </StackLayout>
+                <Label  Text="Partnered with: WEAREONE Bvba, Live Nation Festivals NV, Couleur Cafe, Chokri Mahassine, Extrema, Sportpaleis Group NV, Vooruit, eLiXir, Team Trix and Chez Nique Vzw"
+                        FontSize="14"
+                        Padding="0,0,0,0"
+                        FontAttributes="Italic" />
+
                 <Button Margin="0,10,0,0" Text="Learn more"
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
