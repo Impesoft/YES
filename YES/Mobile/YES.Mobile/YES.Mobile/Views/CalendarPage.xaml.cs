@@ -11,21 +11,35 @@ using YES.Mobile.Dto;
 using YES.Mobile.Services;
 using YES.Mobile.ViewModels;
 using Xamarin.Forms.Xaml;
+using System.Collections.ObjectModel;
 
 namespace YES.Mobile.Views
 {
     public partial class CalendarPage : ContentPage
     {
+        private CalendarViewModel ThisVM { get; set; }
+        public ICollection<EventDto> LocalEvents;
 
         public CalendarPage()
         {
             InitializeComponent();
+            //     ThisVM = new CalendarViewModel();
             BindingContext = new CalendarViewModel();
         }
 
         private void LoadEvents(object sender, EventArgs e)
         {
-         //   LoadEvents();
+            //   LoadEvents();
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //var searchTerm = e.NewTextValue;
+            //if (string.IsNullOrWhiteSpace(searchTerm))
+            //{
+            //    searchTerm = string.Empty;
+            //}
+            //ThisVM.SearchTerm = searchTerm.ToLowerInvariant();
         }
     }
 }
