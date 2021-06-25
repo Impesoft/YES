@@ -1,4 +1,4 @@
-﻿@using Newtonsoft.Json;
+@using Newtonsoft.Json;
 @inject IJSRuntime JSRuntime
 @inject IAccountService _accountService
 @inject NavigationManager navigationManager
@@ -13,10 +13,17 @@
     }
     else
     {
-            <div class="greeting-wrapper">
-                <a href="customerdetail" class="greeting">Hello, @Customer.GreetingName</a>
-                <span class="login-logout" @onclick="LogOut"><i class="fas fa-sign-out-alt"></i>Logout</span>
-            </div>
+        <div class="greeting-wrapper">
+            @if (LoggedInUser.Role == Roles.Default || LoggedInUser.Role == Roles.TicketCustomer)
+	        {
+                <a href="customerdetail" class="greeting">Hello, @LoggedInUser.GreetingName</a>	 
+	        }
+            else if(LoggedInUser.Role == Roles.TicketProvider)
+            {
+                <a href="providerdetail" class="greeting">Hello, @LoggedInUser.GreetingName</a>
+            }
+            <span class="login-logout" @onclick="LogOut"><i class="fas fa-sign-out-alt"></i>Logout</span>
+        </div>
     }
 
     <Modal @ref="_loginModal">
