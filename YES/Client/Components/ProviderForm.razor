@@ -1,0 +1,84 @@
+﻿
+
+<EditForm Model="Provider" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="row">
+        <div class="col-xl-2 v-align">
+            Name:
+        </div>
+        <div class="col-xl-5">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.NameProvider" placeholder="First Name"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.NameProvider" /></span>
+        </div>        
+    </div>
+
+    <div class="row">
+        <div class="col-xl-2">
+            Contact:
+        </div>
+        <div class="col-xl-5">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.PhoneNumber" placeholder="Phone Number"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.PhoneNumber" /></span>
+
+        </div>
+        <div class="col-xl-5">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.Email" placeholder="ex. 0499887766"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.Email" /></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-2">
+            Bank Account:
+
+        </div>
+        <div class="col-xl-10">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.BankAccount" placeholder="ex. BE70 5560 1278 7078"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.BankAccount" /></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-2">
+            Address:
+        </div>
+        <div class="col-xl-5">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.Address.Street" placeholder="Street"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.Address.Street" /></span>
+        </div>
+        <div class="col-xl-5">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.Address.StreetNumber" placeholder="House Number"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.Address.StreetNumber" /></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-2">
+        </div>
+        <div class="col-xl-3">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.Address.PostalCode" placeholder="Postal Code"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.Address.PostalCode" /></span>
+        </div>
+        <div class="col-xl-3">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.Address.City" placeholder="City"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.Address.City" /></span>
+        </div>
+        <div class="col-xl-4">
+            <InputText class="form-control text-white bg-dark" @bind-Value="Provider.Address.Country" placeholder="Country"></InputText>
+            <span class="error-message"><ValidationMessage For="() => Provider.Address.Country" /></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public TicketProviderDto Provider { get; set; }
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+
+}
