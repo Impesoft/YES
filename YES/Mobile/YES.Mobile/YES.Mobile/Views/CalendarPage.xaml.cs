@@ -23,23 +23,7 @@ namespace YES.Mobile.Views
         public CalendarPage()
         {
             InitializeComponent();
-            //     ThisVM = new CalendarViewModel();
             BindingContext = new CalendarViewModel();
-        }
-
-        private void LoadEvents(object sender, EventArgs e)
-        {
-            //   LoadEvents();
-        }
-
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //var searchTerm = e.NewTextValue;
-            //if (string.IsNullOrWhiteSpace(searchTerm))
-            //{
-            //    searchTerm = string.Empty;
-            //}
-            //ThisVM.SearchTerm = searchTerm.ToLowerInvariant();
         }
     }
 }
