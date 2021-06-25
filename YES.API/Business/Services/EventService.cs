@@ -29,7 +29,7 @@ namespace YES.Api.Business.Services
             {
                 UpdateAvailableTickets(eventDto);
                 UpdateStatus(eventDto);
-                SetAvailableTicketsToZoreWhenCanceledOrCompleted(eventDto);
+                SetAvailableTicketsToZoreWhenCanceledOrCompletedOrSoldOut(eventDto);
             }
             var test = eventDtos;
             return eventDtos;
@@ -40,7 +40,7 @@ namespace YES.Api.Business.Services
             EventDto eventDto = _mapper.Map<EventDto>(await _eventRepo.GetEventByIdAsync(id));
             UpdateAvailableTickets(eventDto);
             UpdateStatus(eventDto);
-            SetAvailableTicketsToZoreWhenCanceledOrCompleted(eventDto);
+            SetAvailableTicketsToZoreWhenCanceledOrCompletedOrSoldOut(eventDto);
             return eventDto;
         }
 
@@ -101,11 +101,13 @@ namespace YES.Api.Business.Services
             return eventDto;            
         }
 
-        private EventDto SetAvailableTicketsToZoreWhenCanceledOrCompleted(EventDto eventDto)
+        private EventDto SetAvailableTicketsToZoreWhenCanceledOrCompletedOrSoldOut(EventDto eventDto)
         {
             foreach (var ticketCategory in eventDto.TicketCategories)
             {
-                if (eventDto.Status == Status.Cancelled.ToString() || eventDto.Status == Status.Completed.ToString())
+                if (eventDto.Status == Status.Cancelled.ToString() 
+                    || eventDto.Status == Status.Completed.ToString() 
+                    || eventDto.Status == Status.SoldOut.ToString())
                 {
                     ticketCategory.AvailableAmount = 0;
                 }
