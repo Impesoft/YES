@@ -31,6 +31,13 @@ namespace YES.Api.Controllers
         }
 
         [Authorize(Roles = "TicketProvider")]
+        [HttpGet("Provider/{id}")]
+        public async Task<ActionResult<IEnumerable<EventDto>>> GetEventByProviderIdAsync(int id)
+        {
+            return Ok(await _eventService.GetEventsByProviderIdAsync(id));
+        }
+
+        [Authorize(Roles = "TicketProvider")]
         [HttpPost]
         public async Task<ActionResult> AddEvent(EventDto eventDto)
         {
