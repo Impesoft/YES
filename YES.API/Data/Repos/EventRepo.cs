@@ -18,6 +18,7 @@ namespace YES.Api.Data.Repos
             return await _context.Events
                                  .Include(x => x.EventInfo)
                                  .Include(x => x.TicketProvider)
+                                 .ThenInclude(x => x.Address)
                                  .Include(x => x.Venue)
                                  .ThenInclude(x => x.Address)
                                  .Include(x => x.TicketCategories)
@@ -29,6 +30,7 @@ namespace YES.Api.Data.Repos
             return await _context.Events
                                  .Include(x => x.EventInfo)
                                  .Include(x => x.TicketProvider)
+                                 .ThenInclude(x => x.Address)
                                  .Include(x => x.Venue)
                                  .ThenInclude(x => x.Address)
                                  .Include(x => x.TicketCategories)
