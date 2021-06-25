@@ -81,11 +81,11 @@ namespace YES.Api.Business.Services
 
             if (eventDto.EventInfo.EventDate.Date < DateTime.Now.Date)
             {
+                eventDto.Status = Status.Completed.ToString();
                 if (eventDto.EventInfo.EventDate.Date == DateTime.MinValue)
                 {
                     eventDto.Status = Status.ToBeAnnounced.ToString();
                 }
-                eventDto.Status = Status.Completed.ToString();
             }
 
             int soldOutCategories = 0;
