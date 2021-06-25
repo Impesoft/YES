@@ -14,7 +14,6 @@
 
 header, nav {
     max-width: 100vw;
-    height: 4rem;
 }
 
 nav {
@@ -22,5 +21,9 @@ nav {
 }
 
 .bg-dark {
-    background: var(--test-dark);
+    background: var(--test-dark-dark) !important;
+}
+
+.collapse {
+    background: var(--test-dark-dark);
 }
