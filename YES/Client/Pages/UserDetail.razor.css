@@ -1,5 +1,5 @@
 ﻿.page-bg {
-    background-image: url("images/page-bg4.jpg");
+    background-image: url("images/page-bg9.jpg");
 }
 
 .ticket-overview-header {
@@ -7,9 +7,6 @@
     cursor: pointer;
 }
 
-.ticket-overview-header-clickable{
-    
-}
 
 .ticket-item {
     font-size: 0.75rem;
