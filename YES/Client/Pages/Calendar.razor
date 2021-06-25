@@ -12,10 +12,11 @@
                 <button class="btn btn-outline-secondary" type="button" @onclick="@(() => _searchValue = "")" ><i class="fas fa-eraser"></i></button>
             </div>
         </div>
+
         @if (_events != null)
         {
             <div class="scrollable">
-
+        
                 <table class="table table-dark table-hover">
                     <thead>
                         <tr>
@@ -26,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach (EventDto eventDto in _events.Where(x => x.EventInfo.Name.ToLower().Contains(_searchValue.ToLower()) 
+                    @foreach (EventDto eventDto in _events.Where(x => x.EventInfo.Name.ToLower().Contains(_searchValue.ToLower())
                                                                       || x.EventInfo.Description.ToLower().Contains(_searchValue.ToLower())
                                                                       || x.Status.ToLower().Contains(_searchValue.ToLower())).ToList())
                     {
@@ -34,12 +35,12 @@
                     }
                     </tbody>
                 </table>
-
+        
             </div>
         }
         else
         {
-            <p>No events found.</p>
+            <CalendarPlaceholder />
         }
     </section>
 </div>
