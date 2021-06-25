@@ -15,7 +15,11 @@
                 <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </RefreshView>
-                <SearchBar TextChanged="SearchBar_TextChanged" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large" />
+                <SearchBar BackgroundColor="#000000" TextChanged="SearchBar_TextChanged" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large" >
+                    <SearchBar.Behaviors>
+                        <local:TextChangedBehavior />
+                    </SearchBar.Behaviors>
+                </SearchBar>
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
