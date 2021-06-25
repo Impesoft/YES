@@ -5,6 +5,8 @@ namespace YES.Api.Data.Entities
 {
     public abstract class User : EntityBase
     {
+        public string GreetingName { get; set; }
+
         public string BankAccount { get; set; }
 
         [Required]

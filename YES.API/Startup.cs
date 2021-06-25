@@ -103,6 +103,8 @@ namespace YES.Api
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

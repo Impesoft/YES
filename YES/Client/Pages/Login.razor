@@ -20,7 +20,6 @@
         <div>
             No account yet? Register <a href="/register">here</a>.
         </div>
-
     </section>
 </div>
 
@@ -31,7 +30,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        LoginInfo = new();
+        LoginInfo = new LoginDto();
     }
 
     private async Task LogIn()
@@ -40,6 +39,8 @@
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
 
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+        
+
         navigationManager.NavigateTo("/", true);
     }
 }
