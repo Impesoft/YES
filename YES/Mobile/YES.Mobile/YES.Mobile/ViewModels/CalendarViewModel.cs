@@ -19,8 +19,6 @@ namespace YES.Mobile.ViewModels
         private ICollection<EventDto> _events;
         private ICollection<EventDto> _eventsFiltered;
         private IEventService _eventService { get; set; }
-
-        //public Command<EventDto> EventTappedCommand => new Command<EventDto>(OnEventSelected);
         public Command<string> FilterListCommand { get; }
 
         public Command<EventDto> EventTappedCommand { get; }
@@ -36,8 +34,6 @@ namespace YES.Mobile.ViewModels
             {
                 _events = value;
                 OnPropertyChanged(nameof(Events));
-
-                EventsFiltered = Events.Where(x => x.EventInfo.Description.ToLowerInvariant().Contains(SearchTerm)).ToList();
             }
         }
 
@@ -68,16 +64,17 @@ namespace YES.Mobile.ViewModels
 
         private ICommand _searchCommand;
 
-        public ICommand SearchCommand
-        {
-            get
-            {
-                return _searchCommand ?? (_searchCommand = new Command<string>((text) =>
-                {
-                    EventsFiltered = Events.Where(x => x.EventInfo.Description.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())).ToList();
-                }));
-            }
-        }
+        public ICommand SearchCommand => _searchCommand ?? (_searchCommand = new Command<string>((text) =>
+                                                       {
+                                                           if (SearchText.Length >= 1)
+                                                           {
+                                                               EventsFiltered = Events.Where(x => (x.EventInfo.Description.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())) || (x.EventInfo.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))).ToList();
+                                                           }
+                                                           else
+                                                           {
+                                                               EventsFiltered = Events;
+                                                           }
+                                                       }));
 
         public CalendarViewModel()
         {
@@ -86,10 +83,10 @@ namespace YES.Mobile.ViewModels
             _eventService = new EventService();
             Events = new ObservableCollection<EventDto>();
             EventsFiltered = new ObservableCollection<EventDto>();
-
             EventLoadCommand = new Command((async () => await LoadEvents()));
             EventTappedCommand = new Command<EventDto>(OnEventSelected);
             Task.Run(() => LoadEvents());
+            EventsFiltered = Events;
         }
 
         private async void OnEventSelected(EventDto eventDto)
@@ -101,6 +98,7 @@ namespace YES.Mobile.ViewModels
         {
             IsBusy = true;
             Events = await _eventService.GetAllEvents();
+            EventsFiltered = Events;
             IsBusy = false;
             Debug.Write("Debug:" + Events);
         }
