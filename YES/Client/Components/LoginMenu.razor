@@ -1,4 +1,4 @@
-﻿@using Newtonsoft.Json;
+@using Newtonsoft.Json;
 @inject IJSRuntime JSRuntime
 @inject IAccountService _accountService
 @inject NavigationManager navigationManager
@@ -7,16 +7,23 @@
 @using System.Diagnostics.Contracts
 
 <div>
-    @if (Customer == null)
+    @if (LoggedInUser == null)
     {
-        <i class="fas fa-sign-in-alt" @onclick="@ShowLoginModal"></i>
+        <span class="login-logout" @onclick="@ShowLoginModal"><i class="fas fa-sign-out-alt"></i>Login</span>
     }
     else
     {
-            <div class="greeting-wrapper">
-                <a href="customerdetail" class="greeting">Welcome, @Customer.GreetingName</a>
-                <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
-            </div>
+        <div class="greeting-wrapper">
+            @if (LoggedInUser.Role == Roles.Default || LoggedInUser.Role == Roles.TicketCustomer)
+	        {
+                <a href="customerdetail" class="greeting">Hello, @LoggedInUser.GreetingName</a>	 
+	        }
+            else if(LoggedInUser.Role == Roles.TicketProvider)
+            {
+                <a href="providerdetail" class="greeting">Hello, @LoggedInUser.GreetingName</a>
+            }
+            <span class="login-logout" @onclick="LogOut"><i class="fas fa-sign-out-alt"></i>Logout</span>
+        </div>
     }
 
     <Modal @ref="_loginModal">
@@ -49,10 +56,15 @@
 </div>
 
 @code {
-    private UserTokenDto Customer { get; set; }
+    [Parameter]
+    public EventCallback<UserTokenDto> SetUserInHeader { get; set; }
+    [Parameter]
+    public EventCallback ClearUserInHeader { get; set; }
+
+    private UserTokenDto LoggedInUser { get; set; }
+
     private LoginDto LoginInfo { get; set; } = new();
     private RegisterDto RegisterInfo { get; set; } = new();
-    private string TruncatedEmail { get; set; }
     private bool PasswordsMatch { get; set; }
 
     // reference to the modal components
@@ -62,19 +74,18 @@
     protected override async Task OnInitializedAsync()
     {
         await SetCustomer();
-        if (Customer != null) TruncateCustomerEmail();
     }
 
     private void ShowLoginModal()
     {
         _loginModal.Show();
-    }   
-    
+    }
+
     private void HideLoginModal()
     {
         _loginModal.Hide();
-    } 
-    
+    }
+
     private void ShowRegisterModal()
     {
         HideLoginModal();
@@ -85,32 +96,36 @@
     {
         await JSRuntime.InvokeAsync<string>("localStorage.removeItem", "user");
         _accountService.LogOut();
-        Customer = null;
+        LoggedInUser = null;
         navigationManager.NavigateTo("/");
+        await ClearUserInHeader.InvokeAsync();
     }
 
     private async Task SetCustomer()
     {
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
-        if (JsonUser != null) 
+        if (JsonUser != null)
         {
-            Customer = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
-            GlobalVariables.LoggedInUser = Customer;
+            LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
+            GlobalVariables.LoggedInUser = LoggedInUser;
         }
     }
-    
+
     private async Task LogIn()
     {
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
         HideLoginModal();
         await SetCustomer();
+
+        //send user to parent
+        await SetUserInHeader.InvokeAsync(LoggedInUser);
     }
-    
+
     private async Task RegisterUser()
     {
         PasswordsMatch = RegisterInfo.Password == RegisterInfo.ConfirmPassword;
-   
+
         if (PasswordsMatch && !string.IsNullOrEmpty(RegisterInfo.Password))
         {
             await _accountService.RegisterUser(RegisterInfo);
@@ -120,9 +135,4 @@
         }
     }
 
-    private void TruncateCustomerEmail()
-    {
-        var mail = new MailAddress(Customer.Email);
-        TruncatedEmail = mail.User;
-    }
 }
