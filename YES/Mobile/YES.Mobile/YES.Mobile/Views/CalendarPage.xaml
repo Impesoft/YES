@@ -10,12 +10,12 @@
 
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
-        <StackLayout BackgroundColor="#000">
+        <StackLayout>
             <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
                 <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </RefreshView>
-                <SearchBar SearchCommand="FilterListCommand" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
+                <SearchBar TextChanged="SearchBar_TextChanged" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large" />
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
