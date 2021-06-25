@@ -48,14 +48,22 @@ namespace YES.Api.Data.Repos
         {
             if (eventToAdd.Venue != null)
             {
-                eventToAdd.Venue = await _context.Venues.Include(x=>x.Address)
+                if (eventToAdd.Venue.Id != 0)
+                {
+                    eventToAdd.Venue = await _context.Venues.Include(x => x.Address)
                                                         .FirstOrDefaultAsync(x => x.Id == eventToAdd.VenueId);
+                }
+                
             }
             if (eventToAdd.TicketProvider != null)
             {
-                eventToAdd.TicketProvider = await _context.TicketProviders
+                if (eventToAdd.TicketProvider.Id != 0)
+                {
+                    eventToAdd.TicketProvider = await _context.TicketProviders
                                                           .Include(x => x.Address)
                                                           .FirstOrDefaultAsync(x => x.Id == eventToAdd.TicketProviderId);
+                }
+                
             }
 
             _context.Add(eventToAdd);
@@ -67,15 +75,21 @@ namespace YES.Api.Data.Repos
         {
             if (eventToUpdate.Venue != null)
             {
-                eventToUpdate.Venue = await _context.Venues
+                if (eventToUpdate.Venue.Id != 0)
+                {
+                    eventToUpdate.Venue = await _context.Venues
                                                     .Include(x => x.Address)
                                                     .FirstOrDefaultAsync(x => x.Id == eventToUpdate.VenueId);
+                }
             }
             if (eventToUpdate.TicketProvider != null)
             {
-                eventToUpdate.TicketProvider = await _context.TicketProviders
-                                                             .Include(x => x.Address)
-                                                             .FirstOrDefaultAsync(x => x.Id == eventToUpdate.TicketProviderId);
+                if (eventToUpdate.TicketProvider.Id != 0)
+                {
+                    eventToUpdate.TicketProvider = await _context.TicketProviders
+                                                            .Include(x => x.Address)
+                                                            .FirstOrDefaultAsync(x => x.Id == eventToUpdate.TicketProviderId);
+                }
             }
 
             _context.Update(eventToUpdate);
