@@ -15,7 +15,7 @@
                 <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </RefreshView>
-                <Label Padding="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Upcoming Events</Label>
+                <SearchBar SearchCommand="FilterListCommand" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
