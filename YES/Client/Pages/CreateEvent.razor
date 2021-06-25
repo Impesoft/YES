@@ -8,31 +8,38 @@
 
 <div class="page-bg">
     <section>
-        <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
-
-        @if (Event != null)
+        @if (GlobalVariables.LoggedInUser?.Role == Roles.TicketProvider)
         {
-            <CreateEventForm Event="Event" OnSubmitEvent="SubmitEvent"></CreateEventForm>
+            <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
 
-            @if (CreateEventSuccessful)
+            @if (Event != null)
             {
-                <div class="alert alert-warning my-4">
-                    Event successfully submitted.
-                </div>
+                <CreateEventForm Event="Event" OnSubmitEvent="SubmitEvent"></CreateEventForm>
+
+                @if (CreateEventSuccessful)
+                {
+                    <div class="alert alert-warning my-4">
+                        Event successfully submitted.
+                    </div>
+                }
+                @if (CreateEventFailed)
+                {
+                    <div class="alert alert-danger my-4">
+                        Event submit failed!
+                    </div>
+                }
+
             }
-            @if (CreateEventFailed)
+            else
             {
-                <div class="alert alert-danger my-4">
-                    Event submit failed!
-                </div>
+                <p>No event found.</p>
             }
-
-
-
         }
         else
         {
-            <p>No event found.</p>
+            <div class="">
+                Access Denied.
+            </div>
         }
     </section>
 </div>
