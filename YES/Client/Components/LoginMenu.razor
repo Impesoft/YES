@@ -9,13 +9,13 @@
 <div>
     @if (LoggedInUser == null)
     {
-        <i class="fas fa-sign-in-alt" @onclick="@ShowLoginModal"></i>
+        <span class="login-logout" @onclick="@ShowLoginModal"><i class="fas fa-sign-out-alt"></i>Login</span>
     }
     else
     {
             <div class="greeting-wrapper">
-                <a href="customerdetail" class="greeting">Welcome, @LoggedInUser.GreetingName</a>
-                <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
+                <a href="customerdetail" class="greeting">Hello, @Customer.GreetingName</a>
+                <span class="login-logout" @onclick="LogOut"><i class="fas fa-sign-out-alt"></i>Logout</span>
             </div>
     }
 

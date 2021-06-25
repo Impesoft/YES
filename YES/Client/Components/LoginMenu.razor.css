@@ -18,9 +18,18 @@
 }
 
 .greeting {
-    color: var(--light-blue);
+    color: var(--yellow);
     text-decoration: none;
     margin-right: 10px;
+}
+
+.login-logout {
+    color: var(--white);
+    cursor: pointer;
+}
+
+.login-logout i {
+    margin-right: 5px;
 }
 
 ::deep input, textarea {
