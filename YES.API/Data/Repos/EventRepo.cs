@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using YES.Api.Data.Database;
 using YES.Api.Data.Entities;
@@ -35,6 +36,19 @@ namespace YES.Api.Data.Repos
                                  .ThenInclude(x => x.Address)
                                  .Include(x => x.TicketCategories)
                                  .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<IEnumerable<Event>> GetEventsByIdProviderIdAsync(int id)
+        {
+            return await _context.Events
+                                 .Include(x => x.EventInfo)
+                                 .Include(x => x.TicketProvider)
+                                 .ThenInclude(x => x.Address)
+                                 .Include(x => x.Venue)
+                                 .ThenInclude(x => x.Address)
+                                 .Include(x => x.TicketCategories)
+                                 .Where(x => x.TicketProviderId == id)
+                                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Venue>> GetAllVenues()
