@@ -81,6 +81,10 @@ namespace YES.Api.Business.Services
 
             if (eventDto.EventInfo.EventDate.Date < DateTime.Now.Date)
             {
+                if (eventDto.EventInfo.EventDate.Date == DateTime.MinValue)
+                {
+                    eventDto.Status = Status.ToBeAnnounced.ToString();
+                }
                 eventDto.Status = Status.Completed.ToString();
             }
 
