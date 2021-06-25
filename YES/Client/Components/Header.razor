@@ -30,22 +30,39 @@
 
 
                 </ul>
-                <LoginMenu />
+                <LoginMenu SetUserInHeader="SetUser"
+                           ClearUserInHeader="ClearLoggedInUser"/>
             </div>
         </div>
     </nav>
 </header>
 
 @code {
-
     public UserTokenDto LoggedInUser { get; set; }
 
     protected override async Task OnInitializedAsync()
+    {
+        await SetUser();
+    }
+
+    private async Task SetUser()
     {
         var JsonUser = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "user");
         if (JsonUser != null)
         {
             LoggedInUser = JsonConvert.DeserializeObject<UserTokenDto>(JsonUser);
         }
-    }    
+
+    }
+    private void SetUser(UserTokenDto user)
+    {
+        LoggedInUser = user;
+    }
+
+    private void ClearLoggedInUser()
+    {
+        LoggedInUser = null;
+    }
+
+
 }
