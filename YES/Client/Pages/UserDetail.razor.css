@@ -3,7 +3,12 @@
 }
 
 .ticket-overview-header {
-    color: peachpuff ;
+    color: peachpuff;
+    cursor: pointer;
+}
+
+.ticket-overview-header-clickable{
+    
 }
 
 .ticket-item {
