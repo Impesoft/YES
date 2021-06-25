@@ -18,8 +18,16 @@
 
                 @foreach (var eventItem in Events.Where(x => x.TicketProvider.Id == Provider.Id))
                 {
-                    <div>
-                        <a href="Createevent/@eventItem.Id"> @eventItem.EventInfo.Name</a>
+                    <div class="row mb-2">
+                        <div class="col">
+                            @eventItem.EventInfo.EventDate.ToString("dd/MM/yyyy - HH:mm")
+                        </div>
+                        <div class="col">
+                            @eventItem.EventInfo.Name
+                        </div>
+                        <div class="col justify-content-end">
+                            <a href="Createevent/@eventItem.Id" class="btn btn-outline-warning"> Details</a>
+                        </div>        
                     </div>
                 }
             }
@@ -27,7 +35,7 @@
             {
 
                 <div>
-                    No Events found yet. <a href"Createevent">Add one here</a>
+                    No Events found yet. <a href="Createevent">Add one here</a>
                 </div>
             }
         }
@@ -49,7 +57,7 @@
         if (GlobalVariables.LoggedInUser != null)
         {
             Provider = await providerService.GetProviderByIdAsync(GlobalVariables.LoggedInUser.Id);
-            Events = new List<EventDto>(await eventService.GetEventsAsync());
+            Events = new List<EventDto>(await eventService.GetEventsByProviderIdAsync(GlobalVariables.LoggedInUser.Id));
         }
 
         TurnNullFieldsToEmptyString();

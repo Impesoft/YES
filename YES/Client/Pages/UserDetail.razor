@@ -38,23 +38,22 @@
             @if (Tickets != null)
             {
                 <div class="row mb-4 ticket-overview-header">
-                    <div class="col">
+                    <div class="col" @onclick="() => SortTicketList(1)" >
                         Purchased On
                     </div>
-                    <div class="col">
+                    <div class="col" @onclick="() => SortTicketList(2)">
                         Event Date
                     </div>
-                    <div class="col">
+                    <div class="col" @onclick="() => SortTicketList(3)">
                         Category
                     </div>
-                    <div class="col">
+                    <div class="col" @onclick="() => SortTicketList(4)">
                         Price
                     </div>
-
-                    <div class="col">
+                    <div class="col" @onclick="() => SortTicketList(5)">
                         Event Name
                     </div>
-                    <div class="col">
+                    <div class="col" @onclick="() => SortTicketList(6)">
                         Event Location
                     </div>
                     <div class="col">
@@ -62,7 +61,7 @@
                     </div>
 
                 </div>
-                @foreach (var ticket in Customer.Tickets)
+                @foreach (var ticket in Tickets)
                 {
                     <div class="row ticket-item">
                         <TicketOverview Ticket="ticket" OnChange="() => AddTicketToCancelList(ticket.Id)"></TicketOverview>
@@ -86,7 +85,7 @@
 @code {
     [Parameter]
     public CustomerWithTicketsDto Customer { get; set; }
-    
+
 
     public List<TicketDto> Tickets { get; set; }
 
@@ -103,7 +102,7 @@
 
         if (GlobalVariables.LoggedInUser != null)
         {
-                Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+            Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
 
         }
 
@@ -159,6 +158,34 @@
         {
             TicketsToCancelById = new();
             TicketsToCancelById.Add(ticketId);
+        }
+    }
+
+    private void SortTicketList(int columnid)
+    {
+        switch (columnid)
+        {
+            case 1:
+                Tickets.Sort((x, y) => x.DateOfPurchase.CompareTo(y.DateOfPurchase));
+                break;
+            case 2:
+                Tickets.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
+                break;
+            case 3:
+                Tickets.Sort((x, y) => x.TicketCategory.Name.CompareTo(y.TicketCategory.Name));
+                break;
+            case 4:
+                Tickets.Sort((x, y) => x.TicketCategory.Price.CompareTo(y.TicketCategory.Price));
+                break;
+            case 5:
+                Tickets.Sort((x, y) => x.EventName.CompareTo(y.EventName));
+                break;
+            case 6:
+                Tickets.Sort((x, y) => x.VanueName.CompareTo(y.VanueName));
+                break;
+
+            default:
+                break;
         }
     }
 
