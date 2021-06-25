@@ -11,7 +11,7 @@
 }
 
 .card-body:hover mark, .card-body:hover a {
-    color: var(--light-blue);
+    color: var(--yellow);
 }
 
 .card-img-top {
