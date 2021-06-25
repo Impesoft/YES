@@ -46,11 +46,14 @@ namespace YES.Api.Data.Repos
         {
             if (eventToAdd.Venue != null)
             {
-                eventToAdd.Venue = await _context.Venues.FirstOrDefaultAsync(x => x.Id == eventToAdd.VenueId);
+                eventToAdd.Venue = await _context.Venues.Include(x=>x.Address)
+                                                        .FirstOrDefaultAsync(x => x.Id == eventToAdd.VenueId);
             }
             if (eventToAdd.TicketProvider != null)
             {
-                eventToAdd.TicketProvider = await _context.TicketProviders.FirstOrDefaultAsync(x => x.Id == eventToAdd.TicketProviderId);
+                eventToAdd.TicketProvider = await _context.TicketProviders
+                                                          .Include(x => x.Address)
+                                                          .FirstOrDefaultAsync(x => x.Id == eventToAdd.TicketProviderId);
             }
 
             _context.Add(eventToAdd);
@@ -62,11 +65,15 @@ namespace YES.Api.Data.Repos
         {
             if (eventToUpdate.Venue != null)
             {
-                eventToUpdate.Venue = await _context.Venues.FirstOrDefaultAsync(x => x.Id == eventToUpdate.VenueId);
+                eventToUpdate.Venue = await _context.Venues
+                                                    .Include(x => x.Address)
+                                                    .FirstOrDefaultAsync(x => x.Id == eventToUpdate.VenueId);
             }
             if (eventToUpdate.TicketProvider != null)
             {
-                eventToUpdate.TicketProvider = await _context.TicketProviders.FirstOrDefaultAsync(x => x.Id == eventToUpdate.TicketProviderId);
+                eventToUpdate.TicketProvider = await _context.TicketProviders
+                                                             .Include(x => x.Address)
+                                                             .FirstOrDefaultAsync(x => x.Id == eventToUpdate.TicketProviderId);
             }
 
             _context.Update(eventToUpdate);
