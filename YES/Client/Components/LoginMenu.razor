@@ -13,10 +13,17 @@
     }
     else
     {
-            <div class="greeting-wrapper">
-                <a href="customerdetail" class="greeting">Welcome, @LoggedInUser.GreetingName</a>
-                <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
-            </div>
+        <div class="greeting-wrapper">
+            @if (LoggedInUser.Role == Roles.Default || LoggedInUser.Role == Roles.TicketCustomer)
+	        {
+                <a href="customerdetail" class="greeting">Welcome, @LoggedInUser.GreetingName</a>	 
+	        }
+            else if(LoggedInUser.Role == Roles.TicketProvider)
+            {
+                <a href="providerdetail" class="greeting">Welcome, @LoggedInUser.GreetingName</a>
+            }
+            <i class="fas fa-sign-out-alt" @onclick="LogOut"></i>
+        </div>
     }
 
     <Modal @ref="_loginModal">

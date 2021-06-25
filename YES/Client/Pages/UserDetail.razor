@@ -1,6 +1,7 @@
 ﻿@page "/CustomerDetail"
 @inject ICustomerService customerService
 @inject IAccountService accountService
+@inject IProviderService providerService 
 @inject ITicketService ticketService
 @inject IJSRuntime JSRuntime
 
@@ -85,6 +86,7 @@
 @code {
     [Parameter]
     public CustomerWithTicketsDto Customer { get; set; }
+    
 
     public List<TicketDto> Tickets { get; set; }
 
@@ -101,7 +103,8 @@
 
         if (GlobalVariables.LoggedInUser != null)
         {
-            Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+                Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+
         }
 
         TurnNullFieldsToEmptyString();
@@ -119,7 +122,7 @@
     }
 
     private async Task UpdateCustomer()
-    {       
+    {
         EditSuccessful = true;
         await customerService.UpdateCustomer(Customer);
     }
