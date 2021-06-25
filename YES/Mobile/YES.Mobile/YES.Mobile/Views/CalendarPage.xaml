@@ -12,14 +12,12 @@
                  Command="{Binding EventLoadCommand}">
         <StackLayout>
             <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
-                    <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
-                </RefreshView>
+                <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 <SearchBar x:Name="SearchBar"
                            Margin="0,10"
                     HorizontalOptions="Center"
                            PlaceholderColor="#CCC"
-                           CancelButtonColor="#EEE"                           
+                           CancelButtonColor="#EEE"
                            TextColor="#FFF"
                     BackgroundColor="#111"
                     SearchCommand="{Binding SearchCommand}"
