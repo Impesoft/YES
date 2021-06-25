@@ -37,7 +37,9 @@
                                 <SwipeView.RightItems>
                                     <SwipeItems>
                                         <SwipeItem BackgroundColor="Red"
-                                                   IconImageSource="{FontImage Glyph=&#xf503;, FontFamily=FontAwesome, Color=Black}" />
+                                                   IconImageSource="{FontImage Glyph=&#xf410;, FontFamily=FontAwesome, Color=Black}"
+                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=DeleteCommand}"
+                                                   CommandParameter="{Binding .}" /> />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <Frame BorderColor="Wheat">
