@@ -6,7 +6,7 @@
              x:DataType="local:EventDetailViewModel"
              Title="{Binding Title}"
              x:Class="YES.Mobile.Views.EventDetailPage"
-             BackgroundColor="Black">
+             BackgroundColor="#111111">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -31,7 +31,7 @@
         <ContentView>
             <ScrollView x:Name="scrollview" IsClippedToBounds="True" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                 <StackLayout VerticalOptions="StartAndExpand">
-                    <Label TextColor="#EEEEEE" Text="{Binding Event.EventInfo.Name}"
+                    <Label Text="{Binding Event.EventInfo.Name}"
                        HorizontalOptions="CenterAndExpand"
                        FontSize="36"
                        Margin="8" />
@@ -60,7 +60,7 @@
                            Margin="15"
                            HorizontalOptions="CenterAndExpand" />
 
-                    <Label TextColor="#EEEEEE" Text="Buy Tickets:"
+                    <Label Text="Buy Tickets:"
                        TextDecorations="Underline"
                        FontSize="20"
                        Margin="8"
@@ -83,8 +83,9 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="0" Spacing="0" VerticalOptions="Center">
-                                        <Label TextColor="#EEEEEE" Text="Ticket:" TextDecorations="Underline" />
-                                        <Label TextColor="#EEEEEE"
+                                        <Label Text="Ticket:"
+                                               TextDecorations="Underline" />
+                                        <Label
                                     HorizontalOptions="Start"
                                     Text="{Binding Name}"
                                     Style="{StaticResource Vet}" />
@@ -93,17 +94,18 @@
                                     <StackLayout Grid.Column="1"
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
-                                        <Label TextColor="#EEEEEE"
+                                        <Label
                                     TextDecorations="Underline"
                                     Text="Price:" />
-                                        <Label TextColor="#EEEEEE"
+                                        <Label
                                     Text="{Binding Price, StringFormat='{0} €'}" />
                                     </StackLayout>
                                     <StackLayout Grid.Column="2"
                                              HorizontalOptions="Start"
                                              VerticalOptions="Center">
-                                        <Label Text="available:" TextColor="#EEEEEE" TextDecorations="Underline" />
-                                        <Label Text="{Binding AvailableAmount}" TextColor="#EEEEEE" />
+                                        <Label Text="available:"
+                                               TextDecorations="Underline" />
+                                        <Label Text="{Binding AvailableAmount}" />
                                     </StackLayout>
                                     <Button
                                         Grid.Column="3"

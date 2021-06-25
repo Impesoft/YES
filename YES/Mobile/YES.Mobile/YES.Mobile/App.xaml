@@ -11,9 +11,9 @@
             <Color x:Key="Primary">#000000</Color>
             <Color x:Key="DarkTextColor">#EEEEEE</Color>
             <Color x:Key="LightTextColor">#111111</Color>
-            <Color x:Key="PrimaryAndroidLight">#00bdF5</Color>
-            <Color x:Key="PrimaryAndroidDark">#00bdF5</Color>
-            <Color x:Key="PrimaryWindowsLight">#00bdF5</Color>
+            <Color x:Key="PrimaryAndroidLight">#005db5</Color>
+            <Color x:Key="PrimaryAndroidDark">#005db5</Color>
+            <Color x:Key="PrimaryWindowsLight">#005db5</Color>
             <Color x:Key="PrimaryWindowsDark">#005db5</Color>
             <Style TargetType="Label"
                    x:Key="Fa-Label">
@@ -27,18 +27,22 @@
                 <Setter Property="Margin"
                         Value="30" />
             </Style>
+            <Style  TargetType="ContentPage">
+                <Setter Property="BackgroundColor"
+                        Value="#111111" />
+            </Style>
 
             <Style TargetType="Button">
                 <Setter Property="TextColor"
-                        Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light={StaticResource LightTextColor}}"></Setter>
+                        Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light={StaticResource DarkTextColor}}"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor"
-                                            Value="{OnPlatform Android={AppThemeBinding Dark={StaticResource PrimaryAndroidDark}, Light={StaticResource PrimaryAndroidLight}},
-                                                                   UWP={AppThemeBinding Dark={StaticResource PrimaryWindowsDark}, Light={StaticResource PrimaryWindowsLight}}}" />
+                                            Value="{OnPlatform Android={AppThemeBinding Dark={StaticResource PrimaryAndroidDark}, Light={StaticResource PrimaryAndroidDark}},
+                                                                   UWP={AppThemeBinding Dark={StaticResource PrimaryWindowsDark}, Light={StaticResource PrimaryWindowsDark}}}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
@@ -60,8 +64,6 @@
                         Value="{AppThemeBinding Dark=#55FFFFFF, Light=#FF000000}"></Setter>
                 <Setter Property="BackgroundColor"
                         Value="{AppThemeBinding Dark=#55000000, Light=#88FFFFFF}"></Setter>
-
-
             </Style>
         </ResourceDictionary>
     </Application.Resources>
