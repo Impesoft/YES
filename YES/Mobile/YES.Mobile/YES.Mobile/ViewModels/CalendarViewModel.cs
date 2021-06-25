@@ -68,7 +68,11 @@ namespace YES.Mobile.ViewModels
                                                        {
                                                            if (SearchText.Length >= 1)
                                                            {
-                                                               EventsFiltered = Events.Where(x => (x.EventInfo.Description.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())) || (x.EventInfo.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))).ToList();
+                                                               EventsFiltered = Events.Where<EventDto>(x => (x.EventInfo.Description.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
+                                                               || (x.EventInfo.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
+                                                               || (x.Venue.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
+                                                               || (x.TicketProvider.NameProvider.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
+                                                               ).ToList();
                                                            }
                                                            else
                                                            {
