@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using YES.Mobile.Dto;
 using YES.Mobile.Enums;
 using YES.Mobile.Services;
@@ -12,9 +13,23 @@ namespace YES.Mobile.ViewModels
     public class UserDetailViewModel : BaseViewModel
     {
         //  public string LocalUser { get; set; }
-        private DateTime? expiryDate;
 
+        private bool thereAreTicketsToBeCanceled;
+
+        public bool ThereAreTicketsToBeCanceled
+        {
+            get => thereAreTicketsToBeCanceled;
+            set
+            {
+                thereAreTicketsToBeCanceled = value;
+                OnPropertyChanged(nameof(ThereAreTicketsToBeCanceled));
+            }
+        }
+
+        private DateTime? expiryDate;
+        public List<int> ToBeCanceled;
         private CustomerWithTicketsDto _localUser;
+        public Command<int> DeleteCommand { get; }
 
         public CustomerWithTicketsDto LocalUser
         {
@@ -49,6 +64,15 @@ namespace YES.Mobile.ViewModels
             var tokenS = jsonToken as JwtSecurityToken;
             expiryDate = tokenS.ValidTo;
             Title = "Logged in as: " + user.Email;
+            DeleteCommand = new Command<int>(DeleteTicket);
+            ToBeCanceled = new List<int>();
+            ThereAreTicketsToBeCanceled = false;
+        }
+
+        private void DeleteTicket(int ToBeCanceledTicketId)
+        {
+            ToBeCanceled.Add(ToBeCanceledTicketId);
+            ThereAreTicketsToBeCanceled = true;
         }
 
         private async void LoadUserWithTickets()

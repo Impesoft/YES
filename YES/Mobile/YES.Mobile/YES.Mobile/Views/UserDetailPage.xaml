@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YES.Mobile.Views.UserDetailPage"
+             xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              xmlns:vm="clr-namespace:YES.Mobile.ViewModels"
              Title="{Binding Title}"
              BackgroundColor="#111111">
@@ -19,6 +20,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
@@ -28,8 +30,9 @@
                     <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Your Event Service</Label>
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
                 </StackLayout>
+                <Button Grid.Row="1"  BorderColor="#EEE" BackgroundColor="Red" Text="Cancel Ticket(s)" IsVisible="{Binding ThereAreTicketsToBeCanceled}" />
             </StackLayout>
-            <ScrollView Grid.Row="1">
+            <ScrollView Grid.Row="2">
                 <StackLayout BindableLayout.ItemsSource="{Binding LocalUser.Tickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
@@ -39,7 +42,7 @@
                                         <SwipeItem BackgroundColor="Red"
                                                    IconImageSource="{FontImage Glyph=&#xf410;, FontFamily=FontAwesome, Color=Black}"
                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=DeleteCommand}"
-                                                   CommandParameter="{Binding .}" /> />
+                                                   CommandParameter="{Binding Id}" />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <Frame BorderColor="Wheat">
