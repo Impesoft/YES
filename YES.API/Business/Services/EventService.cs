@@ -28,7 +28,8 @@ namespace YES.Api.Business.Services
             foreach (var eventDto in eventDtos)
             {
                 UpdateAvailableTickets(eventDto);
-                UpdateStatus(eventDto);                
+                UpdateStatus(eventDto);
+                SetAvailableTicketsToZoreWhenCanceledOrCompletedOrSoldOut(eventDto);
             }
             var test = eventDtos;
             return eventDtos;
@@ -39,7 +40,13 @@ namespace YES.Api.Business.Services
             EventDto eventDto = _mapper.Map<EventDto>(await _eventRepo.GetEventByIdAsync(id));
             UpdateAvailableTickets(eventDto);
             UpdateStatus(eventDto);
+            SetAvailableTicketsToZoreWhenCanceledOrCompletedOrSoldOut(eventDto);
             return eventDto;
+        }
+
+        public async Task<IEnumerable<EventDto>> GetEventsByProviderIdAsync(int id)
+        {
+            return _mapper.Map<IEnumerable<EventDto>>(await _eventRepo.GetEventsByIdProviderIdAsync(id));
         }
 
         public async Task<bool> AddEventAsync(EventDto eventDto)
@@ -62,14 +69,16 @@ namespace YES.Api.Business.Services
         {
             foreach (var ticketCategory in eventDto.TicketCategories)
             {
-                int soldTickets = _ticketService.GetAmountOfSoldTickets(eventDto.Id, ticketCategory.Id);
-                ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
+                    int soldTickets = _ticketService.GetAmountOfSoldTickets(eventDto.Id, ticketCategory.Id);
+                    ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
             }
+           
             return eventDto;
         }
 
         private EventDto UpdateStatus(EventDto eventDto)
         {
+
             if (eventDto.EventInfo.EventDate.Date < DateTime.Now.Date)
             {
                 eventDto.Status = Status.Completed.ToString();
@@ -84,11 +93,26 @@ namespace YES.Api.Business.Services
                     soldOutCategories++;
                 }
             }
+            
             if (soldOutCategories == eventDto.TicketCategories.Count)
             {
                 eventDto.Status = Status.SoldOut.ToString();
             }
             return eventDto;            
+        }
+
+        private EventDto SetAvailableTicketsToZoreWhenCanceledOrCompletedOrSoldOut(EventDto eventDto)
+        {
+            foreach (var ticketCategory in eventDto.TicketCategories)
+            {
+                if (eventDto.Status == Status.Cancelled.ToString() 
+                    || eventDto.Status == Status.Completed.ToString() 
+                    || eventDto.Status == Status.SoldOut.ToString())
+                {
+                    ticketCategory.AvailableAmount = 0;
+                }
+            }
+            return eventDto;
         }
     }
 }
