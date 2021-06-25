@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Mobile.Dto;
@@ -38,6 +39,13 @@ namespace YES.Mobile.Services
 
             var _tickets = await _http.PostAsync("https://yesapi.azurewebsites.net/api/Ticket/Buy/", myStringContent);
             return _tickets;
+        }
+
+        public async Task<bool> CancelTicketsAsync(List<int> ticketsToCancel)
+        {
+            var result = await _http.PostAsJsonAsync("api/Ticket/Cancel", ticketsToCancel);
+
+            return result.IsSuccessStatusCode;
         }
     }
 }
