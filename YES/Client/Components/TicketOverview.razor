@@ -18,7 +18,14 @@
     @Ticket.VenueName
 </div>
 <div class="col">
-   <input type="checkbox"  @onchange="OnChange"/>
+    @if (Ticket.EventDate > DateTime.Now)
+    {
+        <input type="checkbox" @onchange="OnChange" />
+    }
+    else
+    {
+        <input type="checkbox" disabled />
+    }
 </div>
 
 
