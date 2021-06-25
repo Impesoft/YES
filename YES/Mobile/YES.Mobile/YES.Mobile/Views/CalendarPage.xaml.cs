@@ -18,7 +18,7 @@ namespace YES.Mobile.Views
     public partial class CalendarPage : ContentPage
     {
         private CalendarViewModel ThisVM { get; set; }
-        public ICollection<EventDto> FilteredEvents;
+        public ICollection<EventDto> LocalEvents;
 
         public CalendarPage()
         {
@@ -39,8 +39,7 @@ namespace YES.Mobile.Views
             {
                 searchTerm = string.Empty;
             }
-            searchTerm = searchTerm.ToLowerInvariant();
-            //   FilteredEvents = ThisVM.Events.Where<EventDto>(event = > event.  .ToLowerInvariant().Contains(searchTerm)).ToList();
+            ThisVM.SearchTerm = searchTerm.ToLowerInvariant();
         }
     }
 }
