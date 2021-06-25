@@ -1,0 +1,98 @@
+﻿@page "/ProviderDetail"
+@inject IProviderService providerService
+@inject IEventService eventService
+@inject ITicketService ticketService
+
+<div class="page-bg">
+    <section>
+        @if (Provider != null)
+        {
+            <h3 class="mb-4">Ticket Provider Details</h3>
+            <div class="mb-4">
+                <ProviderForm Provider="Provider" OnSubmit="UpdateCustomer"></ProviderForm>
+            </div>
+
+            @if (Events != null)
+            {
+                <h3 class="mb-4">Events</h3>
+
+                @foreach (var eventItem in Events.Where(x => x.TicketProvider.Id == Provider.Id))
+                {
+                    <div class="row mb-2">
+                        <div class="col">
+                            @eventItem.EventInfo.EventDate.ToString("dd/MM/yyyy - HH:mm")
+                        </div>
+                        <div class="col">
+                            @eventItem.EventInfo.Name
+                        </div>
+                        <div class="col justify-content-end">
+                            <a href="Createevent/@eventItem.Id" class="btn btn-outline-warning"> Details</a>
+                        </div>        
+                    </div>
+                }
+            }
+            else
+            {
+
+                <div>
+                    No Events found yet. <a href="Createevent">Add one here</a>
+                </div>
+            }
+        }
+    </section>
+</div>
+
+@code {
+    [Parameter]
+    public TicketProviderDto Provider { get; set; }
+
+    public List<EventDto> Events { get; set; }
+
+    public bool EditSuccessful { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        ResetBools();
+
+        if (GlobalVariables.LoggedInUser != null)
+        {
+            Provider = await providerService.GetProviderByIdAsync(GlobalVariables.LoggedInUser.Id);
+            Events = new List<EventDto>(await eventService.GetEventsByProviderIdAsync(GlobalVariables.LoggedInUser.Id));
+        }
+
+        TurnNullFieldsToEmptyString();
+
+
+    }
+
+    private async Task UpdateCustomer()
+    {
+        EditSuccessful = true;
+        await providerService.UpdateProvider(Provider);
+    }
+
+    private void ResetBools()
+    {
+        EditSuccessful = false;
+    }
+
+    private void TurnNullFieldsToEmptyString()
+    {
+        if (Provider.NameProvider == null) Provider.NameProvider = "";
+        if (Provider.Email == null) Provider.Email = "";
+        if (Provider.BankAccount == null) Provider.BankAccount = "";
+        if (Provider.PhoneNumber == null) Provider.PhoneNumber = "";
+        if (Provider.Address == null)
+        {
+            Provider.Address = new AddressDto
+            {
+                Id = 0,
+                City = "",
+                Country = "",
+                PostalCode = "",
+                Street = "",
+                StreetNumber = ""
+            };
+        }
+    }
+}
