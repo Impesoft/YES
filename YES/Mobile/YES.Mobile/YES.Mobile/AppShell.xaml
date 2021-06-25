@@ -81,12 +81,12 @@
     <FlyoutItem Title="Calendar" Icon="icon_feed.png">
         <ShellContent Route="CalendarPage" ContentTemplate="{DataTemplate local:CalendarPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="User Settings" Icon="icon_about.png">
+    <FlyoutItem Title="Profile" Icon="icon_about.png">
         <ShellContent Route="UserDetailPage" ContentTemplate="{DataTemplate local:UserDetailPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="My tickets" Icon="icon_feed.png">
+    <!--<FlyoutItem Title="My tickets" Icon="icon_feed.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:UserTicketsPage}" />
-    </FlyoutItem>
+    </FlyoutItem>-->
     <FlyoutItem Title="About" Icon="icon_feed.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>

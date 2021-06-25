@@ -27,8 +27,8 @@ namespace YES.Api.Business.Services
             IEnumerable<EventDto> eventDtos = _mapper.Map<IEnumerable<EventDto>>(events);
             foreach (var eventDto in eventDtos)
             {
-                UpdateAvailableTickets(eventDto);
                 UpdateStatus(eventDto);                
+                UpdateAvailableTickets(eventDto);
             }
             var test = eventDtos;
             return eventDtos;
@@ -37,8 +37,8 @@ namespace YES.Api.Business.Services
         public async Task<EventDto> GetEventByIdAsync(int id)
         {
             EventDto eventDto = _mapper.Map<EventDto>(await _eventRepo.GetEventByIdAsync(id));
-            UpdateAvailableTickets(eventDto);
             UpdateStatus(eventDto);
+            UpdateAvailableTickets(eventDto);
             return eventDto;
         }
 
@@ -62,8 +62,15 @@ namespace YES.Api.Business.Services
         {
             foreach (var ticketCategory in eventDto.TicketCategories)
             {
-                int soldTickets = _ticketService.GetAmountOfSoldTickets(eventDto.Id, ticketCategory.Id);
-                ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
+                if (eventDto.Status == Status.Cancelled.ToString() || eventDto.Status == Status.SoldOut.ToString())
+                {
+                    ticketCategory.AvailableAmount = 0;
+                }
+                else
+                {
+                    int soldTickets = _ticketService.GetAmountOfSoldTickets(eventDto.Id, ticketCategory.Id);
+                    ticketCategory.AvailableAmount = ticketCategory.MaxAmount - soldTickets;
+                }                
             }
             return eventDto;
         }
