@@ -12,5 +12,6 @@ namespace YES.Client.Services
         Task<bool> CreateNewEventAsync(EventDto eventDto);
         Task<bool> UpdateEventAsync(EventDto eventDto);
         Task<IEnumerable<VenueDto>> GetVenuesAsync();
+        Task<IEnumerable<EventDto>> GetEventsByProviderIdAsync(int id);
     }
 }
