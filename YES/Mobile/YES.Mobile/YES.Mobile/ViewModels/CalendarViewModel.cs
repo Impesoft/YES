@@ -19,6 +19,7 @@ namespace YES.Mobile.ViewModels
         private IEventService _eventService { get; set; }
 
         //public Command<EventDto> EventTappedCommand => new Command<EventDto>(OnEventSelected);
+        public Command<string> FilterListCommand { get; }
         public Command<EventDto> EventTappedCommand { get; }
 
         public ICommand EventLoadCommand { get; set; }
