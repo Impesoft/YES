@@ -4,6 +4,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
+             xmlns:srvc="clr-namespace:YES.Mobile.Services"
              x:Class="YES.Mobile.Views.CalendarPage"
              Appearing="LoadEvents"
              BackgroundColor="#111111">
@@ -15,15 +16,23 @@
                 <RefreshView Padding="0,20,0,0" VerticalOptions="Fill">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </RefreshView>
-                <SearchBar BackgroundColor="#000000" TextChanged="SearchBar_TextChanged" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large" >
+                <SearchBar x:Name="SearchBar"
+                    BackgroundColor="#000000"
+                    SearchCommand="{Binding SearchCommand}"
+                    SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                    Text="{Binding SearchText, Mode=TwoWay}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    TextColor="White"
+                    FontSize="Large">
                     <SearchBar.Behaviors>
-                        <local:TextChangedBehavior />
+                        <srvc:TextChangedBehaviour />
                     </SearchBar.Behaviors>
                 </SearchBar>
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
-                            ItemsSource="{Binding Events}"
+                            ItemsSource="{Binding EventsFiltered}"
                             HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="dto:EventDto">
