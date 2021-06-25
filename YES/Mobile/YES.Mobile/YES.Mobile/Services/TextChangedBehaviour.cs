@@ -5,15 +5,15 @@ using Xamarin.Forms;
 
 namespace YES.Mobile.Services
 {
-    class TextChangedBehaviour : Behavior<Xamarin.Forms.SearchBar>
+    public class TextChangedBehaviour : Behavior<SearchBar>
     {
-        protected override void OnAttachedTo(Xamarin.Forms.SearchBar bindable)
+        protected override void OnAttachedTo(SearchBar bindable)
         {
             base.OnAttachedTo(bindable);
             bindable.TextChanged += Bindable_TextChanged;
         }
 
-        protected override void OnDetachingFrom(Xamarin.Forms.SearchBar bindable)
+        protected override void OnDetachingFrom(SearchBar bindable)
         {
             base.OnDetachingFrom(bindable);
             bindable.TextChanged -= Bindable_TextChanged;
@@ -21,7 +21,7 @@ namespace YES.Mobile.Services
 
         private void Bindable_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ((Xamarin.Forms.SearchBar)sender).SearchCommand?.Execute(e.NewTextValue);
+            ((SearchBar)sender).SearchCommand?.Execute(e.NewTextValue);
         }
     }
 }
