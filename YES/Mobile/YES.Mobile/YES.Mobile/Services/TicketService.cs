@@ -28,16 +28,16 @@ namespace YES.Mobile.Services
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             _http = new HttpClient(insecureHandler);
-
+            _http.BaseAddress = new Uri("https://yesapi.azurewebsites.net/");
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _loggedInUser.Token);
         }
 
         public async Task<HttpResponseMessage> BuyTicketsAsync(IEnumerable<TicketPurchaseDto> tickets)
         {
-            string ticketsJson = JsonConvert.SerializeObject(tickets);
-            StringContent myStringContent = new StringContent(ticketsJson.ToString(), Encoding.UTF8, "application/json");
+            // string ticketsJson = JsonConvert.SerializeObject(tickets);
+            // StringContent myStringContent = new StringContent(ticketsJson.ToString(), Encoding.UTF8, "application/json");
 
-            var _tickets = await _http.PostAsync("https://yesapi.azurewebsites.net/api/Ticket/Buy/", myStringContent);
+            var _tickets = await _http.PostAsJsonAsync("api/Ticket/Buy/", tickets);
             return _tickets;
         }
 
