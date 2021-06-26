@@ -5,11 +5,8 @@
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
              xmlns:vm="clr-namespace:YES.Mobile.ViewModels"
              Title="{Binding Title}"
-             BackgroundColor="#111111">
-
-    <ContentPage.BindingContext>
-        <vm:UserDetailViewModel />
-    </ContentPage.BindingContext>
+             BackgroundColor="#111111"
+             Appearing="ContentPage_Appearing">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -34,12 +31,12 @@
                         Clicked="Button_Clicked"
                         BorderColor="#EEE"
                         BackgroundColor="Red"
-                        Text="Cancel Ticket(s)"
+                        Text="{Binding ToBeCanceled.Count, StringFormat='Cancel {0} Ticket(s)' }"
                         IsVisible="{Binding ThereAreTicketsToBeCanceled}"
                         Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=CancelTappedCommand}" />
             </StackLayout>
             <ScrollView Grid.Row="2">
-                <StackLayout BindableLayout.ItemsSource="{Binding LocalUser.Tickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <StackLayout BindableLayout.ItemsSource="{Binding UsersTickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <SwipeView  BackgroundColor="#110077FF">
@@ -54,14 +51,8 @@
                                 <Frame BorderColor="Wheat">
 
                                     <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
-
                                         <Label TextColor="#EEEEEE" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
                                         <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
-                                        <BindableLayout.ItemTemplate>
-                                            <DataTemplate>
-                                                <Label TextColor="Yellow" Text="{Binding }" FontSize="16" Padding="0,24,0,0" />
-                                            </DataTemplate>
-                                        </BindableLayout.ItemTemplate>
                                     </StackLayout>
                                 </Frame>
                             </SwipeView>

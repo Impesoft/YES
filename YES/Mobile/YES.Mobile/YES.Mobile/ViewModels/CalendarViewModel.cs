@@ -87,9 +87,8 @@ namespace YES.Mobile.ViewModels
             _eventService = new EventService();
             Events = new ObservableCollection<EventDto>();
             EventsFiltered = new ObservableCollection<EventDto>();
-            EventLoadCommand = new Command((async () => await LoadEvents()));
+            EventLoadCommand = new Command(async () => await LoadEvents());
             EventTappedCommand = new Command<EventDto>(OnEventSelected);
-            Task.Run(() => LoadEvents());
             EventsFiltered = Events;
         }
 
@@ -104,7 +103,7 @@ namespace YES.Mobile.ViewModels
             await Task.Run(async () =>
             {
                 var EventTasks = await Task.WhenAny(_eventService.GetAllEvents());
-                Events = EventTasks.Result; 
+                Events = EventTasks.Result;
                 EventsFiltered = Events.Where(x => (x.Status == "ToBeAnnounced") || (x.EventInfo.EventDate > DateTime.Now));
             });
 
