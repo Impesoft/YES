@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace YES.Mobile.ViewModels
     public class UserDetailViewModel : BaseViewModel
     {
         //  public string LocalUser { get; set; }
+        public Command CancelTappedCommand => new Command(OnToBeCanceled);
 
         private bool thereAreTicketsToBeCanceled;
 
@@ -29,7 +31,7 @@ namespace YES.Mobile.ViewModels
         private DateTime? expiryDate;
         public List<int> ToBeCanceled;
         private CustomerWithTicketsDto _localUser;
-        public Command<int> DeleteCommand { get; }
+        public Command<TicketDto> DeleteCommand { get; }
 
         public CustomerWithTicketsDto LocalUser
         {
@@ -42,6 +44,7 @@ namespace YES.Mobile.ViewModels
         }
 
         public ICustomerService CustomerService { get; set; }
+        public ITicketService TicketService { get; set; }
 
         public DateTime? ExpiryDate
         {
@@ -56,6 +59,7 @@ namespace YES.Mobile.ViewModels
         public UserDetailViewModel()
         {
             CustomerService = new CustomerService();
+            TicketService = new TicketService();
             Task.Run(() => LoadUserWithTickets());
             UserTokenDto user = GlobalVariables.LoggedInUser;
             var stream = user.Token;
@@ -64,21 +68,26 @@ namespace YES.Mobile.ViewModels
             var tokenS = jsonToken as JwtSecurityToken;
             expiryDate = tokenS.ValidTo;
             Title = "Logged in as: " + user.Email;
-            DeleteCommand = new Command<int>(DeleteTicket);
+            DeleteCommand = new Command<TicketDto>(DeleteTicket);
             ToBeCanceled = new List<int>();
             ThereAreTicketsToBeCanceled = false;
         }
 
-        private void DeleteTicket(int ToBeCanceledTicketId)
+        private void DeleteTicket(TicketDto ToBeCanceledTicket)
         {
-            ToBeCanceled.Add(ToBeCanceledTicketId);
-
+            ToBeCanceled.Add(ToBeCanceledTicket.Id);
+            LocalUser.Tickets.Remove(ToBeCanceledTicket);
             ThereAreTicketsToBeCanceled = true;
         }
 
         private async void LoadUserWithTickets()
         {
             LocalUser = await CustomerService.GetCustomerAsync();
+        }
+
+        private async void OnToBeCanceled()
+        {
+            bool Result = await TicketService.CancelTicketsAsync(ToBeCanceled);
         }
     }
 }
