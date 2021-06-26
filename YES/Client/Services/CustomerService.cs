@@ -20,17 +20,14 @@ namespace YES.Client.Services
 
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
         {
-            var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-
-            return _customer;
+            return await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);            
         }
 
         public async Task<HttpResponseMessage> UpdateCustomer(CustomerWithTicketsDto customerWithTickets)
         {
-            TicketCustomerDto customer = ConvertToTicketCustomer(customerWithTickets);
-            var response = await _http.PutAsJsonAsync("api/TicketCustomer", customer);
+            TicketCustomerDto customer = ConvertToTicketCustomer(customerWithTickets);             
 
-            return response;
+            return await _http.PutAsJsonAsync("api/TicketCustomer", customer);
         }
 
         private TicketCustomerDto ConvertToTicketCustomer(CustomerWithTicketsDto customer)

@@ -9,8 +9,21 @@
         {
             <h3 class="mb-4">Ticket Provider Details</h3>
             <div class="mb-4">
-                <ProviderForm Provider="Provider" OnSubmit="UpdateCustomer"></ProviderForm>
+                <ProviderForm Provider="Provider" OnSubmit="UpdateProvider"></ProviderForm>
             </div>
+
+            @if (EditSuccessful)
+            {
+                <div class="alert alert-warning">
+                    @ResponseMessage
+                </div>
+            }
+            @if (EditFailed)
+            {
+                <div class="alert alert-danger">
+                    @ResponseMessage
+                </div>
+            }
 
             @if (Events != null)
             {
@@ -27,13 +40,12 @@
                         </div>
                         <div class="col justify-content-end">
                             <a href="Createevent/@eventItem.Id" class="btn btn-outline-warning"> Details</a>
-                        </div>        
+                        </div>
                     </div>
                 }
             }
             else
             {
-
                 <div>
                     No Events found yet. <a href="Createevent">Add one here</a>
                 </div>
@@ -49,6 +61,9 @@
     public List<EventDto> Events { get; set; }
 
     public bool EditSuccessful { get; set; }
+    public bool EditFailed { get; set; }
+
+    public string ResponseMessage { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -61,19 +76,30 @@
         }
 
         TurnNullFieldsToEmptyString();
-
-
     }
 
-    private async Task UpdateCustomer()
+    private async Task UpdateProvider()
     {
-        EditSuccessful = true;
-        await providerService.UpdateProvider(Provider);
+        ResetBools();
+
+        var response = await providerService.UpdateProvider(Provider);
+        if (response.IsSuccessStatusCode)
+        {
+            EditSuccessful = true;
+            ResponseMessage = await response.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            EditFailed = true;
+            ResponseMessage = await response.Content.ReadAsStringAsync();
+        }
     }
+
 
     private void ResetBools()
     {
         EditSuccessful = false;
+        EditFailed = false;
     }
 
     private void TurnNullFieldsToEmptyString()

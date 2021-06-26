@@ -24,10 +24,10 @@ namespace YES.Client.Services
             return provider;
         }
 
-        public async Task UpdateProvider(TicketProviderDto provider)
+        public async Task<HttpResponseMessage> UpdateProvider(TicketProviderDto provider)
         {
             var response = await _http.PutAsJsonAsync("api/TicketProvider", provider);
-            Console.Write(response);
+            return response;
         }
     }
 }
