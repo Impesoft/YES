@@ -103,36 +103,38 @@ else
     {
         PurchaseSuccessful = false;
 
-        if (TicketsPurchasingList.Any())
+        if (ticketCategory.AvailableAmount > 0)
         {
-            bool itemFound = false;
-            foreach (var item in TicketsPurchasingList)
+            if (TicketsPurchasingList.Any())
             {
-                if (ticketCategory.Id == item.TicketCategory.Id)
+                bool itemFound = false;
+                foreach (var item in TicketsPurchasingList)
                 {
-                    item.Amount++;
-                    itemFound = true;
+                    if (ticketCategory.Id == item.TicketCategory.Id)
+                    {
+                        item.Amount++;
+                        itemFound = true;
+                        ticketCategory.AvailableAmount--;
+                    }
+                }
+
+                if (!itemFound)
+                {
+                    var newTicket = CreateTicket(ticketCategory);
+                    TicketsPurchasingList.Add(newTicket);
                     ticketCategory.AvailableAmount--;
                 }
             }
-
-            if (!itemFound)
+            else
             {
                 var newTicket = CreateTicket(ticketCategory);
                 TicketsPurchasingList.Add(newTicket);
                 ticketCategory.AvailableAmount--;
             }
-        }
-        else
-        {
-            var newTicket = CreateTicket(ticketCategory);
-            TicketsPurchasingList.Add(newTicket);
-            ticketCategory.AvailableAmount--;
-        }
 
-        TotalPrice = CalculateTotalPrice();
-        AmountOfTicketsToPurchase = CountTotalTickets();
-
+            TotalPrice = CalculateTotalPrice();
+            AmountOfTicketsToPurchase = CountTotalTickets();
+        }
     }
 
     private void RemoveTicketFromPurchaseList(TicketPurchaseDto ticket)
@@ -159,7 +161,7 @@ else
     private void ClearPurchaseList()
     {
         foreach (var ticket in TicketsPurchasingList)
-        {     
+        {
             Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount += ticket.Amount;
         }
 
