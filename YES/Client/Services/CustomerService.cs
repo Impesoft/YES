@@ -11,8 +11,6 @@ namespace YES.Client.Services
 {
     public class CustomerService : ICustomerService
     {
-        private int LoggedInUserId { get; set; }
-
         private HttpClient _http;
 
         public CustomerService(HttpClient http)
@@ -22,22 +20,14 @@ namespace YES.Client.Services
 
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
         {
-            var _customer = await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);
-
-            LoggedInUserId = _customer.Id;
-            return _customer;
+            return await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);            
         }
 
-        public async Task UpdateCustomer(CustomerWithTicketsDto customerWithTickets)
+        public async Task<HttpResponseMessage> UpdateCustomer(CustomerWithTicketsDto customerWithTickets)
         {
-            TicketCustomerDto customer = ConvertToTicketCustomer(customerWithTickets);
-            var response = await _http.PutAsJsonAsync("api/TicketCustomer", customer);
-            Console.Write(response);
-        }
+            TicketCustomerDto customer = ConvertToTicketCustomer(customerWithTickets);             
 
-        public int GetLoggedInUser()
-        {
-            return LoggedInUserId;
+            return await _http.PutAsJsonAsync("api/TicketCustomer", customer);
         }
 
         private TicketCustomerDto ConvertToTicketCustomer(CustomerWithTicketsDto customer)

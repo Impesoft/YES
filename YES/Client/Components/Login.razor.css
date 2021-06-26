@@ -12,3 +12,8 @@
     padding-top: 10px;
     text-align: center;
 }
+
+.error-message {
+    color: var(--red);
+    margin: 2rem 0;
+}
