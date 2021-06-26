@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -31,6 +32,7 @@ namespace YES.Mobile.Services
 
             var resultEvents = JsonConvert.DeserializeObject<ObservableCollection<EventDto>>(resultJson);
             return resultEvents;
+            // (ObservableCollection<EventDto>)resultEvents.Where(x => x.Status == "ToBeAnnounced" || x.EventInfo.EventDate >= DateTime.Now);
         }
 
         public async Task<EventDto> GetEventDetails(int id)
