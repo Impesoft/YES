@@ -1,7 +1,6 @@
-﻿
-namespace YES.Mobile.Dto
+﻿namespace YES.Mobile.Dto
 {
-    public class LoginDto
+    public class LoginDto : ObservableObject
     {
         public string Email { get; set; }
 
