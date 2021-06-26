@@ -93,6 +93,11 @@ section {
     /*filter: blur(10px);*/
 }
 
+.error-message {
+    color: var(--yellow);
+    margin: 2rem 0;
+}
+
 @media (max-width: 1400px) {
     .display-venue {
         display: none;
