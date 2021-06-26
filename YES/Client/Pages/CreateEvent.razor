@@ -10,7 +10,14 @@
     <section>
         @if (GlobalVariables.LoggedInUser?.Role == Roles.TicketProvider)
         {
-            <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+            @if (Id > 0)
+            {
+                <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Edit Event</h3>
+            }
+            else
+            {
+                <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+            }
 
             @if (Event != null)
             {
