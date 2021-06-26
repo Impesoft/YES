@@ -36,6 +36,12 @@
                 <Login LoginInfo="@LoginInfo" 
                        LogIn="@(LogIn)"
                        ShowRegisterModal="@(ShowRegisterModal)"/>
+                @if (LoginFailed)
+                {
+                    <div class="alert alert-danger">
+                        Login Failed, please retry.
+                    </div>
+                }
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -71,8 +77,11 @@
     private Modal _loginModal;
     private Modal _registerModal;
 
+    public bool LoginFailed { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+
         await SetCustomer();
     }
 
@@ -114,12 +123,19 @@
     private async Task LogIn()
     {
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
-        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
-        HideLoginModal();
-        await SetCustomer();
+        if (loggedInUserJson == "Invalid input")
+        {
+            LoginFailed = true;
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+            HideLoginModal();
+            await SetCustomer();
 
-        //send user to parent
-        await SetUserInHeader.InvokeAsync(LoggedInUser);
+            //send user to parent
+            await SetUserInHeader.InvokeAsync(LoggedInUser);
+        }
     }
 
     private async Task RegisterUser()

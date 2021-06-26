@@ -17,7 +17,14 @@
             @if (EditSuccessful == true)
             {
                 <div class="mt-5 alert alert-warning">
-                    @Customer.FirstName succesfully edited.
+                    @ResponseMessage
+                </div>
+            }
+
+            @if (EditFailed == true)
+            {
+                <div class="mt-5 alert alert-warning">
+                    @ResponseMessage
                 </div>
             }
 
@@ -38,7 +45,7 @@
             @if (Tickets != null)
             {
                 <div class="row mb-4 ticket-overview-header">
-                    <div class="col" @onclick="() => SortTicketList(1)" >
+                    <div class="col" @onclick="() => SortTicketList(1)">
                         Purchased On
                     </div>
                     <div class="col" @onclick="() => SortTicketList(2)">
@@ -59,16 +66,14 @@
                     <div class="col">
                         To Be Cancelled
                     </div>
-
                 </div>
+
                 @foreach (var ticket in Tickets)
                 {
                     <div class="row ticket-item">
                         <TicketOverview Ticket="ticket" OnChange="() => AddTicketToCancelList(ticket.Id)"></TicketOverview>
                     </div>
-                                        
                 }
-
             }
         }
         else
@@ -77,8 +82,6 @@
         }
 
     </section>
-
-
 </div>
 
 
@@ -86,11 +89,13 @@
     [Parameter]
     public CustomerWithTicketsDto Customer { get; set; }
 
-
     public List<TicketDto> Tickets { get; set; }
 
     public bool EditSuccessful { get; set; }
+    public bool EditFailed { get; set; }
     public bool CancelSuccessful { get; set; }
+
+    public string ResponseMessage { get; set; }
 
     public bool ToBeCancelled { get; set; }
 
@@ -103,7 +108,6 @@
         if (GlobalVariables.LoggedInUser != null)
         {
             Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
-
         }
 
         TurnNullFieldsToEmptyString();
@@ -122,8 +126,18 @@
 
     private async Task UpdateCustomer()
     {
-        EditSuccessful = true;
-        await customerService.UpdateCustomer(Customer);
+        ResetBools();
+        var result = await customerService.UpdateCustomer(Customer);
+        if (result.IsSuccessStatusCode)
+        {
+            EditSuccessful = true;
+            ResponseMessage = await result.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            EditFailed = true;
+            ResponseMessage = await result.Content.ReadAsStringAsync();
+        }
     }
 
     private async Task CancelTickets()
@@ -139,6 +153,12 @@
 
             CancelSuccessful = true;
         }
+    }
+
+    private void ResetBools()
+    {
+        EditSuccessful = false;
+        CancelSuccessful = false;
     }
 
     private void AddTicketToCancelList(int ticketId)
@@ -188,14 +208,6 @@
                 break;
         }
     }
-
-    private void ResetBools()
-    {
-        EditSuccessful = false;
-        CancelSuccessful = false;
-    }
-
-
 
     private void TurnNullFieldsToEmptyString()
     {
