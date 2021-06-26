@@ -51,6 +51,7 @@
                             TextDecorations="Underline"
                             VerticalOptions="End"
                             HorizontalOptions="Center" />
+                        <Label Text="{Binding Event.Status}" />
                         <Label Text="{Binding Event.Status, Converter={StaticResource EnumToStringConverterKey}}"
                            FontSize="18"
                            VerticalOptions="End"
