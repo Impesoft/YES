@@ -6,7 +6,8 @@
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
              xmlns:srvc="clr-namespace:YES.Mobile.Services"
              x:Class="YES.Mobile.Views.CalendarPage"
-             BackgroundColor="#111111">
+             BackgroundColor="#111111"
+             Appearing="ContentPage_Appearing">
 
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
