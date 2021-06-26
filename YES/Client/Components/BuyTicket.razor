@@ -58,10 +58,10 @@
             
         </div>
 
-        @if (PurchaseSuccessful == true)
+        @if (PurchaseSuccessful)
         {
             <div class="mt-5 alert alert-warning">
-                @Customer.FirstName succesfully ordered @CountTotalTickets() @if (CountTotalTickets() > 1)
+                @Customer.FirstName successfully ordered @CountTotalTickets() @if (CountTotalTickets() > 1)
                                                                              {
                                                                                  @: tickets
                                                                              }
@@ -71,10 +71,19 @@
                                                                              }
                                                                                  
                                                                               for €@Math.Round(TotalPrice, 2) !
+                @*Response from API
+                @ResponseMessage*@
             </div>
         }
-    
-        
+
+        @if (PurchaseFailed)
+        {
+            <div class="mt-5 alert alert-warning">
+                @ResponseMessage
+            </div>
+        }
+
+
 }
 else
 {
@@ -95,44 +104,49 @@ else
 
     private double TotalPrice { get; set; }
     private int AmountOfTicketsToPurchase { get; set; }
-    private bool PurchaseSuccessful { get; set; } = false;
     private List<TicketPurchaseDto> TicketsPurchasingList { get; set; } = new();
 
+    private bool PurchaseSuccessful { get; set; }
+    private bool PurchaseFailed { get; set; }
+
+    public string ResponseMessage { get; set; }
 
     private void AddTicketToPurchasingList(TicketCategoryDto ticketCategory)
     {
         PurchaseSuccessful = false;
 
-        if (TicketsPurchasingList.Any())
+        if (ticketCategory.AvailableAmount > 0)
         {
-            bool itemFound = false;
-            foreach (var item in TicketsPurchasingList)
+            if (TicketsPurchasingList.Any())
             {
-                if (ticketCategory.Id == item.TicketCategory.Id)
+                bool itemFound = false;
+                foreach (var item in TicketsPurchasingList)
                 {
-                    item.Amount++;
-                    itemFound = true;
+                    if (ticketCategory.Id == item.TicketCategory.Id)
+                    {
+                        item.Amount++;
+                        itemFound = true;
+                        ticketCategory.AvailableAmount--;
+                    }
+                }
+
+                if (!itemFound)
+                {
+                    var newTicket = CreateTicket(ticketCategory);
+                    TicketsPurchasingList.Add(newTicket);
                     ticketCategory.AvailableAmount--;
                 }
             }
-
-            if (!itemFound)
+            else
             {
                 var newTicket = CreateTicket(ticketCategory);
                 TicketsPurchasingList.Add(newTicket);
                 ticketCategory.AvailableAmount--;
             }
-        }
-        else
-        {
-            var newTicket = CreateTicket(ticketCategory);
-            TicketsPurchasingList.Add(newTicket);
-            ticketCategory.AvailableAmount--;
-        }
 
-        TotalPrice = CalculateTotalPrice();
-        AmountOfTicketsToPurchase = CountTotalTickets();
-
+            TotalPrice = CalculateTotalPrice();
+            AmountOfTicketsToPurchase = CountTotalTickets();
+        }
     }
 
     private void RemoveTicketFromPurchaseList(TicketPurchaseDto ticket)
@@ -159,7 +173,7 @@ else
     private void ClearPurchaseList()
     {
         foreach (var ticket in TicketsPurchasingList)
-        {     
+        {
             Event.TicketCategories.FirstOrDefault(x => x.Id == ticket.TicketCategory.Id).AvailableAmount += ticket.Amount;
         }
 
@@ -170,13 +184,22 @@ else
         modalRef.Hide();
     }
 
-    private void PurchaseTickets()
+    private async Task PurchaseTickets()
     {
         if (TicketsPurchasingList != null)
         {
-            _ticketService.AddNewTicketsAsync(TicketsPurchasingList);
+            var response = await _ticketService.AddNewTicketsAsync(TicketsPurchasingList);
 
-            PurchaseSuccessful = true;
+            if (response.IsSuccessStatusCode)
+            {
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+                PurchaseSuccessful = true;
+            }
+            else
+            {
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+                PurchaseFailed = true;
+            }
         }
 
     }
