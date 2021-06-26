@@ -8,7 +8,7 @@
     <Application.Resources>
         <!--<local:BooleanToVisibilityConverter  x:Key="MyVisConverter" />-->
         <ResourceDictionary>
-            <Color x:Key="Primary">#000000</Color>
+            <Color x:Key="Primary">#111111</Color>
             <Color x:Key="DarkTextColor">#EEEEEE</Color>
             <Color x:Key="LightTextColor">#111111</Color>
             <Color x:Key="PrimaryAndroidLight">#005db5</Color>
