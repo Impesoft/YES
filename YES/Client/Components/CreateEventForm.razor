@@ -64,7 +64,7 @@
     <div class="row">
         <div class="col">
             <InputSelect @bind-Value="SelectedVenueId" class="form-control">
-                <option value="" selected>Select a Venue</option>
+                <option value="" selected>-- Select a Venue --</option>
                 @foreach (var venue in Venues)
                 {
                     <option value="@venue.Id">@venue.Name</option>
