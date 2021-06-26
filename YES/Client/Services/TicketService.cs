@@ -22,27 +22,21 @@ namespace YES.Client.Services
             {
                 _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GlobalVariables.LoggedInUser.Token);
             }
-        }       
-
+        }
 
         public async Task<IEnumerable<TicketDto>> GetTicketsByUserIdAsync(int id)
         {
-            var _tickets = await _http.GetFromJsonAsync<IEnumerable<TicketDto>>("api/Ticket/" + id);
-
-            return _tickets;
+            return await _http.GetFromJsonAsync<IEnumerable<TicketDto>>("api/Ticket/" + id);            
         }
 
-        public async Task AddNewTicketsAsync(List<TicketPurchaseDto> tickets)
+        public async Task<HttpResponseMessage> AddNewTicketsAsync(List<TicketPurchaseDto> tickets)
         {
-            await _http.PostAsJsonAsync<List<TicketPurchaseDto>>("api/Ticket/Buy", tickets);
-          
+            return await _http.PostAsJsonAsync("api/Ticket/Buy", tickets);
         }
 
-        public async Task<bool> CancelTicketsAsync(List<int> ticketsToCancel)
+        public async Task<HttpResponseMessage> CancelTicketsAsync(List<int> ticketsToCancel)
         {
-            var result = await _http.PostAsJsonAsync("api/Ticket/Cancel", ticketsToCancel);
-
-            return result.IsSuccessStatusCode;
+            return await _http.PostAsJsonAsync("api/Ticket/Cancel", ticketsToCancel);
         }
 
     }
