@@ -10,7 +10,14 @@
     <section>
         @if (GlobalVariables.LoggedInUser?.Role == Roles.TicketProvider)
         {
-            <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+            @if (Id > 0)
+            {
+                <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Edit Event</h3>
+            }
+            else
+            {
+                <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+            }
 
             @if (Event != null)
             {
@@ -19,13 +26,13 @@
                 @if (CreateEventSuccessful)
                 {
                     <div class="alert alert-warning my-4">
-                        Event successfully submitted.
+                        @AlertMessage
                     </div>
                 }
                 @if (CreateEventFailed)
                 {
                     <div class="alert alert-danger my-4">
-                        Event submit failed!
+                        @AlertMessage
                     </div>
                 }
 
@@ -58,6 +65,8 @@
     public bool CreateEventSuccessful { get; set; }
     public bool CreateEventFailed { get; set; }
 
+    public string AlertMessage { get; set; }
+
     protected async override Task OnInitializedAsync()
     {
         ResetBools();
@@ -86,25 +95,25 @@
 
     private async Task SubmitEvent()
     {
-        bool result;
+        HttpResponseMessage response;
 
         if (Id > 0)
         {
-            result = await eventService.UpdateEventAsync(Event);
+            response = await eventService.UpdateEventAsync(Event);
         }
         else
         {
-            result = await eventService.CreateNewEventAsync(Event);
-
+            response = await eventService.CreateNewEventAsync(Event);
         }
-
-        if (result)
+        if (response.IsSuccessStatusCode)
         {
             CreateEventSuccessful = true;
+            AlertMessage = await response.Content.ReadAsStringAsync();
         }
         else
         {
             CreateEventFailed = true;
+            AlertMessage = await response.Content.ReadAsStringAsync();
         }
     }
 
