@@ -25,8 +25,7 @@ namespace YES.Client.Services
             if (GlobalVariables.LoggedInUser != null)
             {
                 _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GlobalVariables.LoggedInUser.Token);
-            }
-            
+            }            
         }
 
         //https://localhost:44316/api/Event
@@ -40,9 +39,7 @@ namespace YES.Client.Services
 
         public async Task<EventDto> GetEventByIdAsync(int id)
         {
-            var _event = await _http.GetFromJsonAsync<EventDto>("api/Event/" + id);
-
-            return _event;
+            return await _http.GetFromJsonAsync<EventDto>("api/Event/" + id);
         }
 
         public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
@@ -51,25 +48,19 @@ namespace YES.Client.Services
             return _events.Where(x => x.EventInfo.EventDate > DateTime.Now).OrderBy(x => Guid.NewGuid()).Take(6).OrderBy(x => x.EventInfo.EventDate);
         }
 
-        public async Task<bool> CreateNewEventAsync(EventDto eventDto)
+        public async Task<HttpResponseMessage> CreateNewEventAsync(EventDto eventDto)
         {
-            var responseMessage = await _http.PostAsJsonAsync("api/Event/", eventDto);
-
-            return responseMessage.IsSuccessStatusCode;
+            return await _http.PostAsJsonAsync("api/Event/", eventDto);           
         }
 
-        public async Task<bool> UpdateEventAsync(EventDto eventDto)
+        public async Task<HttpResponseMessage> UpdateEventAsync(EventDto eventDto)
         {
-            var responseMessage = await _http.PutAsJsonAsync("api/Event/", eventDto);
-
-            return responseMessage.IsSuccessStatusCode;
+            return await _http.PutAsJsonAsync("api/Event/", eventDto);            
         }
 
         public async Task<IEnumerable<VenueDto>> GetVenuesAsync()
         {
-            var venues = await _http.GetFromJsonAsync<IEnumerable<VenueDto>>("api/Event/Venues");
-
-            return venues;
+            return await _http.GetFromJsonAsync<IEnumerable<VenueDto>>("api/Event/Venues");            
         }
 
         public async Task<IEnumerable<EventDto>> GetEventsByProviderIdAsync(int id)
