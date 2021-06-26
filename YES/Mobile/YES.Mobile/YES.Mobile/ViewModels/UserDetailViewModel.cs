@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using Xamarin.Forms;
 using YES.Mobile.Dto;
 using YES.Mobile.Enums;
 using YES.Mobile.Services;
+using YES.Mobile.Views;
 
 namespace YES.Mobile.ViewModels
 {
@@ -29,7 +31,29 @@ namespace YES.Mobile.ViewModels
         }
 
         private DateTime? expiryDate;
-        public List<int> ToBeCanceled;
+        private List<int> _toBeCanceled;
+        private ICollection<TicketDto> usersTickets;
+
+        public ICollection<TicketDto> UsersTickets
+        {
+            get { return usersTickets; }
+            set
+            {
+                usersTickets = value;
+                OnPropertyChanged(nameof(UsersTickets));
+            }
+        }
+
+        public List<int> ToBeCanceled
+        {
+            get => _toBeCanceled;
+            set
+            {
+                _toBeCanceled = value;
+                OnPropertyChanged(nameof(ToBeCanceled));
+            }
+        }
+
         private CustomerWithTicketsDto _localUser;
         public Command<TicketDto> DeleteCommand { get; }
 
@@ -60,7 +84,25 @@ namespace YES.Mobile.ViewModels
         {
             CustomerService = new CustomerService();
             TicketService = new TicketService();
-            Task.Run(() => LoadUserWithTickets());
+            DeleteCommand = new Command<TicketDto>(DeleteTicket);
+            ToBeCanceled = new List<int>();
+            ThereAreTicketsToBeCanceled = false;
+            UsersTickets = new ObservableCollection<TicketDto>();
+            // Task.Run(() => LoadUserWithTickets());
+        }
+
+        private void DeleteTicket(TicketDto ToBeCanceledTicket)
+        {
+            ToBeCanceled.Add(ToBeCanceledTicket.Id);
+            //LocalUser.Tickets.Remove(ToBeCanceledTicket);
+            UsersTickets.Remove(ToBeCanceledTicket);
+            ThereAreTicketsToBeCanceled = true;
+        }
+
+        public async void LoadUserWithTickets()
+        {
+            LocalUser = await CustomerService.GetCustomerAsync();
+            UsersTickets = LocalUser.Tickets;
             UserTokenDto user = GlobalVariables.LoggedInUser;
             var stream = user.Token;
             var handler = new JwtSecurityTokenHandler();
@@ -68,26 +110,14 @@ namespace YES.Mobile.ViewModels
             var tokenS = jsonToken as JwtSecurityToken;
             expiryDate = tokenS.ValidTo;
             Title = "Logged in as: " + user.Email;
-            DeleteCommand = new Command<TicketDto>(DeleteTicket);
-            ToBeCanceled = new List<int>();
-            ThereAreTicketsToBeCanceled = false;
-        }
-
-        private void DeleteTicket(TicketDto ToBeCanceledTicket)
-        {
-            ToBeCanceled.Add(ToBeCanceledTicket.Id);
-            LocalUser.Tickets.Remove(ToBeCanceledTicket);
-            ThereAreTicketsToBeCanceled = true;
-        }
-
-        private async void LoadUserWithTickets()
-        {
-            LocalUser = await CustomerService.GetCustomerAsync();
         }
 
         private async void OnToBeCanceled()
         {
             bool Result = await TicketService.CancelTicketsAsync(ToBeCanceled);
+            LoadUserWithTickets();
+            ThereAreTicketsToBeCanceled = false;
+            // await Shell.Current.GoToAsync("//CalendarPage");
         }
     }
 }
