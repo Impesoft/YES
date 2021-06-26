@@ -72,6 +72,7 @@ namespace YES.Mobile.ViewModels
         private void DeleteTicket(int ToBeCanceledTicketId)
         {
             ToBeCanceled.Add(ToBeCanceledTicketId);
+
             ThereAreTicketsToBeCanceled = true;
         }
 

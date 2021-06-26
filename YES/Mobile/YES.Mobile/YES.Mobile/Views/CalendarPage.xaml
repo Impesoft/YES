@@ -11,7 +11,7 @@
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
         <StackLayout>
-            <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <StackLayout Margin="0,20"  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                 <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 <SearchBar x:Name="SearchBar"
                            Margin="0,10"
