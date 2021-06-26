@@ -15,8 +15,18 @@ namespace YES.Mobile.ViewModels
 {
     public class UserDetailViewModel : BaseViewModel
     {
-        //  public string LocalUser { get; set; }
-        public Command CancelTappedCommand => new Command(OnToBeCanceled);
+        private int cancelCount;
+        public int CancelCount
+        {
+            get => cancelCount;
+            set
+            {
+                cancelCount = value;
+                OnPropertyChanged(nameof(CancelCount));
+            }
+
+        }
+            public Command CancelTappedCommand => new Command(OnToBeCanceled);
 
         private bool thereAreTicketsToBeCanceled;
 
@@ -94,8 +104,10 @@ namespace YES.Mobile.ViewModels
         private void DeleteTicket(TicketDto ToBeCanceledTicket)
         {
             ToBeCanceled.Add(ToBeCanceledTicket.Id);
+
             //LocalUser.Tickets.Remove(ToBeCanceledTicket);
             UsersTickets.Remove(ToBeCanceledTicket);
+            CancelCount = ToBeCanceled.Count;
             ThereAreTicketsToBeCanceled = true;
         }
 
