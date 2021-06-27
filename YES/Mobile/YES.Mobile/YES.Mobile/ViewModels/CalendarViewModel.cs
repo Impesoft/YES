@@ -68,15 +68,15 @@ namespace YES.Mobile.ViewModels
                                                        {
                                                            if (SearchText.Length >= 1)
                                                            {
-                                                               EventsFiltered = Events.Where<EventDto>(x => (x.EventInfo.Description.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
-                                                               || (x.EventInfo.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
-                                                               || (x.Venue.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
-                                                               || (x.TicketProvider.NameProvider.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()))
+                                                               EventsFiltered = Events.Where<EventDto>(x => x.EventInfo.Description.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())
+                                                               || x.EventInfo.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())
+                                                               || x.Venue.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())
+                                                               || x.TicketProvider.NameProvider.ToLowerInvariant().Contains(SearchText.ToLowerInvariant())
                                                                ).ToList();
                                                            }
                                                            else
                                                            {
-                                                               EventsFiltered = Events.Where(x => (x.Status == "ToBeAnnounced") || (x.EventInfo.EventDate > DateTime.Now));
+                                                               EventsFiltered = Events.Where(x => (x.EventInfo.EventDate == DateTime.MinValue) || (x.Status == "ToBeAnnounced") || (x.EventInfo.EventDate > DateTime.Now));
                                                            }
                                                        }));
 
@@ -104,7 +104,8 @@ namespace YES.Mobile.ViewModels
             {
                 var EventTasks = await Task.WhenAny(_eventService.GetAllEvents());
                 Events = EventTasks.Result;
-                EventsFiltered = Events.Where(x => (x.Status == "ToBeAnnounced") || (x.EventInfo.EventDate > DateTime.Now));
+                Events.OrderBy(x => x.EventInfo.EventDate);
+                EventsFiltered = Events.Where(x => (x.EventInfo.EventDate == DateTime.MinValue) || (x.Status == "ToBeAnnounced") || (x.EventInfo.EventDate > DateTime.Now));
             });
 
             IsBusy = false;
