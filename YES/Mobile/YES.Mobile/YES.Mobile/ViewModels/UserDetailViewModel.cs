@@ -16,6 +16,7 @@ namespace YES.Mobile.ViewModels
     public class UserDetailViewModel : BaseViewModel
     {
         private int cancelCount;
+
         public int CancelCount
         {
             get => cancelCount;
@@ -24,9 +25,10 @@ namespace YES.Mobile.ViewModels
                 cancelCount = value;
                 OnPropertyChanged(nameof(CancelCount));
             }
-
         }
-            public Command CancelTappedCommand => new Command(OnToBeCanceled);
+
+        public Command CancelTappedCommand => new Command(OnToBeCanceled);
+        public Command KeepTappedCommand => new Command(CancelToBeCanceled);
 
         private bool thereAreTicketsToBeCanceled;
 
@@ -106,9 +108,9 @@ namespace YES.Mobile.ViewModels
             ToBeCanceled.Add(ToBeCanceledTicket.Id);
 
             //LocalUser.Tickets.Remove(ToBeCanceledTicket);
-            UsersTickets.Remove(ToBeCanceledTicket);
             CancelCount = ToBeCanceled.Count;
             ThereAreTicketsToBeCanceled = true;
+            UsersTickets.Remove(ToBeCanceledTicket);
         }
 
         public async void LoadUserWithTickets()
@@ -129,7 +131,14 @@ namespace YES.Mobile.ViewModels
             bool Result = await TicketService.CancelTicketsAsync(ToBeCanceled);
             LoadUserWithTickets();
             ThereAreTicketsToBeCanceled = false;
-            // await Shell.Current.GoToAsync("//CalendarPage");
+            ToBeCanceled.Clear();
+        }
+
+        private void CancelToBeCanceled()
+        {
+            ThereAreTicketsToBeCanceled = false;
+            ToBeCanceled.Clear();
+            LoadUserWithTickets();
         }
     }
 }
