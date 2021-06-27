@@ -21,19 +21,28 @@ namespace YES.Api.Controllers
         public async Task<ActionResult<TicketProviderDto>> GetTicketProvider(int id)
         {
             return Ok(await _ticketProviderService.GetTicketProviderByIdAsync(id));
-        }        
+        }
 
+        [Authorize(Roles = "TicketProvider")]
         [HttpPut]
-        public async Task<ActionResult> UpdateTicketCustomer(TicketProviderDto ticketProviderDto)
+        public async Task<ActionResult> UpdateTicketProvider(TicketProviderDto ticketProviderDto)
         {
-            return Ok(await _ticketProviderService.UpdateTicketProvider(ticketProviderDto));
+            if (await _ticketProviderService.UpdateTicketProvider(ticketProviderDto))
+            {
+                return Ok("Succesfully updated ticketProvider");
+            }
+            return StatusCode(500, "Failed to update ticketProvider");
         }
 
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> DeleteTicketProvider(int id)
         {
-            return Ok(await _ticketProviderService.DeleteTicketProvider(id));
+            if (await _ticketProviderService.DeleteTicketProvider(id))
+            {
+                return Ok("Succesfully deleted ticketProvider");
+            }
+            return StatusCode(500, "Failed to delete ticketProvider");
         }
     }
 }
