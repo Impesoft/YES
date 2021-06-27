@@ -27,13 +27,23 @@
                     <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
                     <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Your Event Service</Label>
                 </StackLayout>
-                <Button Grid.Row="1"
-                        Clicked="Button_Clicked"
+                <StackLayout
+                    Grid.Row="1"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
+                    <Button Clicked="Button_Clicked"
                         BorderColor="#EEE"
                         BackgroundColor="Red"
                         Text="{Binding CancelCount, StringFormat='Cancel {0} Ticket(s)' }"
                         IsVisible="{Binding ThereAreTicketsToBeCanceled}"
                         Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=CancelTappedCommand}" />
+                    <Button
+                        BorderColor="#EEE"
+                        BackgroundColor="Gray"
+                        Text="Keep the Ticket(s)"
+                        IsVisible="{Binding ThereAreTicketsToBeCanceled}"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=KeepTappedCommand}" />
+                </StackLayout>
             </StackLayout>
             <ScrollView Grid.Row="2">
                 <StackLayout BindableLayout.ItemsSource="{Binding UsersTickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
