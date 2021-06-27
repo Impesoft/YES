@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
+             xmlns:local1="clr-namespace:YES.Mobile.Converters"
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
              xmlns:srvc="clr-namespace:YES.Mobile.Services"
              x:Class="YES.Mobile.Views.CalendarPage"
              BackgroundColor="#111111"
              Appearing="ContentPage_Appearing">
-
+    <ContentPage.Resources>
+        <local1:EnumToStringConverter x:Key="EnumToStringConverterKey"></local1:EnumToStringConverter>
+        <local1:DateTimeToStringConverter x:Key="DateTimeToStringCoverterKey"></local1:DateTimeToStringConverter>
+    </ContentPage.Resources>
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
         <StackLayout>
@@ -59,6 +63,10 @@
                                     <StackLayout VerticalOptions="EndAndExpand">
                                         <Label FontSize="24" Text="{Binding EventInfo.Name}" />
                                         <Label Text="{Binding Venue.Name}" />
+                                        <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Status,Converter={StaticResource EnumToStringConverterKey}}" />                                            
+                                        <Label Text="{Binding EventInfo.EventDate,Converter={StaticResource DateTimeToStringCoverterKey}}" />
+                                        </StackLayout>
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
