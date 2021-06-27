@@ -6,6 +6,11 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<LangVersion>9.0</LangVersion>
+		<Authors>Nick, Kobe, Seba, Pieter and Ward</Authors>
+		<Company>Yes Your Event Service</Company>
+		<Product>YES</Product>
+		<PackageId>YES</PackageId>
+		<AssemblyName>YES</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="fa-solid-900.ttf" />
