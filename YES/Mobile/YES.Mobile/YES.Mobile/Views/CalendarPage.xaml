@@ -3,15 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:YES.Mobile.ViewModels"
+             xmlns:local1="clr-namespace:YES.Mobile.Converters"
              xmlns:dto="clr-namespace:YES.Mobile.Dto"
              xmlns:srvc="clr-namespace:YES.Mobile.Services"
              x:Class="YES.Mobile.Views.CalendarPage"
-             BackgroundColor="#111111">
-
+             BackgroundColor="#111111"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Resources>
+        <local1:EnumToStringConverter x:Key="EnumToStringConverterKey"></local1:EnumToStringConverter>
+        <local1:DateTimeToStringConverter x:Key="DateTimeToStringCoverterKey"></local1:DateTimeToStringConverter>
+    </ContentPage.Resources>
     <ContentPage.Content x:DataType="local:CalendarViewModel"
                  Command="{Binding EventLoadCommand}">
         <StackLayout>
-            <StackLayout  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <StackLayout Margin="0,0,0,0"  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                 <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 <SearchBar x:Name="SearchBar"
                            Margin="0,10"
@@ -56,8 +61,10 @@
                                          BackgroundColor="Transparent">
                                 <Frame HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
                                     <StackLayout VerticalOptions="EndAndExpand">
-                                        <Label FontSize="24" Text="{Binding EventInfo.Name}" />
-                                        <Label Text="{Binding Venue.Name}" />
+                                        <Label HorizontalOptions="End" Text="{Binding Venue.Name}" />
+                                        <Label HorizontalOptions="Start" FontSize="24" Text="{Binding EventInfo.Name}" />
+                                        <Label Text="{Binding Status,Converter={StaticResource EnumToStringConverterKey}}" />
+                                        <Label Text="{Binding EventInfo.EventDate,Converter={StaticResource DateTimeToStringCoverterKey}, StringFormat='Time: {0}'}" />
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>

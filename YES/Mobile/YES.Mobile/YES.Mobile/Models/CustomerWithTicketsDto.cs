@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace YES.Mobile.Dto
 {
@@ -18,7 +19,6 @@ namespace YES.Mobile.Dto
 
         public virtual AddressDto Address { get; set; }
 
-        public virtual ICollection<TicketDto> Tickets { get; set; }
-
+        public virtual ObservableCollection<TicketDto> Tickets { get; set; }
     }
 }
