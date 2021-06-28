@@ -31,7 +31,7 @@ namespace YES.Api.Data.Database
                 new Address { Id = 3, Street = "Leeuwstraat", StreetNumber = "7", PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 2 },
                 new Address { Id = 4, Street = "Zebrastraat", StreetNumber = "36", PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 3 },
                 new Address { Id = 5, Street = "Tijgerstraat", StreetNumber = "24", PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 4 },
-                new Address { Id = 6, Street = "Apostelstraat", StreetNumber = "79", PostalCode = "9100", City = "Sint-Niklaas", Country = "België", TicketCustomerId = 5 },
+                new Address { Id = 6, Street = "Apostelstraat", StreetNumber = "79", PostalCode = "9100", City = "Sint-Niklaas", Country = "België", TicketCustomerId = 5, VenueId = 13, TicketProviderId = 10 },
                 new Address { Id = 7, Street = "Olifantstraat", StreetNumber = "26", PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 6 },
                 new Address { Id = 8, Street = "Olifantstraat", StreetNumber = "2", PostalCode = "9000", City = "Gent", Country = "België", TicketCustomerId = 7 },
                 new Address { Id = 9, Street = "Kleine Dalstraat", StreetNumber = "1", PostalCode = "1210", City = "Sint-Joost-ten-Node", Country = "België", TicketCustomerId = 8 },
