@@ -36,6 +36,12 @@
                 <Login LoginInfo="@LoginInfo" 
                        LogIn="@(LogIn)"
                        ShowRegisterModal="@(ShowRegisterModal)"/>
+                @if (LoginFailed)
+                {
+                    <div class="alert alert-danger">
+                        @ResponseMessage
+                    </div>
+                }
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -47,9 +53,21 @@
                 <CloseButton Class="close-btn btn" />
             </ModalHeader>
             <ModalBody>
-                <Register RegisterInfo="@RegisterInfo" 
-                          RegisterUser="@(RegisterUser)"
-                />
+                <Register RegisterInfo="@RegisterInfo"
+                          RegisterUser="@(RegisterUser)" />
+                @if (RegisterFailed)
+                {
+                    <div class="alert alert-danger">
+                        @ResponseMessage
+                    </div>
+                }
+                @if (RegisterSuccessful)
+                {
+                    <div class="alert alert-warning">
+                        @ResponseMessage
+                    </div>
+                }
+
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -70,6 +88,12 @@
     // reference to the modal components
     private Modal _loginModal;
     private Modal _registerModal;
+
+    public bool LoginFailed { get; set; }
+    public bool RegisterSuccessful { get; set; }
+    public bool RegisterFailed { get; set; }
+
+    public string ResponseMessage { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -114,12 +138,19 @@
     private async Task LogIn()
     {
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
-        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
-        HideLoginModal();
-        await SetCustomer();
+        if (loggedInUserJson == "Invalid input")
+        {
+            LoginFailed = true;
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+            HideLoginModal();
+            await SetCustomer();
 
-        //send user to parent
-        await SetUserInHeader.InvokeAsync(LoggedInUser);
+            //send user to parent
+            await SetUserInHeader.InvokeAsync(LoggedInUser);
+        }
     }
 
     private async Task RegisterUser()
@@ -128,10 +159,22 @@
 
         if (PasswordsMatch && !string.IsNullOrEmpty(RegisterInfo.Password))
         {
-            await _accountService.RegisterUser(RegisterInfo);
-            LoginInfo.Email = RegisterInfo.Email;
-            LoginInfo.Password = RegisterInfo.Password;
-            await LogIn();
+            var response = await _accountService.RegisterUser(RegisterInfo);
+            if (response.IsSuccessStatusCode)
+            {
+                RegisterSuccessful = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+                //LoginInfo.Email = RegisterInfo.Email;
+                //LoginInfo.Password = RegisterInfo.Password;
+                //await LogIn();
+            }
+            else
+            {
+                RegisterFailed = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+            }
+
+
         }
     }
 

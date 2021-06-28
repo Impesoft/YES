@@ -8,6 +8,7 @@ using System.Web;
 using System.Net;
 using Microsoft.JSInterop;
 using YES.Client.Components;
+using YES.Shared.Enums;
 
 namespace YES.Client.Services
 {
@@ -22,15 +23,23 @@ namespace YES.Client.Services
         public async Task<string> LogIn(LoginDto logindto)
         {
             var _loggedInUser = await _http.PostAsJsonAsync("/api/Account/Login", logindto);
-            var LoggedInUserJson = await _loggedInUser.Content.ReadAsStringAsync();            
-
-            return LoggedInUserJson;
+            
+            return await _loggedInUser.Content.ReadAsStringAsync(); 
         }
 
-        public async Task<bool> RegisterUser(RegisterDto registerDto)
+        public async Task<HttpResponseMessage> RegisterUser(RegisterDto registerDto)
         {
-            var registerResult = await _http.PostAsJsonAsync("/api/Account/Register", registerDto);
-            return registerResult.IsSuccessStatusCode;
+            if (registerDto.Role == Roles.TicketCustomer)
+            {
+                registerDto.NameProvider = "";
+            }
+            else if (registerDto.Role == Roles.TicketProvider)            
+            {
+                registerDto.FirstName = "";
+                registerDto.LastName = "";
+            }            
+
+            return await _http.PostAsJsonAsync("/api/Account/Register", registerDto);            
         }        
 
         public void LogOut()

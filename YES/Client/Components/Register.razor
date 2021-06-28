@@ -77,7 +77,7 @@
     public EventCallback RegisterUser { get; set; }
     private string SelectedTab { get; set; } = "customer";
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         RegisterInfo.Role = Roles.TicketCustomer;
     }
