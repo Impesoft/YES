@@ -29,7 +29,7 @@ namespace YES.Api.Controllers
         {
             if (await _ticketProviderService.UpdateTicketProvider(ticketProviderDto))
             {
-                return Ok("Succesfully updated ticketProvider");
+                return Ok("Successfully updated ticketProvider");
             }
             return StatusCode(500, "Failed to update ticketProvider");
         }
@@ -40,7 +40,7 @@ namespace YES.Api.Controllers
         {
             if (await _ticketProviderService.DeleteTicketProvider(id))
             {
-                return Ok("Succesfully deleted ticketProvider");
+                return Ok("Successfully deleted ticketProvider");
             }
             return StatusCode(500, "Failed to delete ticketProvider");
         }
