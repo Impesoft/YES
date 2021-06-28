@@ -1,7 +1,5 @@
-﻿@using YES.Shared.Enums
-
-<div>
-    @*SelectedTabChanged="@OnSelectedTabChanged"*@
+﻿
+<div>    
     <Tabs SelectedTab="@SelectedTab">
         <Items>
             <Tab Name="customer">Customer</Tab>
@@ -36,6 +34,14 @@
                         <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterCustomerInfo.ConfirmPassword" />
                         <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.ConfirmPassword" /></span>
                     </div>
+
+                    @if (RegisterFailed)
+                    {
+                        <div class="alert alert-danger mt-2">
+                            @ResponseMessage
+                        </div>
+                    }
+
                     <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
                 </EditForm>
             </TabPanel>
@@ -64,6 +70,13 @@
                         <input id="providerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterProviderInfo.ConfirmPassword" />
                         <span class="error-message"><ValidationMessage For="() => RegisterProviderInfo.ConfirmPassword" /></span>
                     </div>
+
+                    @if (RegisterFailed)
+                    {
+                        <div class="alert alert-danger mt-2">
+                            @ResponseMessage
+                        </div>
+                    }
                     <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
                 </EditForm>
             </TabPanel>
@@ -78,27 +91,18 @@
     public RegisterProviderDto RegisterProviderInfo { get; set; }
     [Parameter]
     public EventCallback RegisterUser { get; set; }
+
+    [Parameter]
+    public bool RegisterFailed { get; set; }
+    [Parameter]
+    public string ResponseMessage { get; set; }
+
     private string SelectedTab { get; set; } = "customer";
 
     protected override void OnInitialized()
-    {
-        //RegisterCustomerInfo = new();
-        //RegisterProviderInfo = new();
+    {        
         RegisterCustomerInfo.Role = Roles.TicketCustomer;
         RegisterProviderInfo.Role = Roles.TicketProvider;
     }
-
-    //private void OnSelectedTabChanged( string name )
-    //{
-    //    SelectedTab = name;
-    //    switch (SelectedTab)
-    //    {
-    //        case "customer":
-    //            RegisterCustomerInfo.Role = Roles.TicketCustomer;
-    //            break;
-    //        case "provider":
-    //            RegisterCustomerInfo.Role = Roles.TicketProvider;
-    //            break;
-    //    }
-    //}
+    
 }
