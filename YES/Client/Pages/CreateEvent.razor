@@ -19,6 +19,8 @@
                 <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
             }
 
+
+
             @if (Event != null)
             {
                 <CreateEventForm Event="Event" OnSubmitEvent="SubmitEvent"></CreateEventForm>
@@ -39,7 +41,17 @@
             }
             else
             {
-                <p>No event found.</p>
+                @if (EventIdDoesntMatchProviderId)
+                {
+                    <div class="alert alert-warning">
+                        Please request a valid Event to edit.
+                    </div>
+                }
+                else
+                {
+                    <p>No event found.</p>
+
+                }
             }
         }
         else
@@ -64,6 +76,7 @@
     /* Bools */
     public bool CreateEventSuccessful { get; set; }
     public bool CreateEventFailed { get; set; }
+    public bool EventIdDoesntMatchProviderId { get; set; }
 
     public string AlertMessage { get; set; }
 
@@ -78,7 +91,16 @@
 
         if (Id > 0)
         {
-            Event = await eventService.GetEventByIdAsync(Id);
+            var result = await eventService.GetEventByIdAsync(Id);
+            if (result.TicketProvider.Id == TicketProvider.Id)
+            {
+                Event = result;
+            }
+            else
+            {
+                EventIdDoesntMatchProviderId = true;
+            }
+
         }
         else if (Event == null)
         {
@@ -89,6 +111,7 @@
 
     private void ResetBools()
     {
+        EventIdDoesntMatchProviderId = false;
         CreateEventSuccessful = false;
         CreateEventFailed = false;
     }

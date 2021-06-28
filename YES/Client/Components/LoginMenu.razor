@@ -39,7 +39,7 @@
                 @if (LoginFailed)
                 {
                     <div class="alert alert-danger">
-                        Login Failed, please retry.
+                        @ResponseMessage
                     </div>
                 }
             </ModalBody>
@@ -53,9 +53,22 @@
                 <CloseButton Class="close-btn btn" />
             </ModalHeader>
             <ModalBody>
-                <Register RegisterInfo="@RegisterInfo" 
-                          RegisterUser="@(RegisterUser)"
-                />
+                <Register RegisterCustomerInfo="RegisterCustomer"
+                          RegisterProviderInfo="RegisterProvider"
+                          RegisterUser="@(RegisterUser)" />
+                @if (RegisterFailed)
+                {
+                    <div class="alert alert-danger">
+                        @ResponseMessage
+                    </div>
+                }
+                @if (RegisterSuccessful)
+                {
+                    <div class="alert alert-warning">
+                        @ResponseMessage
+                    </div>
+                }
+
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -70,7 +83,8 @@
     private UserTokenDto LoggedInUser { get; set; }
 
     private LoginDto LoginInfo { get; set; } = new();
-    private RegisterDto RegisterInfo { get; set; } = new();
+    private RegisterCustomerDto RegisterCustomer { get; set; } = new();
+    private RegisterProviderDto RegisterProvider { get; set; } = new();
     private bool PasswordsMatch { get; set; }
 
     // reference to the modal components
@@ -78,10 +92,13 @@
     private Modal _registerModal;
 
     public bool LoginFailed { get; set; }
+    public bool RegisterSuccessful { get; set; }
+    public bool RegisterFailed { get; set; }
+
+    public string ResponseMessage { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-
         await SetCustomer();
     }
 
@@ -140,14 +157,26 @@
 
     private async Task RegisterUser()
     {
-        PasswordsMatch = RegisterInfo.Password == RegisterInfo.ConfirmPassword;
+        PasswordsMatch = RegisterCustomer.Password == RegisterCustomer.ConfirmPassword;
 
-        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterInfo.Password))
+        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterCustomer.Password))
         {
-            await _accountService.RegisterUser(RegisterInfo);
-            LoginInfo.Email = RegisterInfo.Email;
-            LoginInfo.Password = RegisterInfo.Password;
-            await LogIn();
+            var response = await _accountService.RegisterUser(RegisterCustomer, RegisterProvider);
+            if (response.IsSuccessStatusCode)
+            {
+                RegisterSuccessful = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+                //LoginInfo.Email = RegisterInfo.Email;
+                //LoginInfo.Password = RegisterInfo.Password;
+                //await LogIn();
+            }
+            else
+            {
+                RegisterFailed = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+            }
+
+
         }
     }
 
