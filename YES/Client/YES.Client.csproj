@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\events" />
-    <Folder Include="wwwroot\js" />
   </ItemGroup>
 
   <ItemGroup>
