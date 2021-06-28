@@ -22,11 +22,11 @@ namespace YES.Mobile.Converters
                     break;
 
                 case Status.ToBeAnnounced:
-                    DisplayStatus = "To be announced";
+                    DisplayStatus = "TBA";
                     break;
 
                 case Status.Postponed:
-                    DisplayStatus = "'Postponed";
+                    DisplayStatus = "Postponed";
                     break;
 
                 case Status.Relocated:
@@ -38,7 +38,8 @@ namespace YES.Mobile.Converters
                     break;
 
                 case Status.Completed:
-                    DisplayStatus = "Event already passed";
+                    DisplayStatus = "Event already passed" +
+                        "";
                     break;
 
                 case Status.SoldOut:
