@@ -41,16 +41,25 @@ namespace YES.Api.Controllers
         [HttpPost]
         public async Task<ActionResult> AddEvent(EventDto eventDto)
         {
-            return Ok(await _eventService.AddEventAsync(eventDto));            
+            if (await _eventService.AddEventAsync(eventDto))
+            {
+                return Ok("Event added successfully"); 
+            }
+            return StatusCode(500, "Failed to add event");
         }
 
         [Authorize(Roles = "TicketProvider")]
         [HttpPut]
         public async Task<ActionResult> UpdateEvent(EventDto eventDto)
         {
-            return Ok(await _eventService.UpdateEventAsync(eventDto));
+            if (await _eventService.UpdateEventAsync(eventDto))
+            {
+                return Ok("Event updated successfully");
+            }
+            return StatusCode(500, "Failed to update event");
         }
 
+        [Authorize(Roles = "TicketProvider")]
         [HttpGet("Venues")]
         public async Task<ActionResult<IEnumerable<VenueDto>>> GetAllVenues()
         {

@@ -4,7 +4,7 @@
     background-repeat: repeat-x;
     background-position: center;
     background-size: 50%;
-    margin-top: 15px;
+    margin-top: 50px;
 }
 
 .banner2 {
@@ -13,9 +13,8 @@
     background-position: center;
     color: var(--grey);
     font-style: oblique;
-    font-weight: 100;
     position: absolute;
-    top: 4rem;
+    top: 12rem;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -24,6 +23,16 @@
     text-align: center;
     height: 9rem;
     vertical-align: bottom;
+}
+
+@media (max-width: 1200px) {
+    .banner2 {
+        top: 6rem;
+    }
+}
+
+.banner-wrapper {
+    width: 100%;
 }
 
 .page-bg {

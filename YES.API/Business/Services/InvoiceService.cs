@@ -38,22 +38,23 @@ namespace YES.Api.Business.Services
         {
             string message = "";
 
-            message += $"<h1>Beste {customer.FirstName} {customer.LastName}</h1> <br>";
-            message += "<h2>Het Yes-team bedankt u voor u aankoop</h2>";
-            message += "<h4>Onderstaand kan u je factuur terug vinden</h4> <br><br>";
+            message += @"<h1 style=""color: #ffc107; text-decoration: underline;""><b>Y</b>our <b>E</b>vent <b>S</b>ervice</h1> <br>";
+            message += $@"<p style=""color: #212529;"">Beste {customer.FirstName} {customer.LastName}</p> <br>";
+            message += @"<p style=""color: #212529;"">Het Yes-team bedankt u voor u aankoop</p>";
+            message += @"<p style=""color: #212529;"">Onderstaand kan u je factuur terug vinden</p> <br><br>";
 
-            message += $"<h1>{theEvent.EventInfo.Name}</h1>";
-            message += $"<h4>{theEvent.EventInfo.EventDate}</h4> <br><br>";
+            message += $@"<h2 style=""color: #212529;"">{theEvent.EventInfo.Name}</h2>";
+            message += $@"<h2 style=""color: #212529;"">{theEvent.EventInfo.EventDate}</h2> <br><br>";
 
             foreach (var ticket in tickets)
             {
-                message += $"<h3>Ticket: {ticket.TicketCategory.Name} | Prijs/st:  {ticket.TicketCategory.Price} Euro | Aantal: {ticket.Amount}</h3>";
+                message += $@"<h3 style=""color: #212529;""><b>Ticket:</b> {ticket.TicketCategory.Name} | <b>Prijs/st:</b>  {ticket.TicketCategory.Price} Euro | <b>Aantal:</b> {ticket.Amount}</h3>";
             }
 
             message += "<br>";
 
-            message += "<h4>Met vriendelijke groeten</h4>";
-            message += "<h1>Your Event Service</h1> <br><br>";
+            message += @"<p style=""color: #212529;"">Met vriendelijke groeten</p>";
+            message += @"<p style=""color: #ffc107;""><b>Y</bold>our <b>E</bold>vent <b>S</b>ervice</p> <br><br>";
 
             return message;
         }
