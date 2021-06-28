@@ -30,6 +30,6 @@ namespace YES.Shared.Dto
         public string ConfirmPassword { get; set; }
 
         [Required]
-        public Roles  Role { get; set; }
+        public Roles Role { get; set; }
     }
 }

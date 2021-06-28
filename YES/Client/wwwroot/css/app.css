@@ -91,6 +91,11 @@ section {
     background-attachment: fixed;
 }
 
+.error-message {
+    color: var(--yellow);
+    margin: 2rem 0;
+}
+
 @media (max-width: 1400px) {
     .display-venue {
         display: none;
