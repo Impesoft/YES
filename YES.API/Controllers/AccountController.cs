@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using YES.Api.Business.Services;
 using YES.Shared.Dto;
@@ -19,7 +20,14 @@ namespace YES.Api.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult<UserTokenDto>> RegisterAsync(RegisterDto dto)
         {
-            return Created("/api/user/{dto.Id}", await _service.RegisterAsync(dto));
+            try
+            {
+                return Created("private", await _service.RegisterAsync(dto));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
         }
 
         [HttpPost("Login")]
@@ -28,14 +36,10 @@ namespace YES.Api.Controllers
             try
             {
                 return Ok(await _service.LoginAsync(dto.Email, dto.Password));
-            }
-            catch (System.UnauthorizedAccessException e)
+            }            
+            catch (Exception e)
             {
-                return Unauthorized(e.Message);
-            }
-            catch (System.Exception)
-            {
-                throw;
+                return StatusCode(500, e.Message);
             }
         }
     }

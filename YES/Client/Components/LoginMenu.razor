@@ -36,6 +36,12 @@
                 <Login LoginInfo="@LoginInfo" 
                        LogIn="@(LogIn)"
                        ShowRegisterModal="@(ShowRegisterModal)"/>
+                @if (LoginFailed)
+                {
+                    <div class="alert alert-danger">
+                        @ResponseMessage
+                    </div>
+                }
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -47,9 +53,22 @@
                 <CloseButton Class="close-btn btn" />
             </ModalHeader>
             <ModalBody>
-                <Register RegisterInfo="@RegisterInfo" 
-                          RegisterUser="@(RegisterUser)"
-                />
+                <Register RegisterCustomerInfo="RegisterCustomer"
+                          RegisterProviderInfo="RegisterProvider"
+                          RegisterUser="@(RegisterUser)" />
+                @if (RegisterFailed)
+                {
+                    <div class="alert alert-danger">
+                        @ResponseMessage
+                    </div>
+                }
+                @if (RegisterSuccessful)
+                {
+                    <div class="alert alert-warning">
+                        @ResponseMessage
+                    </div>
+                }
+
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -64,12 +83,19 @@
     private UserTokenDto LoggedInUser { get; set; }
 
     private LoginDto LoginInfo { get; set; } = new();
-    private RegisterDto RegisterInfo { get; set; } = new();
+    private RegisterCustomerDto RegisterCustomer { get; set; } = new();
+    private RegisterProviderDto RegisterProvider { get; set; } = new();
     private bool PasswordsMatch { get; set; }
 
     // reference to the modal components
     private Modal _loginModal;
     private Modal _registerModal;
+
+    public bool LoginFailed { get; set; }
+    public bool RegisterSuccessful { get; set; }
+    public bool RegisterFailed { get; set; }
+
+    public string ResponseMessage { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -114,24 +140,43 @@
     private async Task LogIn()
     {
         var loggedInUserJson = await _accountService.LogIn(LoginInfo);
-        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
-        HideLoginModal();
-        await SetCustomer();
+        if (loggedInUserJson == "Invalid input")
+        {
+            LoginFailed = true;
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+            HideLoginModal();
+            await SetCustomer();
 
-        //send user to parent
-        await SetUserInHeader.InvokeAsync(LoggedInUser);
+            //send user to parent
+            await SetUserInHeader.InvokeAsync(LoggedInUser);
+        }
     }
 
     private async Task RegisterUser()
     {
-        PasswordsMatch = RegisterInfo.Password == RegisterInfo.ConfirmPassword;
+        PasswordsMatch = RegisterCustomer.Password == RegisterCustomer.ConfirmPassword;
 
-        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterInfo.Password))
+        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterCustomer.Password))
         {
-            await _accountService.RegisterUser(RegisterInfo);
-            LoginInfo.Email = RegisterInfo.Email;
-            LoginInfo.Password = RegisterInfo.Password;
-            await LogIn();
+            var response = await _accountService.RegisterUser(RegisterCustomer, RegisterProvider);
+            if (response.IsSuccessStatusCode)
+            {
+                RegisterSuccessful = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+                //LoginInfo.Email = RegisterInfo.Email;
+                //LoginInfo.Password = RegisterInfo.Password;
+                //await LogIn();
+            }
+            else
+            {
+                RegisterFailed = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+            }
+
+
         }
     }
 

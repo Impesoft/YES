@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using YES.Shared.Dto;
 
 namespace YES.Client.Services
@@ -6,7 +7,7 @@ namespace YES.Client.Services
     public interface IAccountService
     {
         Task<string> LogIn(LoginDto logindto);
-        Task<bool> RegisterUser(RegisterDto registerDto);
+        Task<HttpResponseMessage> RegisterUser(RegisterCustomerDto registerCustomerDto, RegisterProviderDto registerProviderDto);
         void LogOut();
     }
 }
