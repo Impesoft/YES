@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace YES.Shared.Dto
 {
@@ -6,6 +7,7 @@ namespace YES.Shared.Dto
     {
         public int Id { get; set; }
         public string Status { get; set; }
+        [Required]
         public VenueDto Venue { get; set; }
         public TicketProviderDto TicketProvider { get; set; }
         public EventInfoDto EventInfo { get; set; }

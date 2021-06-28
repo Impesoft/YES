@@ -1,17 +1,16 @@
 <CascadingAuthenticationState>
-    <Blazorise.ThemeProvider Theme="@theme">
-        <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
+    <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
             <Found Context="routeData">
                 <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                     <NotAuthorized>
-                        @if (!context.User.Identity.IsAuthenticated)
-                        {
-                            <RedirectToLogin/>
-                        }
-                        else
-                        {
-                            <p>You are not authorized to access this resource.</p>
-                        }
+                        @* @if () *@
+                        @* { *@
+                        @*     <RedirectToLogin/> *@
+                        @* } *@
+                        @* else *@
+                        @* { *@
+                        @*     <p>You are not authorized to access this resource.</p> *@
+                        @* } *@
                     </NotAuthorized>
                 </AuthorizeRouteView>
             </Found>
@@ -21,12 +20,7 @@
                 </LayoutView>
             </NotFound>
         </Router>
-    </Blazorise.ThemeProvider>
 </CascadingAuthenticationState>
 
 @code{
-    private Theme theme = new Theme
-    {
-        // theme settings
-    };
 }

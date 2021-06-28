@@ -1,67 +1,68 @@
 ﻿@using YES.Shared.Enums
 
 <div>
-    <Tabs SelectedTab="@SelectedTab" SelectedTabChanged="@OnSelectedTabChanged">
+    @*SelectedTabChanged="@OnSelectedTabChanged"*@
+    <Tabs SelectedTab="@SelectedTab">
         <Items>
             <Tab Name="customer">Customer</Tab>
             <Tab Name="provider">Provider</Tab>
         </Items>
         <Content>
             <TabPanel Name="customer">
-                <EditForm Model="@RegisterInfo" OnInvalidSubmit="RegisterUser">
+                <EditForm Model="@RegisterCustomerInfo" OnValidSubmit="RegisterUser">
                     <DataAnnotationsValidator />
                     <div class="row">
                         <div class="col">
                             <label for="first-name">First Name</label>
-                            <InputText id="first-name" class="form-control mt-1" placeholder="First Name" @bind-Value="RegisterInfo.FirstName"/>
-                            <span class="error-message"><ValidationMessage For="() => RegisterInfo.FirstName"/></span>
+                            <InputText id="first-name" class="form-control mt-1" placeholder="First Name" @bind-Value="RegisterCustomerInfo.FirstName" />
+                            <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.FirstName" /></span>
                         </div>
                         <div class="col">
                             <label for="last-name">Last Name</label>
-                            <InputText id="last-name" class="form-control mt-1" placeholder="Last Name" @bind-Value="RegisterInfo.LastName"/>
-                            <span class="error-message"><ValidationMessage For="() => RegisterInfo.LastName"/></span>
+                            <InputText id="last-name" class="form-control mt-1" placeholder="Last Name" @bind-Value="RegisterCustomerInfo.LastName" />
+                            <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.LastName" /></span>
                         </div>
                     </div>
-                        <label for="customerEmail">Email</label>
-                    <input id="customerEmail" class="form-control mt-1" placeholder="Email" type="email" @bind="RegisterInfo.Email"/>
-                    <span class="error-message"><ValidationMessage For="() => RegisterInfo.Email"/></span>
+                    <label for="customerEmail">Email</label>
+                    <input id="customerEmail" class="form-control mt-1" placeholder="Email" type="email" @bind="RegisterCustomerInfo.Email" />
+                    <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.Email" /></span>
                     <div>
                         <label for="customerPassword">Password</label>
-                        <input id="customerPassword" class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterInfo.Password" />
-                        <span class="error-message"><ValidationMessage For="() => RegisterInfo.Password"/></span>
+                        <input id="customerPassword" class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterCustomerInfo.Password" />
+                        <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.Password" /></span>
                     </div>
                     <div>
                         <label for="customerConfirmPassword">Confirm Password</label>
-                        <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterInfo.ConfirmPassword"/>
-                        <span class="error-message"><ValidationMessage For="() => RegisterInfo.ConfirmPassword"/></span>
+                        <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterCustomerInfo.ConfirmPassword" />
+                        <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.ConfirmPassword" /></span>
                     </div>
-                    <button class="btn btn-outline-success mt-1 float-end"  type="submit">Register</button>
+                    <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
                 </EditForm>
             </TabPanel>
             <TabPanel Name="provider">
-                <EditForm Model="@RegisterInfo" OnInvalidSubmit="RegisterUser">
+                <EditForm Model="@RegisterProviderInfo" OnValidSubmit="RegisterUser">
                     <DataAnnotationsValidator />
                     <div class="row">
                         <div class="col">
                             <label for="provider-name">Provider Name</label>
-                            <InputText id="provider-name" class="form-control mt-1" placeholder="Provider Name" @bind-Value="RegisterInfo.NameProvider"/>
-                            <span class="error-message"><ValidationMessage For="() => RegisterInfo.NameProvider"/></span>
+                            <InputText id="provider-name" class="form-control mt-1" placeholder="Provider Name" @bind-Value="RegisterProviderInfo.NameProvider" />
+                            <span class="error-message"><ValidationMessage For="() => RegisterProviderInfo.NameProvider" /></span>
                         </div>
                         <div class="col">
                             <label for="providerEmail">Email</label>
-                            <InputText id="providerEmail" class="form-control mt-1" placeholder="Email" type="email" @bind-Value="RegisterInfo.Email"/>
-                            <span class="error-message"><ValidationMessage For="() => RegisterInfo.Email"/></span>
+                            <InputText id="providerEmail" class="form-control mt-1" placeholder="Email" type="email" @bind-Value="RegisterProviderInfo.Email" />
+                            <span class="error-message"><ValidationMessage For="() => RegisterProviderInfo.Email" /></span>
                         </div>
                     </div>
                     <div>
                         <label for="providerPassword">Password</label>
-                        <input id="providerPassword" class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterInfo.Password"/>
-                        <span class="error-message"><ValidationMessage For="() => RegisterInfo.Password"/></span>
+                        <input id="providerPassword" class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterProviderInfo.Password" />
+                        <span class="error-message"><ValidationMessage For="() => RegisterProviderInfo.Password" /></span>
                     </div>
                     <div>
                         <label for="providerConfirmPassword">Confirm Password</label>
-                        <input id="providerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password"  @bind="RegisterInfo.ConfirmPassword"/>
-                        <span class="error-message"><ValidationMessage For="() => RegisterInfo.ConfirmPassword"/></span>
+                        <input id="providerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterProviderInfo.ConfirmPassword" />
+                        <span class="error-message"><ValidationMessage For="() => RegisterProviderInfo.ConfirmPassword" /></span>
                     </div>
                     <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
                 </EditForm>
@@ -71,28 +72,33 @@
 </div>
 
 @code{
-    [Parameter] 
-    public RegisterDto RegisterInfo { get; set; }
-    [Parameter] 
+    [Parameter]
+    public RegisterCustomerDto RegisterCustomerInfo { get; set; }
+    [Parameter]
+    public RegisterProviderDto RegisterProviderInfo { get; set; }
+    [Parameter]
     public EventCallback RegisterUser { get; set; }
     private string SelectedTab { get; set; } = "customer";
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        RegisterInfo.Role = Roles.TicketCustomer;
+        //RegisterCustomerInfo = new();
+        //RegisterProviderInfo = new();
+        RegisterCustomerInfo.Role = Roles.TicketCustomer;
+        RegisterProviderInfo.Role = Roles.TicketProvider;
     }
 
-    private void OnSelectedTabChanged( string name )
-    {
-        SelectedTab = name;
-        switch (SelectedTab)
-        {
-            case "customer":
-                RegisterInfo.Role = Roles.TicketCustomer;
-                break;
-            case "provider":
-                RegisterInfo.Role = Roles.TicketProvider;
-                break;
-        }
-    }
+    //private void OnSelectedTabChanged( string name )
+    //{
+    //    SelectedTab = name;
+    //    switch (SelectedTab)
+    //    {
+    //        case "customer":
+    //            RegisterCustomerInfo.Role = Roles.TicketCustomer;
+    //            break;
+    //        case "provider":
+    //            RegisterCustomerInfo.Role = Roles.TicketProvider;
+    //            break;
+    //    }
+    //}
 }
