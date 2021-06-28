@@ -20,13 +20,21 @@ namespace YES.Api.Controllers
         [HttpPost("Buy")]
         public async Task<ActionResult<bool>> BuyTickets(ICollection<TicketPurchaseDto> ticketPurchaseDtos)
         {
-            return Ok(await _ticketService.BuyTickets(ticketPurchaseDtos));
+            if (await _ticketService.BuyTickets(ticketPurchaseDtos))
+            {
+                return Ok("Tickets bought successfully");
+            }
+            return StatusCode(500, "Failed to buy tickets");
         }
 
         [HttpPost("Cancel")]
         public async Task<ActionResult<bool>> CancelTickets(ICollection<int> canceledTicketIds)
         {
-            return Ok(await _ticketService.CancelTickets(canceledTicketIds));
+            if (await _ticketService.CancelTickets(canceledTicketIds))
+            {
+                return Ok("Tickets canceled successfully");
+            }
+            return StatusCode(500, "Failed to cancel tickets");
         }     
     }
 }

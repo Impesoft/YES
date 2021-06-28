@@ -28,7 +28,7 @@
         @if (RegisterSuccessful)
         {
             <div class="alert alert-success">
-                Account successfully registered!
+                @ResponseMessage
             </div>
         }
 
@@ -41,7 +41,9 @@
 
     private RegisterDto RegisterInfo { get; set; }
     private string ConfirmPassword { get; set; }
+
     public bool RegisterSuccessful { get; set; }
+    public string ResponseMessage { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -52,11 +54,12 @@
     private async Task RegisterUser()
     {
         RegisterInfo.Role = Roles.TicketCustomer;
-        var isSuccess = await _accountService.RegisterUser(RegisterInfo);
+        var response = await _accountService.RegisterUser(RegisterInfo);
 
-        if (isSuccess)
+        if (response.IsSuccessStatusCode)
         {
             RegisterSuccessful = true;
+            ResponseMessage = await response.Content.ReadAsStringAsync();
         }
         //TODO MORE RESPONSE MESSAGES
     }
