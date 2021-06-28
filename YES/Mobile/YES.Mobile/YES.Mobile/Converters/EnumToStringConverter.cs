@@ -18,31 +18,32 @@ namespace YES.Mobile.Converters
             switch (status)
             {
                 case Status.Default:
-                    DisplayStatus = "Goan jonge";
+                    DisplayStatus = "";
                     break;
 
                 case Status.ToBeAnnounced:
-                    DisplayStatus = "Ge wet nog ni wnr ge kun goan jonge";
+                    DisplayStatus = "TBA";
                     break;
 
                 case Status.Postponed:
-                    DisplayStatus = "'ff geduld voor ge kun goan jonge";
+                    DisplayStatus = "Postponed";
                     break;
 
                 case Status.Relocated:
-                    DisplayStatus = "Ge goat erges anders nrtoe mte goan jonge";
+                    DisplayStatus = "New location!";
                     break;
 
                 case Status.Cancelled:
-                    DisplayStatus = "Tga nimr doorgoan jonge";
+                    DisplayStatus = "Cancelled";
                     break;
 
                 case Status.Completed:
-                    DisplayStatus = "'Tis gedoan jonge";
+                    DisplayStatus = "Event already passed" +
+                        "";
                     break;
 
                 case Status.SoldOut:
-                    DisplayStatus = "Ge kun nimr goan jonge";
+                    DisplayStatus = "Sold out!";
                     break;
 
                 default:

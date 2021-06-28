@@ -1,8 +1,9 @@
-﻿using YES.Mobile.Enums;
+﻿using Xamarin.CommunityToolkit.ObjectModel;
+using YES.Mobile.Enums;
 
 namespace YES.Shared.Dto
 {
-    public class RegisterDto
+    public class RegisterDto : ObservableObject
     {
         public string NameProvider { get; set; }
         public string FirstName { get; set; }
@@ -11,6 +12,6 @@ namespace YES.Shared.Dto
 
         public string Password { get; set; }
 
-        public Roles  Role { get; set; }
+        public Roles Role { get; set; }
     }
 }
