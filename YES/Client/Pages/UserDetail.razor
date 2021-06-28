@@ -170,6 +170,8 @@
                 Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
             }
 
+            Tickets = Customer.Tickets.ToList();
+
             ResponseMessage = await response.Content.ReadAsStringAsync();
             CancelSuccessful = true;
         }
