@@ -63,10 +63,8 @@
                                     <StackLayout VerticalOptions="EndAndExpand">
                                         <Label FontSize="24" Text="{Binding EventInfo.Name}" />
                                         <Label Text="{Binding Venue.Name}" />
-                                        <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Status,Converter={StaticResource EnumToStringConverterKey}}" />                                            
-                                        <Label Text="{Binding EventInfo.EventDate,Converter={StaticResource DateTimeToStringCoverterKey}}" />
-                                        </StackLayout>
+                                        <Label Text="{Binding Status,Converter={StaticResource EnumToStringConverterKey}, StringFormat='Status: {0}'}" />
+                                        <Label Text="{Binding EventInfo.EventDate,Converter={StaticResource DateTimeToStringCoverterKey}, StringFormat='Time: {0}'}" />
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
