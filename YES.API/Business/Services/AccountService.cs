@@ -101,7 +101,8 @@ namespace YES.Api.Business.Services
                 Email = dto.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password)),
                 PasswordSalt = hmac.Key,
-                Role = dto.Role
+                Role = dto.Role,
+                GreetingName = dto.FirstName
             };
 
             return ticketCustomer;
@@ -116,7 +117,8 @@ namespace YES.Api.Business.Services
                 Email = dto.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password)),
                 PasswordSalt = hmac.Key,
-                Role = dto.Role
+                Role = dto.Role,
+                GreetingName = dto.NameProvider
             };
 
             return ticketProvider;
