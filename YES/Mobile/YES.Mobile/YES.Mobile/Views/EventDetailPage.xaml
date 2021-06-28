@@ -32,7 +32,7 @@
     <ContentPage.Content
         x:DataType="local:EventDetailViewModel">
         <ContentView>
-            <ScrollView x:Name="scrollview" IsClippedToBounds="True" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <ScrollView x:Name="scrollview" IsClippedToBounds="True" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" VerticalScrollBarVisibility="Always">
                 <StackLayout VerticalOptions="StartAndExpand">
                     <Label Text="{Binding Event.EventInfo.Name}"
                        HorizontalOptions="CenterAndExpand"
@@ -40,22 +40,23 @@
                        Margin="8" />
                     <Image Source="{Binding Event.EventInfo.BannerImgUrl}" />
 
-                    <Label Text="{Binding Event.EventInfo.EventDate, Converter={StaticResource DateTimeToStringCoverterKey}}"
+                    <Label Text="{Binding Event.Status, Converter={StaticResource EnumToStringConverterKey}}"
                            FontSize="18"
+                           Margin="10"
                            VerticalOptions="End"
-                           Margin="15"
-                           HorizontalOptions="CenterAndExpand" />
+                           HorizontalOptions="Center" />
 
                     <StackLayout
-                           Margin="15">
-                        <Label Text="Status Event:"
+                           Margin="10">
+                        <Label Text="Time of Event:"
                             TextDecorations="Underline"
                             VerticalOptions="End"
                             HorizontalOptions="Center" />
-                        <Label Text="{Binding Event.Status, Converter={StaticResource EnumToStringConverterKey}}"
+                        <Label Text="{Binding Event.EventInfo.EventDate, Converter={StaticResource DateTimeToStringCoverterKey}}"
+                               TextColor="Wheat"
                            FontSize="18"
                            VerticalOptions="End"
-                           HorizontalOptions="Center" />
+                           HorizontalOptions="CenterAndExpand" />
                     </StackLayout>
 
                     <Label Text="{Binding Event.EventInfo.Description}"

@@ -21,30 +21,38 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Your Event Services</Label>
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
+                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                    <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                 </ContentView>
                 <StackLayout Margin="10">
                     <Label Text="Contact: "
                            FontSize="20"
                            FontAttributes="Bold"
-                           HorizontalTextAlignment="Center"
-                           TextDecorations="Underline" />
-                    <Label Text="yes.youreventservice@gmail.com"
-                           HorizontalTextAlignment="Center"
-                           TextColor="Blue"
-                           TextDecorations="Underline" />
+                           HorizontalTextAlignment="Center"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span   Text="yes.youreventservice@gmail.com">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                                                  CommandParameter="mailto:yes.youreventservice@gmail.com" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
                 </StackLayout>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <StackLayout Orientation="Vertical" Padding="10,24,10,24" Spacing="10">
                 <Label Text="Your reliable source of tickets for all events !"
-                       FontSize="Title"
-                       TextColor="LightGoldenrodYellow"
+                       FontSize="Medium"
+                       TextColor="#FFCC00"
+                       FontAttributes="Italic"
                        Margin="5"
                        HorizontalTextAlignment="Center" />
 
@@ -67,9 +75,7 @@
                            Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span   Text="https://impesoft.github.io"
-                                            TextColor="Blue"
-                                            TextDecorations="Underline">
+                                    <Span   Text="https://impesoft.github.io">
                                         <Span.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding TapCommand}"
                                                                   CommandParameter="https://impesoft.github.io" />
@@ -86,9 +92,7 @@
                            Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span   Text="https://kobedelobelle.github.io"
-                                            TextColor="Blue"
-                                            TextDecorations="Underline">
+                                    <Span   Text="https://kobedelobelle.github.io">
                                         <Span.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding TapCommand}"
                                                                   CommandParameter="https://kobedelobelle.github.io" />
@@ -104,9 +108,7 @@
                            Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span   Text="https://pietercorp.github.io"
-                                            TextColor="Blue"
-                                            TextDecorations="Underline">
+                                    <Span   Text="https://pietercorp.github.io">
                                         <Span.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding TapCommand}"
                                                                   CommandParameter="https://pietercorp.github.io" />
@@ -122,9 +124,7 @@
                            Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span   Text="https://sebastiaan-willem.github.io"
-                                            TextColor="Blue"
-                                            TextDecorations="Underline">
+                                    <Span   Text="https://sebastiaan-willem.github.io">
                                         <Span.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding TapCommand}"
                                                                   CommandParameter="https://sebastiaan-willem.github.io" />
@@ -140,9 +140,7 @@
                            Grid.Column="1">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span   Text="https://www.nivr.dev"
-                                            TextColor="Blue"
-                                            TextDecorations="Underline">
+                                    <Span   Text="https://www.nivr.dev">
                                         <Span.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding TapCommand}"
                                                                   CommandParameter="https://www.nivr.dev" />
@@ -163,7 +161,8 @@
                         FontAttributes="Italic" />
 
                 <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
+                        Command="{Binding TapCommand}"
+                        CommandParameter="https://yesclient.azurewebsites.net/"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
             </StackLayout>

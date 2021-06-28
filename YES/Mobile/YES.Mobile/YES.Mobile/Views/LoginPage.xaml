@@ -21,7 +21,7 @@
 
                 <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" />
             </StackLayout>
-            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" Color="Red" />
+            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" Color="#FFCC00" />
 
             <Label HorizontalOptions="CenterAndExpand" Text="Logging in..." IsVisible="{Binding IsLoggingIn}" />
         </StackLayout>
