@@ -61,9 +61,9 @@
                                          BackgroundColor="Transparent">
                                 <Frame HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
                                     <StackLayout VerticalOptions="EndAndExpand">
-                                        <Label FontSize="24" Text="{Binding EventInfo.Name}" />
-                                        <Label Text="{Binding Venue.Name}" />
-                                        <Label Text="{Binding Status,Converter={StaticResource EnumToStringConverterKey}, StringFormat='Status: {0}'}" />
+                                        <Label HorizontalOptions="End" Text="{Binding Venue.Name}" />
+                                        <Label HorizontalOptions="Start" FontSize="24" Text="{Binding EventInfo.Name}" />
+                                        <Label Text="{Binding Status,Converter={StaticResource EnumToStringConverterKey}}" />
                                         <Label Text="{Binding EventInfo.EventDate,Converter={StaticResource DateTimeToStringCoverterKey}, StringFormat='Time: {0}'}" />
                                     </StackLayout>
                                 </Frame>
