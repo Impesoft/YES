@@ -8,7 +8,7 @@ using YES.Mobile.Views;
 
 namespace YES.Mobile
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
