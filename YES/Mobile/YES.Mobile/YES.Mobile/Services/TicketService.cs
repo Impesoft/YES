@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using YES.Mobile.Dto;
@@ -27,17 +28,24 @@ namespace YES.Mobile.Services
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
             HttpClientHandler insecureHandler = handler;
             _http = new HttpClient(insecureHandler);
-
+            _http.BaseAddress = new Uri("https://yesapi.azurewebsites.net/");
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _loggedInUser.Token);
         }
 
         public async Task<HttpResponseMessage> BuyTicketsAsync(IEnumerable<TicketPurchaseDto> tickets)
         {
-            string ticketsJson = JsonConvert.SerializeObject(tickets);
-            StringContent myStringContent = new StringContent(ticketsJson.ToString(), Encoding.UTF8, "application/json");
+            // string ticketsJson = JsonConvert.SerializeObject(tickets);
+            // StringContent myStringContent = new StringContent(ticketsJson.ToString(), Encoding.UTF8, "application/json");
 
-            var _tickets = await _http.PostAsync("https://yesapi.azurewebsites.net/api/Ticket/Buy/", myStringContent);
+            var _tickets = await _http.PostAsJsonAsync("api/Ticket/Buy/", tickets);
             return _tickets;
+        }
+
+        public async Task<bool> CancelTicketsAsync(List<int> ticketsToCancel)
+        {
+            var result = await _http.PostAsJsonAsync("api/Ticket/Cancel", ticketsToCancel);
+
+            return result.IsSuccessStatusCode;
         }
     }
 }
