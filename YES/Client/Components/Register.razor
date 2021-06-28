@@ -1,6 +1,6 @@
 ﻿
 <div>    
-    <Tabs SelectedTab="@SelectedTab">
+    <Tabs SelectedTab="@SelectedTab" SelectedTabChanged="@OnSelectedTabChanged">
         <Items>
             <Tab Name="customer">Customer</Tab>
             <Tab Name="provider">Provider</Tab>
@@ -100,9 +100,15 @@
     private string SelectedTab { get; set; } = "customer";
 
     protected override void OnInitialized()
-    {        
+    {
         RegisterCustomerInfo.Role = Roles.TicketCustomer;
         RegisterProviderInfo.Role = Roles.TicketProvider;
     }
-    
+
+    private void OnSelectedTabChanged(string name)
+    {
+        SelectedTab = name;
+        RegisterFailed = false;
+    }
+
 }
