@@ -52,8 +52,9 @@ namespace YES.Api.Business.Services
 
             message += "<br>";
 
-            message += "<h4>Met vriendelijke groeten</h4>";
-            message += "<h1>Your Event Service</h1> <br><br>";
+            message += @"<h4> Met vriendelijke groeten</h4>";
+            message += @"<h1 style=""color: red;"">Your Event Service</h1> <br><br>";
+
 
             return message;
         }
