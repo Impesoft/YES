@@ -83,14 +83,12 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*position: absolute;*/
-    top: 4rem;
+    flex-direction: column;
     min-height: calc(100vh);
     min-width: 100%;
     background-repeat: repeat;
     background-size: cover;
     background-attachment: fixed;
-    /*filter: blur(10px);*/
 }
 
 @media (max-width: 1400px) {
