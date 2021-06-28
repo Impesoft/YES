@@ -126,15 +126,20 @@
         {
             Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
         }
-    }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
+        if (Event != null)
         {
-            await JSRuntime.InvokeVoidAsync("initialize", null);
+            await JSRuntime.InvokeVoidAsync("initialize", Event.Venue.Address);
         }
     }
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        await JSRuntime.InvokeVoidAsync("initialize", Event.Venue.Address.Street);
+    //    }
+    //}
 
     private int CountTotalTicketsLeft()
     {
