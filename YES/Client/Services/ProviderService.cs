@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using YES.Shared.Dto;
+using YES.Shared.GlobalClasses;
 
 namespace YES.Client.Services
 {
@@ -15,6 +17,11 @@ namespace YES.Client.Services
         public ProviderService(HttpClient http)
         {
             _http = http;
+
+            if (GlobalVariables.LoggedInUser != null)
+            {
+                _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GlobalVariables.LoggedInUser.Token);
+            }
         }
 
         public async Task<TicketProviderDto> GetProviderByIdAsync(int id)
