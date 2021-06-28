@@ -37,7 +37,7 @@ namespace YES.Api.Controllers
         {
             if (await _ticketCustomerService.UpdateTicketCustomer(ticketCustomerDto))
             {
-                return Ok("Succesfully updated ticketCustomer");
+                return Ok("Successfully updated ticketCustomer");
             }
             return StatusCode(500, "Failed to update ticketCustomer");
         }
