@@ -10,7 +10,16 @@
     <section>
         @if (GlobalVariables.LoggedInUser?.Role == Roles.TicketProvider)
         {
-            <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+            @if (Id > 0)
+            {
+                <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Edit Event</h3>
+            }
+            else
+            {
+                <h3 class="mb-4 d-flex justify-content-center border-bottom pb-4">Create Event</h3>
+            }
+
+
 
             @if (Event != null)
             {
@@ -19,20 +28,30 @@
                 @if (CreateEventSuccessful)
                 {
                     <div class="alert alert-warning my-4">
-                        Event successfully submitted.
+                        @AlertMessage
                     </div>
                 }
                 @if (CreateEventFailed)
                 {
                     <div class="alert alert-danger my-4">
-                        Event submit failed!
+                        @AlertMessage
                     </div>
                 }
 
             }
             else
             {
-                <p>No event found.</p>
+                @if (EventIdDoesntMatchProviderId)
+                {
+                    <div class="alert alert-warning">
+                        Please request a valid Event to edit.
+                    </div>
+                }
+                else
+                {
+                    <p>No event found.</p>
+
+                }
             }
         }
         else
@@ -57,6 +76,9 @@
     /* Bools */
     public bool CreateEventSuccessful { get; set; }
     public bool CreateEventFailed { get; set; }
+    public bool EventIdDoesntMatchProviderId { get; set; }
+
+    public string AlertMessage { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -69,7 +91,16 @@
 
         if (Id > 0)
         {
-            Event = await eventService.GetEventByIdAsync(Id);
+            var result = await eventService.GetEventByIdAsync(Id);
+            if (result.TicketProvider.Id == TicketProvider.Id)
+            {
+                Event = result;
+            }
+            else
+            {
+                EventIdDoesntMatchProviderId = true;
+            }
+
         }
         else if (Event == null)
         {
@@ -80,31 +111,32 @@
 
     private void ResetBools()
     {
+        EventIdDoesntMatchProviderId = false;
         CreateEventSuccessful = false;
         CreateEventFailed = false;
     }
 
     private async Task SubmitEvent()
     {
-        bool result;
+        HttpResponseMessage response;
 
         if (Id > 0)
         {
-            result = await eventService.UpdateEventAsync(Event);
+            response = await eventService.UpdateEventAsync(Event);
         }
         else
         {
-            result = await eventService.CreateNewEventAsync(Event);
-
+            response = await eventService.CreateNewEventAsync(Event);
         }
-
-        if (result)
+        if (response.IsSuccessStatusCode)
         {
             CreateEventSuccessful = true;
+            AlertMessage = await response.Content.ReadAsStringAsync();
         }
         else
         {
             CreateEventFailed = true;
+            AlertMessage = await response.Content.ReadAsStringAsync();
         }
     }
 
