@@ -9,6 +9,7 @@ using System.Net;
 using Microsoft.JSInterop;
 using YES.Client.Components;
 using YES.Shared.Enums;
+using System;
 
 namespace YES.Client.Services
 {
@@ -27,24 +28,45 @@ namespace YES.Client.Services
             return await _loggedInUser.Content.ReadAsStringAsync(); 
         }
 
-        public async Task<HttpResponseMessage> RegisterUser(RegisterDto registerDto)
+        public async Task<HttpResponseMessage> RegisterUser(RegisterCustomerDto registerCustomerDto, RegisterProviderDto registerProviderDto)
         {
-            if (registerDto.Role == Roles.TicketCustomer)
+            if (String.IsNullOrEmpty(registerCustomerDto.Email))
             {
-                registerDto.NameProvider = "";
+                return await _http.PostAsJsonAsync("/api/Account/Register", ConvertToGenericRegisterDto(registerProviderDto));
             }
-            else if (registerDto.Role == Roles.TicketProvider)            
+            else if (String.IsNullOrEmpty(registerProviderDto.Email))
             {
-                registerDto.FirstName = "";
-                registerDto.LastName = "";
-            }            
+                return await _http.PostAsJsonAsync("/api/Account/Register", ConvertToGenericRegisterDto(registerCustomerDto));
+            }
 
-            return await _http.PostAsJsonAsync("/api/Account/Register", registerDto);            
+            return null;
         }        
 
         public void LogOut()
         {
             GlobalVariables.LoggedInUser = null;
+        }
+
+        private RegisterDto ConvertToGenericRegisterDto(RegisterCustomerDto cDto)
+        {
+            return new RegisterDto
+            {
+                Email = cDto.Email,
+                FirstName = cDto.FirstName,
+                LastName = cDto.LastName,
+                Password = cDto.Password,
+                Role = cDto.Role
+            };
+        }
+        private RegisterDto ConvertToGenericRegisterDto(RegisterProviderDto pDto)
+        {
+            return new RegisterDto
+            {
+                Email = pDto.Email,
+                NameProvider = pDto.NameProvider,
+                Password = pDto.Password,
+                Role = pDto.Role
+            };
         }
     }
 }
