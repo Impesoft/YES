@@ -43,7 +43,7 @@ namespace YES.Api.Controllers
         {
             if (await _eventService.AddEventAsync(eventDto))
             {
-                return Ok("Event added succesfully"); 
+                return Ok("Event added successfully"); 
             }
             return StatusCode(500, "Failed to add event");
         }
@@ -54,7 +54,7 @@ namespace YES.Api.Controllers
         {
             if (await _eventService.UpdateEventAsync(eventDto))
             {
-                return Ok("Event updated succesfully");
+                return Ok("Event updated successfully");
             }
             return StatusCode(500, "Failed to update event");
         }
