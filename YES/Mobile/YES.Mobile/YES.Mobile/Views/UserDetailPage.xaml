@@ -20,12 +20,11 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Margin="0,20">
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Margin="0,0,0,0">
                 <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
                     <Label Text="{Binding LocalUser.FirstName, StringFormat='Welkom {0}' }" HorizontalOptions="Center" TextColor="DimGray" FontSize="Medium" />
                     <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
-                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="Large">Your Event Service</Label>
                 </StackLayout>
                 <StackLayout
                     Grid.Row="1"
