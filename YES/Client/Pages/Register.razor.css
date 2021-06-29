@@ -1,0 +1,18 @@
+﻿.page-bg {
+    background-image: url("images/page-bg-register.jpg");
+}
+
+input, textarea {
+    background-color : var(--dark-light);
+    border: none;
+}
+
+input:focus, textarea:focus {
+    background-color : var(--dark-light);
+    color: var(--grey);
+    border: none;
+}
+
+::placeholder {
+    color: var(--test-dark);
+}
