@@ -25,7 +25,7 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}"
-                                                                  CommandParameter="https://yesclient.azurewebsites.net/Register"></TapGestureRecognizer>
+                                                                  CommandParameter="https://yesclient.azurewebsites.net/register"></TapGestureRecognizer>
                 </StackLayout.GestureRecognizers>
                 <Label TextColor="Wheat" HorizontalOptions="Start" Text="No account yet? Register" />
                 <Label TextColor="#FFDD00" HorizontalOptions="Start" Text="here" />
