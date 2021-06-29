@@ -8,12 +8,14 @@ using YES.Mobile.Views;
 
 namespace YES.Mobile
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(EventDetailPage), typeof(EventDetailPage));
+            Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

@@ -10,8 +10,16 @@
         <InputText id="password" class="form-control mt-1" placeholder="Password" type="password" @bind-Value="@LoginInfo.Password" />
         <span class="error-message"><ValidationMessage For="() => LoginInfo.Password" /></span>
     </div>
+    @if (LoginFailed)
+    {
+        <div class="alert alert-danger mt-2">
+            @ResponseMessage
+        </div>
+    }
     <p class="no-account">No account yet? Register <span class="open-register-modal" @onclick="@ShowRegisterModal">here</span>.</p>
     <button class="btn btn-outline-success mt-1 float-end" type="submit">Login</button>
+
+
 </EditForm>
 
 @code {
@@ -21,4 +29,9 @@
     public EventCallback LogIn { get; set; }
     [Parameter]
     public EventCallback ShowRegisterModal { get; set; }
+
+    [Parameter]
+    public bool LoginFailed { get; set; }
+    [Parameter]
+    public string ResponseMessage { get; set; }
 }
