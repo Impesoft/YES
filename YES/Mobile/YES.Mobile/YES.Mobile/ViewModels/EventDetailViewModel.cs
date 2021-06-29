@@ -244,7 +244,7 @@ namespace YES.Mobile.ViewModels
 
         private void CheckList()
         {
-            if (TicketsPurchasingList.Count > 0 && Event.EventInfo.EventDate > DateTime.Now)
+            if (TicketsPurchasingList.Count > 0 && (Event.EventInfo.EventDate > DateTime.Now || Event.EventInfo.EventDate == DateTime.MinValue))
             {
                 BuyableList = true;
             }
