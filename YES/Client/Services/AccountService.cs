@@ -21,11 +21,11 @@ namespace YES.Client.Services
             _http = http;            
         }
 
-        public async Task<string> LogIn(LoginDto logindto)
+        public async Task<HttpResponseMessage> LogIn(LoginDto logindto)
         {
-            var _loggedInUser = await _http.PostAsJsonAsync("/api/Account/Login", logindto);
+           return await _http.PostAsJsonAsync("/api/Account/Login", logindto);
             
-            return await _loggedInUser.Content.ReadAsStringAsync(); 
+            //return await _loggedInUser.Content.ReadAsStringAsync(); 
         }
 
         public async Task<HttpResponseMessage> RegisterUser(RegisterCustomerDto registerCustomerDto, RegisterProviderDto registerProviderDto)

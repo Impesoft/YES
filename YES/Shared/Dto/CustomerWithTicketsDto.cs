@@ -17,6 +17,7 @@ namespace YES.Shared.Dto
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string LastName { get; set; }
 
+        [Required(ErrorMessage = "Please enter your bank account number name.")]
         [MaxLength(34, ErrorMessage = "Maximum length is 34 characters.")]        
         public string BankAccount { get; set; }
 
@@ -27,6 +28,7 @@ namespace YES.Shared.Dto
         [MaxLength(15, ErrorMessage = "Maximum length is 15 characters.")]
         public string PhoneNumber { get; set; }
 
+        [ValidateComplexType]
         public virtual AddressDto Address { get; set; }
 
         public virtual ICollection<TicketDto> Tickets { get; set; }
