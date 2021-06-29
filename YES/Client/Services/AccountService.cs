@@ -18,29 +18,22 @@ namespace YES.Client.Services
         private HttpClient _http;
         public AccountService(HttpClient http)
         {
-            _http = http;            
+            _http = http;
         }
 
         public async Task<HttpResponseMessage> LogIn(LoginDto logindto)
         {
-           return await _http.PostAsJsonAsync("/api/Account/Login", logindto);
-            
-            //return await _loggedInUser.Content.ReadAsStringAsync(); 
+            return await _http.PostAsJsonAsync("/api/Account/Login", logindto);
         }
 
-        public async Task<HttpResponseMessage> RegisterUser(RegisterCustomerDto registerCustomerDto, RegisterProviderDto registerProviderDto)
+        public async Task<HttpResponseMessage> RegisterCustomer(RegisterCustomerDto registerCustomerDto)
         {
-            if (String.IsNullOrEmpty(registerCustomerDto.Email))
-            {
-                return await _http.PostAsJsonAsync("/api/Account/Register", ConvertToGenericRegisterDto(registerProviderDto));
-            }
-            else if (String.IsNullOrEmpty(registerProviderDto.Email))
-            {
-                return await _http.PostAsJsonAsync("/api/Account/Register", ConvertToGenericRegisterDto(registerCustomerDto));
-            }
-
-            return null;
-        }        
+            return await _http.PostAsJsonAsync("/api/Account/Register", ConvertToGenericRegisterDto(registerCustomerDto));
+        }
+        public async Task<HttpResponseMessage> RegisterProvider(RegisterProviderDto registerProviderDto)
+        {
+            return await _http.PostAsJsonAsync("/api/Account/Register", ConvertToGenericRegisterDto(registerProviderDto));
+        }
 
         public void LogOut()
         {
