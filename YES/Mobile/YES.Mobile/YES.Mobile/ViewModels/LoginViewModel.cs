@@ -88,6 +88,7 @@ namespace YES.Mobile.ViewModels
             else
             {
                 LoginFailed = true;
+                File.Delete(GlobalVariables.FileName);
                 IsLoggingIn = false;
             }
         }

@@ -6,7 +6,7 @@
             x:Class="YES.Mobile.Views.CancelSuccesfulPopup">
 
     <StackLayout BackgroundColor="Black">
-        <Label Text="Cancellation succesful!"
+        <Label Text="Cancellation Requested!"
                TextColor="White"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand" />
