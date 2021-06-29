@@ -30,7 +30,7 @@ namespace YES.Mobile.Views
 
         public void Button_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.ShowPopup(new CancelSuccesfulPopup());
+            Navigation.ShowPopup(new CancelSuccessfulPopup());
         }
 
         private void ContentPage_Appearing(object sender, EventArgs e)
