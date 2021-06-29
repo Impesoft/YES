@@ -34,13 +34,13 @@
                         BorderColor="#EEE"
                         BackgroundColor="Red"
                         Text="{Binding CancelCount, StringFormat='Cancel {0} Ticket(s)' }"
-                        IsVisible="{Binding ThereAreTicketsToBeCanceled}"
+                        IsVisible="{Binding ThereAreTicketsToBeCancelled}"
                         Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=CancelTappedCommand}" />
                     <Button
                         BorderColor="#EEE"
                         BackgroundColor="Gray"
                         Text="Keep the Ticket(s)"
-                        IsVisible="{Binding ThereAreTicketsToBeCanceled}"
+                        IsVisible="{Binding ThereAreTicketsToBeCancelled}"
                         Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=KeepTappedCommand}" />
                 </StackLayout>
             </StackLayout>

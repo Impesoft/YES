@@ -83,7 +83,11 @@
                                     </Grid.RowDefinitions>
 
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width=".8*" />
                                         <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width=".8*" />
+                                        <ColumnDefinition Width=".8*" />
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="0" Spacing="0" VerticalOptions="Center">
