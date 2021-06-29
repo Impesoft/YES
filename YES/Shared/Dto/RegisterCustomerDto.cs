@@ -17,8 +17,8 @@ namespace YES.Shared.Dto
         public string Email { get; set; }
 
         [Required]
-        [MinLength(4)]
-        [MaxLength(8)]
+        [MinLength(4, ErrorMessage = "Minimum length is 4 characters.")]
+        [MaxLength(8, ErrorMessage = "Maximum length is 8 characters.")]
         public string Password { get; set; } 
         
         [Required]

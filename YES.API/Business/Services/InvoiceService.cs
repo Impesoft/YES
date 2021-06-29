@@ -54,7 +54,7 @@ namespace YES.Api.Business.Services
             message += "<br>";
 
             message += @"<p style=""color: #212529;"">Met vriendelijke groeten</p>";
-            message += @"<p style=""color: #ffc107;""><b>Y</bold>our <b>E</bold>vent <b>S</b>ervice</p> <br><br>";
+            message += @"<img src=""https://raw.githubusercontent.com/Impesoft/YES/Release_2/YES/Client/wwwroot/images/yes-logo.png?token=ABZY4OTACNN5NACCF7BJMNLA3HI5W"" width=""300px"">";
 
             return message;
         }
