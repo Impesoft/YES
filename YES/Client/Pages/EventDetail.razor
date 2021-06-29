@@ -1,5 +1,4 @@
 @page "/EventDetail/{Id:int}"
-@using System.Threading
 @inject IEventService _eventService
 @inject IJSRuntime JSRuntime
 @inject NavigationManager navigationManager
@@ -19,9 +18,8 @@
 
         <Alert Color="Color.Info" Class="alert-position" @bind-Visible="@IsNotLoggedIn">
             <AlertMessage>
-                Please login to buy tickets.
-            </AlertMessage>
-            @* <CloseButton Class="close-btn-alert btn"/> *@
+                 Please login to buy tickets.
+             </AlertMessage>
         </Alert>
 
         <section>
@@ -34,7 +32,8 @@
                     @:To Be Announced
                 }
                 <EventStatus Event="@Event"
-                             eventStatus="@eventStatus" />
+                             eventStatus="@EventStatus"/>
+
             </h5>
 
             <div class="row">
@@ -61,37 +60,34 @@
                             <a class="btn btn-warning float-end btn-disabled">Tickets</a> }
                         else
                         {
-                            if (Customer?.Id > 0)
-                            {
-                                <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button> }
-                            else
-                            {
-                                <button class="btn btn-warning float-end" @onclick="@LoginAlert">Tickets</button>}
+                            <button class="btn btn-warning float-end" @onclick="@CheckIfLoggedIn">Tickets</button>
+                        }
+                    }
 
-                        }}
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
                 </div>
             </div>
         </section>
+  
+  
+  
+        <Modal @ref="_modalRef">
+            <ModalContent Centered="true" Class="bg-dark text-light">
+                <ModalHeader>
+                    <ModalTitle>@Event.EventInfo.Name <br/> @Event.EventInfo.EventDate</ModalTitle>
+                    <CloseButton Class="close-btn btn"/>
+                </ModalHeader>
+                <ModalBody>
+                    <BuyTicket Customer="@Customer"
+                               Event="@Event"
+                               Id="@Id"
+                               modalRef="@_modalRef"/>
+                </ModalBody>
+            </ModalContent>
+        </Modal>
         
 
-        @if (Customer?.Id > 0)
-        {
-            <Modal @ref="_modalRef">
-                <ModalContent Centered="true" Class="bg-dark text-light">
-                    <ModalHeader>
-                        <ModalTitle>@Event.EventInfo.Name <br /> @Event.EventInfo.EventDate</ModalTitle>
-                        <CloseButton Class="close-btn btn" />
-                    </ModalHeader>
-                    <ModalBody>
-                        <BuyTicket Customer="@Customer"
-                                   Event="@Event"
-                                   Id="@Id"
-                                   modalRef="@_modalRef" />
-                    </ModalBody>
-                </ModalContent>
-            </Modal>} 
-        }
+    }
     else
     {
         <p>No Event found</p>
@@ -103,18 +99,14 @@
 @code {
     [Parameter]
     public int Id { get; set; }
-    public EventDto Event { get; set; }
-    private string eventStatus { get; set; }
-    public CustomerWithTicketsDto Customer { get; set; }
-    private bool IsNotLoggedIn { get; set; } = false;
+
+    private EventDto Event { get; set; }
+    private string EventStatus { get; set; }
+    private CustomerWithTicketsDto Customer { get; set; }
+    private bool IsNotLoggedIn { get; set; }
 
     // reference to the modal component
     private Modal _modalRef;
-
-    private void ShowModal()
-    {
-        _modalRef.Show();
-    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -131,22 +123,25 @@
         }
     }
 
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    if (firstRender)
-    //    {
-    //        await JSRuntime.InvokeVoidAsync("initialize", Event.Venue.Address.Street);
-    //    }
-    //}
-
     private int CountTotalTicketsLeft()
     {
         return Event.TicketCategories.Sum(category => category.AvailableAmount);
     }
 
+    private async Task CheckIfLoggedIn()
+    {
+        if (GlobalVariables.LoggedInUser != null)
+        {
+            _modalRef.Show();
+        }
+        else
+        {
+            await LoginAlert();
+        }
+    }
+
     private async Task LoginAlert()
     {
-        if (Customer != null) return;
         IsNotLoggedIn = true;
         await Task.Delay(2000);
         IsNotLoggedIn = false;
