@@ -72,9 +72,8 @@
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
                 </div>
             </div>
-
         </section>
-
+        
 
         @if (Customer?.Id > 0)
         {
@@ -97,8 +96,8 @@
     {
         <p>No Event found</p>
     }
+     <div id='map' style='width: 100%; height: 400px;'></div>
 
-<div id='map' style='width: 400px; height: 300px;'></div>
 </div>
 
 @code {
