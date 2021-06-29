@@ -14,7 +14,7 @@
     color: var(--grey);
     font-style: oblique;
     position: absolute;
-    top: 9rem;
+    top: 12rem;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;

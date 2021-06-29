@@ -14,6 +14,6 @@
 }
 
 .error-message {
-    color: var(--yellow);
+    color: var(--red);
     margin: 2rem 0;
 }

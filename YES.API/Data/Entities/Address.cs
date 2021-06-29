@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace YES.Api.Data.Entities
 {
     public class Address : EntityBase
     {
         [Required]
+        [MaxLength(50)]
         public string Street { get; set; }
 
         [Required]
+        [MaxLength(10)]
         public string PostalCode { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string City { get; set; }
-
-        [Required]
+        
+        [MaxLength(20)]
         public string StreetNumber { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Country { get; set; }
 
         [ForeignKey("Venue")]
