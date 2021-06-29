@@ -18,6 +18,7 @@ namespace YES.Api.Data.Entities
         [Required]
         public string City { get; set; }
 
+        [Required]
         public string StreetNumber { get; set; }
 
         [Required]

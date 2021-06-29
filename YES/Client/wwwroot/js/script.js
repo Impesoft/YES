@@ -13,22 +13,12 @@
 
 function initialize(address) {
 
-    console.log(address.city);
-    console.log(address.street);
-    var geocoder = new google.maps.Geocoder();
-    var address = "Bergmannstraße 2, Berlin, Germany";
-
-    geocoder.geocode({ 'address': address }, function (results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location
-            });
-        }
-        else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
+    mapboxgl.accessToken = 'pk.eyJ1IjoieW91cmV2ZW50c2VydmljZSIsImEiOiJja3FodWViZ2cwZWprMm5xanZidGpxcDczIn0.pWZhZF15SwNTSfAcKZHjWw';
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/youreventservice/ckqhunikm1i4m17pfij2t3ubi', // style URL
+        center: [-74.5, 40], // starting position [lng, lat]
+        zoom: 9 // starting zoom
     });
 
 }
