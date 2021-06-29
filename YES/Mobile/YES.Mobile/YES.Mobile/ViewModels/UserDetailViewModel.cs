@@ -105,14 +105,14 @@ namespace YES.Mobile.ViewModels
             UsersTickets = new ObservableCollection<TicketDto>();
         }
 
-        private void DeleteTicket(TicketDto ToBeCanceledTicket)
+        private void DeleteTicket(TicketDto ToBeCancelledTicket)
         {
             if (ToBeCancelledTicket.EventDate > DateTime.Now || ToBeCancelledTicket.EventDate == DateTime.MinValue)
             {
-                ToBeCanceled.Add(ToBeCancelledTicket.Id);
+                ToBeCancelled.Add(ToBeCancelledTicket.Id);
                 CancelCount = ToBeCancelled.Count;
                 ThereAreTicketsToBeCancelled = true;
-                UsersTickets.Remove(ToBeCanceledTicket);
+                UsersTickets.Remove(ToBeCancelledTicket);
             }
         }
 
