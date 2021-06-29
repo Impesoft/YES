@@ -1,7 +1,7 @@
 ﻿<EditForm Model="TicketCategory" class="border border-warning my-3 p-5">
-    <DataAnnotationsValidator />
+    <ObjectGraphDataAnnotationsValidator />
 
-    <div class="row" >
+    <div class="row">
         <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-secondary mt-3" @onclick="Remove">X</button>
         </div>
@@ -37,7 +37,7 @@
     </div>
 
 
-    
+
 </EditForm>
 
     @code {
