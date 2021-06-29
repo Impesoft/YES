@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace YES.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CancelSuccesfulPopup : Popup
+    public partial class CancelSuccessfulPopup : Popup
     {
-        public CancelSuccesfulPopup()
+        public CancelSuccessfulPopup()
         {
             InitializeComponent();
         }
