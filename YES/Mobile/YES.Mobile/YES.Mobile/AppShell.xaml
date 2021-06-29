@@ -80,18 +80,46 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="Calendar" Icon="icon_feed.png">
+    <FlyoutItem Title="Calendar">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="FontAwesome"
+                Glyph="&#xf073;"
+                Color="White"
+                Size="24" />
+        </FlyoutItem.Icon>
         <ShellContent Route="CalendarPage" ContentTemplate="{DataTemplate local:CalendarPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Profile" Icon="icon_profile.png">
+    <FlyoutItem Title="Profile">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="FontAwesome"
+                Glyph="&#xf007;"
+                Color="White"
+                Size="24" />
+        </FlyoutItem.Icon>
+
         <ShellContent Route="UserDetailPage" ContentTemplate="{DataTemplate local:UserDetailPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="About" Icon="icon_about.png">
+    <FlyoutItem Title="About" >
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="FontAwesome"
+                Glyph="&#xf2bb;"
+                Color="White"
+                Size="24" />
+        </FlyoutItem.Icon>
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem IconImageSource="icon_logout.png" Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" Clicked="OnMenuItemClicked">
+        <MenuItem.IconImageSource>
+            <FontImageSource
+                FontFamily="FontAwesome"
+                Glyph="&#xf2f5;"
+                Color="White"/>
+        </MenuItem.IconImageSource>
     </MenuItem>
     <Shell.MenuItemTemplate>
         <DataTemplate>
@@ -101,8 +129,7 @@
                     <ColumnDefinition Width="0.8*" />
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Icon}"
-                           Margin="5"
-                           HeightRequest="45" />
+                           Margin="10" />
                 <Label Grid.Column="1"
                            Text="{Binding Text}"
                            TextColor="WhiteSmoke"

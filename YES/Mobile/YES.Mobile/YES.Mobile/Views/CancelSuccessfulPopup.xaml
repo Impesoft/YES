@@ -3,10 +3,10 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
             Size="200,100"
-            x:Class="YES.Mobile.Views.CancelSuccesfulPopup">
+            x:Class="YES.Mobile.Views.CancelSuccessfulPopup">
 
     <StackLayout BackgroundColor="Black">
-        <Label Text="Cancellation succesful!"
+        <Label Text="Cancellation Requested!"
                TextColor="White"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand" />
