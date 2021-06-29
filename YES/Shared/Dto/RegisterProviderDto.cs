@@ -19,7 +19,7 @@ namespace YES.Shared.Dto
         public string Password { get; set; } 
         
         [Required]
-        [Compare(nameof(Password), ErrorMessage = "Passwords don't match, make sure CAPS is off :)")]
+        [CompareProperty(nameof(Password), ErrorMessage = "Passwords don't match, make sure CAPS is off :)")]
         public string ConfirmPassword { get; set; }
 
         [Required]

@@ -8,9 +8,9 @@
     <Application.Resources>
         <!--<local:BooleanToVisibilityConverter  x:Key="MyVisConverter" />-->
         <ResourceDictionary>
-            <Color x:Key="Primary">#000000</Color>
+            <Color x:Key="Primary">#111111</Color>
             <Color x:Key="DarkTextColor">#EEEEEE</Color>
-            <Color x:Key="LightTextColor">#111111</Color>
+            <Color x:Key="LightTextColor">#EEEEEE</Color>
             <Color x:Key="PrimaryAndroidLight">#005db5</Color>
             <Color x:Key="PrimaryAndroidDark">#005db5</Color>
             <Color x:Key="PrimaryWindowsLight">#005db5</Color>
@@ -21,6 +21,11 @@
                         Value="FontAwesome"></Setter>
                 <Setter Property="FontSize"
                         Value="Large"></Setter>
+            </Style>
+            <Style TargetType="Label">
+
+                <Setter Property="TextColor"
+                        Value="WhiteSmoke"></Setter>
             </Style>
             <Style  TargetType="StackLayout"
                     x:Key="MainMargin">
@@ -60,10 +65,14 @@
                         Value="True" />
                 <Setter Property="CornerRadius"
                         Value="5" />
+                <Setter Property="Padding"
+                        Value="5" />
+                <Setter Property="Margin"
+                        Value="1" />
                 <Setter Property="BorderColor"
-                        Value="{AppThemeBinding Dark=#55FFFFFF, Light=#FF000000}"></Setter>
+                        Value="{AppThemeBinding Dark=#FF000000, Light=#FFEEEEEE}"></Setter>
                 <Setter Property="BackgroundColor"
-                        Value="{AppThemeBinding Dark=#55000000, Light=#88FFFFFF}"></Setter>
+                        Value="{AppThemeBinding Dark=#88111111, Light=#88111111}"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

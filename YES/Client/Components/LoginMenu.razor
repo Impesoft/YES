@@ -35,13 +35,10 @@
             <ModalBody>
                 <Login LoginInfo="@LoginInfo" 
                        LogIn="@(LogIn)"
-                       ShowRegisterModal="@(ShowRegisterModal)"/>
-                @if (LoginFailed)
-                {
-                    <div class="alert alert-danger">
-                        @ResponseMessage
-                    </div>
-                }
+                       ShowRegisterModal="@(ShowRegisterModal)"
+                       LoginFailed="LoginFailed"
+                       ResponseMessage="@ResponseMessage"/>
+                
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -55,20 +52,11 @@
             <ModalBody>
                 <Register RegisterCustomerInfo="RegisterCustomer"
                           RegisterProviderInfo="RegisterProvider"
-                          RegisterUser="@(RegisterUser)" />
-                @if (RegisterFailed)
-                {
-                    <div class="alert alert-danger">
-                        @ResponseMessage
-                    </div>
-                }
-                @if (RegisterSuccessful)
-                {
-                    <div class="alert alert-warning">
-                        @ResponseMessage
-                    </div>
-                }
-
+                          RegisterUser="@(RegisterUser)"
+                          RegisterFailed="RegisterFailed"
+                          ResponseMessage="@ResponseMessage"
+                          IsCustomer="@SetRegisterType"
+                          />
             </ModalBody>
         </ModalContent>
     </Modal>
@@ -92,18 +80,21 @@
     private Modal _registerModal;
 
     public bool LoginFailed { get; set; }
-    public bool RegisterSuccessful { get; set; }
     public bool RegisterFailed { get; set; }
+
+    public bool IsCustomer { get; set; }
 
     public string ResponseMessage { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        ResetBools();
         await SetCustomer();
     }
 
     private void ShowLoginModal()
     {
+        ResetBools();
         _loginModal.Show();
     }
 
@@ -114,6 +105,7 @@
 
     private void ShowRegisterModal()
     {
+        ResetBools();
         HideLoginModal();
         _registerModal.Show();
     }
@@ -139,36 +131,39 @@
 
     private async Task LogIn()
     {
-        var loggedInUserJson = await _accountService.LogIn(LoginInfo);
-        if (loggedInUserJson == "Invalid input")
+        ResetBools();
+
+        var response = await _accountService.LogIn(LoginInfo);
+
+        if (response.IsSuccessStatusCode)
         {
-            LoginFailed = true;
-        }
-        else
-        {
-            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", loggedInUserJson);
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "user", await response.Content.ReadAsStringAsync());
             HideLoginModal();
             await SetCustomer();
 
             //send user to parent
             await SetUserInHeader.InvokeAsync(LoggedInUser);
         }
+        else
+        {
+            LoginFailed = true;
+            ResponseMessage =  await response.Content.ReadAsStringAsync();
+        }
     }
 
     private async Task RegisterUser()
     {
-        PasswordsMatch = RegisterCustomer.Password == RegisterCustomer.ConfirmPassword;
+        ResetBools();
 
-        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterCustomer.Password))
+        if (IsCustomer)
         {
-            var response = await _accountService.RegisterUser(RegisterCustomer, RegisterProvider);
+            var response = await _accountService.RegisterCustomer(RegisterCustomer);
             if (response.IsSuccessStatusCode)
             {
-                RegisterSuccessful = true;
-                ResponseMessage = await response.Content.ReadAsStringAsync();
-                //LoginInfo.Email = RegisterInfo.Email;
-                //LoginInfo.Password = RegisterInfo.Password;
-                //await LogIn();
+                LoginInfo.Email = RegisterCustomer.Email;
+                LoginInfo.Password = RegisterCustomer.Password;
+                await LogIn();
+                _registerModal.Hide();
             }
             else
             {
@@ -176,6 +171,33 @@
                 ResponseMessage = await response.Content.ReadAsStringAsync();
             }
         }
+        else
+        {
+            var response = await _accountService.RegisterProvider(RegisterProvider);
+            if (response.IsSuccessStatusCode)
+            {
+                LoginInfo.Email = RegisterProvider.Email;
+                LoginInfo.Password = RegisterProvider.Password;
+                await LogIn();
+                _registerModal.Hide();
+            }
+            else
+            {
+                RegisterFailed = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+            }
+        }
+    }
+
+    private void ResetBools()
+    {
+        LoginFailed = false;
+        RegisterFailed = false;
+    }
+
+    private void SetRegisterType(bool isCustomer)
+    {
+        IsCustomer = isCustomer;
     }
 
 }

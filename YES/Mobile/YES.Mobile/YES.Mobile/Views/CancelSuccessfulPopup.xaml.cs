@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.CommunityToolkit.Extensions;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using YES.Mobile.ViewModels;
 
 namespace YES.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class CancelSuccessfulPopup : Popup
     {
-        private LoginViewModel thisVM;
-
-        public LoginPage()
+        public CancelSuccessfulPopup()
         {
             InitializeComponent();
-            thisVM = new LoginViewModel();
-            BindingContext = thisVM;
         }
     }
 }
