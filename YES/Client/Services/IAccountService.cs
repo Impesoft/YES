@@ -6,7 +6,7 @@ namespace YES.Client.Services
 {
     public interface IAccountService
     {
-        Task<string> LogIn(LoginDto logindto);
+        Task<HttpResponseMessage> LogIn(LoginDto logindto);
         Task<HttpResponseMessage> RegisterUser(RegisterCustomerDto registerCustomerDto, RegisterProviderDto registerProviderDto);
         void LogOut();
     }
