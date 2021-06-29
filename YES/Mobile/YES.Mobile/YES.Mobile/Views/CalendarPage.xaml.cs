@@ -17,13 +17,21 @@ namespace YES.Mobile.Views
 {
     public partial class CalendarPage : ContentPage
     {
-        private CalendarViewModel ThisVM { get; set; }
+        public CalendarViewModel MyVM { get; set; }
         public ICollection<EventDto> LocalEvents;
 
         public CalendarPage()
         {
             InitializeComponent();
-            BindingContext = new CalendarViewModel();
+            MyVM = new CalendarViewModel();
+            BindingContext = MyVM;
+        }
+
+        private async void ContentPage_Appearing(object sender, EventArgs e)
+        {
+            IsBusy = true;
+            await MyVM.LoadEvents();
+            IsBusy = false;
         }
     }
 }
