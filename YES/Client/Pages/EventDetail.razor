@@ -15,7 +15,7 @@
                 <h3>@Event.EventInfo.Name</h3>
             </div>
         </div>
-        
+
         <Alert Color="Color.Info" Class="alert-position" @bind-Visible="@IsNotLoggedIn">
             <AlertMessage>
                  Please login to buy tickets.
@@ -26,14 +26,14 @@
             <h5 class="event-date-line event-date">
                 @if (Event.EventInfo.EventDate > DateTime.MinValue)
                 {
-                    @Event.EventInfo.EventDate.ToLongDateString()
-                }
+                    @Event.EventInfo.EventDate.ToLongDateString() }
                 else
                 {
                     @:To Be Announced
                 }
                 <EventStatus Event="@Event"
                              eventStatus="@EventStatus"/>
+
             </h5>
 
             <div class="row">
@@ -57,20 +57,20 @@
                     {
                         @if (Event.Status == "SoldOut")
                         {
-                            <a class="btn btn-warning float-end btn-disabled">Tickets</a>
-                        }
+                            <a class="btn btn-warning float-end btn-disabled">Tickets</a> }
                         else
                         {
                             <button class="btn btn-warning float-end" @onclick="@CheckIfLoggedIn">Tickets</button>
                         }
                     }
+
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
                 </div>
             </div>
         </section>
-
-
- 
+  
+  
+  
         <Modal @ref="_modalRef">
             <ModalContent Centered="true" Class="bg-dark text-light">
                 <ModalHeader>
@@ -92,6 +92,8 @@
     {
         <p>No Event found</p>
     }
+     <div id='map' style='width: 100%; height: 400px;'></div>
+
 </div>
 
 @code {
@@ -109,10 +111,15 @@
     protected override async Task OnInitializedAsync()
     {
         Event = await _eventService.GetEventByIdAsync(Id);
-       
+
         if (GlobalVariables.LoggedInUser != null)
         {
             Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+        }
+
+        if (Event != null)
+        {
+            await JSRuntime.InvokeVoidAsync("initialize", Event.Venue.Address);
         }
     }
 
