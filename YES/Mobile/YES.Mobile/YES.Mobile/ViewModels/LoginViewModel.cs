@@ -80,7 +80,7 @@ namespace YES.Mobile.ViewModels
 
             await Task.Run(() => Login());
 
-            if (GlobalVariables.LoggedInUser?.Id > 0)
+            if (GlobalVariables.LoggedInUser?.Id > 0 && GlobalVariables.LoggedInUser?.Role == Roles.TicketCustomer)
             {
                 IsLoggingIn = true;
                 Application.Current.MainPage = new AppShell();
