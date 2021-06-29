@@ -1,68 +1,65 @@
 ﻿@page "/Register"
 @inject IAccountService _accountService
 @inject NavigationManager _navigationManager
+@inject IJSRuntime JSRuntime
+
 
 <div class="page-bg">
     <section>
-        <EditForm Model="@RegisterCustomerInfo" OnValidSubmit="RegisterUser">
-            <DataAnnotationsValidator />
-            <div class="row">
-                <div class="col">
-                    <label for="first-name">First Name</label>
-                    <InputText id="first-name" class="form-control mt-1" placeholder="First Name" @bind-Value="RegisterCustomerInfo.FirstName" />
-                    <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.FirstName" /></span>
+        @if (IsRegistered)
+        {
+            <h1>Welcome @RegisterCustomer.FirstName, you can now close your browser.</h1>
+        }
+        else
+        {
+            <EditForm Model="@RegisterCustomer" OnValidSubmit="RegisterUser">
+                <DataAnnotationsValidator/>
+                <div class="row">
+                    <div class="col">
+                        <label for="first-name">First Name</label>
+                        <input id="first-name" class="form-control mt-1" placeholder="First Name" @bind="RegisterCustomer.FirstName"/>
+                        <span class="error-message"><ValidationMessage For="() => RegisterCustomer.FirstName"/></span>
+                    </div>
+                    <div class="col">
+                        <label for="last-name">Last Name</label>
+                        <input id="last-name" class="form-control mt-1" placeholder="Last Name" @bind="RegisterCustomer.LastName"/>
+                        <span class="error-message"><ValidationMessage For="() => RegisterCustomer.LastName"/></span>
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="last-name">Last Name</label>
-                    <InputText id="last-name" class="form-control mt-1" placeholder="Last Name" @bind-Value="RegisterCustomerInfo.LastName" />
-                    <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.LastName" /></span>
+                <label for="customerEmail">Email</label>
+                <input id="customerEmail" class="form-control mt-1" placeholder="Email" type="email" @bind="RegisterCustomer.Email"/>
+                <span class="error-message"><ValidationMessage For="() => RegisterCustomer.Email"/></span>
+                <div>
+                    <label for="customerPassword">Password</label>
+                    <input id="customerPassword" class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterCustomer.Password"/>
+                    <span class="error-message"><ValidationMessage For="() => RegisterCustomer.Password"/></span>
                 </div>
-            </div>
-            <label for="customerEmail">Email</label>
-            <input id="customerEmail" class="form-control mt-1" placeholder="Email" type="email" @bind="RegisterCustomerInfo.Email" />
-            <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.Email" /></span>
-            <div>
-                <label for="customerPassword">Password</label>
-                <input id="customerPassword" class="form-control mt-1" placeholder="Password" type="password" @bind="RegisterCustomerInfo.Password" />
-                <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.Password" /></span>
-            </div>
-            <div>
-                <label for="customerConfirmPassword">Confirm Password</label>
-                <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterCustomerInfo.ConfirmPassword" />
-                <span class="error-message"><ValidationMessage For="() => RegisterCustomerInfo.ConfirmPassword" /></span>
-            </div>
-            <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
-        </EditForm>
+                <div>
+                    <label for="customerConfirmPassword">Confirm Password</label>
+                    <input id="customerConfirmPassword" class="form-control mt-1" placeholder="Confirm Password" type="password" @bind="RegisterCustomer.ConfirmPassword"/>
+                    <span class="error-message"><ValidationMessage For="() => RegisterCustomer.ConfirmPassword"/></span>
+                </div>
+                <button class="btn btn-outline-success mt-1 float-end" type="submit">Register</button>
+            </EditForm>
+        }
     </section>
 </div>
 
 @code {
-    private RegisterCustomerDto RegisterCustomerInfo { get; set; } = new();
-    private bool PasswordsMatch { get; set; }
-    private bool RegisterSuccessful { get; set; }
-    private bool RegisterFailed { get; set; }
-    private string ResponseMessage { get; set; }
+    private RegisterCustomerDto RegisterCustomer { get; set; } = new();
+    private bool IsRegistered { get; set; }
+    
+    
+    protected override async Task OnInitializedAsync()
+    {
+        RegisterCustomer.Role = Roles.TicketCustomer;
+    }
 
     private async Task RegisterUser()
     {
-        PasswordsMatch = RegisterCustomerInfo.Password == RegisterCustomerInfo.ConfirmPassword;
-
-        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterCustomerInfo.Password))
-        {
-            var response = await _accountService.RegisterUser(RegisterCustomerInfo, null);
-            if (response.IsSuccessStatusCode)
-            {
-                RegisterSuccessful = true;
-                ResponseMessage = await response.Content.ReadAsStringAsync();
-                //LoginInfo.Email = RegisterInfo.Email;
-                //LoginInfo.Password = RegisterInfo.Password;
-                //await LogIn();
-            }
-            else
-            {
-                RegisterFailed = true;
-                ResponseMessage = await response.Content.ReadAsStringAsync();
-            }
-        }
+        var response = await _accountService.RegisterCustomer(RegisterCustomer);
+        if (response.IsSuccessStatusCode) IsRegistered = true;
     }
+    
+
 }
