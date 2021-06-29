@@ -8,6 +8,7 @@ namespace YES.Api.Data.Entities
         public virtual Address Address { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         [Required]
