@@ -7,7 +7,7 @@ using YES.Shared.Dto;
 
 namespace YES.Api.Business.Services
 {
-    public class TicketService :  ITicketService
+    public class TicketService : ITicketService
     {
         private readonly ITicketRepo _ticketRepo;
         private readonly IInvoiceService _invoiceService;
@@ -30,7 +30,7 @@ namespace YES.Api.Business.Services
                 }
             }
 
-           await _invoiceService.SendInvoiceAsync(ticketPurchaseDtos);
+            await _invoiceService.SendInvoiceAsync(ticketPurchaseDtos);
             return await _ticketRepo.AddEntitiesAsync(tickets);
         }
 
@@ -57,13 +57,13 @@ namespace YES.Api.Business.Services
                 TicketCustomerId = ticketPurchaseDto.TicketCustomerId,
                 EventId = ticketPurchaseDto.EventId,
                 TicketCategoryId = ticketPurchaseDto.TicketCategory.Id,
-                DateOfPurchase = DateTime.Now
+                DateOfPurchase = DateTime.Now.AddHours(2),
             };
         }
 
         public int GetAmountOfSoldTickets(int eventId, int TicketCategoryId)
-        {           
-            return  _ticketRepo.GetCountOfTicketsForEvent(eventId, TicketCategoryId);
+        {
+            return _ticketRepo.GetCountOfTicketsForEvent(eventId, TicketCategoryId);
         }
     }
 }

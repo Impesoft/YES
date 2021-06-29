@@ -6,6 +6,11 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<LangVersion>9.0</LangVersion>
+		<Authors>Nick, Kobe, Seba, Pieter and Ward</Authors>
+		<Company>Yes Your Event Service</Company>
+		<Product>YES</Product>
+		<PackageId>YES</PackageId>
+		<AssemblyName>YES</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="fa-solid-900.ttf" />
@@ -30,6 +35,9 @@
 		</Compile>
 		<Compile Update="Views\AboutPage.xaml.cs">
 			<DependentUpon>AboutPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\CancelSuccessfulPopup.xaml.cs">
+		  <DependentUpon>CancelSuccessfulPopup.xaml</DependentUpon>
 		</Compile>
 		<Compile Update="Views\UserDetailPage.xaml.cs">
 			<DependentUpon>UserDetailPage.xaml</DependentUpon>

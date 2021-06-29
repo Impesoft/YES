@@ -6,7 +6,7 @@
             x:Class="YES.Mobile.Views.PurchaseSuccesfulPopup">
 
     <StackLayout BackgroundColor="Black">
-        <Label Text="Purchase succesful!"
+        <Label Text="Purchase Request sent!"
                TextColor="White"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand" />
