@@ -55,6 +55,7 @@
                           RegisterUser="@(RegisterUser)"
                           RegisterFailed="RegisterFailed"
                           ResponseMessage="@ResponseMessage"
+                          IsCustomer="@SetRegisterType"
                           />
             </ModalBody>
         </ModalContent>
@@ -80,6 +81,8 @@
 
     public bool LoginFailed { get; set; }
     public bool RegisterFailed { get; set; }
+
+    public bool IsCustomer { get; set; }
 
     public string ResponseMessage { get; set; }
 
@@ -152,27 +155,31 @@
     {
         ResetBools();
 
-        PasswordsMatch = RegisterCustomer.Password == RegisterCustomer.ConfirmPassword;
-
-        if (PasswordsMatch && !string.IsNullOrEmpty(RegisterCustomer.Password))
+        if (IsCustomer)
         {
-            var response = await _accountService.RegisterUser(RegisterCustomer, RegisterProvider);
+            var response = await _accountService.RegisterCustomer(RegisterCustomer);
             if (response.IsSuccessStatusCode)
             {
-                if (String.IsNullOrEmpty(RegisterCustomer.Email))
-                {
-                    LoginInfo.Email = RegisterProvider.Email;
-                    LoginInfo.Password = RegisterProvider.Password;
-                    await LogIn();
-                    _registerModal.Hide();
-                }
-                else if (String.IsNullOrEmpty(RegisterProvider.Email))
-                {
-                    LoginInfo.Email = RegisterCustomer.Email;
-                    LoginInfo.Password = RegisterCustomer.Password;
-                    await LogIn();
-                    _registerModal.Hide();
-                }
+                LoginInfo.Email = RegisterCustomer.Email;
+                LoginInfo.Password = RegisterCustomer.Password;
+                await LogIn();
+                _registerModal.Hide();
+            }
+            else
+            {
+                RegisterFailed = true;
+                ResponseMessage = await response.Content.ReadAsStringAsync();
+            }
+        }
+        else
+        {
+            var response = await _accountService.RegisterProvider(RegisterProvider);
+            if (response.IsSuccessStatusCode)
+            {
+                LoginInfo.Email = RegisterProvider.Email;
+                LoginInfo.Password = RegisterProvider.Password;
+                await LogIn();
+                _registerModal.Hide();
             }
             else
             {
@@ -186,6 +193,11 @@
     {
         LoginFailed = false;
         RegisterFailed = false;
+    }
+
+    private void SetRegisterType(bool isCustomer)
+    {
+        IsCustomer = isCustomer;
     }
 
 }

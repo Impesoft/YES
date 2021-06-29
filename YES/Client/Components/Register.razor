@@ -96,19 +96,31 @@
     public bool RegisterFailed { get; set; }
     [Parameter]
     public string ResponseMessage { get; set; }
+    [Parameter]
+    public EventCallback<bool> IsCustomer { get; set; }
+
 
     private string SelectedTab { get; set; } = "customer";
 
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
         RegisterCustomerInfo.Role = Roles.TicketCustomer;
         RegisterProviderInfo.Role = Roles.TicketProvider;
+        await IsCustomer.InvokeAsync(true);
     }
 
-    private void OnSelectedTabChanged(string name)
+    private async Task OnSelectedTabChanged(string name)
     {
         SelectedTab = name;
         RegisterFailed = false;
+        if (name == "customer")
+        {
+            await IsCustomer.InvokeAsync(true);
+        }
+        else if (name == "provider")
+        {
+            await IsCustomer.InvokeAsync(false);
+        }
     }
 
 }
