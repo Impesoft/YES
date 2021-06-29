@@ -27,23 +27,23 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public Command CancelTappedCommand => new Command(OnToBeCanceled);
-        public Command KeepTappedCommand => new Command(CancelToBeCanceled);
+        public Command CancelTappedCommand => new Command(OnToBeCancelled);
+        public Command KeepTappedCommand => new Command(CancelToBeCancelled);
 
         private bool thereAreTicketsToBeCanceled;
 
-        public bool ThereAreTicketsToBeCanceled
+        public bool ThereAreTicketsToBeCancelled
         {
             get => thereAreTicketsToBeCanceled;
             set
             {
                 thereAreTicketsToBeCanceled = value;
-                OnPropertyChanged(nameof(ThereAreTicketsToBeCanceled));
+                OnPropertyChanged(nameof(ThereAreTicketsToBeCancelled));
             }
         }
 
         private DateTime? expiryDate;
-        private List<int> _toBeCanceled;
+        private List<int> _toBeCancelled;
         private ICollection<TicketDto> usersTickets;
 
         public ICollection<TicketDto> UsersTickets
@@ -56,13 +56,13 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public List<int> ToBeCanceled
+        public List<int> ToBeCancelled
         {
-            get => _toBeCanceled;
+            get => _toBeCancelled;
             set
             {
-                _toBeCanceled = value;
-                OnPropertyChanged(nameof(ToBeCanceled));
+                _toBeCancelled = value;
+                OnPropertyChanged(nameof(ToBeCancelled));
             }
         }
 
@@ -79,8 +79,10 @@ namespace YES.Mobile.ViewModels
             }
         }
 
+        public EventDto EventToCheckDate { get; set; }
         public ICustomerService CustomerService { get; set; }
         public ITicketService TicketService { get; set; }
+        public IEventService EventService { get; set; }
 
         public DateTime? ExpiryDate
         {
@@ -96,21 +98,22 @@ namespace YES.Mobile.ViewModels
         {
             CustomerService = new CustomerService();
             TicketService = new TicketService();
+            EventService = new EventService();
             DeleteCommand = new Command<TicketDto>(DeleteTicket);
-            ToBeCanceled = new List<int>();
-            ThereAreTicketsToBeCanceled = false;
+            ToBeCancelled = new List<int>();
+            ThereAreTicketsToBeCancelled = false;
             UsersTickets = new ObservableCollection<TicketDto>();
-            // Task.Run(() => LoadUserWithTickets());
         }
 
-        private void DeleteTicket(TicketDto ToBeCanceledTicket)
+        private void DeleteTicket(TicketDto ToBeCancelledTicket)
         {
-            ToBeCanceled.Add(ToBeCanceledTicket.Id);
-
-            //LocalUser.Tickets.Remove(ToBeCanceledTicket);
-            CancelCount = ToBeCanceled.Count;
-            ThereAreTicketsToBeCanceled = true;
-            UsersTickets.Remove(ToBeCanceledTicket);
+            if (ToBeCancelledTicket.EventDate > DateTime.Now || ToBeCancelledTicket.EventDate == DateTime.MinValue)
+            {
+                ToBeCancelled.Add(ToBeCancelledTicket.Id);
+                CancelCount = ToBeCancelled.Count;
+                ThereAreTicketsToBeCancelled = true;
+                UsersTickets.Remove(ToBeCancelledTicket);
+            }
         }
 
         public async void LoadUserWithTickets()
@@ -122,22 +125,22 @@ namespace YES.Mobile.ViewModels
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(stream);
             var tokenS = jsonToken as JwtSecurityToken;
-            expiryDate = tokenS.ValidTo;
-            Title = "Logged in as: " + user.Email;
+            ExpiryDate = tokenS.ValidTo;
+            Title = "User: " + user.Email;
         }
 
-        private async void OnToBeCanceled()
+        private async void OnToBeCancelled()
         {
-            bool Result = await TicketService.CancelTicketsAsync(ToBeCanceled);
+            bool Result = await TicketService.CancelTicketsAsync(ToBeCancelled);
             LoadUserWithTickets();
-            ThereAreTicketsToBeCanceled = false;
-            ToBeCanceled.Clear();
+            ThereAreTicketsToBeCancelled = false;
+            ToBeCancelled.Clear();
         }
 
-        private void CancelToBeCanceled()
+        private void CancelToBeCancelled()
         {
-            ThereAreTicketsToBeCanceled = false;
-            ToBeCanceled.Clear();
+            ThereAreTicketsToBeCancelled = false;
+            ToBeCancelled.Clear();
             LoadUserWithTickets();
         }
     }
