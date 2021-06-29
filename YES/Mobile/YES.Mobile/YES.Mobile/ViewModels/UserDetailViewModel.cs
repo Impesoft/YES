@@ -79,8 +79,10 @@ namespace YES.Mobile.ViewModels
             }
         }
 
+        public EventDto EventToCheckDate { get; set; }
         public ICustomerService CustomerService { get; set; }
         public ITicketService TicketService { get; set; }
+        public IEventService EventService { get; set; }
 
         public DateTime? ExpiryDate
         {
@@ -96,21 +98,22 @@ namespace YES.Mobile.ViewModels
         {
             CustomerService = new CustomerService();
             TicketService = new TicketService();
+            EventService = new EventService();
             DeleteCommand = new Command<TicketDto>(DeleteTicket);
             ToBeCanceled = new List<int>();
             ThereAreTicketsToBeCanceled = false;
             UsersTickets = new ObservableCollection<TicketDto>();
-            // Task.Run(() => LoadUserWithTickets());
         }
 
         private void DeleteTicket(TicketDto ToBeCanceledTicket)
         {
-            ToBeCanceled.Add(ToBeCanceledTicket.Id);
-
-            //LocalUser.Tickets.Remove(ToBeCanceledTicket);
-            CancelCount = ToBeCanceled.Count;
-            ThereAreTicketsToBeCanceled = true;
-            UsersTickets.Remove(ToBeCanceledTicket);
+            if (ToBeCanceledTicket.EventDate > DateTime.Now || ToBeCanceledTicket.EventDate == DateTime.MinValue)
+            {
+                ToBeCanceled.Add(ToBeCanceledTicket.Id);
+                CancelCount = ToBeCanceled.Count;
+                ThereAreTicketsToBeCanceled = true;
+                UsersTickets.Remove(ToBeCanceledTicket);
+            }
         }
 
         public async void LoadUserWithTickets()
@@ -122,7 +125,7 @@ namespace YES.Mobile.ViewModels
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(stream);
             var tokenS = jsonToken as JwtSecurityToken;
-            expiryDate = tokenS.ValidTo;
+            ExpiryDate = tokenS.ValidTo;
             Title = "User: " + user.Email;
         }
 
