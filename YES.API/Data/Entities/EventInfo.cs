@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace YES.Api.Data.Entities
 {
     public class EventInfo : EntityBase
     {
         [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         [Required]
+        [MaxLength(1024)]
         public string Description { get; set; }
 
         public DateTime? EventDate { get; set; }
@@ -20,9 +19,11 @@ namespace YES.Api.Data.Entities
         public int MaxAvailableTickets { get; set; }
 
         [Required]
+        [MaxLength(255)]
         public string WebsiteUrl { get; set; }
 
         [Required]
+        [MaxLength(255)]
         public string BannerImgUrl { get; set; }
 
         [Required]

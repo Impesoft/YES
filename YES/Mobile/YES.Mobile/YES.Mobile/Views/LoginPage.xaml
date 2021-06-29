@@ -14,16 +14,23 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-            <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Large">Your Event Service</Label>
-            <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" />
+            <Image Source="logo.png" VerticalOptions="Start" HorizontalOptions="Center" HeightRequest="64" Margin="0,20" />
             <StackLayout Padding="10,0,10,0" VerticalOptions="Center" IsVisible="{Binding ShowLoginFields}">
-                <Entry TextColor="Black" BackgroundColor="#DDFFFFFF" Placeholder="Login Email" Keyboard="Email"  Text="{Binding LoginInfo.Email}" />
-                <Entry TextColor="Black" BackgroundColor="#DDFFFFFF" Placeholder="Your Password" Text="{Binding LoginInfo.Password}" IsPassword="True" />
+                <Entry TextColor="Black" BackgroundColor="#DDFFFFFF" PlaceholderColor="#111" Placeholder="Login Email" Keyboard="Email"  Text="{Binding LoginInfo.Email}" />
+                <Entry TextColor="Black" BackgroundColor="#DDFFFFFF" PlaceholderColor="#111" Placeholder="Your Password" Text="{Binding LoginInfo.Password}" IsPassword="True" />
 
                 <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" />
+                <Label HorizontalOptions="Center" Text="Login Failed!" TextColor="Red" IsVisible="{Binding LoginFailed}" />
             </StackLayout>
-            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" Color="Red" />
-
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}"
+                                                                  CommandParameter="https://yesclient.azurewebsites.net/Register"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label TextColor="Wheat" HorizontalOptions="Start" Text="No account yet? Register" />
+                <Label TextColor="#FFDD00" HorizontalOptions="Start" Text="here" />
+            </StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" Color="#FFCC00" />
             <Label HorizontalOptions="CenterAndExpand" Text="Logging in..." IsVisible="{Binding IsLoggingIn}" />
         </StackLayout>
     </ContentPage.Content>
