@@ -238,21 +238,21 @@
 
     private void TurnNullFieldsToEmptyString()
     {
-        if (Customer.FirstName == null)     Customer.FirstName = "";
-        if (Customer.LastName == null)      Customer.LastName = "";
-        if (Customer.Email == null)         Customer.Email = "";
-        if (Customer.BankAccount == null)   Customer.BankAccount = "";
-        if (Customer.PhoneNumber == null)   Customer.PhoneNumber = "";
+        //if (Customer.FirstName == null)     Customer.FirstName = "";
+        //if (Customer.LastName == null)      Customer.LastName = "";
+        //if (Customer.Email == null)         Customer.Email = "";
+        //if (Customer.BankAccount == null)   Customer.BankAccount = "";
+        //if (Customer.PhoneNumber == null)   Customer.PhoneNumber = "";
         if (Customer.Address == null)
         {
             Customer.Address =  new AddressDto
             {
-                Id = 0,
-                City = "",
-                Country = "",
-                PostalCode = "",
-                Street ="",
-                StreetNumber=""
+                //Id = 0,
+                //City = "",
+                //Country = "",
+                //PostalCode = "",
+                //Street ="",
+                //StreetNumber=""
             };
         }
     }
