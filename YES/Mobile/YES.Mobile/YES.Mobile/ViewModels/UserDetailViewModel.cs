@@ -27,23 +27,23 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public Command CancelTappedCommand => new Command(OnToBeCanceled);
-        public Command KeepTappedCommand => new Command(CancelToBeCanceled);
+        public Command CancelTappedCommand => new Command(OnToBeCancelled);
+        public Command KeepTappedCommand => new Command(CancelToBeCancelled);
 
         private bool thereAreTicketsToBeCanceled;
 
-        public bool ThereAreTicketsToBeCanceled
+        public bool ThereAreTicketsToBeCancelled
         {
             get => thereAreTicketsToBeCanceled;
             set
             {
                 thereAreTicketsToBeCanceled = value;
-                OnPropertyChanged(nameof(ThereAreTicketsToBeCanceled));
+                OnPropertyChanged(nameof(ThereAreTicketsToBeCancelled));
             }
         }
 
         private DateTime? expiryDate;
-        private List<int> _toBeCanceled;
+        private List<int> _toBeCancelled;
         private ICollection<TicketDto> usersTickets;
 
         public ICollection<TicketDto> UsersTickets
@@ -56,13 +56,13 @@ namespace YES.Mobile.ViewModels
             }
         }
 
-        public List<int> ToBeCanceled
+        public List<int> ToBeCancelled
         {
-            get => _toBeCanceled;
+            get => _toBeCancelled;
             set
             {
-                _toBeCanceled = value;
-                OnPropertyChanged(nameof(ToBeCanceled));
+                _toBeCancelled = value;
+                OnPropertyChanged(nameof(ToBeCancelled));
             }
         }
 
@@ -100,18 +100,18 @@ namespace YES.Mobile.ViewModels
             TicketService = new TicketService();
             EventService = new EventService();
             DeleteCommand = new Command<TicketDto>(DeleteTicket);
-            ToBeCanceled = new List<int>();
-            ThereAreTicketsToBeCanceled = false;
+            ToBeCancelled = new List<int>();
+            ThereAreTicketsToBeCancelled = false;
             UsersTickets = new ObservableCollection<TicketDto>();
         }
 
         private void DeleteTicket(TicketDto ToBeCanceledTicket)
         {
-            if (ToBeCanceledTicket.EventDate > DateTime.Now || ToBeCanceledTicket.EventDate == DateTime.MinValue)
+            if (ToBeCancelledTicket.EventDate > DateTime.Now || ToBeCancelledTicket.EventDate == DateTime.MinValue)
             {
-                ToBeCanceled.Add(ToBeCanceledTicket.Id);
-                CancelCount = ToBeCanceled.Count;
-                ThereAreTicketsToBeCanceled = true;
+                ToBeCanceled.Add(ToBeCancelledTicket.Id);
+                CancelCount = ToBeCancelled.Count;
+                ThereAreTicketsToBeCancelled = true;
                 UsersTickets.Remove(ToBeCanceledTicket);
             }
         }
@@ -129,18 +129,18 @@ namespace YES.Mobile.ViewModels
             Title = "User: " + user.Email;
         }
 
-        private async void OnToBeCanceled()
+        private async void OnToBeCancelled()
         {
-            bool Result = await TicketService.CancelTicketsAsync(ToBeCanceled);
+            bool Result = await TicketService.CancelTicketsAsync(ToBeCancelled);
             LoadUserWithTickets();
-            ThereAreTicketsToBeCanceled = false;
-            ToBeCanceled.Clear();
+            ThereAreTicketsToBeCancelled = false;
+            ToBeCancelled.Clear();
         }
 
-        private void CancelToBeCanceled()
+        private void CancelToBeCancelled()
         {
-            ThereAreTicketsToBeCanceled = false;
-            ToBeCanceled.Clear();
+            ThereAreTicketsToBeCancelled = false;
+            ToBeCancelled.Clear();
             LoadUserWithTickets();
         }
     }
