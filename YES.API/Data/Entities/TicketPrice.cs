@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace YES.Api.Data.Entities
 {
     public class TicketPrice : EntityBase
-    {
+    {        
         [Required]
+        [MaxLength(50)]
         public string Category { get; set; }
 
         [Required]
