@@ -10,11 +10,14 @@ using YES.Mobile.Views;
 using Xamarin.Essentials;
 using System.IO;
 using YES.Mobile.Enums;
+using System.Windows.Input;
 
 namespace YES.Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
+
         private bool showLoginFields = true;
         private Task logingIn;
 
@@ -43,16 +46,29 @@ namespace YES.Mobile.ViewModels
             }
         }
 
+        private bool loginFailed;
+
+        public bool LoginFailed
+        {
+            get => loginFailed;
+
+            set
+            {
+                loginFailed = value;
+                OnPropertyChanged(nameof(LoginFailed));
+            }
+        }
+
         public Command LoginCommand { get; }
 
-        //      private string LoggedInUserJson;
         private IAccountService _accountService { get; set; }
 
-        // private UserTokenDto Customer { get; set; }
         public LoginDto LoginInfo { get; set; } = new LoginDto();
 
         public LoginViewModel()
         {
+            File.Delete(GlobalVariables.FileName);
+            GlobalVariables.LoggedInUser = null;
             LoginCommand = new Command(OnLoginClicked);
             _accountService = new AccountService();
         }
@@ -60,6 +76,7 @@ namespace YES.Mobile.ViewModels
         private async void OnLoginClicked(object obj)
         {
             IsLoggingIn = true;
+            LoginFailed = false;
 
             await Task.Run(() => Login());
 
@@ -70,7 +87,8 @@ namespace YES.Mobile.ViewModels
             }
             else
             {
-                Application.Current.MainPage = new LoginPage();
+                LoginFailed = true;
+                IsLoggingIn = false;
             }
         }
 
