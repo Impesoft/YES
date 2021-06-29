@@ -123,7 +123,7 @@ namespace YES.Mobile.ViewModels
             var jsonToken = handler.ReadToken(stream);
             var tokenS = jsonToken as JwtSecurityToken;
             expiryDate = tokenS.ValidTo;
-            Title = "Logged in as: " + user.Email;
+            Title = "User: " + user.Email;
         }
 
         private async void OnToBeCancelled()
