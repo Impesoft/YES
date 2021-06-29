@@ -35,6 +35,7 @@
                         <srvc:TextChangedBehaviour />
                     </SearchBar.Behaviors>
                 </SearchBar>
+                <ActivityIndicator VerticalOptions="StartAndExpand" IsRunning="{Binding IsBusy}" Color="#FFCC00" IsVisible="{Binding IsBusy}" />
             </StackLayout>
 
             <CollectionView x:Name="ListOfEvents"
