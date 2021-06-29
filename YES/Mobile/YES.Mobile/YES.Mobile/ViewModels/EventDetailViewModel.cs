@@ -118,7 +118,7 @@ namespace YES.Mobile.ViewModels
             AddTicketCommand = new Command<TicketCategoryDto>(OnAddTicket);
             DeductTicketCommand = new Command<TicketCategoryDto>(OnDeductTicket);
 
-            ClearPurchaseList = new Command(OnCancelPurchase);
+            ClearPurchaseList = new Command(OnResetPurchaseList);
             BuyTickets = new Command(OnBuyTickets);
             LoggedInUser = GlobalVariables.LoggedInUser;
 
@@ -235,7 +235,7 @@ namespace YES.Mobile.ViewModels
             return amount;
         }
 
-        private void OnCancelPurchase()
+        private void OnResetPurchaseList()
         {
             LoadEvent();
             TotalPrice = 0;
@@ -259,6 +259,8 @@ namespace YES.Mobile.ViewModels
             if (TicketsPurchasingList != null)
             {
                 HttpResponseMessage responseMessage = await _ticketService.BuyTicketsAsync(TicketsPurchasingList);
+
+                OnResetPurchaseList();
             }
         }
     }
