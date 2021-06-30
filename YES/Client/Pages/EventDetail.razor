@@ -18,9 +18,10 @@
 
         <Alert Color="Color.Info" Class="alert-position" @bind-Visible="@IsNotLoggedIn">
             <AlertMessage>
-                 Please login to buy tickets.
-             </AlertMessage>
+                Please log in as customer to buy tickets.
+            </AlertMessage>
         </Alert>
+
 
         <section>
             <h5 class="event-date-line event-date">
@@ -32,7 +33,7 @@
                     @:To Be Announced
                 }
                 <EventStatus Event="@Event"
-                             eventStatus="@EventStatus"/>
+                             eventStatus="@EventStatus" />
 
             </h5>
 
@@ -68,31 +69,31 @@
                 </div>
             </div>
         </section>
-  
-  
-  
+
+
+
         <Modal @ref="_modalRef">
             <ModalContent Centered="true" Class="bg-dark text-light">
                 <ModalHeader>
-                    <ModalTitle>@Event.EventInfo.Name <br/> @Event.EventInfo.EventDate</ModalTitle>
-                    <CloseButton Class="close-btn btn"/>
+                    <ModalTitle>@Event.EventInfo.Name <br /> @Event.EventInfo.EventDate</ModalTitle>
+                    <CloseButton Class="close-btn btn" />
                 </ModalHeader>
                 <ModalBody>
                     <BuyTicket Customer="@Customer"
                                Event="@Event"
                                Id="@Id"
-                               modalRef="@_modalRef"/>
+                               modalRef="@_modalRef" />
                 </ModalBody>
             </ModalContent>
         </Modal>
-        
+
 
     }
     else
     {
         <p>No Event found</p>
     }
-     <div id='map' style='width: 100%; height: 400px;'></div>
+    <div id='map' style='width: 100%; height: 400px;'></div>
 
 </div>
 
@@ -111,7 +112,7 @@
     protected override async Task OnInitializedAsync()
     {
         Event = await _eventService.GetEventByIdAsync(Id);
-       
+
         if (GlobalVariables.LoggedInUser != null && GlobalVariables.LoggedInUser.Role==Roles.TicketCustomer)
         {
             Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
@@ -130,11 +131,11 @@
 
     private async Task CheckIfLoggedIn()
     {
-        if (GlobalVariables.LoggedInUser != null)
+        if (GlobalVariables.LoggedInUser != null && GlobalVariables.LoggedInUser.Role == Roles.TicketCustomer)
         {
             Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
             _modalRef.Show();
-        }
+        }        
         else
         {
             await LoginAlert();
