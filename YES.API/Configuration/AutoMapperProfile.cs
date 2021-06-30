@@ -32,7 +32,8 @@ namespace YES.Api.Configuration
                 .ForMember(d => d.EventName, x => x.MapFrom(y => y.Event.EventInfo.Name))
                 .ForMember(d => d.VenueName, x => x.MapFrom(y => y.Event.Venue.Name))
                 .ForMember(d => d.VenueAddress, x => x.MapFrom(y => y.Event.Venue.Address))               
-                .ForMember(d => d.EventDate, x => x.MapFrom(y => y.Event.EventInfo.EventDate));                
+                .ForMember(d => d.EventDate, x => x.MapFrom(y => y.Event.EventInfo.EventDate))                
+                .ForMember(d => d.EventId, x => x.MapFrom(y => y.Event.Id));                
         }
 
         public Status ConvertToStatusEnum(string value)
