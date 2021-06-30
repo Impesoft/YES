@@ -46,6 +46,7 @@
             </StackLayout>
             <ScrollView Grid.Row="2">
                 <StackLayout BindableLayout.ItemsSource="{Binding UsersTickets}"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                    
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <SwipeView  BackgroundColor="#110077FF">
@@ -58,8 +59,12 @@
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <Frame BorderColor="Wheat">
-
                                     <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserDetailViewModel}}, Path=ShowEventCommand}" 
+                                                                  CommandParameter="{Binding .}"/>
+                                        </StackLayout.GestureRecognizers>
                                         <Label TextColor="#EEEEEE" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
                                         <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket bought on: {0}'}" />
                                     </StackLayout>
