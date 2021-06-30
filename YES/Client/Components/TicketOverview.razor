@@ -11,7 +11,7 @@
     € @Ticket.TicketCategory.Price
 </div>
 <div class="col ticket-link" @onclick="() => EventInfo.InvokeAsync(Ticket)">
-    @Ticket.EventName
+   <span class="ticket-link-bg">@Ticket.EventName</span>
 </div>
 <div class="col">
     @Ticket.VenueName
