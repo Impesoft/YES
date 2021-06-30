@@ -38,7 +38,7 @@ namespace YES.Mobile.Converters
                     break;
 
                 case Status.Completed:
-                    DisplayStatus = "Event already passed" +
+                    DisplayStatus = "Event has passed" +
                         "";
                     break;
 
