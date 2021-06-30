@@ -38,19 +38,8 @@
 
             @if (CancelSuccessful == true)
             {
-                <div class="my-5 alert alert-danger">
-                    @TicketsToCancelById.Count() @if (TicketsToCancelById.Count() > 1)
-                    {
-                        @: tickets
-                    }
-                    else
-                    {
-                        @: ticket
-                    }
-                    successfully cancelled.
-
-                    @*Response from API
-                    @ResponseMessage*@
+                <div class="my-5 alert alert-danger">                    
+                    @ResponseMessage
                 </div>
             }
             @if (CancelFailed == true)
@@ -169,11 +158,12 @@
             {
                 Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
             }
-
             Tickets = Customer.Tickets.ToList();
 
             ResponseMessage = await response.Content.ReadAsStringAsync();
             CancelSuccessful = true;
+
+            TicketsToCancelById.Clear();
         }
         else
         {
@@ -237,22 +227,12 @@
     }
 
     private void TurnNullFieldsToEmptyString()
-    {
-        //if (Customer.FirstName == null)     Customer.FirstName = "";
-        //if (Customer.LastName == null)      Customer.LastName = "";
-        //if (Customer.Email == null)         Customer.Email = "";
-        //if (Customer.BankAccount == null)   Customer.BankAccount = "";
-        //if (Customer.PhoneNumber == null)   Customer.PhoneNumber = "";
+    {        
         if (Customer.Address == null)
         {
             Customer.Address =  new AddressDto
             {
-                //Id = 0,
-                //City = "",
-                //Country = "",
-                //PostalCode = "",
-                //Street ="",
-                //StreetNumber=""
+               
             };
         }
     }
