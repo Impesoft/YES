@@ -18,7 +18,7 @@ namespace YES.Api.Business.Services
                 Credentials = new NetworkCredential()
                 {
                     UserName = "yes.youreventservice@gmail.com",
-                    Password = "***REMOVED***"
+                    Password = "NoSir1418"
                 }
             };
             MailAddress fromEmail = new("yes.youreventservice@gmail.com", "YesTeam");
