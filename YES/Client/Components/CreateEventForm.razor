@@ -145,7 +145,7 @@
 
     [Parameter]
     public TicketCategoryDto NewTicketCategory { get; set; }
-  
+
     public int SelectedVenueId
     {
         get => Event.Venue.Id;
@@ -175,6 +175,7 @@
     private void OnSubmitVenue()
     {
         Venues.Add(NewVenue);
+        SelectedVenueId = NewVenue.Id;
         InitializeNewVenue();
         DisplayEmptyVenueForm = false;
     }
