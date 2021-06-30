@@ -30,7 +30,6 @@
                     {
                         @foreach (EventDto eventDto in _events.Where(x => x.EventInfo.Name.ToLower().Contains(_searchValue.ToLower())
                                                                           || x.EventInfo.Description.ToLower().Contains(_searchValue.ToLower())
-                                                                          || x.Status.ToLower().Contains(_searchValue.ToLower())
                                                                           || x.Venue.Name.ToLower().Contains(_searchValue.ToLower())
                                                                           || x.EventInfo.EventDate.ToString("dd-MM-yyyy").Contains(_searchValue)).ToList())
                         {
