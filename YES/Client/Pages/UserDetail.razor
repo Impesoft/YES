@@ -33,7 +33,15 @@
             <div class="row mb-3">
                 <h3 class=" col-lg-10">Ticket List</h3>
 
-                <button class="btn btn-outline-danger col-lg-2" @onclick="CancelTickets">Cancel Tickets</button>
+                @if (TicketsToCancelById != null && TicketsToCancelById.Any())
+                {
+                    <button class="btn btn-outline-danger col-lg-2" @onclick="CancelTickets">Cancel Tickets</button>
+                }
+                else
+                {
+                    <button class="btn btn-outline-danger col-lg-2" @onclick="CancelTickets" disabled>Cancel Tickets</button>
+                }
+
             </div>
 
             @if (CancelSuccessful == true)
