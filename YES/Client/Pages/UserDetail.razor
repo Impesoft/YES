@@ -1,9 +1,10 @@
 ﻿@page "/CustomerDetail"
 @inject ICustomerService customerService
 @inject IAccountService accountService
-@inject IProviderService providerService 
+@inject IProviderService providerService
 @inject ITicketService ticketService
 @inject IJSRuntime JSRuntime
+@inject NavigationManager navigationManager;
 
 <div class="page-bg">
     <section>
@@ -46,7 +47,7 @@
 
             @if (CancelSuccessful == true)
             {
-                <div class="my-5 alert alert-warning">                    
+                <div class="my-5 alert alert-warning">
                     @ResponseMessage
                 </div>
             }
@@ -86,7 +87,9 @@
                 @foreach (var ticket in Tickets)
                 {
                     <div class="row ticket-item">
-                        <TicketOverview Ticket="ticket" OnChange="() => AddTicketToCancelList(ticket.Id)"></TicketOverview>
+                        <TicketOverview Ticket="ticket"
+                                        OnChange="() => AddTicketToCancelList(ticket.Id)">
+                        </TicketOverview>
                     </div>
                 }
             }
@@ -112,8 +115,6 @@
     public bool CancelFailed { get; set; }
 
     public string ResponseMessage { get; set; }
-
-    public bool ToBeCancelled { get; set; }
 
     public List<int> TicketsToCancelById { get; set; }
 
@@ -162,15 +163,17 @@
 
         if (response.IsSuccessStatusCode)
         {
-            Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+            //Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
 
-            //foreach (var ticketsToCancel in TicketsToCancelById)
-            //{
+            foreach (var ticketsToCancel in TicketsToCancelById)
+            {
+                Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
+            }
 
-            //    Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
-            //}
-
-            Tickets = new List<TicketDto>(Customer.Tickets);
+            //Tickets.Clear();
+            //Tickets = new List<TicketDto>(Customer.Tickets);
+            navigationManager.NavigateTo(navigationManager.Uri, forceLoad: true);
+            //StateHasChanged();
 
             ResponseMessage = await response.Content.ReadAsStringAsync();
             CancelSuccessful = true;
@@ -192,7 +195,7 @@
 
     private void AddTicketToCancelList(int ticketId)
     {
-        if(TicketsToCancelById != null)
+        if (TicketsToCancelById != null)
         {
             if (!TicketsToCancelById.Contains(ticketId))
             {
@@ -242,7 +245,7 @@
     {
         if (Customer.Address == null)
         {
-            Customer.Address =  new AddressDto
+            Customer.Address = new AddressDto
             {
 
             };

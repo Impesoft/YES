@@ -18,19 +18,20 @@ namespace YES.Client.Services
         {
             _http = http;
 
-            if (GlobalVariables.LoggedInUser != null)
-            {
-                _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GlobalVariables.LoggedInUser.Token);
-            }
+            SetHttpHeader();
         }
 
         public async Task<CustomerWithTicketsDto> GetCustomerByIdAsync(int id)
         {
+            SetHttpHeader();
+
             return await _http.GetFromJsonAsync<CustomerWithTicketsDto>("api/TicketCustomer/IncludeTickets/" + id);            
         }
 
         public async Task<HttpResponseMessage> UpdateCustomer(CustomerWithTicketsDto customerWithTickets)
         {
+            SetHttpHeader();
+
             TicketCustomerDto customer = ConvertToTicketCustomer(customerWithTickets);             
 
             return await _http.PutAsJsonAsync("api/TicketCustomer", customer);
@@ -48,6 +49,14 @@ namespace YES.Client.Services
                 PhoneNumber = customer.PhoneNumber,
                 Address = customer.Address
             };
+        }
+
+        private void SetHttpHeader()
+        {
+            if (GlobalVariables.LoggedInUser != null)
+            {
+                _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GlobalVariables.LoggedInUser.Token);
+            }
         }
     }
 }
