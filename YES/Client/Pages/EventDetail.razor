@@ -132,6 +132,7 @@
     {
         if (GlobalVariables.LoggedInUser != null)
         {
+            Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
             _modalRef.Show();
         }
         else
