@@ -17,7 +17,7 @@ namespace YES.Api.Data.Entities
         [MaxLength(50)]
         public string City { get; set; }
         
-        [MaxLength(20)]
+        [MaxLength(20)]        
         public string StreetNumber { get; set; }
 
         [Required]

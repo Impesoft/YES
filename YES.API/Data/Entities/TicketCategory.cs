@@ -14,6 +14,7 @@ namespace YES.Api.Data.Entities
         public double Price { get; set; }
 
         [Required]
+        [Range(1, 1000000)]
         public int MaxAmount { get; set; }
 
         [Required]
