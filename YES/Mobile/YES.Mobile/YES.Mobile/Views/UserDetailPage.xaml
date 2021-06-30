@@ -23,8 +23,8 @@
             <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Margin="0,0,0,0">
                 <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start">
                     <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="64" />
-                    <Label Text="{Binding LocalUser.FirstName, StringFormat='Welkom {0}' }" HorizontalOptions="Center" TextColor="DimGray" FontSize="Medium" />
-                    <Label Text="{Binding ExpiryDate, StringFormat='Logged in until {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
+                    <Label Text="{Binding LocalUser.FirstName, StringFormat='Welcome {0}' }" HorizontalOptions="Center" TextColor="DimGray" FontSize="Medium" />
+                    <Label Text="{Binding ExpiryDate, StringFormat='Login expiration: {0}'}" HorizontalOptions="Center" TextColor="DimGray" FontSize="Small" />
                 </StackLayout>
                 <StackLayout
                     Grid.Row="1"
@@ -61,7 +61,7 @@
 
                                     <StackLayout BindableLayout.ItemsSource="{Binding TicketCategory}">
                                         <Label TextColor="#EEEEEE" Text="{Binding EventName,StringFormat='Event: {0}'}" FontSize="Title" />
-                                        <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket(s) Bought on {0}'}" />
+                                        <Label TextColor="Wheat" Text="{Binding DateOfPurchase, StringFormat='Ticket bought on: {0}'}" />
                                     </StackLayout>
                                 </Frame>
                             </SwipeView>
