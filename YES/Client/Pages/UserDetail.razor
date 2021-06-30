@@ -86,7 +86,7 @@
 
                 @foreach (var ticket in Tickets)
                 {
-                    <div class="row ticket-item">
+                    <div class="row ticket-item" @onclick="() => ShowEventInfo(ticket.EventId)">
                         <TicketOverview Ticket="ticket"
                                         OnChange="() => AddTicketToCancelList(ticket.Id)">
                         </TicketOverview>
@@ -250,6 +250,11 @@
 
             };
         }
+    }
+
+    private void ShowEventInfo(int eventId)
+    {
+        navigationManager.NavigateTo($"/EventDetail/{eventId}");
     }
 
 }
