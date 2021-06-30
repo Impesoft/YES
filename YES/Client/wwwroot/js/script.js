@@ -26,7 +26,7 @@ function initialize(address) {
                     container: 'map',
                     style: 'mapbox://styles/youreventservice/ckqi4infi0ahu17n3q9u8razd',
                     center: feature.center,
-                    zoom: 10
+                    zoom: 15
                 });
 
                 // Create a marker and add it to the map.
