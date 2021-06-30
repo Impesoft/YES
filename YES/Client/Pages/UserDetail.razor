@@ -86,9 +86,10 @@
 
                 @foreach (var ticket in Tickets)
                 {
-                    <div class="row ticket-item" @onclick="() => ShowEventInfo(ticket.EventId)">
+                    <div class="row ticket-item" >
                         <TicketOverview Ticket="ticket"
-                                        OnChange="() => AddTicketToCancelList(ticket.Id)">
+                                        OnChange="() => AddTicketToCancelList(ticket.Id)"
+                                        EventInfo="() => ShowEventInfo(ticket.EventId)">
                         </TicketOverview>
                     </div>
                 }
