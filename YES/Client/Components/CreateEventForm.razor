@@ -46,7 +46,7 @@
             Date:
         </div>
         <div class="col-xl-10">
-            <input type="datetime" class="form-control text-white bg-dark" @bind="Event.EventInfo.EventDate" placeholder="" />
+            <input type="datetime-local" class="form-control text-white bg-dark" @bind="Event.EventInfo.EventDate" placeholder="" />
             <span class="error-message"><ValidationMessage For="() => Event.EventInfo.EventDate" /></span>
         </div>
     </div>
