@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject IJSRuntime JSRuntime
 
 <div class="page-bg">
     <section>
@@ -6,27 +7,23 @@
         <div class="row card-row">
             @if (_spotlights != null)
             {
-                @foreach (EventDto item in _spotlights)
-                {
-                    if (item != null)
-                    {
-                        <SpotLightCard Event="item"/>
-                    }
-                }
-            }
-            else
-            {
-                @for (var i = 0; i < 6; i++)
-                {
-                    <SpotlightCardPlaceholder/>
-                }
-            }
+@foreach (EventDto item in _spotlights)
+{
+    if (item != null)
+    {
+<SpotLightCard Event="item" />}
+} }
+else
+{
+@for (var i = 0; i < 6; i++)
+{
+<SpotlightCardPlaceholder />}}
         </div>
+       
     </section>
 </div>
 
-@code {
-    private IEnumerable<EventDto> _spotlights { get; set; }
+@code { private IEnumerable<EventDto> _spotlights { get; set; }
 
     [Inject]
     private IEventService _service { get; set; }
@@ -35,5 +32,5 @@
     {
         _spotlights = await _service.GetEventSpotlightsAsync();
     }
-
 }
+           
