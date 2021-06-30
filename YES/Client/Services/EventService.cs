@@ -10,6 +10,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using YES.Shared.Dto;
 using YES.Shared.GlobalClasses;
+using YES.Shared.Enums;
 using static System.Net.WebRequestMethods;
 
 namespace YES.Client.Services
@@ -46,7 +47,10 @@ namespace YES.Client.Services
         public async Task<IEnumerable<EventDto>> GetEventSpotlightsAsync()
         {
             var _events = await _http.GetFromJsonAsync<ICollection<EventDto>>("/api/Event");
-            return _events.Where(x => x.EventInfo.EventDate > DateTime.Now).OrderBy(x => Guid.NewGuid()).Take(6).OrderBy(x => x.EventInfo.EventDate);
+            return _events.Where(x => x.EventInfo.EventDate > DateTime.Now)
+                          .Where(x => x.Status != Status.Cancelled.ToString())
+                          .OrderBy(x => Guid.NewGuid()).Take(6)
+                          .OrderBy(x => x.EventInfo.EventDate);
         }
 
         public async Task<HttpResponseMessage> CreateNewEventAsync(EventDto eventDto)
