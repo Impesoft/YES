@@ -1,5 +1,4 @@
-﻿
-<div class="col">
+﻿<div class="col">
     @Ticket.DateOfPurchase.ToString("dd/MM/yyyy")
 </div>
 <div class="col">
@@ -18,17 +17,15 @@
     @Ticket.VenueName
 </div>
 <div class="col">
-    @if (Ticket.EventDate > DateTime.Now)
+    @if (Ticket.EventDate > DateTime.Now || Ticket.EventDate == DateTime.MinValue)
     {
-        <input type="checkbox" @onchange="OnChange" />        
+        <input type="checkbox" @onchange="OnChange" />
     }
-     else
-     {
+    else
+    {
         <input type="checkbox" disabled />
     }
 </div>
-
-
 
 @code {
     [Parameter]
@@ -38,7 +35,6 @@
     public bool ToBeCancelled { get; set; }
 
     [Parameter]
-    public EventCallback OnChange { get; set; }    
-
+    public EventCallback OnChange { get; set; }
 
 }
