@@ -1,7 +1,7 @@
 ﻿@inject IEventService eventservice 
 
 <EditForm Model="Event" OnValidSubmit="OnSubmitEvent">
-    <DataAnnotationsValidator />
+    <ObjectGraphDataAnnotationsValidator />
 
     <h4 class="text-warning my-4">Event Information</h4>
 
@@ -69,14 +69,14 @@
                 {
                     <option value="@venue.Id">@venue.Name</option>
                 }
-
             </InputSelect>
+            <span class="error-message"><ValidationMessage For="() => Event.Venue" /></span>
         </div>
         <div class="col">
             <Button class="btn btn-outline-light" @onclick="DisplayNewVenueForm">Add New Venue</Button>
             <Button class="btn btn-outline-light" @onclick="DisplayEditVenueForm">Edit Venue</Button>
         </div>
-    </div>   
+    </div>
 
     @if (DisplayEmptyVenueForm)
     {
@@ -103,7 +103,7 @@
 
 
 
-    @if (Event.TicketCategories != null)
+    @if (Event.TicketCategories != null || Event.TicketCategories.Count() == 0)
     {
         <div class="row">
             @foreach (var category in Event.TicketCategories)
@@ -112,8 +112,18 @@
                     <PriceCategoryForm TicketCategory="category" Remove="() => RemovePriceCategory(category)"></PriceCategoryForm>
                 </div>
             }
+        <span class="error-message"><ValidationMessage For="() => Event.TicketCategories" /></span>
         </div>
     }
+    else
+    {
+        <div class="row">            
+            <div>
+                No Price Categories Found
+            </div>
+        </div>
+    }
+    
 
     <hr />
     <div class="row">

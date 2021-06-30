@@ -16,13 +16,12 @@ namespace YES.Api.Data.Entities
         public DateTime? EventDate { get; set; }
 
         [Required]
+        [Range(1, 1000000)]
         public int MaxAvailableTickets { get; set; }
 
-        [Required]
         [MaxLength(255)]
         public string WebsiteUrl { get; set; }
-
-        [Required]
+      
         [MaxLength(255)]
         public string BannerImgUrl { get; set; }
 

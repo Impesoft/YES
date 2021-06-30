@@ -1,5 +1,4 @@
 @page "/EventDetail/{Id:int}"
-@using System.Threading
 @inject IEventService _eventService
 @inject IJSRuntime JSRuntime
 @inject NavigationManager navigationManager
@@ -16,7 +15,7 @@
                 <h3>@Event.EventInfo.Name</h3>
             </div>
         </div>
-        
+
         <Alert Color="Color.Info" Class="alert-position" @bind-Visible="@IsNotLoggedIn">
             <AlertMessage>
                  Please login to buy tickets.
@@ -27,14 +26,14 @@
             <h5 class="event-date-line event-date">
                 @if (Event.EventInfo.EventDate > DateTime.MinValue)
                 {
-                    @Event.EventInfo.EventDate.ToLongDateString()
-                }
+                    @Event.EventInfo.EventDate.ToLongDateString() }
                 else
                 {
                     @:To Be Announced
                 }
                 <EventStatus Event="@Event"
-                             eventStatus="@eventStatus"/>
+                             eventStatus="@EventStatus"/>
+
             </h5>
 
             <div class="row">
@@ -58,66 +57,56 @@
                     {
                         @if (Event.Status == "SoldOut")
                         {
-                            <a class="btn btn-warning float-end btn-disabled">Tickets</a>
-                        }
+                            <a class="btn btn-warning float-end btn-disabled">Tickets</a> }
                         else
                         {
-                            if (Customer?.Id > 0)
-                            {
-                                <button class="btn btn-warning float-end" @onclick="@ShowModal">Tickets</button>
-                            }
-                            else
-                            {
-                                <button class="btn btn-warning float-end" @onclick="@LoginAlert">Tickets</button>
-                            }
-
+                            <button class="btn btn-warning float-end" @onclick="@CheckIfLoggedIn">Tickets</button>
                         }
                     }
+
                     <a href="@Event.EventInfo.WebsiteUrl" target="_blank" class="btn btn-secondary float-end">Website</a>
                 </div>
             </div>
         </section>
+  
+  
+  
+        <Modal @ref="_modalRef">
+            <ModalContent Centered="true" Class="bg-dark text-light">
+                <ModalHeader>
+                    <ModalTitle>@Event.EventInfo.Name <br/> @Event.EventInfo.EventDate</ModalTitle>
+                    <CloseButton Class="close-btn btn"/>
+                </ModalHeader>
+                <ModalBody>
+                    <BuyTicket Customer="@Customer"
+                               Event="@Event"
+                               Id="@Id"
+                               modalRef="@_modalRef"/>
+                </ModalBody>
+            </ModalContent>
+        </Modal>
+        
 
-
-        @if (Customer?.Id > 0)
-        {
-            <Modal @ref="_modalRef">
-                <ModalContent Centered="true" Class="bg-dark text-light">
-                    <ModalHeader>
-                        <ModalTitle>@Event.EventInfo.Name <br/> @Event.EventInfo.EventDate</ModalTitle>
-                        <CloseButton Class="close-btn btn"/>
-                    </ModalHeader>
-                    <ModalBody>
-                        <BuyTicket Customer="@Customer"
-                                   Event="@Event"
-                                   Id="@Id"
-                                   modalRef="@_modalRef"/>
-                    </ModalBody>
-                </ModalContent>
-            </Modal>
-        }
     }
     else
     {
         <p>No Event found</p>
     }
+     <div id='map' style='width: 100%; height: 400px;'></div>
+
 </div>
 
 @code {
     [Parameter]
     public int Id { get; set; }
-    public EventDto Event { get; set; }
-    private string eventStatus { get; set; }
-    public CustomerWithTicketsDto Customer { get; set; }
-    private bool IsNotLoggedIn { get; set; } = false;
+
+    private EventDto Event { get; set; }
+    private string EventStatus { get; set; }
+    private CustomerWithTicketsDto Customer { get; set; }
+    private bool IsNotLoggedIn { get; set; }
 
     // reference to the modal component
     private Modal _modalRef;
-
-    private void ShowModal()
-    {
-        _modalRef.Show();
-    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -127,6 +116,11 @@
         {
             Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
         }
+
+        if (Event != null)
+        {
+            await JSRuntime.InvokeVoidAsync("initialize", Event.Venue.Address);
+        }
     }
 
     private int CountTotalTicketsLeft()
@@ -134,9 +128,20 @@
         return Event.TicketCategories.Sum(category => category.AvailableAmount);
     }
 
+    private async Task CheckIfLoggedIn()
+    {
+        if (GlobalVariables.LoggedInUser != null)
+        {
+            _modalRef.Show();
+        }
+        else
+        {
+            await LoginAlert();
+        }
+    }
+
     private async Task LoginAlert()
     {
-        if (Customer != null) return;
         IsNotLoggedIn = true;
         await Task.Delay(2000);
         IsNotLoggedIn = false;
