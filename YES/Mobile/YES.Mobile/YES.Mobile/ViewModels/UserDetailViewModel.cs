@@ -28,6 +28,14 @@ namespace YES.Mobile.ViewModels
         }
 
         public Command CancelTappedCommand => new Command(OnToBeCancelled);
+        public Command<TicketDto> ShowEventCommand => new Command<TicketDto>(ShowEvent);
+
+
+        private async void ShowEvent(TicketDto ticket)
+        {
+            await Shell.Current.GoToAsync($"{nameof(EventDetailPage)}?id={ticket.EventId}");
+        }
+
         public Command KeepTappedCommand => new Command(CancelToBeCancelled);
 
         private bool thereAreTicketsToBeCanceled;
