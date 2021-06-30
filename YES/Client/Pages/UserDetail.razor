@@ -46,7 +46,7 @@
 
             @if (CancelSuccessful == true)
             {
-                <div class="my-5 alert alert-danger">                    
+                <div class="my-5 alert alert-warning">                    
                     @ResponseMessage
                 </div>
             }
@@ -162,11 +162,15 @@
 
         if (response.IsSuccessStatusCode)
         {
-            foreach (var ticketsToCancel in TicketsToCancelById)
-            {
-                Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
-            }
-            Tickets = Customer.Tickets.ToList();
+            Customer = await customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
+
+            //foreach (var ticketsToCancel in TicketsToCancelById)
+            //{
+
+            //    Customer.Tickets.Remove(Customer.Tickets.FirstOrDefault(x => x.Id == ticketsToCancel));
+            //}
+
+            Tickets = new List<TicketDto>(Customer.Tickets);
 
             ResponseMessage = await response.Content.ReadAsStringAsync();
             CancelSuccessful = true;
@@ -235,12 +239,12 @@
     }
 
     private void TurnNullFieldsToEmptyString()
-    {        
+    {
         if (Customer.Address == null)
         {
             Customer.Address =  new AddressDto
             {
-               
+
             };
         }
     }
