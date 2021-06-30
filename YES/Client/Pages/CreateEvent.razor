@@ -144,7 +144,7 @@
     {
         Event = new EventDto
         {
-            EventInfo = new EventInfoDto { EventDate = DateTime.Now.AddSeconds(-DateTime.Now.Second)},
+            EventInfo = new EventInfoDto { EventDate = DateTime.Today},
             TicketProvider = this.TicketProvider,
             TicketCategories = new List<TicketCategoryDto>(),
             Venue = new VenueDto
