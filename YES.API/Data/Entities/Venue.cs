@@ -12,6 +12,7 @@ namespace YES.Api.Data.Entities
         public string Name { get; set; }
 
         [Required]
+        [Range(1, 1000000)]
         public int Capacity { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
