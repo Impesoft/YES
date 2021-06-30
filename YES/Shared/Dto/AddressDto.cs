@@ -18,7 +18,6 @@ namespace YES.Shared.Dto
         [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Please enter your street number")]
         [MaxLength(5, ErrorMessage = "Maximum length is 5 characters.")]
         public string StreetNumber { get; set; }
 

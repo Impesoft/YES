@@ -111,8 +111,8 @@
     protected override async Task OnInitializedAsync()
     {
         Event = await _eventService.GetEventByIdAsync(Id);
-
-        if (GlobalVariables.LoggedInUser != null)
+       
+        if (GlobalVariables.LoggedInUser != null && GlobalVariables.LoggedInUser.Role==Roles.TicketCustomer)
         {
             Customer = await _customerService.GetCustomerByIdAsync(GlobalVariables.LoggedInUser.Id);
         }
