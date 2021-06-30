@@ -10,7 +10,7 @@ namespace YES.Shared.Helper
     public class DateAttribute : RangeAttribute
     {
         public DateAttribute()
-          : base(typeof(DateTime), DateTime.Now.ToShortDateString(), DateTime.Now.AddYears(100).ToShortDateString()) 
+          : base(typeof(DateTime), DateTime.Today.ToShortDateString(), DateTime.Today.AddYears(100).ToShortDateString()) 
         {
 
         }
