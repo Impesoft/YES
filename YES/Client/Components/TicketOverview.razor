@@ -20,10 +20,10 @@
 <div class="col">
     @if (Ticket.EventDate > DateTime.Now)
     {
-        <input type="checkbox" @onchange="OnChange" />
+        <input type="checkbox" @onchange="OnChange" />        
     }
-    else
-    {
+     else
+     {
         <input type="checkbox" disabled />
     }
 </div>
@@ -38,8 +38,7 @@
     public bool ToBeCancelled { get; set; }
 
     [Parameter]
-    public EventCallback OnChange { get; set; }
-
+    public EventCallback OnChange { get; set; }    
 
 
 }
