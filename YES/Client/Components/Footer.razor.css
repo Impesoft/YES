@@ -34,3 +34,14 @@ p {
 .payment-methods img {
     width: 35px;
 }
+
+a {
+    text-decoration: none;
+    color: var(--grey);
+    transition: color .2s ease-in-out;
+    margin-bottom: 30px;
+}
+
+a:hover {
+    color: var(--yellow);
+}
