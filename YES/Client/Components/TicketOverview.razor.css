@@ -1,6 +1,9 @@
-﻿body {
+﻿.ticket-link {
+    cursor: pointer;
 }
 
-.ticket-link {
-    cursor: pointer;
+.ticket-link-bg:hover {
+    background-color: var(--yellow);
+    color: var(--dark);
+    opacity: 0.8;
 }
