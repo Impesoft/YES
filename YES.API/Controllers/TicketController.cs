@@ -22,7 +22,7 @@ namespace YES.Api.Controllers
         {
             if (await _ticketService.BuyTickets(ticketPurchaseDtos))
             {
-                return Ok("Tickets bought successfully");
+                return Ok($"Successfully bought {ticketPurchaseDtos.Count} tickets");
             }
             return StatusCode(500, "Failed to buy tickets");
         }
@@ -32,7 +32,7 @@ namespace YES.Api.Controllers
         {
             if (await _ticketService.CancelTickets(canceledTicketIds))
             {
-                return Ok("Tickets canceled successfully");
+                return Ok($"Successfully canceled {canceledTicketIds.Count} tickets");
             }
             return StatusCode(500, "Failed to cancel tickets");
         }     
