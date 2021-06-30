@@ -15,8 +15,7 @@ namespace YES.Shared.Dto
         [Required(ErrorMessage = "Please enter a description for your event.")]
         public string Description { get; set; }
 
-        //custom validator 
-        //[BindProperty]
+        //custom validator         
         [Date(ErrorMessage = "Please enter a valid date.")]
         public DateTime EventDate { get; set; }
 
