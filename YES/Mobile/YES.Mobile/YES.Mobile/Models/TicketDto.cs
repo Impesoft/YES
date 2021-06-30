@@ -10,6 +10,7 @@ namespace YES.Mobile.Dto
         public string EventName { get; set; }
         public string VenueName { get; set; }
         public DateTime EventDate { get; set; }
+        public int EventId { get; set; }
 
         public AddressDto VenueAddress { get; set; }
         public DateTime DateOfPurchase { get; set; }
