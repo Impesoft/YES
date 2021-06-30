@@ -14,7 +14,7 @@
     color: var(--grey);
     font-style: oblique;
     position: absolute;
-    top: 12rem;
+    top: 7rem;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -23,12 +23,6 @@
     text-align: center;
     height: 9rem;
     vertical-align: bottom;
-}
-
-@media (max-width: 1200px) {
-    .banner2 {
-        top: 6rem;
-    }
 }
 
 .banner-wrapper {
