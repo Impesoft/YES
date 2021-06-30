@@ -46,7 +46,7 @@
             Date:
         </div>
         <div class="col-xl-10">
-            <input type="datetime" class="form-control text-white bg-dark" @bind="Event.EventInfo.EventDate" placeholder="" />
+            <input type="datetime-local" class="form-control text-white bg-dark" @bind="Event.EventInfo.EventDate" placeholder="" />
             <span class="error-message"><ValidationMessage For="() => Event.EventInfo.EventDate" /></span>
         </div>
     </div>
@@ -64,13 +64,13 @@
     <div class="row">
         <div class="col">
             <InputSelect @bind-Value="SelectedVenueId" class="form-control">
-                <option value="" selected>-- Select a Venue --</option>
+                <option value="-1" selected>-- Select a Venue --</option>
                 @foreach (var venue in Venues)
                 {
                     <option value="@venue.Id">@venue.Name</option>
                 }
             </InputSelect>
-            <span class="error-message"><ValidationMessage For="() => Event.Venue" /></span>
+            <span class="error-message"><ValidationMessage For="@(() => Event.Venue)" /></span>
         </div>
         <div class="col">
             <Button class="btn btn-outline-light" @onclick="DisplayNewVenueForm">Add New Venue</Button>
@@ -103,7 +103,7 @@
 
 
 
-    @if (Event.TicketCategories != null || Event.TicketCategories.Count() == 0)
+    @if (Event.TicketCategories != null)
     {
         <div class="row">
             @foreach (var category in Event.TicketCategories)
@@ -112,19 +112,15 @@
                     <PriceCategoryForm TicketCategory="category" Remove="() => RemovePriceCategory(category)"></PriceCategoryForm>
                 </div>
             }
-        <span class="error-message"><ValidationMessage For="() => Event.TicketCategories" /></span>
+
         </div>
     }
     else
     {
-        <div class="row">            
-            <div>
-                No Price Categories Found
-            </div>
-        </div>
-    }
-    
 
+
+    }
+    <span class="error-message"><ValidationMessage For="@(() => Event.TicketCategories)" /></span>
     <hr />
     <div class="row">
         <button type="submit" class="btn btn-outline-warning mt-3">Submit</button>

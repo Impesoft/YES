@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using YES.Shared.Helper;
 
 namespace YES.Shared.Dto
 {
@@ -10,7 +11,7 @@ namespace YES.Shared.Dto
         [Required]
         public string Status { get; set; }
 
-        [Required]
+        [CantBeNull]
         [ValidateComplexType]
         public VenueDto Venue { get; set; }
 
@@ -20,8 +21,7 @@ namespace YES.Shared.Dto
         [ValidateComplexType]
         public EventInfoDto EventInfo { get; set; }
 
-        [Required]
-        [ValidateComplexType]
+        [CantBeNullOrEmptyList(ErrorMessage = "Please enter a ticket category")]
         public ICollection<TicketCategoryDto> TicketCategories{ get; set; }
     }
 }
