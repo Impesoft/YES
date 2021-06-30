@@ -11,7 +11,7 @@
 <div class="col">
     € @Ticket.TicketCategory.Price
 </div>
-<div class="col">
+<div class="col ticket-link" @onclick="() => EventInfo.InvokeAsync(Ticket)">
     @Ticket.EventName
 </div>
 <div class="col">
@@ -38,7 +38,10 @@
     public bool ToBeCancelled { get; set; }
 
     [Parameter]
-    public EventCallback OnChange { get; set; }    
+    public EventCallback OnChange { get; set; }
+
+    [Parameter]
+    public EventCallback<TicketDto> EventInfo { get; set; }
 
 
 }
