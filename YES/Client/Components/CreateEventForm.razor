@@ -45,9 +45,11 @@
         <div class="col-xl-2 v-align">
             Date:
         </div>
-        <div class="col-xl-10">
-            <input type="datetime-local" class="form-control text-white bg-dark" @bind="Event.EventInfo.EventDate" placeholder="" />
+        <div class="col-xl-10">  
+            <InputDateTime @bind-Value="Event.EventInfo.EventDate" class="form-control text-white bg-dark"></InputDateTime>
             <span class="error-message"><ValidationMessage For="() => Event.EventInfo.EventDate" /></span>
+            
+
         </div>
     </div>
 
@@ -158,6 +160,8 @@
     public bool DisplayFilledVenueForm { get; set; }
 
     public bool DisplayTicketCategoryForm { get; set; }
+
+    public DateTime Test { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
