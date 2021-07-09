@@ -1,4 +1,4 @@
 # 🔰Your Event Service
 
 
-```By: Kobe, Nick, Pieter, Ward```
+```By: Seba, Kobe, Nick, Pieter, Ward```
